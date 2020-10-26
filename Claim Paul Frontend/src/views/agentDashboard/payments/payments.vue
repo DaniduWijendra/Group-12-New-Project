@@ -1,5 +1,11 @@
 <template>
+<v-container
+    id="dashboard"
+    fluid
+    tag="section"
+  >
     <div>
         <h1>payments</h1>
     </div>
+</v-container>
 </template>

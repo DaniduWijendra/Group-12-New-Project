@@ -1,5 +1,11 @@
 <template>
+    <v-container
+    id="dashboard"
+    fluid
+    tag="section"
+  >
     <div>
         <h1>uploads</h1>
     </div>
+</v-container>
 </template>
