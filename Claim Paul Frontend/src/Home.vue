@@ -106,8 +106,8 @@
 
                 <div class="container">
                    
-                        
-                                 <Parallax/>
+                                <cards/>
+                                <Parallax/>
                 </div>
 
                  <!-- parallax -->
@@ -204,9 +204,10 @@
 
 import Parallax from './views/Home/parallax'
 import Footer from './views/agentDashboard/components/core/Footer'
+import cards from './views/Home/cards'
 export default {
      
-    components:{Parallax,Footer},
+    components:{Parallax,Footer,cards},
 
    
 }

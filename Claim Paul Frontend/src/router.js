@@ -32,6 +32,11 @@ export default new Router({
       path: '/faq',
       component: () => import('@/views/faq'),
     },
+    {
+      name: 'login',
+      path: '/login',
+      component: () => import('@/views/login'),
+    },
 
    //admin routes
    {
