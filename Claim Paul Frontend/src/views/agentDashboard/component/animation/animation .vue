@@ -1,8 +1,8 @@
 <template>
 
 
-	
-<div class="header">
+
+<div class="header ">
   <div class="paper"></div>
   <div class="paper-2"></div>
   <div class="me">
