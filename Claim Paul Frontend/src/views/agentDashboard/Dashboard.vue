@@ -103,6 +103,7 @@
           value="+"
           sub-icon="mdi-calendar"
           sub-text="search driver history"
+          to='/driver_history'
         />
       </v-col>
 

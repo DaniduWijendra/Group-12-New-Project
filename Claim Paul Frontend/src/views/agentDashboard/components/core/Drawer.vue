@@ -135,6 +135,11 @@
           to: '/reports',
         },
          {
+          icon: 'mdi-history',
+          title: 'Driver History',
+          to: '/driver_history',
+        },
+         {
           icon: 'mdi-cloud-upload',
           title: 'Upload',
           to: '/uploads',
@@ -144,6 +149,17 @@
           title: 'Payments',
           to: '/payments',
         },
+        {
+          icon: 'mdi-credit-card-outline',
+          title: 'Payments',
+          to: '/payments',
+        },
+        {
+          icon: 'mdi-credit-card-outline',
+          title: 'Payments',
+          to: '/payments',
+        },
+        
         // {
         //   title: 'rtables',
         //   icon: 'mdi-clipboard-outline',

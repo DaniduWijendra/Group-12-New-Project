@@ -158,6 +158,12 @@ export default new Router({
               path: '/payments',
               component: () => import('@/views/agentDashboard/payments/payments'),
             },
+             //payments
+             {
+              name: 'driverHistory',
+              path: '/driver_history',
+              component: () => import('@/views/agentDashboard/driverHistory/driverHistory'),
+            },
         // Upgrade
         {
           name: 'Upgrade',
