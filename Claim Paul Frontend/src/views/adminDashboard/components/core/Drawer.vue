@@ -5,7 +5,7 @@
     :dark="barColor !== 'rgba(228, 226, 226, 1), rgba(255, 255, 255, 0.7)'"
     :expand-on-hover="expandOnHover"
     :right="$vuetify.rtl"
-    :src="barImage"
+    color="blue lighten"
     mobile-break-point="960"
     app
     width="260"
@@ -18,42 +18,44 @@
       />
     </template>
 
-    <v-divider class="mb-1" />
+    <!-- <v-divider class="mb-1" /> -->
 
-    <v-list
-      dense
-      nav
-    >
-      <v-list-item>
+    <v-list dense nav>
+      <v-list-item class='mx-12'>
         <v-list-item-avatar
           class="align-self-center"
           color="white"
           contain
+          size="100"
         >
-          <v-img
-            src="https://demos.creative-tim.com/vuetify-material-dashboard/favicon.ico"
-            max-height="30"
-          />
+          <v-avatar size="100">
+            <v-img src='./man.png'></v-img>
+        
+          </v-avatar>
         </v-list-item-avatar>
 
-        <v-list-item-content>
-          <v-list-item-title
-            class="display-1"
-            v-text="profile.title"
-          />
-        </v-list-item-content>
+      
       </v-list-item>
+      <v-list-item link>
+          <v-list-item-content>
+            <v-list-item-title class="title">
+              John Leider
+            </v-list-item-title>
+            <v-list-item-subtitle>john@vuetifyjs.com</v-list-item-subtitle>
+          </v-list-item-content>
+
+          <v-list-item-action>
+            <v-icon>mdi-menu-down</v-icon>
+          </v-list-item-action>
+        </v-list-item>
     </v-list>
 
     <v-divider class="mb-2" />
 
-    <v-list
-      expand
-      nav
-    >
+    <v-list expand nav>
       <!-- Style cascading bug  -->
       <!-- https://github.com/vuetifyjs/vuetify/pull/8574 -->
-      <div />
+      <div/>
 
       <template v-for="(item, i) in computedItems">
         <base-item-group
@@ -76,15 +78,7 @@
       <div />
     </v-list>
 
-    <template v-slot:append>
-      <base-item
-        :item="{
-          title: $t('upgrade'),
-          icon: 'mdi-package-up',
-          to: '/upgrade',
-        }"
-      />
-    </template>
+
   </v-navigation-drawer>
 </template>
 
@@ -145,7 +139,7 @@
     }),
 
     computed: {
-      ...mapState(['barColor', 'barImage']),
+      ...mapState(['barColor']),
       drawer: {
         get () {
           return this.$store.state.drawer

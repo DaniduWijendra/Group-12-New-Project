@@ -1,269 +1,45 @@
 <template>
-  <v-container
-    id="dashboard"
-    fluid
-    tag="section"
-  >
+  <v-container id="dashboard" fluid tag="section">
     <v-row>
-      <v-col
-        cols="12"
-        lg="4"
-      >
-        <base-material-chart-card
-          :data="emailsSubscriptionChart.data"
-          :options="emailsSubscriptionChart.options"
-          :responsive-options="emailsSubscriptionChart.responsiveOptions"
-          color="#E91E63"
-          hover-reveal
-          type="Bar"
-        >
-          <template v-slot:reveal-actions>
-            <v-tooltip bottom>
-              <template v-slot:activator="{ attrs, on }">
-                <v-btn
-                  v-bind="attrs"
-                  color="info"
-                  icon
-                  v-on="on"
-                >
-                  <v-icon
-                    color="info"
-                  >
-                    mdi-refresh
-                  </v-icon>
-                </v-btn>
-              </template>
+        <v-col cols="12" md="12">
+          <base-material-card color="pink" class="px-5 py-auto ">
+            <v-row>
+             <v-col cols="12" md="12" >
+              <v-content class=' py-16 mx-3 px-0 pl-sm-5 blue accent-2'>
+                
+                <textanimate/>
+              </v-content>
+              </v-col>
+            </v-row>
+          </base-material-card>
+         </v-col>
 
-              <span>Refresh</span>
-            </v-tooltip>
+        <v-col cols="12" sm="6" lg="3">
+          <base-material-stats-card
+          color="info" icon="mdi-twitter" title="Followers"
+           value="+245" sub-icon="mdi-clock" sub-text="Just Updated"/>
+        </v-col>
 
-            <v-tooltip bottom>
-              <template v-slot:activator="{ attrs, on }">
-                <v-btn
-                  v-bind="attrs"
-                  light
-                  icon
-                  v-on="on"
-                >
-                  <v-icon>mdi-pencil</v-icon>
-                </v-btn>
-              </template>
-
-              <span>Change Date</span>
-            </v-tooltip>
-          </template>
-
-          <h4 class="card-title font-weight-light mt-2 ml-2">
-            Website Views
-          </h4>
-
-          <p class="d-inline-flex font-weight-light ml-2 mt-1">
-            Last Campaign Performance
-          </p>
-
-          <template v-slot:actions>
-            <v-icon
-              class="mr-1"
-              small
-            >
-              mdi-clock-outline
-            </v-icon>
-            <span class="caption grey--text font-weight-light">updated 10 minutes ago</span>
-          </template>
-        </base-material-chart-card>
-      </v-col>
-
-      <v-col
-        cols="12"
-        lg="4"
-      >
-        <base-material-chart-card
-          :data="dailySalesChart.data"
-          :options="dailySalesChart.options"
-          color="success"
-          hover-reveal
-          type="Line"
-        >
-          <template v-slot:reveal-actions>
-            <v-tooltip bottom>
-              <template v-slot:activator="{ attrs, on }">
-                <v-btn
-                  v-bind="attrs"
-                  color="info"
-                  icon
-                  v-on="on"
-                >
-                  <v-icon
-                    color="info"
-                  >
-                    mdi-refresh
-                  </v-icon>
-                </v-btn>
-              </template>
-
-              <span>Refresh</span>
-            </v-tooltip>
-
-            <v-tooltip bottom>
-              <template v-slot:activator="{ attrs, on }">
-                <v-btn
-                  v-bind="attrs"
-                  light
-                  icon
-                  v-on="on"
-                >
-                  <v-icon>mdi-pencil</v-icon>
-                </v-btn>
-              </template>
-
-              <span>Change Date</span>
-            </v-tooltip>
-          </template>
-
-          <h4 class="card-title font-weight-light mt-2 ml-2">
-            Daily Sales
-          </h4>
-
-          <p class="d-inline-flex font-weight-light ml-2 mt-1">
-            <v-icon
-              color="green"
-              small
-            >
-              mdi-arrow-up
-            </v-icon>
-            <span class="green--text">55%</span>&nbsp;
-            increase in today's sales
-          </p>
-
-          <template v-slot:actions>
-            <v-icon
-              class="mr-1"
-              small
-            >
-              mdi-clock-outline
-            </v-icon>
-            <span class="caption grey--text font-weight-light">updated 4 minutes ago</span>
-          </template>
-        </base-material-chart-card>
-      </v-col>
-
-      <v-col
-        cols="12"
-        lg="4"
-      >
-        <base-material-chart-card
-          :data="dataCompletedTasksChart.data"
-          :options="dataCompletedTasksChart.options"
-          hover-reveal
-          color="info"
-          type="Line"
-        >
-          <template v-slot:reveal-actions>
-            <v-tooltip bottom>
-              <template v-slot:activator="{ attrs, on }">
-                <v-btn
-                  v-bind="attrs"
-                  color="info"
-                  icon
-                  v-on="on"
-                >
-                  <v-icon
-                    color="info"
-                  >
-                    mdi-refresh
-                  </v-icon>
-                </v-btn>
-              </template>
-
-              <span>Refresh</span>
-            </v-tooltip>
-
-            <v-tooltip bottom>
-              <template v-slot:activator="{ attrs, on }">
-                <v-btn
-                  v-bind="attrs"
-                  light
-                  icon
-                  v-on="on"
-                >
-                  <v-icon>mdi-pencil</v-icon>
-                </v-btn>
-              </template>
-
-              <span>Change Date</span>
-            </v-tooltip>
-          </template>
-
-          <h3 class="card-title font-weight-light mt-2 ml-2">
-            Completed Tasks
-          </h3>
-
-          <p class="d-inline-flex font-weight-light ml-2 mt-1">
-            Last Last Campaign Performance
-          </p>
-
-          <template v-slot:actions>
-            <v-icon
-              class="mr-1"
-              small
-            >
-              mdi-clock-outline
-            </v-icon>
-            <span class="caption grey--text font-weight-light">campaign sent 26 minutes ago</span>
-          </template>
-        </base-material-chart-card>
-      </v-col>
-
-      <v-col
-        cols="12"
-        sm="6"
-        lg="3"
-      >
-        <base-material-stats-card
-          color="info"
-          icon="mdi-twitter"
-          title="Followers"
-          value="+245"
-          sub-icon="mdi-clock"
-          sub-text="Just Updated"
-        />
-      </v-col>
-
-      <v-col
-        cols="12"
-        sm="6"
-        lg="3"
-      >
+      <v-col cols="12" sm="6" lg="3">
         <base-material-stats-card
           color="primary"
           icon="mdi-poll"
           title="Website Visits"
           value="75.521"
-          sub-icon="mdi-tag"
-          sub-text="Tracked from Google Analytics"
-        />
+          sub-icon="mdi-tag" sub-text="Tracked from Google Analytics"/>
       </v-col>
 
-      <v-col
-        cols="12"
-        sm="6"
-        lg="3"
-      >
+      <v-col cols="12" m="6" lg="3">
         <base-material-stats-card
           color="success"
           icon="mdi-store"
           title="Revenue"
           value="$ 34,245"
           sub-icon="mdi-calendar"
-          sub-text="Last 24 Hours"
-        />
+          sub-text="Last 24 Hours"/>
       </v-col>
 
-      <v-col
-        cols="12"
-        sm="6"
-        lg="3"
-      >
+      <v-col cols="12" sm="6" lg="3">
         <base-material-stats-card
           color="orange"
           icon="mdi-sofa"
@@ -271,18 +47,13 @@
           value="184"
           sub-icon="mdi-alert"
           sub-icon-color="red"
-          sub-text="Get More Space..."
-        />
+          sub-text="Get More Space..."/>
       </v-col>
 
-      <v-col
-        cols="12"
-        md="6"
-      >
+      <v-col cols="12" md="6">
         <base-material-card
           color="warning"
-          class="px-5 py-3"
-        >
+          class="px-5 py-3">
           <template v-slot:heading>
             <div class="display-2 font-weight-light">
               Employees Stats
@@ -295,27 +66,21 @@
           <v-card-text>
             <v-data-table
               :headers="headers"
-              :items="items"
-            />
+              :items="items"/>
           </v-card-text>
         </base-material-card>
       </v-col>
 
-      <v-col
-        cols="12"
-        md="6"
-      >
+      <v-col cols="12" md="6">
         <base-material-card class="px-5 py-3">
           <template v-slot:heading>
             <v-tabs
               v-model="tabs"
               background-color="transparent"
-              slider-color="white"
-            >
+              slider-color="white">
               <span
                 class="subheading font-weight-light mx-3"
-                style="align-self: center"
-              >Tasks:</span>
+                style="align-self: center">Tasks:</span>
               <v-tab class="mr-3">
                 <v-icon class="mr-2">
                   mdi-bug
@@ -347,37 +112,24 @@
             >
               <v-card-text>
                 <template v-for="(task, i) in tasks[tabs]">
-                  <v-row
-                    :key="i"
-                    align="center"
-                  >
+                  <v-row :key="i" align="center">
                     <v-col cols="1">
                       <v-list-item-action>
                         <v-checkbox
                           v-model="task.value"
-                          color="secondary"
-                        />
+                          color="secondary"/>
                       </v-list-item-action>
                     </v-col>
 
                     <v-col cols="9">
-                      <div
-                        class="font-weight-light"
-                        v-text="task.text"
-                      />
+                      <div class="font-weight-light" v-text="task.text"/>
                     </v-col>
 
-                    <v-col
-                      cols="2"
-                      class="text-right"
-                    >
+                    <v-col cols="2" class="text-right">
                       <v-icon class="mx-1">
                         mdi-pencil
                       </v-icon>
-                      <v-icon
-                        color="error"
-                        class="mx-1"
-                      >
+                      <v-icon color="error" class="mx-1">
                         mdi-close
                       </v-icon>
                     </v-col>
@@ -393,32 +145,13 @@
 </template>
 
 <script>
+  import textanimate from './component/animations/textanimate'
   export default {
     name: 'agent_dashboard',
-
+    components:{textanimate},
     data () {
       return {
-        dailySalesChart: {
-          data: {
-            labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
-            series: [
-              [12, 17, 7, 17, 23, 18, 38],
-            ],
-          },
-          options: {
-            lineSmooth: this.$chartist.Interpolation.cardinal({
-              tension: 0,
-            }),
-            low: 0,
-            high: 50, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
-            chartPadding: {
-              top: 0,
-              right: 0,
-              bottom: 0,
-              left: 0,
-            },
-          },
-        },
+        
         dataCompletedTasksChart: {
           data: {
             labels: ['12am', '3pm', '6pm', '9pm', '12pm', '3am', '6am', '9am'],

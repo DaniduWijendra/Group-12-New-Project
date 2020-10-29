@@ -1,0 +1,146 @@
+
+:root {
+    --delay: 1.7s;
+    --anim-time: 1.5s;
+  }
+  html {
+    width: 100%;
+    height: 100%;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+  /*  background: linear-gradient(hsl(216, 100%, 62%), hsl(26, 100%, 62%));*/
+    background-color: #21D4FD;
+  background-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);
+  
+    color: #fff;
+    font-family: Arial, Helevetica, sans;
+    font-size:124%;
+  }
+  .accent {color:#900;}
+  .container {
+    width: 100%;
+    height: 100%;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  .content-wrap {
+    width: 100%;
+    position:relative;
+    perspective:1px;
+  }
+  h3 {
+    font-size:5rem;
+    margin-bottom:2rem;
+    margin-top:0;
+    text-align:center;
+  }
+  a {
+    display: inline-block;
+    flex-basis: 100%;
+  }
+  ul {
+    display: grid;
+    grid-template-columns:1fr;
+    width: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  ul > li {
+    grid-column: 1/1;
+    grid-row: 1/1;
+    display:block;
+    text-align: center;
+    width: 100%;
+    left:0;
+    text-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.12);
+  }
+  ul > li > h4 {
+    margin:0;padding:0;
+      font-size: 3rem;
+  }
+  .btn {
+    margin-top:2rem;
+    color:#fff;
+    padding:1rem 2rem;
+    border: 2px solid #fff;
+    text-decoration:none;
+    text-transform:uppercase;
+    border-radius:3px;
+    box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.12);
+    transition:all 0.2s ease-in-out;
+  }
+  .btn:hover {
+    border-radius:10px;
+    box-shadow: 0 1rem 7rem rgba(0, 0, 0, 0.4);
+    background:#900;
+    transform:rotateX(0.04deg) rotateY(0.004deg) rotateZ(2deg) scale(1.01);
+  }
+  
+  li:nth-child(1) {
+    animation:animInOut var(--anim-time) ease-in-out both;
+  }
+  li:nth-child(2) {
+    animation:animInOut var(--anim-time) calc(var(--delay)) ease-in-out both;
+  }
+  li:nth-child(3) {
+    animation:animInOut var(--anim-time) calc(var(--delay) * 2) ease-in-out both;
+  }
+  li:nth-child(4) {
+    animation:animIn var(--anim-time) calc(var(--delay) * 3) ease-out both;
+  }
+  a.btn {
+    animation:animInBtn var(--anim-time) calc(var(--delay) * 4) ease-out both;
+  }
+  
+  
+  @keyframes animIn {
+    0% {
+      opacity: 0;
+      transform:translateY(20px);
+    }
+    
+    40% {
+      opacity: 1;
+      transform:translateY(0);
+    }
+    100% {
+      transform:none;
+    }
+  }
+  @keyframes animInBtn {
+    0% {
+      opacity: 0;
+    }
+    
+    40% {
+      opacity: 1;
+    }
+  }
+  
+  
+  @keyframes animInOut {
+    0% {
+      opacity: 0;
+      transform:translateY(20px);
+    }
+    40% {
+      opacity: 1;
+      transform:translateY(0);
+    }
+    70% {
+      opacity: 1;
+      transform:translateY(0);
+    }
+    100% {
+      opacity: 0;
+      transform:translateY(-20px);
+    }
+  }
+  
