@@ -24,25 +24,33 @@
       dense
       nav
     >
-      <v-list-item>
+      <v-list-item class='mx-12'>
         <v-list-item-avatar
           class="align-self-center"
           color="white"
           contain
+          size="100"
         >
-          <v-img
-            src="https://demos.creative-tim.com/vuetify-material-dashboard/favicon.ico"
-            max-height="30"
-          />
+          <v-avatar size="100">
+            <v-img src='./man.png' size=""></v-img>
+        
+          </v-avatar>
         </v-list-item-avatar>
 
-        <v-list-item-content>
-          <v-list-item-title
-            class="display-1"
-            v-text="profile.title"
-          />
-        </v-list-item-content>
+      
       </v-list-item>
+      <v-list-item link>
+          <v-list-item-content>
+            <v-list-item-title class="title">
+              John Leider
+            </v-list-item-title>
+            <v-list-item-subtitle>john@vuetifyjs.com</v-list-item-subtitle>
+          </v-list-item-content>
+
+          <v-list-item-action>
+            <v-icon>mdi-menu-down</v-icon>
+          </v-list-item-action>
+        </v-list-item>
     </v-list>
 
     <v-divider class="mb-2" />
