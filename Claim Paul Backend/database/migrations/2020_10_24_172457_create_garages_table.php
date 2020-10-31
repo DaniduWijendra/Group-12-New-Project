@@ -18,6 +18,7 @@ class CreateGaragesTable extends Migration
             $table->string('gName',20);
             $table->string('gAddress',50);
             $table->integer('gContactNo');
+            $table->string('gLocation',30);
             $table->timestamps();
             $table->primary('gId');
             $table->boolean('isDeleted');

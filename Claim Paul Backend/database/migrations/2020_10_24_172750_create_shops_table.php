@@ -18,6 +18,7 @@ class CreateShopsTable extends Migration
             $table->string('sName',50);
             $table->string('sAddress',50);
             $table->integer('sContact');
+            $table->string('sLocation',30);
             $table->boolean('isDeleted');
             $table->timestamps();
         });

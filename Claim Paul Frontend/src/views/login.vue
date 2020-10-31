@@ -6,7 +6,7 @@
                     <v-card-title class="justify-center">
                             <h2 style="color:#fff; font-size:3rem">Login Form</h2>
                              </v-card-title>
-                            <v-card-text>
+                              <v-card-text>
                                 <v-form ref="loginForm" v-model="valid" lazy-validation>
                                     <v-row>
                                           <v-col cols="12" >

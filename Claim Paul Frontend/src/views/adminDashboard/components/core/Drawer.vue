@@ -111,6 +111,21 @@
           to: '/admin/pages/user',
         },
         {
+          icon: 'mdi-account-tie',
+          title: 'Create an Admin',
+          to: '/admin/pages/admin-signup',
+        },
+        {
+          icon: 'mdi-face-agent',
+          title: 'Create an Agent',
+          to: '/admin/pages/agent-signup',
+        },
+        {
+          icon: 'mdi-cash-multiple',
+          title: 'Update Cost',
+          to: '/admin/tables/cost-table',
+        },
+        {
           title: 'rtables',
           icon: 'mdi-clipboard-outline',
           to: '/admin/tables/regular-tables',

@@ -1,0 +1,117 @@
+
+1. Policy Holder
+--------------------------
+
+	INSERT INTO policy_holders (NIC,fName,lName,pAddress,pGender,pDOB,pContactNo,isDeleted) VALUES('724567568v','Niroshan','Gamage','78,Woodward streat,Galle.','M','1972-12-09','0712343567',0);	
+	INSERT INTO policy_holders (NIC,fName,lName,pAddress,pGender,pDOB,pContactNo,isDeleted) VALUES('835621896v','Sudesh','Gunawardana','107,Main road,Elpitiya.','M','1983-08-23','0776542189',0);
+	INSERT INTO policy_holders (NIC,fName,lName,pAddress,pGender,pDOB,pContactNo,isDeleted) VALUES('587632190v','Piyal','Hettiarachchi','15/A,Hikgahawatta road,Horana','M','1958-01-07','0753244765',0);
+	INSERT INTO policy_holders (NIC,fName,lName,pAddress,pGender,pDOB,pContactNo,isDeleted) VALUES('753421905v','Sulochana','Walpola','86,Sarasawi uyana,Deniyaya.','F','1975-11-19','0715106233',0);
+	INSERT INTO policy_holders (NIC,fName,lName,pAddress,pGender,pDOB,pContactNo,isDeleted) VALUES('698732156v','Kumara','Hewawasam','40/5A Perere Mawatha,Waligama.','M','1969-05-30','0708126777',0);
+	INSERT INTO policy_holders (NIC,fName,lName,pAddress,pGender,pDOB,pContactNo,isDeleted) VALUES('672314692v','Priyantha','Thilakarathna','32,G.L.Wijerama road,Gothatuwa.','M','1967-06-21','0765544123',0);
+	INSERT INTO policy_holders (NIC,fName,lName,pAddress,pGender,pDOB,pContactNo,isDeleted) VALUES('854631963v','Chandrika','Kariyawasam','76/A Polwatta road,Batapola.','F','1985-08-04','0912243491',0);
+	INSERT INTO policy_holders (NIC,fName,lName,pAddress,pGender,pDOB,pContactNo,isDeleted) VALUES('648123633v','Asoka','Jayarathna','102,Thilakapura Mawatha,Matara.','F','10.09.1964','0415529871',0);
+	INSERT INTO policy_holders (NIC,fName,lName,pAddress,pGender,pDOB,pContactNo,isDeleted) VALUES('812394627v','Sunil','Kodithuwakku','134/B Aluthwala road,Kahawa.','M','1981-01-27','0772315920',0);
+	INSERT INTO policy_holders (NIC,fName,lName,pAddress,pGender,pDOB,pContactNo,isDeleted) VALUES('739874132v','Deepal','Peiris','34,Godakanda road,Balapitiya.','M','1973-03-01','0753281929',0);
+	INSERT INTO policy_holders (NIC,fName,lName,pAddress,pGender,pDOB,pContactNo,isDeleted) VALUES('608256173v','Upeksha','Rathnayaka','14,Lotus streat,Colombo 05','F','1960-06-17','0112346868',0);
+	INSERT INTO policy_holders (NIC,fName,lName,pAddress,pGender,pDOB,pContactNo,isDeleted) VALUES('554329173v','Premasiri','Kodikara','87/A,Yowun mawatha,Kiribathgoda','F','1955-03-22','0712683917',0);
+	INSERT INTO policy_holders (NIC,fName,lName,pAddress,pGender,pDOB,pContactNo,isDeleted) VALUES('797251738v','Chintha','Fernando','125,School Ln,Wadduwa East.','F','1979-12-11','0709865177',0);
+	INSERT INTO policy_holders (NIC,fName,lName,pAddress,pGender,pDOB,pContactNo,isDeleted) VALUES('884153751v','Hiran','Bandara','67,Madawella road,Panadura.','M','1988-05-09','0112863927',0);
+	INSERT INTO policy_holders (NIC,fName,lName,pAddress,pGender,pDOB,pContactNo,isDeleted) VALUES('803216773v','Naveen','Wickramasingha','108/C St Joseph St Colombo 02','M','1980-09-15','0763167357',0);
+
+
+
+2. Admin
+---------------------------
+
+	INSERT INTO admins(fName,lName,adminAddress,adminGender,adminDOB,adminContactNo,adminEmail,adminBranch,isDeleted) VALUES('Thisara','Sooriyadewa','234,M.L Fernando St,Angulana.','M','1986-07-20','0719796857','thisara123@gmail.com','Matara',0);
+	INSERT INTO admins(fName,lName,adminAddress,adminGender,adminDOB,adminContactNo,adminEmail,adminBranch,isDeleted) VALUES('Chandima','Ubeysekara','11/A Soysapura Rd, Maharagama.','M','1975-10-09','0776541828','chandimabey@gmail.com','Galle',0);
+	INSERT INTO admins(fName,lName,adminAddress,adminGender,adminDOB,adminContactNo,adminEmail,adminBranch,isDeleted) VALUES('Malaka','Weerakoon','176, De Mel Rd,Dehiwala.','M','16.04.1967','0754416135','malaka1967@gmail.com','Kurunagala',0);
+	INSERT INTO admins(fName,lName,adminAddress,adminGender,adminDOB,adminContactNo,adminEmail,adminBranch,isDeleted) VALUES('Manjula','Samarawickrama','20, Rodrigo Ln,Bambalapitiya.','M','1959-02-24','0712348398','samarawickrama08@mail.com','Ambalangoda',0);
+	INSERT INTO admins(fName,lName,adminAddress,adminGender,adminDOB,adminContactNo,adminEmail,adminBranch,isDeleted) VALUES('Prasanna','Liyanage','122/A Upatissa Rd,Kollupitiya.','M','1974-06-03','0776418368','prasanna7419@gmail.com','Matara',0);
+
+
+
+3. Admin_Agents
+---------------------------
+	INSERT INTO admin_agents(adminId,agId,isDeleted) VALUES (1,1,0);
+	INSERT INTO admin_agents(adminId,agId,isDeleted) VALUES (1,2,0);
+	INSERT INTO admin_agents(adminId,agId,isDeleted) VALUES (2,3,0);
+
+4. Admin_Garages
+---------------------------
+	INSERT INTO admin_garages(adminId,gId,isDeleted) VALUES (1,1,0);
+	INSERT INTO admin_garages(adminId,gId,isDeleted) VALUES (1,2,0);
+	INSERT INTO admin_garages(adminId,gId,isDeleted) VALUES (2,3,0);
+
+5. Admin_PolicyHodlders
+---------------------------
+	INSERT INTO admin_policy_holders(pId,adminId,isDeleted) VALUES (1,1,0);
+	INSERT INTO admin_policy_holders(pId,adminId,isDeleted) VALUES (1,2,0);
+	INSERT INTO admin_policy_holders(pId,adminId,isDeleted) VALUES (2,3,0);
+
+6. Admin_PolicyHodlders
+---------------------------
+	INSERT INTO admin_policy_holders(pId,adminId,isDeleted) VALUES (1,1,0);
+	INSERT INTO admin_policy_holders(pId,adminId,isDeleted) VALUES (1,2,0);
+	INSERT INTO admin_policy_holders(pId,adminId,isDeleted) VALUES (2,3,0);
+
+7. Agent
+---------------------------
+
+	INSERT INTO agents(fName,lname,agAddress,agGender,agDOB,agContactNo,email,agBranch,isDeleted) VALUES('Kasun','Sooriyadewa','233,M.L Fernando St,Matara.','M','1986-07-20','0719796857','thisara123@gmail.com','Matara',0);
+	INSERT INTO agents(fName,lname,agAddress,agGender,agDOB,agContactNo,email,agBranch,isDeleted) VALUES('Romeshika','Silva','132,Perera St,Kurunagala.','M','1992-01-24','0719546856','romeshika82@gmail.com','Kurunagala',0);
+	INSERT INTO agents(fName,lname,agAddress,agGender,agDOB,agContactNo,email,agBranch,isDeleted) VALUES('Thissa','Jananayaka','232,Wasala St,Galle.','M','1982-06-20','0714396857','thissa82@gmail.com','Galle',0);
+
+8. Garage
+---------------------------
+
+	INSERT INTO garages(gName,gAddress,gContactNo,gLocation,isDeleted) VALUES('Master Tec','124,Old St,Ambalangoda.','0777454874','Ambalangoda',0);
+	INSERT INTO garages(gName,gAddress,gContactNo,gLocation,isDeleted) VALUES('KS Engineers','290,Arnold St,Matara.','072454874','Matara',0);
+	INSERT INTO garages(gName,gAddress,gContactNo,gLocation,isDeleted) VALUES('Auto Miraj','24,Olcot St,Galle.','0777454342','Galle',0);
+
+9. Payments
+---------------------------
+
+	INSERT INTO payments(paidDate,renewDate,payInstallment,claimRate,vehicleVid,isDeleted) VALUES('2020-05-06','2021-05-06',1500000.00,5.0,5,0);
+	INSERT INTO payments(paidDate,renewDate,payInstallment,claimRate,vehicleVid,isDeleted) VALUES('2020-04-26','2021-04-26',8500000.00,12.0,6,0);
+	INSERT INTO payments(paidDate,renewDate,payInstallment,claimRate,vehicleVid,isDeleted) VALUES('2020-08-06','2021-08-06',7500000.00,5.0,1,0);
+9. Repair
+---------------------------
+
+	INSERT INTO repairs(vId,amount,repairDate,garageId,sparePrtid) VALUES(5,85000.00,'2020-05-04',6,'fsf489546');
+	INSERT INTO repairs(vId,amount,repairDate,garageId,sparePrtid) VALUES(8,45000.00,'2020-02-06',7,'fdre89546');
+	INSERT INTO repairs(vId,amount,repairDate,garageId,sparePrtid) VALUES(2,80000.00,'2020-09-24',2,'adf489546');
+
+10. Reports
+---------------------------
+
+	INSERT INTO reports(rDescription,rCost,rDate,place,VehicleNumber,adminId,agId,isAccepted,isDeleted) VALUES('Windscreen Builld',300000,'2020-06-30','Matara','JW-4060',4,6,0,0);
+	INSERT INTO reports(rDescription,rCost,rDate,place,VehicleNumber,adminId,agId,isAccepted,isDeleted) VALUES('Bonet Damage',80000,'2020-04-30','Galle','KA-4360',5,8,0,0);
+	INSERT INTO reports(rDescription,rCost,rDate,place,VehicleNumber,adminId,agId,isAccepted,isDeleted) VALUES('SideMirror Repair',200000,'2020-01-30','Galle','KA-3412',1,9,0,0);
+10. Shops
+---------------------------
+
+	INSERT INTO shops(sName,sAddress,sContact,sLocation,isDeleted) VALUES('Sterilin Hardware','245,M.L Fernando St,Matara.','0778541458','Matara',0);
+	INSERT INTO shops(sName,sAddress,sContact,sLocation,isDeleted) VALUES('Fernando Stores','120,Galle Road,Galle.','0774545458','Galle',0);
+	INSERT INTO shops(sName,sAddress,sContact,sLocation,isDeleted) VALUES('Kasun Hardware','245,Polwatta Rd St,Ambalangoda.','0778544581','Ambalangoda',0);
+
+10. Shop Admin
+---------------------------
+
+	INSERT INTO shop_admins(adminId,shpId,isDeleted) VALUES(4,6,0);
+	INSERT INTO shop_admins(adminId,shpId,isDeleted) VALUES(1,6,0);
+	INSERT INTO shop_admins(adminId,shpId,isDeleted) VALUES(6,1,0);
+
+11. Spare Parts
+---------------------------
+
+	INSERT INTO spare_parts(sparePrtId,sparePrtName,brand,model,year,price,vehicleVid,shpId,isDeleted) VALUES('fdss123123','Windscreen','Toyota','Corolla','2015',90000.00,5,4,0);
+	INSERT INTO spare_parts(sparePrtId,sparePrtName,brand,model,year,price,vehicleVid,shpId,isDeleted) VALUES('fdss123122','Front Door','Toyota','Corolla','2015',45000.00,2,9,0);
+	INSERT INTO spare_parts(sparePrtId,sparePrtName,brand,model,year,price,vehicleVid,shpId,isDeleted) VALUES('fdsds1231123','Back Door','Toyota','Corolla','2015',48000.00,7,4,0);
+
+11. Vehicle
+---------------------------
+
+	INSERT INTO vehicles(vehicleNumber,policyId,type,model,color,year,insuranceDate,valuation,insuranceType,policyPid,garageGid,isDeleted) VALUES('KA-2235','fsgw1231312312','Motor Car','Toyota Corolla','Pearl Black','2015','2020-05-08',4500000.00,'full-option',4,9,0);
+	INSERT INTO vehicles(vehicleNumber,policyId,type,model,color,year,insuranceDate,valuation,insuranceType,policyPid,garageGid,isDeleted) VALUES('KM-8235','fsgw12313232312','Motor Car','Toyota Corolla','Pearl Black','2019','2020-06-01',9500000.00,'full-option',2,4,0);
+	INSERT INTO vehicles(vehicleNumber,policyId,type,model,color,year,insuranceDate,valuation,insuranceType,policyPid,garageGid,isDeleted) VALUES('PA-2245','fsgw123342312','VAN','Toyota KDH','Pearl White','2019','2020-05-08',8000000.00,'full-option',5,5,0);

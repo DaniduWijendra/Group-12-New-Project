@@ -56,6 +56,16 @@ export default new Router({
         component: () => import('@/views/adminDashboard/pages/UserProfile'),
       },
       {
+        name: 'Admin Signup',
+        path: 'pages/admin-signup',
+        component: () => import('@/views/adminDashboard/pages/admin-signup'),
+      },
+      {
+        name: 'Agent Signup',
+        path: 'pages/agent-signup',
+        component: () => import('@/views/adminDashboard/pages/agent-signup'),
+      },
+      {
         name: 'Notifications',
         path: 'components/notifications',
         component: () => import('@/views/adminDashboard/component/Notifications'),
@@ -75,6 +85,11 @@ export default new Router({
         name: 'Regular Tables',
         path: 'tables/regular-tables',
         component: () => import('@/views/adminDashboard/tables/RegularTables'),
+      },
+      {
+        name: 'Cost Update Tables',
+        path: 'tables/cost-table',
+        component: () => import('@/views/adminDashboard/tables/cost-table'),
       },
       // Maps
       {
