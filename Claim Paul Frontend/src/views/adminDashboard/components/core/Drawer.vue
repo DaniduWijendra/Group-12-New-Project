@@ -126,6 +126,21 @@
           to: '/admin/tables/cost-table',
         },
         {
+          icon: 'mdi-car-key',
+          title: 'Policy Holder Information',
+          to: '/admin/tables/policyholder-table',
+        },
+        {
+          icon: 'mdi-face-agent',
+          title: 'Agent Information',
+          to: '/admin/tables/agent-table',
+        },
+        {
+          icon: 'mdi-card-account-details',
+          title: 'Search Driver History',
+          to: '/admin/tables/driver-history',
+        },
+        {
           title: 'rtables',
           icon: 'mdi-clipboard-outline',
           to: '/admin/tables/regular-tables',

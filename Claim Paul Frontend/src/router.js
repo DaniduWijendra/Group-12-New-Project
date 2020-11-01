@@ -87,21 +87,30 @@ export default new Router({
         component: () => import('@/views/adminDashboard/tables/RegularTables'),
       },
       {
-        name: 'Cost Update Tables',
+        name: 'Cost Update Table',
         path: 'tables/cost-table',
         component: () => import('@/views/adminDashboard/tables/cost-table'),
+      },
+      {
+        name: 'Policy Holders Table',
+        path: 'tables/policyholder-table',
+        component: () => import('@/views/adminDashboard/tables/policyholder-table'),
+      },
+      {
+        name: 'Agents Table',
+        path: 'tables/agent-table',
+        component: () => import('@/views/adminDashboard/tables/agent-table'),
+      },
+      {
+        name: 'Driver History',
+        path: 'tables/driver-history',
+        component: () => import('@/views/adminDashboard/tables/driver-history'),
       },
       // Maps
       {
         name: 'Google Maps',
         path: 'maps/google-maps',
         component: () => import('@/views/adminDashboard/maps/GoogleMaps'),
-      },
-      // Upgrade
-      {
-        name: 'Upgrade',
-        path: 'upgrade',
-        component: () => import('@/views/adminDashboard/Upgrade'),
       },
     ],
   },
