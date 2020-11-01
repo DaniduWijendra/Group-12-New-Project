@@ -3,7 +3,7 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-export default new Router({
+const router= new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
@@ -11,6 +11,18 @@ export default new Router({
       name: 'Home',
       path: '/',
       component: () => import('@/Home'),
+    },
+    {
+      name: 'login',
+      path: '/login',
+      component: () => import('@/views/log/login'),
+      meta:{ guestOnly:true },
+    },
+    {
+      name: 'register',
+      path: '/register',
+      component: () => import('@/views/log/register'),
+      meta:{ guestOnly:true },
     },
     {
       name: 'about',
@@ -32,11 +44,11 @@ export default new Router({
       path: '/faq',
       component: () => import('@/views/faq'),
     },
-    {
-      name: 'login',
-      path: '/login',
-      component: () => import('@/views/login'),
-    },
+    // {
+    //   name: 'login',
+    //   path: '/login',
+    //   component: () => import('@/views/login'),
+    // },
 
    //admin routes
    {
@@ -119,6 +131,7 @@ export default new Router({
           name: 'Dashboard',
           path: '',
           component: () => import('@/views/agentDashboard/Dashboard'),
+          meta:{authOnly:true},
         },
         // Pages
         {
@@ -254,3 +267,41 @@ export default new Router({
    
   ],
 })
+
+function isLoggedIn(){
+  return localStorage.getItem("auth");
+}
+
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.authOnly)) {
+    // this route requires auth, check if logged in
+    // if not, redirect to login page.
+    if (!isLoggedIn()) {
+      next({
+        path: '/login',
+        query: { redirect: to.fullPath }
+      })
+    } else {
+      next()
+    }
+  } 
+
+ else if (to.matched.some(record => record.meta.guestOnly)) {
+    // this route requires auth, check if logged in
+    // if not, redirect to login page.
+    if (isLoggedIn()) {
+      next({
+        path: '/agent',
+        query: { redirect: to.fullPath }
+      })
+    } else {
+      next()
+    }
+  } 
+  else {
+    next() // make sure to always call next()!
+  }
+})
+
+
+export default router;

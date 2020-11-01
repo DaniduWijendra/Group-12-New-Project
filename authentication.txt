@@ -1,0 +1,51 @@
+1 composer require laravel/sanctum
+
+2 php artisan vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider"
+
+3 php artisan migrate
+
+4 kernel.php ->'api' => [
+    			\Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
+    			'throttle:api',
+   			 \Illuminate\Routing\Middleware\SubstituteBindings::class,
+		],
+
+5 api.php -> Route::post('/register','App\Http\Controllers\registerController@register');
+
+6 create registerController.php and include register() function
+
+7 register.vue
+
+8 npm install axios
+
+9 create api.js
+
+10 create user.js
+
+11 create csrf.js
+
+12 config->sanctum.php
+	
+	'prefix'=>'api'
+
+13 config->cors.php
+
+	'support_credentials'=>true
+
+14 api.php ->Route::post('/login','App\Http\Controllers\loginController@login');
+
+15 create loginController 
+
+16 login.vue
+
+17 logout
+
+18 logout appbar
+
+19 api.php -> auth:api change to auth:sanctum
+
+20 v-router meta---->>>>   https://router.vuejs.org/guide/advanced/meta.html
+
+21 change router.js
+
+22 npm install js-cookie
