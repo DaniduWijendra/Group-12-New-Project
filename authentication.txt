@@ -4,6 +4,7 @@
 
 3 php artisan migrate
 
+
 4 kernel.php ->'api' => [
     			\Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
     			'throttle:api',
