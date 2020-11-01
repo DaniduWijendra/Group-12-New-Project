@@ -18,13 +18,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-<<<<<<< HEAD
 Route::get('/search', [
     'as' => 'api.search',
     'uses' => 'Api\SearchController@search'
 ]);
-=======
-Route::post('/register','App\Http\Controllers\registerController@register');
-Route::post('/login','App\Http\Controllers\loginController@login');
-Route::post('/logout','App\Http\Controllers\loginController@logout');
->>>>>>> master
