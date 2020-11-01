@@ -13,6 +13,8 @@
                         <li><router-link to="/contact">contact</router-link></li>
                         <li><router-link to="/services">Services</router-link></li>
                         <li><router-link to="/faq">FAQ</router-link></li>
+                         <li><router-link to="/login">Login</router-link></li>
+                        <li><router-link to="/register">Register</router-link></li>
                        
                         <li><a href="#" class="tooltipped btn-floating btn-small indigo darken-4" data-position="bottom" data-tooltip="Instagram"> 
                             <i class="fab fa-instagram"></i>
