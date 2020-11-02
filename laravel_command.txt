@@ -1,0 +1,79 @@
+(1) Add new Table 
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1 Create a migration file using cli command:_------>php artisan make:migration add_table --table=table_name
+
+2 after column create and migrate 
+
+(2) Add new Column to existing table
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1 Create a migration file using cli command:_------>php artisan make:migration add_paid_to_users_table --table=table_name
+
+2 A file will be created in the migrations folder, open it in an editor.
+
+    Add to the function up():
+    ~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    Schema::table('users', function (Blueprint $table) {    
+        // Create new column
+        // You probably want to make the new column nullable
+        //status is previous column to paid column 
+        $table->integer('paid')->nullable()->after('status');
+    }
+
+3 Add to the function down(), this will run in case migration fails for some reasons:
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    $table->dropColumn('paid');
+
+4 Run migration using cli command:---------->php artisan migrate
+
+(3)Modyfing Column
+
+    ***rename column
+    ~~~~~~~~~~~~~~~~
+        1 install docrine using this command ---->composer require doctrine/dbal
+
+        2 Create a migration file using cli command:_------>php artisan make:migration add_paid_to_users_table --table=table_name
+
+        3  Add to the function up():
+           ~~~~~~~~~~~~~~~~~~~~~~~~~
+
+                Schema::table('users', function (Blueprint $table) {    
+                    // rename column
+                
+                    
+                    $table->renameColumn('previous_name','rename_name');
+                }
+        
+        4  Add to the function down(), this will run in case migration fails for some reasons:
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+               $table->renameColumn('previous_name','rename_name');
+
+        5 Run migration using cli command:---------->php artisan migrate
+
+   
+    ***change type or attributes  of a column
+    ~~~~~~~~~~~~~~~~~~~~~~~~~
+
+        1 if dont install docrine ,must install docrine using this command ---->composer require doctrine/dbal
+
+        2 Create a migration file using cli command:_------>php artisan make:migration add_paid_to_users_table --table=table_name
+
+        3  Add to the function up():
+           ~~~~~~~~~~~~~~~~~~~~~~~~~
+
+                Schema::table('users', function (Blueprint $table) {    
+                    //change type of attributes of column
+                    //below line change type or attributes your own
+                    //last add ->change() method 
+                    $table->string('column_name')->(modyfiers your own)->change();
+                }
+        
+        4  Add to the function down(), this will run in case migration fails for some reasons:
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            //hear add rollback state (before change state)
+               $table->integer('collumn_name')->change();
+
+        5 Run migration using cli command:---------->php artisan migrate
+   
