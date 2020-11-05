@@ -5,17 +5,12 @@
                 <v-col cols="12" sm="8" md="8">
                      <v-text-field 
             label="Solo"
-            @keyup.enter="searchit"
+            v-model="search"
             placeholder="Enter NIC Number"
-            solo v-model="driversearch" >
+            solo>
             </v-text-field>
                 </v-col>
                 <v-col cols="12" sm="4" md="4">
-                  <v-btn large
-              color="success" dark @click="searchit" >
-              <v-icon large color="blue darken-2">mdi-magnify</v-icon>
-              Search
-            </v-btn>
                 </v-col>
             </v-row>
             <base-material-card
@@ -39,33 +34,61 @@
           </tr>
         </thead>
 
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>Dakota Rice</td>
-            <td>Niger</td>
-            <td>Oud-Turnhout</td>
-            <td>
-              $36,738
-            </td>
+        <tbody >
+          <tr v-for="item in idFilter" :key="items.pId">
+            <td>{{item.NIC}}</td>
+            <td>{{item.fName}}</td>
+            <td>{{item.lName}}</td>
+            <td>{{item.pAddress}}</td>
+            <td>{{item.pDOB}}</td>
+            <td>{{item.pContactNo}}</td>
+            <td>{{item.vehicleNumber}}</td>
+            <td><v-btn small
+              color="warning" dark >
+             View Report
+            </v-btn></td>
           </tr>
-
         </tbody>
       </v-simple-table>
+      <b v-if="items.length">Total Records : {{ items.length }}</b>
     </base-material-card>
+  
+      
+   
         </v-container>
     </v-form>
 </template>
 <script>
+import Axios from 'axios'
 export default {
     data: () => ({
-     driversearch:'',
+     items:[],
+     search:'', 
     }),
+    created()
+    {
+      this.viewDrivers();
+    },
+    computed:
+    {
+      idFilter()
+      {
+        return this.items.filter(item => {
+          return item.NIC.includes(this.search);
+        })
+      }
+    },
     methods:{
-        searchit()
+      viewDrivers()
+      {
+        Axios.get('http://127.0.0.1:8000/api/driver-history').then(Response =>{
+          this.items=Response.data;
+        })
+        .catch(function (error)
         {
-             
-        }
+          console.log('cannot get data'+ error);
+        });
+      }
     }
 }
 </script>

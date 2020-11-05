@@ -8,10 +8,13 @@ class viewController extends Controller
 {
     public function driverHistoryShow()
     {
-        //echo "<h1>Hll</h1>";
+        
         return DB::table('policy_holders')
          ->join('vehicles','vehicles.policyPid','policy_holders.pId')
-         ->select('policy_holders.NIC','policy_holders.fName','policy_holders.lName',
-         'policy_holders.pAddress','')->get();
+         ->join('reports','reports.vehicleNumber','vehicles.vehicleNumber')
+         ->select('policy_holders.pId','policy_holders.NIC','policy_holders.fName','policy_holders.lName',
+         'policy_holders.pAddress','policy_holders.pDOB','policy_holders.pContactNo',
+         'vehicles.vehicleNumber','reports.rDescription','reports.rCost','reports.rDate',
+         'reports.place','reports.adminId','reports.agId','reports.isAccepted')->get();
     }
 }
