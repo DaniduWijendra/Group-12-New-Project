@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-class policyHolderSeeder extends Seeder
+class DatabaseSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,6 +13,8 @@ class policyHolderSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\PolicyHolder::class, 50)->create();
+        $this->call(adminsSeeder::class);
+        $this->call(agentSeeder::class);
+        $this->call(policyHolderSeeder::class);
     }
 }

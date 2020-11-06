@@ -6,7 +6,7 @@
                      <v-text-field 
             label="Solo"
             v-model="search"
-            placeholder="Enter NIC Number"
+            placeholder="Enter Vehicle Number"
             solo>
             </v-text-field>
                 </v-col>
@@ -20,10 +20,12 @@
       title="Driver Table"
       class="px-5 py-3"
     >
+    <b v-if="items.length">{{ idFilter.length }} Recods Found</b>
       <v-simple-table>
         <thead>
           <tr>
             <th>NIC</th>
+            <th>Report Id</th>
             <th>First Name</th>
             <th>Last Name</th>
             <th>Address</th>
@@ -37,6 +39,7 @@
         <tbody >
           <tr v-for="item in idFilter" :key="items.pId">
             <td>{{item.NIC}}</td>
+            <td>rep_{{item.rId}}</td>
             <td>{{item.fName}}</td>
             <td>{{item.lName}}</td>
             <td>{{item.pAddress}}</td>
@@ -50,7 +53,6 @@
           </tr>
         </tbody>
       </v-simple-table>
-      <b v-if="items.length">Total Records : {{ items.length }}</b>
     </base-material-card>
   
       
@@ -74,7 +76,7 @@ export default {
       idFilter()
       {
         return this.items.filter(item => {
-          return item.NIC.includes(this.search);
+          return item.vehicleNumber.toLowerCase().includes(this.search.toLowerCase());
         })
       }
     },
