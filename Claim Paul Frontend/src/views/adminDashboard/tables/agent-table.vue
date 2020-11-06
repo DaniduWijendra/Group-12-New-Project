@@ -1,94 +1,94 @@
 <template>
-  <v-container
-    id="tables"
-    fluid
-    tag="section"
-  >
-    
-
-    <base-material-card
+    <v-form>
+        <v-container>
+            <v-row>
+                <v-col cols="12" sm="8" md="8">
+                     <v-text-field 
+            label="Solo"
+            v-model="search"
+            placeholder="Enter Agent Name"
+            solo>
+            </v-text-field>
+                </v-col>
+                <v-col cols="12" sm="4" md="4">
+                </v-col>
+            </v-row>
+            <base-material-card
       color="success"
       dark
       icon="mdi-clipboard-plus"
       title="Agents Table"
       class="px-5 py-3"
     >
+    <b v-if="items.length">{{ idFilter.length }} Recods Found</b>
       <v-simple-table>
         <thead>
-          <tr>
+          <tr style="background-color:gray">
             <th>ID</th>
-            <th>Name</th>
-            <th>Country</th>
-            <th>City</th>
-            <th class="text-right">
-              Salary
-            </th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Address</th>
+            <th>Date of Birth</th>
+            <th>Contact Number</th>
+            <th>Email</th>
+            <th>Branch</th>
+            <th>Delete User</th>
           </tr>
         </thead>
 
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>Dakota Rice</td>
-            <td>Niger</td>
-            <td>Oud-Turnhout</td>
-            <td class="text-right">
-              $36,738
-            </td>
-          </tr>
-
-          <tr>
-            <td>2</td>
-            <td>Minverva Hooper</td>
-            <td>Curaçao</td>
-            <td>Sinaas-Waas</td>
-            <td class="text-right">
-              $23,789
-            </td>
-          </tr>
-
-          <tr>
-            <td>3</td>
-            <td>Sage Rodriguez</td>
-            <td>Netherlands</td>
-            <td>Baileux</td>
-            <td class="text-right">
-              $56,142
-            </td>
-          </tr>
-
-          <tr>
-            <td>4</td>
-            <td>Philip Chaney</td>
-            <td>Korea, South</td>
-            <td>Overland Park</td>
-            <td class="text-right">
-              $38,735
-            </td>
-          </tr>
-
-          <tr>
-            <td>5</td>
-            <td>Doris Greene</td>
-            <td>Malawi</td>
-            <td>Feldkirchen in Kärnten</td>
-            <td class="text-right">
-              $63,542
-            </td>
-          </tr>
-
-          <tr>
-            <td>6</td>
-            <td>Mason Porter</td>
-            <td>Chile</td>
-            <td>Gloucester</td>
-            <td class="text-right">
-              $78,615
-            </td>
+        <tbody >
+          <tr v-for="item in idFilter" :key="items.agId">
+            <td>Ag__00{{item.agId}}</td>
+            <td>{{item.fName}}</td>
+            <td>{{item.lName}}</td>
+            <td>{{item.agAddress}}</td>
+            <td>{{item.agDob}}</td>
+            <td>{{item.agContactNo}}</td>
+            <td>{{item.email}}</td>
+            <td>{{item.agBranch}}</td>
+            <td><v-btn small 
+              color="error" dark>
+             Delete 
+            </v-btn></td>
           </tr>
         </tbody>
       </v-simple-table>
     </base-material-card>
-  </v-container>
+        </v-container>
+    </v-form>
 </template>
-
+<script>
+import Axios from 'axios'
+export default {
+    data: () => ({
+     items:[],
+     search:'', 
+    }),
+    created()
+    {
+      this.viewAgents();
+    },
+    computed:
+    {
+      idFilter(id)
+      {
+        return this.items.filter(item => {
+          return item.fName.toLowerCase().includes(this.search.toLowerCase()) || item.lName.toLowerCase().includes(this.search.toLowerCase());
+        })
+      }
+    },
+    methods:{
+      
+      viewAgents()
+      {
+        Axios.get('http://127.0.0.1:8000/api/agents').then(Response =>{
+          this.items=Response.data;
+        })
+        .catch(function (error)
+        {
+          console.log('cannot get data'+ error);
+        });
+      }
+    }
+}
+</script>

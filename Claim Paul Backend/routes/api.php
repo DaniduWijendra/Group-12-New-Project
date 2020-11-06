@@ -26,3 +26,5 @@ Route::post('/login','App\Http\Controllers\loginController@login');
 Route::post('/register','App\Http\Controllers\registerController@register');
 Route::post('/logout','App\Http\Controllers\loginController@logout');
 Route::get('/driver-history','App\Http\Controllers\viewController@driverHistoryShow');
+Route::get('/policy-holder','App\Http\Controllers\viewController@policyHolderShow');
+Route::get('/agents','App\Http\Controllers\viewController@agentsShow');

@@ -23,7 +23,7 @@
     <b v-if="items.length">{{ idFilter.length }} Recods Found</b>
       <v-simple-table>
         <thead>
-          <tr>
+          <tr style="background-color:gray">
             <th>NIC</th>
             <th>Report Id</th>
             <th>First Name</th>

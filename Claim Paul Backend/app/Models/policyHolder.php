@@ -9,4 +9,12 @@ use Laravel\Scout\Searchable;
 class policyHolder extends Model
 {
     use Searchable;
+    protected static function boot()
+{
+    parent::boot(); 
+
+    static::updated(function () {
+        return Cache::forget('activeChannels');
+    });
+}
 }
