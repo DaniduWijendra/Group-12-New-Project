@@ -70,6 +70,7 @@
                     $table->string('column_name')->(modyfiers your own)->change();
                 }
         
+        
         4  Add to the function down(), this will run in case migration fails for some reasons:
            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
             //hear add rollback state (before change state)
