@@ -4,15 +4,27 @@
     <div class="card">
       <div class="card-body">
         <div class="form-group">
-          <label for="name">Name:</label>
+          <label for="firstName">First Name:</label>
           <input
             type="text"
-            v-model="form.name"
+            v-model="form.firstName"
             class="form-control"
-            id="name"
+            id="firstName"
           />
-          <span class="text-danger" v-if="errors.name">
-            {{ errors.name[0] }}
+          <span class="text-danger" v-if="errors.firstName">
+            {{ errors.firstName[0] }}
+          </span>
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name:</label>
+          <input
+            type="text"
+            v-model="form.lastName"
+            class="form-control"
+            id="lastName"
+          />
+          <span class="text-danger" v-if="errors.lastName">
+            {{ errors.lastName[0] }}
           </span>
         </div>
         <div class="form-group">
@@ -27,6 +39,20 @@
             {{ errors.email[0] }}
           </span>
         </div>
+
+
+         <div class="form-group">
+          
+          <input
+            type="hidden"
+            class="form-control"
+            id="role"
+            :value='form.role'
+          />
+          
+        </div>
+
+
         <div class="form-group">
           <label for="password">Password:</label>
           <input
@@ -55,7 +81,7 @@
           type="submit"
           @click.prevent="register"
           class="btn btn-primary btn-block"
-          v-show="form.name && form.email && form.password && form.password_confirmation"
+          v-show="form.firstName && form.lastName && form.email && form.password && form.password_confirmation"
         >
           Register
         </button>
@@ -71,10 +97,13 @@ export default {
   data() {
     return {
       form: {
-        name: "",
+        firstName: "",
+        lastName: "",
         email: "",
+        role: "agent",
         password: "",
-        password_confirmation: ""
+        password_confirmation: "",
+        
       },
       errors: []
     };
