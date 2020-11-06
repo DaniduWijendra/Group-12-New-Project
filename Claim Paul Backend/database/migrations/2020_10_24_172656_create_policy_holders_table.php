@@ -26,6 +26,7 @@ class CreatePolicyHoldersTable extends Migration
             $table->boolean('isDeleted');
 
 
+            
 
             $table->timestamps();
         });
