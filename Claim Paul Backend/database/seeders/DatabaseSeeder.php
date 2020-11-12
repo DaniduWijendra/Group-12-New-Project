@@ -15,6 +15,6 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(adminsSeeder::class);
         $this->call(agentSeeder::class);
-        $this->call(policyHolderSeeder::class);
+        $this->call(reportSeeder::class);
     }
 }
