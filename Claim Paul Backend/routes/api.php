@@ -31,3 +31,5 @@ Route::post('/put_report','App\Http\Controllers\reportController@putReport');
 Route::get('/get_report/{id}','App\Http\Controllers\reportController@getOneReport');
 Route::put('/edit_report/{id}','App\Http\Controllers\reportController@editReport');
 Route::put('/delete_report/{id}','App\Http\Controllers\reportController@deleteReport');
+Route::get('/policy-holder','App\Http\Controllers\viewController@policyHolderShow');
+Route::get('/agents','App\Http\Controllers\viewController@agentsShow');
