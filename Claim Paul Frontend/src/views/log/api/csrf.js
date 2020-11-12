@@ -14,5 +14,5 @@ export default{
         }
     return  Api.get('/csrf-cookie');
 
-}
+    }
 };

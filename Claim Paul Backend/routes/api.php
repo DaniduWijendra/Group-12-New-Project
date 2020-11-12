@@ -26,3 +26,8 @@ Route::post('/login','App\Http\Controllers\loginController@login');
 Route::post('/register','App\Http\Controllers\registerController@register');
 Route::post('/logout','App\Http\Controllers\loginController@logout');
 Route::get('/driver-history','App\Http\Controllers\viewController@driverHistoryShow');
+Route::get('/report','App\Http\Controllers\reportController@getReport');
+Route::post('/put_report','App\Http\Controllers\reportController@putReport');
+Route::get('/get_report/{id}','App\Http\Controllers\reportController@getOneReport');
+Route::put('/edit_report/{id}','App\Http\Controllers\reportController@editReport');
+Route::put('/delete_report/{id}','App\Http\Controllers\reportController@deleteReport');

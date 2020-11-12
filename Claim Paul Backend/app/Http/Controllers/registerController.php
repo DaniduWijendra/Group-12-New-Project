@@ -14,7 +14,7 @@ class registerController extends Controller
 
             'firstName'=>['required'],
             'lastName'=>['required'],
-            'email'=>['required','email','unique:users'],
+            'email'=>['required','email','unique:user_sign_ups'],
             'password'=>['required','min:8','confirmed']
         ]);
 

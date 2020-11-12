@@ -44,6 +44,7 @@ const router= new Router({
       path: '/faq',
       component: () => import('@/views/faq'),
     },
+    
     // {
     //   name: 'login',
     //   path: '/login',
@@ -145,7 +146,7 @@ const router= new Router({
         // Pages
         {
           name: 'User Profile',
-          path: 'pages/user',
+          path: '/agent/user',
           component: () => import('@/views/agentDashboard/pages/UserProfile'),
         },
         {
@@ -172,38 +173,52 @@ const router= new Router({
         // Maps
         {
           name: 'Google Maps',
-          path: 'maps/google-maps',
+          path: '/agent/maps/google-maps',
           component: () => import('@/views/agentDashboard/maps/GoogleMaps'),
         },
         //reports
         {
          name: 'reports',
-         path: '/reports',
+         path: '/agent/reports',
          component: () => import('@/views/agentDashboard/reports/reports'),
         },
+
+         //reports handle
+         {
+          name: 'reports Handle',
+          path: '/agent/reportsHandle',
+          component: () => import('@/views/agentDashboard/reports/reportsHandle'),
+         },
+
+         //reports handle
+         {
+          name: 'reports Handle',
+          path: '/agent/test',
+          component: () => import('@/views/agentDashboard/reports/components/test'),
+         },
 
           //messages
           {
             name: 'messages',
-            path: '/messages',
+            path: '/agent/messages',
             component: () => import('@/views/agentDashboard/Messages/messages'),
            },
              //uploads
           {
             name: 'uploads',
-            path: '/uploads',
+            path: '/agent/uploads',
             component: () => import('@/views/agentDashboard/upload/upload'),
           },
             //payments
             {
               name: 'payments',
-              path: '/payments',
+              path: '/agent/payments',
               component: () => import('@/views/agentDashboard/payments/payments'),
             },
              //payments
              {
               name: 'driverHistory',
-              path: '/driver_history',
+              path: '/agent/driver_history',
               component: () => import('@/views/agentDashboard/driverHistory/driverHistory'),
             },
         // Upgrade

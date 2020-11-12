@@ -122,42 +122,47 @@
         {
           icon: 'mdi-account',
           title: 'user',
-          to: '/agent/pages/user',
+          to: '/agent/user',
         },
          {
           icon: 'mdi-message-bulleted',
           title: 'Messages',
-          to: '/messages',
+          to: '/agent/messages',
         },
          {
           icon: 'mdi-email-plus',
           title: 'Reports',
-          to: '/reports',
+          to: '/agent/reports',
+        },
+         {
+          icon: 'mdi-email-edit',
+          title: 'Reports Handle',
+          to: '/agent/reportsHandle',
         },
          {
           icon: 'mdi-history',
           title: 'Driver History',
-          to: '/driver_history',
+          to: '/agent/driver_history',
         },
          {
           icon: 'mdi-cloud-upload',
           title: 'Upload',
-          to: '/uploads',
+          to: '/agent/uploads',
         },
          {
           icon: 'mdi-credit-card-outline',
           title: 'Payments',
-          to: '/payments',
+          to: '/agent/payments',
+        },
+        {
+          icon: 'mdi-credit-card-outline',
+          title: 'test',
+          to: '/agent/test',
         },
         {
           icon: 'mdi-credit-card-outline',
           title: 'Payments',
-          to: '/payments',
-        },
-        {
-          icon: 'mdi-credit-card-outline',
-          title: 'Payments',
-          to: '/payments',
+          to: '/agent/payments',
         },
         
         // {
