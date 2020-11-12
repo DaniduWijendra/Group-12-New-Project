@@ -28,3 +28,4 @@ Route::post('/logout','App\Http\Controllers\loginController@logout');
 Route::get('/driver-history','App\Http\Controllers\viewController@driverHistoryShow');
 Route::get('/policy-holder','App\Http\Controllers\viewController@policyHolderShow');
 Route::get('/agents','App\Http\Controllers\viewController@agentsShow');
+Route::post('/sendMail','App\Http\Controllers\mailController@send');
