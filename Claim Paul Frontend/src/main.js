@@ -21,8 +21,13 @@ import './plugins/vee-validate'
 import vuetify from './plugins/vuetify'
 import i18n from './i18n'
 import axios from 'axios'
+import notifications from './notification'
+import ViewUI from 'view-design';
+import 'view-design/dist/styles/iview.css';
 
+Vue.mixin(notifications)
 Vue.config.productionTip = false
+Vue.use(ViewUI)
 
 new Vue({
   router,
@@ -30,5 +35,6 @@ new Vue({
   vuetify,
   i18n,
   axios,
+  notifications,
   render: h => h(App),
 }).$mount('#app')
