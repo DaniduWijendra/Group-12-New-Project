@@ -5,7 +5,7 @@
     :dark="barColor !== 'rgba(228, 226, 226, 1), rgba(255, 255, 255, 0.7)'"
     :expand-on-hover="expandOnHover"
     :right="$vuetify.rtl"
-    :src="barImage"
+    class='blue darken-1'
     mobile-break-point="960"
     app
     width="260"
@@ -24,25 +24,33 @@
       dense
       nav
     >
-      <v-list-item>
+      <v-list-item class='mx-12'>
         <v-list-item-avatar
           class="align-self-center"
           color="white"
           contain
+          size="100"
         >
-          <v-img
-            src="https://demos.creative-tim.com/vuetify-material-dashboard/favicon.ico"
-            max-height="30"
-          />
+          <v-avatar size="100">
+            <v-img src='./man.png' size=""></v-img>
+        
+          </v-avatar>
         </v-list-item-avatar>
 
-        <v-list-item-content>
-          <v-list-item-title
-            class="display-1"
-            v-text="profile.title"
-          />
-        </v-list-item-content>
+      
       </v-list-item>
+      <v-list-item link>
+          <v-list-item-content>
+            <v-list-item-title class="title">
+              John Leider
+            </v-list-item-title>
+            <v-list-item-subtitle>john@vuetifyjs.com</v-list-item-subtitle>
+          </v-list-item-content>
+
+          <v-list-item-action>
+            <v-icon>mdi-menu-down</v-icon>
+          </v-list-item-action>
+        </v-list-item>
     </v-list>
 
     <v-divider class="mb-2" />
@@ -76,7 +84,7 @@
       <div />
     </v-list>
 
-    <template v-slot:append>
+    <!-- <template v-slot:append>
       <base-item
         :item="{
           title: $t('upgrade'),
@@ -84,7 +92,7 @@
           to: '/upgrade',
         }"
       />
-    </template>
+    </template> -->
   </v-navigation-drawer>
 </template>
 
@@ -111,37 +119,51 @@
           title: 'dashboard',
           to: '/policyholder',
         },
-        {
+
+         {
           icon: 'mdi-account',
           title: 'user',
-          to: '/policyholder/pages/user',
+          to: '/policyholder/user',
+        },
+
+         {
+          icon: 'mdi-cloud-upload',
+          title: 'upload',
+          to: '/policyholder/uploads',
+        },
+
+         {
+          icon: 'mdi-history',
+          title: 'Driver History',
+          to: '/policyholder/driverHistory',
+        },
+
+         {
+          icon: 'mdi-cash-multiple',
+          title: 'Generate Cost',
+          to: '/policyholder/generateCost',
+        },
+
+         {
+          icon: 'mdi-office-building-marker-outline',
+          title: 'Find Shops',
+          to: '/policyholder/findShops',
+        },
+
+         {
+          icon: ' mdi-hammer-wrench',
+          title: 'Find Garages',
+          to: '/policyholder/findGarages',
         },
         {
-          title: 'rtables',
-          icon: 'mdi-clipboard-outline',
-          to: '/policyholder/tables/regular-tables',
+          icon: 'mdi-message-bulleted',
+          title: 'messages',
+          to: '/policyholder/messages',
         },
-        {
-          title: 'typography',
-          icon: 'mdi-format-font',
-          to: '/policyholder/components/typography',
-        },
-        {
-          title: 'icons',
-          icon: 'mdi-chart-bubble',
-          to: '/policyholder/components/icons',
-        },
-        {
-          title: 'google',
-          icon: 'mdi-map-marker',
-          to: '/policyholder/maps/google-maps',
-        },
-        {
-          title: 'notifications',
-          icon: 'mdi-bell',
-          to: '/policyholder/components/notifications',
-        },
-      ],
+
+
+
+      ]
     }),
 
     computed: {
