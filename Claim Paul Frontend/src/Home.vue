@@ -120,7 +120,7 @@
 
                 <div class="container">
                    
-                        
+                                <Card/>
                                  <Parallax/>
                 </div>
 
@@ -219,10 +219,11 @@
 import Parallax from './views/Home/parallax'
 import Footer from './views/footer'
 import Navbar from './views/navbar'
+import Card from './views/Home/cards'
 
 export default {
      
-    components:{Parallax,Footer,Navbar},
+    components:{Parallax,Footer,Navbar,Card},
 
    
 }

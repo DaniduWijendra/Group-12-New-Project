@@ -45,7 +45,7 @@ a{
   width: 100%;
 }
 .divabstract {
-  background-image: url(https://assets.codepen.io/4996277/original_2.jpg);      
+  background-image: url(../../assets/img/home/time.svg);      
   background-repeat: no-repeat ;
   background-attachment: fixed; 
   background-position: center;
