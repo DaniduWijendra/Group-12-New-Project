@@ -6,7 +6,7 @@
     :expand-on-hover="expandOnHover"
     :right="$vuetify.rtl"
     class='blue darken-1'
-    mobile-break-point="960"
+    mobile-breakpoint="960"
     app
     width="260"
     v-bind="$attrs"
@@ -15,6 +15,7 @@
       <v-img
         :gradient="`to bottom, ${barColor}`"
         v-bind="props"
+        
       />
     </template>
 
