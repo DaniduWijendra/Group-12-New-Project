@@ -33,3 +33,4 @@ Route::put('/edit_report/{id}','App\Http\Controllers\reportController@editReport
 Route::put('/delete_report/{id}','App\Http\Controllers\reportController@deleteReport');
 Route::get('/policy-holder','App\Http\Controllers\viewController@policyHolderShow');
 Route::get('/agents','App\Http\Controllers\viewController@agentsShow');
+Route::post('/add_image','App\Http\Controllers\reportController@putReport');

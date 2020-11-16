@@ -8,6 +8,7 @@ npm i jspdf-autotable
 npm i jspdf-autotable
 npm install view-design --save
 
+npm install emailjs-com --save
 
 backend
 ~~~~~~~~~~~~

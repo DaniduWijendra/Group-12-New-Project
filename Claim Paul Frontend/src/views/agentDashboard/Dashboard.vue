@@ -25,15 +25,15 @@
       >
       <v-row>
         <v-col cols="12" md="6">
-              <v-content class=' py-16 mx-3 px-0 pl-sm-5 green accent-2'>
+              <v-main class=' py-16 mx-3 px-0 pl-sm-5 green accent-2'>
                   <animation/>
-              </v-content>
+              </v-main>
         </v-col>
 
         <v-col cols="12" md="6">
-              <v-content class='py-16 mx-3 px-0 pl-sm-3 green accent-2'>
-                  <textAnim class=' pa-0 pa-sm-1 green accent-2  '/>
-              </v-content>
+              <v-main class='py-16 mx-3 px-0 pl-sm-3 green accent-2'>
+                <!-- <textAnim class=' pa-0 pa-sm-1 green accent-2  '/> -->
+              </v-main>
         </v-col>
       </v-row>
                                           
@@ -298,10 +298,10 @@
 
 <script>
 import animation from './component/animation/animation ' 
-import textAnim from './component/animation/textAnim'
+//import textAnim from './component/animation/textAnim'
   export default {
     name: 'Dashboard',
-    components:{animation,textAnim},
+    components:{animation},
     data () {
       return {
         dailySalesChart: {

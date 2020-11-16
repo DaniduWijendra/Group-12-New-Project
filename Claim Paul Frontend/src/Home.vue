@@ -1,56 +1,68 @@
 <template>
  <div>
-    <header>
-                    <nav class="nav-wrapper transparent">
-                    <div class="container">
-                        <a href="#" class="brand-logo"> ClaimPaul </a>
-                        <a href="#" class="sidenav-trigger" data-target="mobile-menu">
-                        <i class="material-icons">menu</i>
-                        </a>
-                        <ul class="right hide-on-med-and-down">
-                        <li><router-link to="">Home</router-link></li>
-                        <li><router-link to="/about">About us</router-link></li>
-                        <li><router-link to="/contact">contact</router-link></li>
-                        <li><router-link to="/services">Services</router-link></li>
-                        <li><router-link to="/faq">FAQ</router-link></li>
-                         <li><router-link to="/login">Login</router-link></li>
-                        <li><router-link to="/register">Register</router-link></li>
-                       
-                        <li><a href="#" class="tooltipped btn-floating btn-small indigo darken-4" data-position="bottom" data-tooltip="Instagram"> 
-                            <i class="fab fa-instagram"></i>
-                        </a></li>
-                        <li><a href="#" class="tooltipped btn-floating btn-small indigo darken-4" data-position="bottom" data-tooltip="Facebook">
-                            <i class="fab fa-facebook"></i>
-                        </a></li>
-                        <li><a href="#" class="tooltipped btn-floating btn-small indigo darken-4" data-position="bottom" data-tooltip="Twitter">
-                            <i class="fab fa-twitter"></i>
-                        </a></li>
-                        </ul>
-                        <ul class="sidenav grey lighten-2" id="mobile-menu">
-                        <li><router-link to="">Home</router-link></li>
-                        <li><router-link to="/about">About us</router-link></li>
-                        <li><router-link to="/contact">contact</router-link></li>
-                        <li><router-link to="/services">Services</router-link></li>
-                        <li><router-link to="/faq">FAQ</router-link></li>
-                        </ul>
-                    </div>
-                    </nav>
-                </header>
+                <Navbar/>
+                <section class="claimpaul-banner">
+                    <div class="slider">
+                        <div class="slide">
+                            <div class="content-holder">
+                                
 
+                                    <div class="content">
+                                        <div class="row">
+                                            <div class="col12 xs12 s6">
+                                                <div class="sub-content col px-md-5">
+
+                                                    <div class="title">
+                                                       <h1 class="display-1">Claim Paul</h1>
+                                                    </div>
+
+                                                    <div class="sub-title">
+                                                        well come to claim Paul!!!
+                                                    </div>
+
+                                                    <div class="btn-sign-up"></div>
+                                                    <div class="btn-get-started"></div>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="col12 xs12 s6">
+                                                <div class="image responsive-img">
+
+                                                </div>
+
+                                            </div>
+                                            
+                                    
+
+                                        </div>
+
+
+
+                                    </div>
+                              
+                            </div>
+                            
+                            
+                        </div>
+                    </div>
+
+                </section>
+                
                 <!-- photo / grid -->
                 <section class="container section scrollspy" id="photos">
                     <div class="row">
                     <div class="col s12 l4">
-                        <img src="./assets/img/home/portrait.jpg" alt="" class="responsive-img materialboxed">
+                        <img src="./assets/img/home/hello1.svg" alt="" class="responsive-img materialboxed">
                     </div>
-                    <div class="col s12 l6 offset-l1">
+                    <div class="col s12 l6">
                         <h2 class="indigo-text text-darken-4">Portraits</h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at lacus congue, suscipit elit nec, tincidunt orci.</p>
                     </div>
                     </div>
                     <div class="row">
-                            <div class="col s12 l4 offset-l1 push-l7">
-                                <img src="./assets/img/home/city.jpg" alt="" class="responsive-img materialboxed">
+                            <div class="col s12 l4 offset-l1 push-l6">
+                                <img src="./assets/img/home/right.svg" alt="" class="responsive-img materialboxed">
                             </div>
                             <div class="col s12 l6 offset-l1 pull-l5 right-align">
                                 <h2 class="indigo-text text-darken-4">Cityscapes</h2>
@@ -59,7 +71,7 @@
                     </div>
                     <div class="row">
                             <div class="col s12 l4">
-                                <img src="./assets/img/home/nature.jpg" alt="" class="responsive-img materialboxed">
+                                <img src="./assets/img/home/introduction.svg" alt="" class="responsive-img materialboxed">
                             </div>
                             
                             <div class="col s12 l6 offset-l1">
@@ -108,8 +120,8 @@
 
                 <div class="container">
                    
-                                <cards/>
-                                <Parallax/>
+                                <Card/>
+                                 <Parallax/>
                 </div>
 
                  <!-- parallax -->
@@ -189,10 +201,10 @@
                              
                          </div>
 
-                                <Footer/>
+                              
                      </footer>
 
-            
+              <Footer/>
                 
   
   
@@ -205,24 +217,28 @@
 <script>
 
 import Parallax from './views/Home/parallax'
-import Footer from './views/agentDashboard/components/core/Footer'
-import cards from './views/Home/cards'
+import Footer from './views/footer'
+import Navbar from './views/navbar'
+import Card from './views/Home/cards'
+
 export default {
      
-    components:{Parallax,Footer,cards},
+    components:{Parallax,Footer,Navbar,Card},
 
    
 }
 </script>
 
 <style scoped>
-    @import './views/Home/home.css';
-
-     header{
-      background: url(./assets/img/home/man.jpg);
-      background-size: cover;
-      background-position: center;
-      min-height: 1000px;
-    }
-
+ @import './css/slider.css';
+  .image{
+            position: absolute;
+            top:0;bottom:0;left:0;right:0;
+            background-image: url(./assets/img/home/slider.svg);
+            background-repeat: no-repeat;
+            background-position: right bottom;
+            background-size:contain;
+            background-repeat: no-repeat;
+                   
+            }
 </style>

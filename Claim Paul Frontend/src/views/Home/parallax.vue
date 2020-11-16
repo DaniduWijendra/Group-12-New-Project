@@ -3,7 +3,7 @@
   <div>
 
         
-<iframe width="100%" height="20" scrolling="no" frameborder="no" allow=""  ></iframe>
+<!-- <iframe width="100%" height="20" scrolling="no" frameborder="no" allow=""  ></iframe> -->
 <div id="a">
 
 </div>
@@ -39,13 +39,13 @@ a{
 .div-sherbert {
   background: linear-gradient(
     0deg,
-    #6930c3,
-    #f15bb5);
+    #26C6DA,
+    #1E0261);
   Height: 2800px;
   width: 100%;
 }
 .divabstract {
-  background-image: url(https://assets.codepen.io/4996277/original_2.jpg);      
+  background-image: url(../../assets/img/home/time.svg);      
   background-repeat: no-repeat ;
   background-attachment: fixed; 
   background-position: center;

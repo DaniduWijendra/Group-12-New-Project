@@ -101,12 +101,47 @@
                                                                 required
                                                                 ></v-text-field>
 
-                                                              <v-text-field
-                                                                v-model="editedItem.rDate"
-                                                                :rules="nameRules"
-                                                                label="Claim Date:"
-                                                                required
-                                                                ></v-text-field>
+                                                             <v-menu
+                                                                  ref="menu"
+                                                                  v-model="menu"
+                                                                  :close-on-content-click="false"
+                                                                  :return-value.sync="editedItem.rDate"
+                                                                  transition="scale-transition"
+                                                                  offset-y
+                                                                  min-width="290px"
+                                                                >
+                                                                  <template v-slot:activator="{ on, attrs }">
+                                                                    <v-text-field
+                                                                      v-model="editedItem.rDate"
+                                                                      label="Picker in menu"
+                                                                      prepend-icon="mdi-calendar"
+                                                                      readonly
+                                                                      v-bind="attrs"
+                                                                      v-on="on"
+                                                                    ></v-text-field>
+                                                                  </template>
+                                                                  <v-date-picker
+                                                                    v-model="editedItem.rDate"
+                                                                    no-title
+                                                                    scrollable
+                                                                  >
+                                                                    <v-spacer></v-spacer>
+                                                                    <v-btn
+                                                                      text
+                                                                      color="primary"
+                                                                      @click="menu = false"
+                                                                    >
+                                                                      Cancel
+                                                                    </v-btn>
+                                                                    <v-btn
+                                                                      text
+                                                                      color="primary"
+                                                                      @click="$refs.menu.save(editedItem.rDate)"
+                                                                    >
+                                                                      OK
+                                                                    </v-btn>
+                                                                  </v-date-picker>
+                                                                </v-menu>
 
                                                               <v-text-field
                                                                 v-model="editedItem.place"
@@ -254,6 +289,7 @@ import Axios from 'axios'
       dialog: false,
       dialogDelete: false,
       editedIndex: -1,
+      menu:'',
         headers: [
         {
           text: 'Report Id',

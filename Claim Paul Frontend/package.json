@@ -16,6 +16,7 @@
     "@tinymce/tinymce-vue": "^4.0.0",
     "axios": "^0.21.0",
     "core-js": "^3.6.2",
+    "emailjs-com": "^2.6.4",
     "jquery": "^3.5.1",
     "js-cookie": "^2.2.1",
     "jspdf": "^2.1.1",

@@ -251,36 +251,46 @@ const router= new Router({
     children: [
       // Dashboard
       {
-        name: 'Dashboard',
+        name: 'Policy Holder Dashboard',
         path: '',
         component: () => import('@/views/policyHolderDashboard/Dashboard'),
       },
       // Pages
       {
         name: 'User Profile',
-        path: 'pages/user',
+        path: '/policyholder/user',
         component: () => import('@/views/policyHolderDashboard/pages/UserProfile'),
       },
       {
-        name: 'Notifications',
-        path: 'components/notifications',
-        component: () => import('@/views/policyHolderDashboard/component/Notifications'),
+        name: 'Upload',
+        path: '/policyholder/uploads',
+        component: () => import('@/views/policyHolderDashboard/upload/upload'),
       },
       {
-        name: 'Icons',
-        path: 'components/icons',
-        component: () => import('@/views/policyHolderDashboard/component/Icons'),
+        name: 'Driver History',
+        path: '/policyHolder/driverHistory',
+        component: () => import('@/views/policyHolderDashboard/driverHistory/driverHistory'),
       },
       {
-        name: 'Typography',
-        path: 'components/typography',
-        component: () => import('@/views/policyHolderDashboard/component/Typography'),
+        name: 'Find Shops',
+        path: '/policyHolder/findShops',
+        component: () => import('@/views/policyHolderDashboard/find/findShops'),
+      },
+      {
+        name: 'Find Garages',
+        path: '/policyHolder/findGarages',
+        component: () => import('@/views/policyHolderDashboard/find/findGarages'),
       },
       // Tables
       {
-        name: 'Regular Tables',
-        path: 'tables/regular-tables',
-        component: () => import('@/views/policyHolderDashboard/tables/RegularTables'),
+        name: 'Generate Cost',
+        path: '/policyHolder/generateCost',
+        component: () => import('@/views/policyHolderDashboard/generateCost/generateCost'),
+      },
+      {
+        name: 'Messages',
+        path: '/policyHolder/messages',
+        component: () => import('@/views/policyHolderDashboard/messages/messages'),
       },
       // Maps
       {
