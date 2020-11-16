@@ -129,7 +129,7 @@
           title: 'Messages',
           to: '/agent/messages',
         },
-         {
+        {
           icon: 'mdi-email-plus',
           title: 'Reports',
           to: '/agent/reports',

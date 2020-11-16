@@ -114,11 +114,25 @@ const router= new Router({
         path: 'tables/agent-table',
         component: () => import('@/views/adminDashboard/tables/agent-table'),
       },
+      //driver history
       {
         name: 'Driver History',
         path: 'tables/driver-history',
         component: () => import('@/views/adminDashboard/tables/driver-history'),
       },
+       //reports
+       {
+        name: 'reports',
+        path: '/admin/reports',
+        component: () => import('@/views/adminDashboard/reports/reports'),
+       },
+
+        //reports handle
+        {
+         name: 'reports Handle',
+         path: '/admin/reportsHandle',
+         component: () => import('@/views/adminDashboard/reports/reportsHandle'),
+        },
       // Maps
       {
         name: 'Google Maps',

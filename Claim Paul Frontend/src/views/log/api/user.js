@@ -8,6 +8,7 @@ export default{
         return Api.post('/register',form);
     },
 
+  
     async login(form){
         await Csrf.getCookie();
         

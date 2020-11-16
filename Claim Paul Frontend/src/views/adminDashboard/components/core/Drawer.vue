@@ -141,6 +141,16 @@
           to: '/admin/tables/driver-history',
         },
         {
+          icon: 'mdi-email-plus',
+          title: 'Reports',
+          to: '/admin/reports',
+        },
+         {
+          icon: 'mdi-email-edit',
+          title: 'Reports Handle',
+          to: '/admin/reportsHandle',
+        },
+        {
           title: 'rtables',
           icon: 'mdi-clipboard-outline',
           to: '/admin/tables/regular-tables',

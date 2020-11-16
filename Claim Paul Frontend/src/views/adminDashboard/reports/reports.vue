@@ -22,7 +22,7 @@
       <v-toolbar
         flat
       >
-        <v-toolbar-title>Report Table</v-toolbar-title>
+        <v-toolbar-title>Reports Table</v-toolbar-title>
         <v-divider
           class="mx-4"
           inset
@@ -65,6 +65,7 @@
                   hide-details
                   placeholder="Enter Report Id"
                   class="col-md-4 pr-4"
+                  v-model="search"
             ></v-text-field>
           </template>
           <v-card>
