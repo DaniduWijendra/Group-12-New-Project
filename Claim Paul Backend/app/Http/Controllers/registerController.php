@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\UserLogin;
+use App\Models\User;
 use App\Models\userSignUp;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -18,7 +18,7 @@ class registerController extends Controller
             'password'=>['required','min:8','confirmed']
         ]);
 
-        UserSignUp::create([
+        User::create([
 
             'firstName'=>$request->firstName,
             'lastName'=>$request->lastName,
@@ -29,14 +29,14 @@ class registerController extends Controller
         ]);
 
         
-        UserLogin::create([
+        // User::create([
 
             
-            'email'=>$request->email,
-            'password'=> Hash::make($request->password),
-            'role'=>$request->role,
-            'isDeleted'=>'0',
-        ]);
+        //     'email'=>$request->email,
+        //     'password'=> Hash::make($request->password),
+        //     'role'=>$request->role,
+        //     'isDeleted'=>'0',
+        // ]);
 
 
 

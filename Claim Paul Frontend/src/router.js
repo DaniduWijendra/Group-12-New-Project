@@ -19,9 +19,21 @@ const router= new Router({
       meta:{ guestOnly:true },
     },
     {
-      name: 'Register',
-      path: '/register',
-      component: () => import('@/views/log/register'),
+      name: 'Admin Register',
+      path: '/admin_register',
+      component: () => import('@/views/log/admin_register'),
+      meta:{ guestOnly:true },
+    },
+    {
+      name: 'Agent Register',
+      path: '/agent_register',
+      component: () => import('@/views/log/agent_register'),
+      meta:{ guestOnly:true },
+    },
+    {
+      name: 'policy holder register',
+      path: '/policyholder_register',
+      component: () => import('@/views/log/policyholder_register'),
       meta:{ guestOnly:true },
     },
     {
@@ -240,6 +252,7 @@ const router= new Router({
         name: 'Policy Holder Dashboard',
         path: '',
         component: () => import('@/views/policyHolderDashboard/Dashboard'),
+        meta:{authOnly:true},
       },
       // Pages
       {
@@ -303,10 +316,11 @@ const router= new Router({
 })
 
 function isLoggedIn(){
-  return localStorage.getItem("auth");
+  return localStorage.getItem("token");
 }
 
 router.beforeEach((to, from, next) => {
+  
   if (to.matched.some(record => record.meta.authOnly)) {
     // this route requires auth, check if logged in
     // if not, redirect to login page.
@@ -325,7 +339,7 @@ router.beforeEach((to, from, next) => {
     // if not, redirect to login page.
     if (isLoggedIn()) {
       next({
-        path: '/agent',
+        path: '/policyholder',
         query: { redirect: to.fullPath }
       })
     } else {
@@ -335,6 +349,8 @@ router.beforeEach((to, from, next) => {
   else {
     next() // make sure to always call next()!
   }
+ 
+
 })
 
 
