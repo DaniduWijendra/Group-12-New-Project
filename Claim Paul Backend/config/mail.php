@@ -49,6 +49,7 @@ return [
             'transport' => 'ses',
         ],
 
+    
         'mailgun' => [
             'transport' => 'mailgun',
         ],
@@ -83,10 +84,7 @@ return [
     |
     */
 
-    'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
-    ],
+    'from' => ['address' => 'idealstore096@gmail.com', 'name' => 'Claim Paul'],
 
     /*
     |--------------------------------------------------------------------------

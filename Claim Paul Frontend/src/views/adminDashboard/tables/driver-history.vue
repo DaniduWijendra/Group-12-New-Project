@@ -37,7 +37,7 @@
         </thead>
 
         <tbody >
-          <tr v-for="item in idFilter" :key="items.pId">
+          <tr v-for='item in idFilter' :key='items.pId'>
             <td>{{item.NIC}}</td>
             <td>rep_{{item.rId}}</td>
             <td>{{item.fName}}</td>
@@ -69,7 +69,25 @@ export default {
     }),
     created()
     {
-      this.viewDrivers();
+     
+        Axios.get('http://127.0.0.1:8000/api/driver-history').then(Response =>{
+          this.items=Response.data;
+        })
+        .catch(function (error)
+        {
+          console.log('cannot get data'+ error);
+        });
+      
+    },
+    methods:
+    {
+      // sendMail()
+      // {
+      //   return axios.post('http://127.0.0.1:8000/api/api/sendMail').then(
+      //         // Change to notify the user
+      //         console.log('Method works')
+      //         );
+      // }
     },
     computed:
     {
@@ -80,17 +98,5 @@ export default {
         })
       }
     },
-    methods:{
-      viewDrivers()
-      {
-        Axios.get('http://127.0.0.1:8000/api/driver-history').then(Response =>{
-          this.items=Response.data;
-        })
-        .catch(function (error)
-        {
-          console.log('cannot get data'+ error);
-        });
-      }
-    }
 }
 </script>

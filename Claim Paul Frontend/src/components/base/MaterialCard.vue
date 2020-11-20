@@ -1,4 +1,5 @@
 <template>
+  
   <v-card
     v-bind="$attrs"
     :class="classes"

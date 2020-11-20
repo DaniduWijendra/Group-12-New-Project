@@ -37,22 +37,22 @@ const router= new Router({
       meta:{ guestOnly:true },
     },
     {
-      name: 'about',
+      name: 'About',
       path: '/about',
       component: () => import('@/views/about'),
     },
     {
-      name: 'contact',
+      name: 'Contact',
       path: '/contact',
       component: () => import('@/views/contact'),
     },
     {
-      name: 'services',
+      name: 'Services',
       path: '/services',
       component: () => import('@/views/service'),
     },
     {
-      name: 'faq',
+      name: 'Faq',
       path: '/faq',
       component: () => import('@/views/faq'),
     },
@@ -70,13 +70,13 @@ const router= new Router({
     children: [
       // Dashboard
       {
-        name: 'Dashboard',
+        name: 'Admin Dashboard',
         path: '',
         component: () => import('@/views/adminDashboard/Dashboard'),
       },
       // Pages
       {
-        name: 'User Profile',
+        name: 'Admin User Profile',
         path: 'pages/user',
         component: () => import('@/views/adminDashboard/pages/UserProfile'),
       },
@@ -91,30 +91,9 @@ const router= new Router({
         component: () => import('@/views/adminDashboard/pages/agent-signup'),
       },
       {
-        name: 'Notifications',
+        name: 'Admin Notifications',
         path: 'components/notifications',
         component: () => import('@/views/adminDashboard/component/Notifications'),
-      },
-      {
-        name: 'Icons',
-        path: 'components/icons',
-        component: () => import('@/views/adminDashboard/component/Icons'),
-      },
-      {
-        name: 'Typography',
-        path: 'components/typography',
-        component: () => import('@/views/adminDashboard/component/Typography'),
-      },
-      // Tables
-      {
-        name: 'Regular Tables',
-        path: 'tables/regular-tables',
-        component: () => import('@/views/adminDashboard/tables/RegularTables'),
-      },
-      {
-        name: 'Cost Update Table',
-        path: 'tables/cost-table',
-        component: () => import('@/views/adminDashboard/tables/cost-table'),
       },
       {
         name: 'Policy Holders Table',
@@ -126,14 +105,35 @@ const router= new Router({
         path: 'tables/agent-table',
         component: () => import('@/views/adminDashboard/tables/agent-table'),
       },
+      //driver history
       {
         name: 'Driver History',
         path: 'tables/driver-history',
         component: () => import('@/views/adminDashboard/tables/driver-history'),
       },
+       //reports
+       {
+        name: 'Admin Reports',
+        path: '/admin/reports',
+        component: () => import('@/views/adminDashboard/reports/reports'),
+       },
+
+        //reports handle
+        {
+         name: 'Admin Reports Handle',
+         path: '/admin/reportsHandle',
+         component: () => import('@/views/adminDashboard/reports/reportsHandle'),
+        },
+        //garages and shops map
+        {
+          name: 'Shops and Garages',
+          path: '/admin/maps/shops-garages-map',
+          component: () => import('@/views/adminDashboard/maps/ShopsandGarages'),
+         },
+
       // Maps
       {
-        name: 'Google Maps',
+        name: 'Admin Google Maps',
         path: 'maps/google-maps',
         component: () => import('@/views/adminDashboard/maps/GoogleMaps'),
       },
@@ -150,19 +150,19 @@ const router= new Router({
       children: [
         // Dashboard
         {
-          name: 'Dashboard',
+          name: 'Agent Dashboard',
           path: '',
           component: () => import('@/views/agentDashboard/Dashboard'),
           meta:{authOnly:true},
         },
         // Pages
         {
-          name: 'User Profile',
+          name: 'Agent User Profile',
           path: '/agent/user',
           component: () => import('@/views/agentDashboard/pages/UserProfile'),
         },
         {
-          name: 'Notifications',
+          name: 'Agent Notifications',
           path: 'components/notifications',
           component: () => import('@/views/agentDashboard/component/Notifications'),
         },
@@ -190,28 +190,28 @@ const router= new Router({
         },
         //reports
         {
-         name: 'reports',
+         name: 'Agent Reports',
          path: '/agent/reports',
          component: () => import('@/views/agentDashboard/reports/reports'),
         },
 
          //reports handle
          {
-          name: 'reports Handle',
+          name: 'Agent Reports Handle',
           path: '/agent/reportsHandle',
           component: () => import('@/views/agentDashboard/reports/reportsHandle'),
          },
 
          //reports handle
          {
-          name: 'reports Handle',
+          name: 'Test',
           path: '/agent/test',
           component: () => import('@/views/agentDashboard/reports/components/test'),
          },
 
           //messages
           {
-            name: 'messages',
+            name: 'Agent messages',
             path: '/agent/messages',
             component: () => import('@/views/agentDashboard/Messages/messages'),
            },
@@ -223,13 +223,13 @@ const router= new Router({
           },
             //payments
             {
-              name: 'payments',
+              name: 'Payments',
               path: '/agent/payments',
               component: () => import('@/views/agentDashboard/payments/payments'),
             },
              //payments
              {
-              name: 'driverHistory',
+              name: 'Agent Driver History',
               path: '/agent/driver_history',
               component: () => import('@/views/agentDashboard/driverHistory/driverHistory'),
             },
@@ -256,17 +256,17 @@ const router= new Router({
       },
       // Pages
       {
-        name: 'User Profile',
+        name: 'Policy Holder User Profile',
         path: '/policyholder/user',
         component: () => import('@/views/policyHolderDashboard/pages/UserProfile'),
       },
       {
-        name: 'Upload',
+        name: 'Policy Holder Upload',
         path: '/policyholder/uploads',
         component: () => import('@/views/policyHolderDashboard/upload/upload'),
       },
       {
-        name: 'Driver History',
+        name: 'View Driver History',
         path: '/policyHolder/driverHistory',
         component: () => import('@/views/policyHolderDashboard/driverHistory/driverHistory'),
       },
@@ -293,18 +293,18 @@ const router= new Router({
       },
       // Maps
       {
-        name: 'Google Maps',
+        name: 'Show Google Maps',
         path: 'maps/google-maps',
         component: () => import('@/views/policyHolderDashboard/maps/GoogleMaps'),
       },
 
       
       // Upgrade
-      {
-        name: 'Upgrade',
-        path: 'upgrade',
-        component: () => import('@/views/policyHolderDashboard/Upgrade'),
-      },
+      // {
+      //   name: 'Upgrade',
+      //   path: 'upgrade',
+      //   component: () => import('@/views/policyHolderDashboard/Upgrade'),
+      // },
     ],
   },
 

@@ -125,7 +125,9 @@
 }
 </style>
 <script>
+
 export default {
+  
   computed: {
     passwordMatch() {
       return () => this.password === this.verify || "Password must match";
@@ -138,6 +140,7 @@ export default {
       },
   },
   methods: {
+    
     validate() {
       if (this.$refs.loginForm.validate()) {
         // submit form to server/API here...

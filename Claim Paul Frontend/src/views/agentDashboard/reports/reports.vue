@@ -56,7 +56,7 @@
               v-bind="attrs"
               v-on="on"
             >
-              +New Item
+              New Item
             </v-btn>
              
              <v-text-field

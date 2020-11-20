@@ -24,11 +24,14 @@ import axios from 'axios'
 import notifications from './notification'
 import ViewUI from 'view-design';
 import 'view-design/dist/styles/iview.css';
+//import VuetifyGoogleAutocomplete from 'vuetify-google-autocomplete';
 
 Vue.mixin(notifications)
 Vue.config.productionTip = false
 Vue.use(ViewUI)
-
+// Vue.use(VuetifyGoogleAutocomplete, {
+//   apiKey: 'AIzaSyBnPFIcqWQPAzFyJi04UW6_r-4sQuHqwDs', // Can also be an object. E.g, for Google Maps Premium API, pass `{ client: <YOUR-CLIENT-ID> }`
+// });
 new Vue({
   router,
   store,

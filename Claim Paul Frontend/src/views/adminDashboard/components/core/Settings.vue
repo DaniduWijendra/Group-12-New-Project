@@ -97,66 +97,9 @@
           </v-row>
 
           <v-divider class="my-4 secondary" />
-
-          <strong class="mb-3 d-inline-block">IMAGES</strong>
-
-          <v-item-group
-            v-model="image"
-            class="d-flex justify-space-between mb-3"
-          >
-            <v-item
-              v-for="image in images"
-              :key="image"
-              :value="image"
-              class="mx-1"
-            >
-              <template v-slot="{ active, toggle }">
-                <v-sheet
-                  :class="active && 'v-settings__item--active'"
-                  class="d-inline-block v-settings__item"
-                  @click="toggle"
-                >
-                  <v-img
-                    :src="image"
-                    height="100"
-                    width="50"
-                  />
-                </v-sheet>
-              </template>
-            </v-item>
-          </v-item-group>
-
-          <v-btn
-            block
-            class="mb-3"
-            color="success"
-            href="https://www.creative-tim.com/product/vuetify-material-dashboard"
-            default
-            rel="noopener"
-            target="_blank"
-          >
-            Free Download
-          </v-btn>
-
-          <v-btn
-            block
-            class="mb-3"
-            color="grey darken-1"
-            dark
-            href="https://vuetifyjs.com/components/api-explorer"
-            default
-            rel="noopener"
-            target="_blank"
-          >
-            Documentation
-          </v-btn>
+         
 
           <div class="my-12" />
-
-          <div>
-            <strong class="mb-3 d-inline-block">THANK YOU FOR SHARING!</strong>
-          </div>
-
           <v-btn
             class="ma-1"
             color="#55acee"
