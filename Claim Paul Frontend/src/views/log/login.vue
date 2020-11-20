@@ -30,39 +30,84 @@
         <button @click.prevent="login" class="btn btn-primary btn-block">
           Login
         </button>
+        <br>
+         <span class='alert alert-primary'>create account <a href="/policyholder_register">here</a></span>
       </div>
+
+     
     </div>
   </div>
 </template>
 
 <script>
-import user from './api/user'
+import Axios from 'axios'
+import user from './api/user.js'
 export default {
   data() {
     return {
       form: {
         email: "",
-        password: ""
+        password: "",
+        device_name:"browser",
+        
       },
-      errors: []
+      errors: [],
+      user1:'',
     };
   },
 
   methods:{
-    login(){
+     login() {
       user.login(this.form)
-      .then(()=>{
-            localStorage.setItem('auth','true');
-            this.$router.push({path:'/agent'});
-          })
-          .catch(error => {
-            
-                  if (error.response.status === 422) {
-                    this.errors = error.response.data.errors;
-                  }
+        .then(response => {
+          this.$root.$emit("login", true);
+          localStorage.setItem("token", response.data);
+          //this.$router.push({name:'Policy Holder Dashboard' });
+          this.getLogin();
+        })
+        .catch(error => {
+          if (error.response.status === 422) {
+            this.errors = error.response.data.errors;
+          }
         });
-    }
-  }
+    },
+
+    getLogin()
+    {
+      Axios.get('http://127.0.0.1:8000/api/get_login/'+this.form.email).then(Response=>{
+        this.user1=Response.data.users[0];
+
+        console.log(this.user1.role);
+
+        if(this.user1.role=='super_admin')
+        {
+            this.$router.push({path:'/super_admin'});
+        }
+        else if(this.user1.role=='admin'){
+          this.$router.push({path:'/admin'});
+        }
+        else if(this.user1.role=='agent')
+        {
+           this.$router.push({path:'/agent'});
+        }
+        else if(this.user1.role=='policyholder')
+        {
+           this.$router.push({path:'/policyholder'});
+        }
+        else{
+          this.e('username or password incorrect');
+        }
+
+      }).catch(function(error){
+          
+              console.log(error);
+            
+        })
+
+
+    },
+
+  } 
 
 }
 </script>

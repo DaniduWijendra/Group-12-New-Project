@@ -4,6 +4,8 @@
     fluid
     tag="section"
   >
+
+  
     <v-row>
       <!-- <v-col cols="12"<template>
   <v-container
@@ -298,12 +300,14 @@
 
 <script>
 import animation from './component/animation/animation ' 
+import User from '../log/api/user'
 //import textAnim from './component/animation/textAnim'
   export default {
     name: 'Dashboard',
     components:{animation},
     data () {
       return {
+        //user:null,
         dailySalesChart: {
           data: {
             labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
@@ -503,5 +507,12 @@ import animation from './component/animation/animation '
         this.list[index] = !this.list[index]
       },
     },
+
+    //  mounted(){
+    //   User.auth().then(Response=>{
+    //     this.user=Response.data;
+    //     console.log(this.user);
+    //   })
+    // }
   }
 </script>

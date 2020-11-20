@@ -13,6 +13,7 @@ class reportController extends Controller
         return DB::table('reports')
     
          ->select('reports.*')->where('isDeleted','0')->get();
+
     }
 
     public function putReport(Request $rs)

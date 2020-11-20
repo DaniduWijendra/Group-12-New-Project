@@ -18,11 +18,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+
 // Route::get('/searchDriver', [
 //     'as' => 'api.searchDriver',
 //     'uses' => 'Api\SearchController@searchDriver'
 // ]);
 Route::post('/login','App\Http\Controllers\loginController@login');
+Route::get('/get_login/{email}','App\Http\Controllers\loginController@getLogin');
 Route::post('/register','App\Http\Controllers\registerController@register');
 Route::post('/logout','App\Http\Controllers\loginController@logout');
 Route::get('/driver-history','App\Http\Controllers\viewController@driverHistoryShow');
@@ -33,4 +35,9 @@ Route::put('/edit_report/{id}','App\Http\Controllers\reportController@editReport
 Route::put('/delete_report/{id}','App\Http\Controllers\reportController@deleteReport');
 Route::get('/policy-holder','App\Http\Controllers\viewController@policyHolderShow');
 Route::get('/agents','App\Http\Controllers\viewController@agentsShow');
-Route::post('/add_image','App\Http\Controllers\reportController@putReport');
+//vehicle
+Route::get('/get_vehicle','App\Http\Controllers\vehicleController@getVehicle');
+Route::post('/add_vehicle','App\Http\Controllers\vehicleController@addVehicle');
+Route::put('/edit_vehicle/{id}','App\Http\Controllers\vehicleController@editVehicle');
+Route::put('/delete_vehicle/{id}','App\Http\Controllers\vehicleController@deleteVehicle');
+Route::get('/get_image/{id}','App\Http\Controllers\vehicleController@getOneImage');

@@ -1,15 +1,15 @@
 <?php
 
 namespace App\Models;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+//use Illuminate\Foundation\Auth\userLogin as Authenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
-
-class userLogin extends Authenticatable
+use Laravel\Sanctum\HasApiTokens;
+class userLogin extends Model
 {
-    use HasFactory, Notifiable;
-    protected $table='user_logins';
+    use HasApiTokens, HasFactory, Notifiable;
+    //protected $table='user_logins';
 
     /**
      * The attributes that are mass assignable.
@@ -17,11 +17,22 @@ class userLogin extends Authenticatable
      * @var array
      */
     
-    protected $fillable = [
+    // protected $fillable = [
         
-        'email',
-        'password',
-        'role',
-        'isDeleted'
-    ];
+    //     'email',
+    //     'password',
+    //     'role',
+    //     'isDeleted'
+    // ];
+
+     /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    // protected $hidden = [
+    //     'password',
+        
+    // ];
+
 }
