@@ -13,7 +13,15 @@ class vehicleController extends Controller
     
          ->select('vehicles.*')->where('isDeleted', 0)->get();
     }
-
+    public function getCost($damageType,$category)
+    {
+        return DB::table('costmodels')->select('cost')-> where('damageType',$damageType)->where('category',$category)->get();
+    }
+    // public function getCost($damageType,$category)
+    // {
+    //     return DB::table('costmodels')->select('cost')->
+    //     where(['damageType',$damageType],['category',$category])->get();
+    // }
     public function getOneImage($id)
     {
         $item=DB::table('vehicles')->where('vId', $id)->exists();

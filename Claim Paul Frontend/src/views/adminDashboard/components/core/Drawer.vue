@@ -113,12 +113,12 @@
         {
           icon: 'mdi-account-tie',
           title: 'Create an Admin',
-          to: '/admin/pages/admin-signup',
+          to: '/admin_register',
         },
         {
           icon: 'mdi-face-agent',
           title: 'Create an Agent',
-          to: '/admin/pages/agent-signup',
+          to: '/agent_register',
         },
         {
           icon: 'mdi-car-key',

@@ -25,12 +25,6 @@ const router= new Router({
       meta:{ guestOnly:true },
     },
     {
-      name: 'Agent Register',
-      path: '/agent_register',
-      component: () => import('@/views/log/agent_register'),
-      meta:{ guestOnly:true },
-    },
-    {
       name: 'policy holder register',
       path: '/policyholder_register',
       component: () => import('@/views/log/policyholder_register'),
@@ -86,9 +80,10 @@ const router= new Router({
         component: () => import('@/views/adminDashboard/pages/admin-signup'),
       },
       {
-        name: 'Agent Signup',
-        path: 'pages/agent-signup',
-        component: () => import('@/views/adminDashboard/pages/agent-signup'),
+        name: 'Agent Register',
+        path: '/agent_register',
+        component: () => import('@/views/adminDashboard/auth/agent_register'),
+        meta:{ guestOnly:true },
       },
       {
         name: 'Admin Notifications',
