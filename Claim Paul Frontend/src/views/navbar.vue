@@ -7,13 +7,13 @@
                         <i class="material-icons">menu</i>
                         </a>
                         <ul class="right hide-on-med-and-down">
-                        <li><router-link to="/">Home</router-link></li>
-                        <li><router-link to="/about">About us</router-link></li>
-                        <li><router-link to="/contact">contact</router-link></li>
-                        <li><router-link to="/services">Services</router-link></li>
-                        <li><router-link to="/faq">FAQ</router-link></li>
-                        <li><router-link to="/login">Login</router-link></li>
-                        <li><router-link to="/register">Register</router-link></li>
+                        <li><router-link :to="{name:'Home'}">Home</router-link></li>
+                        <li><router-link :to="{name:'about'}">About us</router-link></li>
+                        <li><router-link :to="{name:'contact'}">contact</router-link></li>
+                        <li><router-link :to="{name:'services'}">Services</router-link></li>
+                        <li><router-link :to="{name:'faq'}">FAQ</router-link></li>
+                        <li><router-link :to="{name:'login'}">Login</router-link></li>
+                        <li><router-link :to="{name:'policy holder register'}">Register</router-link></li>
                         
                        
                         <li><a href="#" class="tooltipped btn-floating btn-small indigo darken-4" data-position="bottom" data-tooltip="Instagram"> 

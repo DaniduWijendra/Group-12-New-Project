@@ -108,46 +108,41 @@
 
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
-     <v-menu
-          bottom
-          left
-          offset-y
-          origin="top right"
-          transition="scale-transition"
-        >
-        <template v-slot:activator="{ attrs, on }">
+     <div class="text-center">
+    <v-menu offset-y>
+      <template v-slot:activator="{ on, attrs }">
         <v-btn
-          class="ml-2"
-          min-width="0"
-          text
+          color="black"
+          dark
+          fab
+          small
           v-bind="attrs"
           v-on="on"
         >
-          <v-badge>
-            <v-icon>mdi-account</v-icon>
-          </v-badge>
+         <v-icon>mdi-account</v-icon>
         </v-btn>
       </template>
-
-      <v-list
-      
-      >
-        <div>
-          <app-bar-item>
-            <ul>
-             <li>
-                <a
-                v-if="isLoggedIn"
-                @click.prevent="logout"
-                href="#">
-                  Logout
-              </a>
-              </li>
-            </ul>
-          </app-bar-item>
-        </div>
+      <v-list>
+        <v-list-item>
+          <v-list-item-avatar class='mx-4'>
+              <img
+                src="../../../../assets/img/policyholder/man.png"
+                alt="John"
+              >
+          </v-list-item-avatar>
+        </v-list-item>
+        
+        <v-list-item
+          v-for="(item, index) in items"
+          :key="index"
+        >
+          <v-list-item-title>
+            <v-icon>{{item.icon}}</v-icon>
+            <a v-if="isLoggedIn" @click.prevent="logout" href="#">{{ item.title }}</a></v-list-item-title>
+          </v-list-item>
       </v-list>
     </v-menu>
+  </div>
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
     <!-- <v-btn
@@ -206,6 +201,10 @@
 
     data: () => ({
        isLoggedIn: false,
+       items: [
+        { icon:'mdi-power',title: 'Logout' },
+      
+      ],
       notifications: [
         'Mike John Responded to your email',
         'You have 5 new tasks',
@@ -227,7 +226,7 @@
 
     logout() {
       User.logout().then(() => {
-        localStorage.removeItem("auth");
+        localStorage.removeItem("token");
         this.isLoggedIn = false;
         this.$router.push({ name: "Home" });
       });
@@ -238,7 +237,7 @@
     this.$root.$on("login", () => {
       this.isLoggedIn = true;
     });
-    this.isLoggedIn = !!localStorage.getItem("auth");
+    this.isLoggedIn = !!localStorage.getItem("token");
   },
   }
 </script>

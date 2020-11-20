@@ -4,6 +4,7 @@
     fluid
     tag="section"
   >
+  <span v-if='user'>{{user.email}}</span>
     <v-row>
       <v-col
         cols="12"
@@ -278,11 +279,13 @@
 </template>
 
 <script>
+import User from '../log/api/user'
   export default {
-    name: 'agent_dashboard',
+    name: 'Policy Holder Dashboard',
 
     data () {
       return {
+        user:null,
         dailySalesChart: {
           data: {
             labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
@@ -482,5 +485,12 @@
         this.list[index] = !this.list[index]
       },
     },
+
+    mounted(){
+      User.auth().then(Response=>{
+        this.user=Response.data;
+        console.log(this.user);
+      })
+    }
   }
 </script>
