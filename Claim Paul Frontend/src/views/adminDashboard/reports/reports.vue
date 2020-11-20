@@ -1,6 +1,6 @@
 <template>
 <v-container
-    id="dashboard"
+    id="reports"
     fluid
     tag="section"
 >
@@ -46,8 +46,7 @@
             <v-divider
             class="mx-4"
             inset
-            vertical
-            ></v-divider>
+            vertical></v-divider>
 
             <v-btn
               color="primary"
@@ -77,133 +76,55 @@
             </v-card-title>
 
            <v-card-text>
-                                                  <v-container>
-                                                               
-                                                      <v-form
-                                                      ref="form"
-                                                      v-model="valid"
-                                                      lazy-validation
-                                                    >
-                                                                <v-textarea
-                                                                label="Description"
-                                                                v-model="editedItem.rDescription"
-                                                                :rules="nameRules"
-                                                                auto-grow
-                                                                outlined
-                                                                rows="5"
-                                                                row-height="25"
-                                                                shaped
-                                                              ></v-textarea>
-                                                               
-                                                                <v-text-field
-                                                                v-model="editedItem.rCost"
-                                                                :rules="nameRules"
-                                                                label="Claim Cost:"
-                                                                required
-                                                                ></v-text-field>
-
-                                                              <v-text-field
-                                                                v-model="editedItem.rDate"
-                                                                :rules="nameRules"
-                                                                label="Claim Date:"
-                                                                required
-                                                                ></v-text-field>
-
-                                                              <v-text-field
-                                                                v-model="editedItem.place"
-                                                                :rules="nameRules"
-                                                                label="Place:"
-                                                                required
-                                                                ></v-text-field>
-
-                                                              <v-row>
-                                                                  <v-col col="12" sm="4" >
-                                                                           <v-text-field
-                                                                            v-model="editedItem.vehicleNumber"
-                                                                            :rules="nameRules"
-                                                                            label="Vehicle Number:"
-                                                                            required
-                                                                            ></v-text-field>
-                                                                  </v-col>
-
-                                                                  <v-col col="12" sm="4" >
-                                                                            <v-text-field
-                                                                            v-model="editedItem.adminId"
-                                                                            :rules="nameRules"
-                                                                            label="Admin Id:"
-                                                                            required
-                                                                            ></v-text-field>
-                                                                          
-                                                                          </div>
-                                                                  </v-col>
-
-                                                                  <v-col col="12" sm="4" >
-                                                                            <v-text-field
-                                                                            v-model="editedItem.agId"
-                                                                            :rules="nameRules"
-                                                                            label="Agent Id:"
-                                                                            required
-                                                                            ></v-text-field>
-                                                                  </v-col>
-                                                        </v-row>
-
-                                                        <v-row>
-                                                                  <v-col col="12" sm="4" >
-                                                                    
-                                                                      <v-select 
-                                                                      v-model="editedItem.isAccepted"
-                                                                      :items="status"
-                                                                      
-                                                                      solo
-                                                                      label="Status:"
-                                                                      ></v-select>
-                                                                                
-                                          
-                                                                  </v-col>
-                                                        </v-row>
-                                                           
-                                                        <v-card-actions>
-                                                                      <v-spacer></v-spacer>
-                                                                    
-                                                                      <v-btn v-if="formTitle=='New Item'"
-                                                                        type="submit"
-                                                                        :disabled="!valid"
-                                                                        color="blue darken-1"
-                                                                        text
-                                                                        @click="save"
-                                                                      
-                                                                      >
-                                                                        Submit
-                                                                      </v-btn>
-
-                                                                      <v-btn v-if="formTitle=='Edit Item'"
-                                                                        type="submit"
-                                                                        :disabled="!valid"
-                                                                        color="blue darken-1"
-                                                                        text
-                                                                        @click="save"
-                                                                      
-                                                                      >
-                                                                        Update
-                                                                      </v-btn>
-
-                                                                      <v-btn
-                                                                        color="blue darken-1"
-                                                                        text
-                                                                        @click="clear"
-                                                                      >
-                                                                        Clear
-                                                                      </v-btn>
-                                                        </v-card-actions>
-
-                                                      </v-form>
-                                                  </v-container>
-                                                       
-                                              </v-card-text>
-
-        
-          </v-card>
-        </v-dialog>
+            <v-container>
+                                                  
+              <v-form ref="form" v-model="valid" lazy-validation>
+                <v-textarea label="Description" v-model="editedItem.rDescription"
+                 :rules="nameRules" auto-grow outline rows="5" row-height="25" shaped>
+                </v-textarea>                     
+                <v-text-field v-model="editedItem.rCost" :rules="nameRules" label="Claim Cost:" required>
+                </v-text-field>
+                <v-text-field v-model="editedItem.rDate" :rules="nameRules" label="Claim Date:" required>
+                 </v-text-field>
+                <v-text-field v-model="editedItem.place" :rules="nameRules" label="Place:" required> </v-text-field>
+                <v-row>
+                  <v-col col="12" sm="4" >
+                    <v-text-field v-model="editedItem.vehicleNumber" :rules="nameRules" label="Vehicle Number:" required>
+                      </v-text-field>
+                  </v-col>
+                  <v-col col="12" sm="4" >
+                  <v-text-field v-model="editedItem.adminId" :rules="nameRules" label="Admin Id:" required>
+                  </v-text-field>
+                  </div>
+                  </v-col>
+                  <v-col col="12" sm="4" >
+                  <v-text-field
+                    v-model="editedItem.agId" :rules="nameRules" label="Agent Id:" required>
+                  </v-text-field>
+                  </v-col>
+                  </v-row>
+                  <v-row>
+                    <v-col col="12" sm="4" >
+                      <v-select v-model="editedItem.isAccepted" :items="status" solo label="Status:">
+                      </v-select>
+                      </v-col>
+                  </v-row>
+                  <v-card-actions>
+                    <v-spacer></v-spacer>
+                      <v-btn v-if="formTitle=='New Item'"
+                      type="submit" :disabled="!valid" color="blue darken-1" text @click="save">Submit
+                      </v-btn>
+                      <v-btn v-if="formTitle=='Edit Item'" 
+                      type="submit" :disabled="!valid" color="blue darken-1" text @click="save"> Update
+                      </v-btn>
+                      <v-btn color="blue darken-1" text @click="clear">Clear
+                      </v-btn>
+                </v-card-actions>
+            </v-form>
+          </v-container>
+        </v-card-text>
+      </v-card>
+      </v-dialog>
         <v-dialog v-model="dialogDelete" max-width="1000px">
           <v-card>
             <v-card-title class="headline">Are you sure you want to delete this item?</v-card-title>
@@ -218,27 +139,15 @@
       </v-toolbar>
     </template>
     <template v-slot:item.actions="{ item }">
-      <v-btn
-        small
-        color="blue"
-        class="mr-2"
-        
-        @click="editItem(item)"
-      >
+      <v-btn small color="blue" class="mr-2" @click="editItem(item)">
         <v-icon>mdi-pencil</v-icon> 
       </v-btn>
-      <v-btn
-        color="red"
-        small
-        @click="deleteItem(item)"
-      >
+      <v-btn color="red" small @click="deleteItem(item)">
         <v-icon>mdi-delete</v-icon>
       </v-btn>
     </template>
-   
   </v-data-table>
   </base-material-card>
-
 
   </v-container>
 </template>
@@ -309,8 +218,7 @@ import Axios from 'axios'
       // ],
 
         valid: true,
-      
-
+        search:'',
     }),
 
     computed: {
@@ -319,7 +227,7 @@ import Axios from 'axios'
       },
     },
 
-    
+ 
       methods:{
 
       submit()

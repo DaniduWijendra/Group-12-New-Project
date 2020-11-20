@@ -14,17 +14,18 @@ class adminsSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Faker::create('App\policyHolder');
+        $faker = Faker::create('App\admin');
         for ($i=0; $i< 50 ; $i++) { 
-            DB::table('policy_holders')->insert([
-                'NIC' =>$faker->randomNumber($nbDigits =9, $strict = false),
+            DB::table('admins')->insert([
                 'fName'=>$faker->firstName(),
                 'lName'=>$faker->lastName(),
-                'pAddress'=>$faker->address, 
-                'pGender'=>$faker->randomElement($array = array ('M','F')),
-                'pDOB'=>$faker->dateTimeBetween('1990-01-01', '2012-12-31') 
+                'adminAddress'=>$faker->address, 
+                'adminGender'=>$faker->randomElement($array = array ('M','F')),
+                'adminDOB'=>$faker->dateTimeBetween('1990-01-01', '2012-12-31') 
                  ->format('Y-m-d'),
-                 'pContactNo' =>$faker->randomNumber($nbDigits = 9, $strict = false),
+                 'adminContactNo' =>$faker->randomNumber($nbDigits = 9, $strict = false),
+                 'adminEmail' =>$faker->email,
+                 'adminBranch'=>$faker->word,
                  'accessList'=>$faker->city,
                 'isDeleted' => 0,
                 'created_at' => \Carbon\Carbon::now(),

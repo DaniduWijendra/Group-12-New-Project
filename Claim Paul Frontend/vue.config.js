@@ -11,6 +11,8 @@ module.exports = {
       fallbackLocale: 'en',
       localeDir: 'locales',
       enableInSFC: false,
+      
     },
   },
+  
 }

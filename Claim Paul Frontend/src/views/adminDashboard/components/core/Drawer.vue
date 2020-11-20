@@ -6,7 +6,7 @@
     :expand-on-hover="expandOnHover"
     :right="$vuetify.rtl"
     color="blue lighten"
-    mobile-break-point="960"
+    mobile-breakpoint="960"
     app
     width="260"
     v-bind="$attrs"
@@ -121,11 +121,6 @@
           to: '/admin/pages/agent-signup',
         },
         {
-          icon: 'mdi-cash-multiple',
-          title: 'Update Cost',
-          to: '/admin/tables/cost-table',
-        },
-        {
           icon: 'mdi-car-key',
           title: 'Policy Holder Information',
           to: '/admin/tables/policyholder-table',
@@ -136,8 +131,8 @@
           to: '/admin/tables/agent-table',
         },
         {
-          icon: 'mdi-card-account-details',
-          title: 'Search Driver History',
+          icon: 'mdi-history',
+          title: 'Driver History',
           to: '/admin/tables/driver-history',
         },
         {
@@ -151,29 +146,14 @@
           to: '/admin/reportsHandle',
         },
         {
-          title: 'rtables',
-          icon: 'mdi-clipboard-outline',
-          to: '/admin/tables/regular-tables',
-        },
-        {
-          title: 'typography',
-          icon: 'mdi-format-font',
-          to: '/admin/components/typography',
-        },
-        {
-          title: 'icons',
-          icon: 'mdi-chart-bubble',
-          to: '/admin/components/icons',
+          title: 'Shops and Garages',
+          icon: 'mdi-map-marker',
+          to: '/admin/maps/shops-garages-map',
         },
         {
           title: 'google',
           icon: 'mdi-map-marker',
           to: '/admin/maps/google-maps',
-        },
-        {
-          title: 'notifications',
-          icon: 'mdi-bell',
-          to: '/admin/components/notifications',
         },
       ],
     }),

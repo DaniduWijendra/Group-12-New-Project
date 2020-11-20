@@ -7,7 +7,8 @@
             label="Solo"
             v-model="search"
             placeholder="Enter Agent Name"
-            solo>
+            solo
+            >
             </v-text-field>
                 </v-col>
                 <v-col cols="12" sm="4" md="4">
@@ -47,8 +48,7 @@
             <td>{{item.email}}</td>
             <td>{{item.agBranch}}</td>
             <td><v-btn small 
-              color="error" dark>
-             Delete 
+              color="error" dark> Delete 
             </v-btn></td>
           </tr>
         </tbody>

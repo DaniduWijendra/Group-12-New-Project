@@ -5,10 +5,10 @@
           <base-material-card color="pink" class="px-5 py-auto ">
             <v-row>
              <v-col cols="12" md="12" >
-              <v-content class=' py-16 mx-3 px-0 pl-sm-5 blue accent-2'>
+              <v-main class=' py-16 mx-3 px-0 pl-sm-5 blue accent-2'>
                 
                 <textanimate/>
-              </v-content>
+              </v-main>
               </v-col>
             </v-row>
           </base-material-card>

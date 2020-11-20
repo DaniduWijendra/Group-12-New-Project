@@ -50,10 +50,6 @@
               color="warning" dark >
              View Report
             </v-btn></td>
-            <td><v-btn small
-              color="success" dark @click="sendMail" >
-             Send Email
-            </v-btn></td>
           </tr>
         </tbody>
       </v-simple-table>
@@ -85,13 +81,13 @@ export default {
     },
     methods:
     {
-      sendMail()
-      {
-        return axios.post('http://127.0.0.1:8000/api/api/sendMail').then(
-              // Change to notify the user
-              console.log('Method works')
-              );
-      }
+      // sendMail()
+      // {
+      //   return axios.post('http://127.0.0.1:8000/api/api/sendMail').then(
+      //         // Change to notify the user
+      //         console.log('Method works')
+      //         );
+      // }
     },
     computed:
     {
