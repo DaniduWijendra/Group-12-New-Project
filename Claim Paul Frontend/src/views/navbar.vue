@@ -8,10 +8,10 @@
                         </a>
                         <ul class="right hide-on-med-and-down">
                         <li><router-link :to="{name:'Home'}">Home</router-link></li>
-                        <li><router-link :to="{name:'about'}">About us</router-link></li>
-                        <li><router-link :to="{name:'contact'}">contact</router-link></li>
-                        <li><router-link :to="{name:'services'}">Services</router-link></li>
-                        <li><router-link :to="{name:'faq'}">FAQ</router-link></li>
+                        <li><router-link :to="{name:'About'}">About us</router-link></li>
+                        <li><router-link :to="{name:'Contact'}">contact</router-link></li>
+                        <li><router-link :to="{name:'Services'}">Services</router-link></li>
+                        <li><router-link :to="{name:'Faq'}">FAQ</router-link></li>
                         <li><router-link :to="{name:'login'}">Login</router-link></li>
                         <li><router-link :to="{name:'policy holder register'}">Register</router-link></li>
                         

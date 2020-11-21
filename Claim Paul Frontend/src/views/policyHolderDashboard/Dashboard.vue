@@ -484,6 +484,8 @@ import User from '../log/api/user'
       complete (index) {
         this.list[index] = !this.list[index]
       },
+
+     
     },
 
     mounted(){

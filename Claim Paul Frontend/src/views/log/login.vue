@@ -30,6 +30,9 @@
         <button @click.prevent="login" class="btn btn-primary btn-block">
           Login
         </button>
+        <button @click.prevent="usingGoogle" class="btn red btn-block">
+          using Google
+        </button>
         <br>
          <span class='alert alert-primary'><a href="/policyholder_register">create account here</a></span>
          <span class='alert alert-danger ml-2'><a href="/reset_password">forgot password </a></span>
@@ -66,7 +69,7 @@ export default {
 
            setInterval(function(){
                       localStorage.removeItem("token"); 
-                      window.location.reload(true);}
+                      window.location.replace("/login");}
           , 3600000);
 
           
@@ -115,6 +118,17 @@ export default {
 
 
     },
+
+    usingGoogle()
+    {
+      Axios.get('http://127.0.0.1:8000/api/google_login_callback').then(Response=>{
+
+        console.log(Response.data);
+
+      }).catch(error =>{
+
+      });
+    }
 
   } ,
 
