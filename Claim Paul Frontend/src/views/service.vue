@@ -1,51 +1,35 @@
 <template>
     <div>
         <Navbar/>
-         <section class="claimpaul-banner">
-                    <div class="slider">
-                        <div class="slide">
-                            <div class="content-holder">
-                                
-
-                                    <div class="content">
-                                        <div class="row">
-                                            <div class="col12 xs12 s6">
-                                                <div class="sub-content col px-md-5">
-
-                                                    <div class="title">
-                                                       <h1 class="display-1">Claim Paul</h1>
-                                                    </div>
-
-                                                    <div class="sub-title">
-                                                        well come to claim Paul!!!
-                                                    </div>
-
-                                                    <div class="btn-sign-up"></div>
-                                                    <div class="btn-get-started"></div>
-
-                                                </div>
-                                            </div>
-
-                                            <div class="col12 xs12 s6">
-                                                <div class="image responsive-img">
-
-                                                </div>
-
-                                            </div>
-                                            
-                                    
-
-                                        </div>
-
-
-
-                                    </div>
-                              
+         <section class='mx-2'>
+                   <v-carousel
+                        cycle
+                        height="600"
+                        hide-delimiter-background
+                        show-arrows-on-hover
+                        
+                      >
+                        <v-carousel-item
+                        v-for="(slide, i) in slides"
+                        :key="i"
+                        >
+                        <v-sheet
+                            :color="colors[i]"
+                            height="100%"
+                        >
+                            <v-row
+                            class="fill-height"
+                            align="center"
+                            justify="center"
+                            >
+                            <div class="display-3 mx-5">
+                                {{ slide }} Slide
                             </div>
-                            
-                            
-                        </div>
-                    </div>
+                            </v-row>
+                        </v-sheet>
+                        </v-carousel-item>
+                    </v-carousel>
+                
 
                 </section>
 
@@ -64,20 +48,29 @@ import Footer from './footer'
 export default {
 
     components:{Navbar,Footer},
+
+     data () {
+      return {
+        colors: [
+          'indigo',
+          'warning',
+          'pink darken-2',
+          'red lighten-1',
+          'deep-purple accent-4',
+        ],
+        slides: [
+          'First',
+          'Second',
+          'Third',
+          'Fourth',
+          'Fifth',
+        ],
+      }
+    },
     
 }
 </script>
 
 <style scoped>
- @import '../css/slider.css';
-  .image{
-            position: absolute;
-            top:0;bottom:0;left:0;right:0;
-            background-image: url(../assets/img/home/slider.svg);
-            background-repeat: no-repeat;
-            background-position: right bottom;
-            background-size:contain;
-            background-repeat: no-repeat;
-                   
-            }
+
 </style>
