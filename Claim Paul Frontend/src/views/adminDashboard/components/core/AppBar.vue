@@ -1,5 +1,12 @@
 <template>
-  <v-app-bar id="app-bar" absolute app color="transparent" flat height="75">
+  <v-app-bar
+    id="app-bar"
+    absolute
+    app
+    color="transparent"
+    flat
+    height="75"
+  >
     <v-btn
       class="mr-3"
       elevation="1"
@@ -18,7 +25,8 @@
 
     <v-toolbar-title
       class="hidden-sm-and-down font-weight-light"
-      v-text="$route.name"/>
+      v-text="$route.name"
+    />
 
     <v-spacer />
 
@@ -49,7 +57,7 @@
       class="ml-2"
       min-width="0"
       text
-      to="/"
+      to="/agent"
     >
       <v-icon>mdi-view-dashboard</v-icon>
     </v-btn>
@@ -98,14 +106,53 @@
       </v-list>
     </v-menu>
 
-    <v-btn
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+     <div class="text-center">
+    <v-menu offset-y>
+      <template v-slot:activator="{ on, attrs }">
+        <v-btn
+          color="black"
+          dark
+          fab
+          small
+          v-bind="attrs"
+          v-on="on"
+        >
+         <v-icon>mdi-account</v-icon>
+        </v-btn>
+      </template>
+      <v-list>
+        <v-list-item>
+          <v-list-item-avatar class='mx-4'>
+              <img
+                src="../../../../assets/img/policyholder/man.png"
+                alt="John"
+              >
+          </v-list-item-avatar>
+        </v-list-item>
+        
+        <v-list-item
+          v-for="(item, index) in items"
+          :key="index"
+        >
+          <v-list-item-title>
+            <v-icon>{{item.icon}}</v-icon>
+            <a v-if="isLoggedIn" @click.prevent="logout" href="#">{{ item.title }}</a></v-list-item-title>
+          </v-list-item>
+      </v-list>
+    </v-menu>
+  </div>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+    <!-- <v-btn
       class="ml-2"
       min-width="0"
       text
-      to="/pages/user"
+      to="/agent/pages/user"
     >
       <v-icon>mdi-account</v-icon>
-    </v-btn>
+    </v-btn> -->
   </v-app-bar>
 </template>
 
@@ -115,7 +162,7 @@
 
   // Utilities
   import { mapState, mapMutations } from 'vuex'
-
+  import User from '../../../log/api/user'
   export default {
     name: 'DashboardCoreAppBar',
 
@@ -153,6 +200,11 @@
     },
 
     data: () => ({
+       isLoggedIn: false,
+       items: [
+        { icon:'mdi-power',title: 'Logout' },
+      
+      ],
       notifications: [
         'Mike John Responded to your email',
         'You have 5 new tasks',
@@ -170,6 +222,22 @@
       ...mapMutations({
         setDrawer: 'SET_DRAWER',
       }),
+    
+
+    logout() {
+      User.logout().then(() => {
+        localStorage.removeItem("token");
+        this.isLoggedIn = false;
+        this.$router.push({ name: "Home" });
+      });
+    }
     },
+
+     mounted() {
+    this.$root.$on("login", () => {
+      this.isLoggedIn = true;
+    });
+    this.isLoggedIn = !!localStorage.getItem("token");
+  },
   }
 </script>

@@ -33,10 +33,10 @@
                    <v-select :items="itemrange" v-model="range" solo label="Range:">
                       </v-select>
                 </v-col>
-                <v-col cols="12" sm="4" md="4">
+                <v-col cols="12" sm="8" md="8">
                    <div class="item" v-for="place in places" :key="place.id">
                        <div>
-                           <div>{{place.name}}</div>
+                           <div class="header">{{place.name}}</div>
                            <div>{{place.vicinity}}</div>
                        </div>
                    </div>
@@ -58,7 +58,7 @@ export default {
             map:null,
             address:"",
             error:"",
-            itemtype:['car_repair','Garages'],
+            itemtype:['car_repair','hardware_store'],
             itemrange:['5','10','15','20'],
             lat:0,
             lng:0,
@@ -71,8 +71,6 @@ export default {
     {
             findCloseByPressed()
              {
-        //         const URL = `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${
-        //  this.lat},${this.lng}&type=${this.type}&radius=${this.range *1000}&key=AIzaSyBnPFIcqWQPAzFyJi04UW6_r-4sQuHqwDs`;
         const URL = `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${
         this.lat
       },${this.lng}&type=${this.type}&radius=${this.range *
@@ -95,6 +93,22 @@ export default {
                     
                     
                 });
+                var infowindow = new google.maps.InfoWindow();
+                this.places.forEach(place => {
+		const lat = place.geometry.location.lat;
+        const lng = place.geometry.location.lng;
+        var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+		let marker = new google.maps.Marker({
+			position: new google.maps.LatLng(lat, lng),
+            map: map,
+            icon: iconBase + 'info-i_maps.png'
+
+        });
+        google.maps.event.addListener(marker, "click", () => {
+	infowindow.setContent(`<div class="header">${place.name}</div><p>${place.vicinity}</p>`);
+	infowindow.open(map, marker);
+});
+	});
              },
             locationPressed()
             {
@@ -150,6 +164,7 @@ export default {
             showUserLocationOnTheMap(latitude,longitude)
             {
                 //create map object 
+                
                 let map=new google.maps.Map(document.getElementById("map"),
                 {
                     zoom:15,
@@ -167,29 +182,13 @@ export default {
                 )
             },
     
-          setMarker(Points,Label)
-          {
-              const markers=new google.maps.Marker({
-                  position:Points,
-                  map:this.map,
-                  Label:{
-                      text:Label,
-                      color:'#FFF',
-                  }
-              });
-          }
 
 
     },
     mounted()
     {
         let autocomplete=new google.maps.places.Autocomplete(
-            document.getElementById("autocomplete"),
-            {
-                bounds:new google.maps.LatLngBounds(
-                new google.maps.LatLng(7.873054, 80.771797),
-                )
-            });
+            document.getElementById("autocomplete"));
             autocomplete.addListener("place_changed",()=>{
                 let place=autocomplete.getPlace();
                 console.log(place);
@@ -228,5 +227,12 @@ export default {
      left: 0;
      right: 0;
  }
+ .header
+ {
+    
+    font-weight: bold; 
+    font-size: 15px;
+ }
+
  
 </style>
