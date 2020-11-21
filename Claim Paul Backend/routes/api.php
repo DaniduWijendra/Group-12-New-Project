@@ -23,10 +23,19 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     'as' => 'api.searchDriver',
 //     'uses' => 'Api\SearchController@searchDriver'
 // ]);
+
+//auth routes
 Route::post('/login','App\Http\Controllers\loginController@login');
 Route::get('/get_login/{email}','App\Http\Controllers\loginController@getLogin');
 Route::post('/register','App\Http\Controllers\registerController@register');
 Route::post('/logout','App\Http\Controllers\loginController@logout');
+Route::post('/send_token','App\Http\Controllers\loginController@sendToken');
+Route::post('/validate_token','App\Http\Controllers\loginController@validateToken');
+Route::post('/reset_password','App\Http\Controllers\loginController@resetPassword');
+
+Route::get('/google_login', 'App\Http\Controllers\loginController@redirectToProvider');
+Route::get('/google_login_callback', 'App\Http\Controllers\loginController@handleProviderCallback');
+
 Route::get('/driver-history','App\Http\Controllers\viewController@driverHistoryShow');
 Route::get('/report','App\Http\Controllers\reportController@getReport');
 Route::post('/put_report','App\Http\Controllers\reportController@putReport');

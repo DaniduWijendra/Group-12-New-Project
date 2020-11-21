@@ -379,7 +379,7 @@ import Axios from 'axios'
     
         }).catch(function(error){
           console.log(error);
-          this.swr();
+          
         })
 
         this.close();

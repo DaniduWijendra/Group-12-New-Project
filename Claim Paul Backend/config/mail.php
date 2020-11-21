@@ -84,8 +84,15 @@ return [
     |
     */
 
-    'from' => ['address' => 'idealstore096@gmail.com', 'name' => 'Claim Paul'],
+    //'from' => ['address' => 'idealstore096@gmail.com', 'name' => 'Claim Paul'],
 
+    // 'from'=>[
+    //     'address'=> env('MAIL_FROM_ADDRESS','hello@example.com'),
+    //     'name'=>env('MAIL_FROM_NAME','Example Test')
+    // ],
+
+    'from' => ['address' => 'example@example.com', 'name' => 'App Name'],
+    'reply_to' => ['address' => 'example@example.com', 'name' => 'App Name'],
     /*
     |--------------------------------------------------------------------------
     | Markdown Mail Settings
@@ -104,5 +111,8 @@ return [
             resource_path('views/vendor/mail'),
         ],
     ],
+
+
+   
 
 ];

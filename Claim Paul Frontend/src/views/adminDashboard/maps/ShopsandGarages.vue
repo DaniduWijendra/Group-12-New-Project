@@ -58,7 +58,7 @@ export default {
             map:null,
             address:"",
             error:"",
-            itemtype:['shops','Garages'],
+            itemtype:['car_repair','Garages'],
             itemrange:['5','10','15','20'],
             lat:0,
             lng:0,
@@ -102,6 +102,8 @@ export default {
                 {
                     navigator.geolocation.getCurrentPosition(position=>
                     {
+                        this.lat=position.coords.latitude;
+                        this.lng=position.coords.longitude;
                         this.getAddressFrom(position.coords.latitude,position.coords.longitude);
                         this.showUserLocationOnTheMap(position.coords.latitude,position.coords.longitude);
 

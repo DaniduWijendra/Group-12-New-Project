@@ -13,3 +13,4 @@ backend
 ~~~~~~~~~~~~
 
 composer require laravel/sanctum
+composer require laravel/socialite
