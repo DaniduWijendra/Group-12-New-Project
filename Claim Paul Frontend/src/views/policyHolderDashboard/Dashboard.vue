@@ -281,7 +281,7 @@
 <script>
 import User from '../log/api/user'
   export default {
-    name: 'Policy Holder Dashboard',
+    name: 'PolicyHolderDashboard',
 
     data () {
       return {

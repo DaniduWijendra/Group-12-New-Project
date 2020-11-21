@@ -81,7 +81,7 @@
           type="submit"
           @click.prevent="register"
           class="btn btn-primary btn-block"
-          v-show="form.firstName && form.lastName && form.email && form.password && form.password_confirmation"
+          
         >
           Register
         </button>

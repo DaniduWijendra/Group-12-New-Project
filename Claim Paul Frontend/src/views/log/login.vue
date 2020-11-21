@@ -1,5 +1,5 @@
 <template>
-  <div class="home col-5 mx-auto py-5 mt-5">
+  <div class="home col-5 mx-auto py-5 mt-5 ">
     <h1 class="text-center">Login</h1>
     <div class="card">
       <div class="card-body">
@@ -31,7 +31,8 @@
           Login
         </button>
         <br>
-         <span class='alert alert-primary'>create account <a href="/policyholder_register">here</a></span>
+         <span class='alert alert-primary'><a href="/policyholder_register">create account here</a></span>
+         <span class='alert alert-danger ml-2'><a href="/reset_password">forgot password </a></span>
       </div>
 
      
@@ -61,7 +62,14 @@ export default {
       user.login(this.form)
         .then(response => {
           this.$root.$emit("login", true);
-          localStorage.setItem("token", response.data);
+           localStorage.setItem("token", response.data);
+
+           setInterval(function(){
+                      localStorage.removeItem("token"); 
+                      window.location.reload(true);}
+          , 3600000);
+
+          
           //this.$router.push({name:'Policy Holder Dashboard' });
           this.getLogin();
         })
@@ -72,6 +80,7 @@ export default {
         });
     },
 
+    
     getLogin()
     {
       Axios.get('http://127.0.0.1:8000/api/get_login/'+this.form.email).then(Response=>{
@@ -107,7 +116,8 @@ export default {
 
     },
 
-  } 
+  } ,
 
+ 
 }
 </script>

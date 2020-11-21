@@ -31,6 +31,12 @@ const router= new Router({
       meta:{ guestOnly:true },
     },
     {
+      name: 'Reset Password',
+      path: '/reset_password',
+      component: () => import('@/views/log/password_reset'),
+    
+    },
+    {
       name: 'About',
       path: '/about',
       component: () => import('@/views/about'),
