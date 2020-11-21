@@ -91,7 +91,7 @@
 </template>
 
 <script>
-import user from './api/user'
+import user from '../../log/api/user'
 
 export default {
   data() {

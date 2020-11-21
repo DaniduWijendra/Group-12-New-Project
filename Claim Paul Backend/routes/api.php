@@ -50,3 +50,6 @@ Route::post('/add_vehicle','App\Http\Controllers\vehicleController@addVehicle');
 Route::put('/edit_vehicle/{id}','App\Http\Controllers\vehicleController@editVehicle');
 Route::put('/delete_vehicle/{id}','App\Http\Controllers\vehicleController@deleteVehicle');
 Route::get('/get_image/{id}','App\Http\Controllers\vehicleController@getOneImage');
+
+//costmodel
+Route::get('/getcost/{damageType}/{category}','App\Http\Controllers\vehicleController@getCost');
