@@ -20,6 +20,7 @@
         // You probably want to make the new column nullable
         //status is previous column to paid column 
         $table->integer('paid')->nullable()->after('status');
+    
     }
 
 3 Add to the function down(), this will run in case migration fails for some reasons:
@@ -77,4 +78,4 @@
                $table->integer('collumn_name')->change();
 
         5 Run migration using cli command:---------->php artisan migrate
-   
+   php artisan route:cache

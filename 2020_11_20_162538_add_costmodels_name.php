@@ -18,7 +18,7 @@ class AddCostmodelsName extends Migration
             $table->string('damageType');
             $table->string('category');
             $table->float('cost');
-            $table->primary('costId');
+            //$table->primary('costId');
             $table->boolean('isDeleted');
             $table->timestamps();
         });

@@ -24,6 +24,7 @@ import axios from 'axios'
 import notifications from './notification'
 import ViewUI from 'view-design';
 import 'view-design/dist/styles/iview.css';
+import VueSocialauth from 'vue-social-auth'
 //import VuetifyGoogleAutocomplete from 'vuetify-google-autocomplete';
 
 Vue.mixin(notifications)

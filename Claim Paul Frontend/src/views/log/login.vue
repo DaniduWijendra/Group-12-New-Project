@@ -33,6 +33,9 @@
         <button @click.prevent="usingGoogle" class="btn red btn-block">
           using Google
         </button>
+        <button @click="AuthProvider('facebook')" class="btn red btn-block">
+          Facebook Auth
+        </button>
         <br>
          <span class='alert alert-primary'><a href="/policyholder_register">create account here</a></span>
          <span class='alert alert-danger ml-2'><a href="/reset_password">forgot password </a></span>
@@ -81,6 +84,16 @@ export default {
             this.errors = error.response.data.errors;
           }
         });
+    },
+    usingGoogle()
+    {
+      Axios.get('http://127.0.0.1:8000/api/login/google').then(Response=>{
+       console.log(Response.data);
+      }).catch(function(error){
+          
+              console.log(error);
+            
+        })
     },
 
     

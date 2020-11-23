@@ -124,24 +124,41 @@ class loginController extends Controller
     }
 
      /**
-     * Redirect the user to the GitHub authentication page.
+     * Redirect the user to the google authentication page.
      *
      * @return \Illuminate\Http\Response
      */
-    public function redirectToProvider()
+    public function redirectToProvider($service)
     {
-        return Socialite::driver('google')->redirect();
+        return Socialite::driver($service)->redirect();
     }
 
     /**
-     * Obtain the user information from GitHub.
+     * Obtain the user information from google.
      *
      * @return \Illuminate\Http\Response
      */
-    public function handleProviderCallback()
+    public function handleProviderCallback($service)
     {
-        $user = Socialite::driver('google')->user();
+        $socialuser = Socialite::driver($service)->stateless()->user();
 
-        // $user->token;
+        $finduser=User::where('email',$socialuser->email)->first();
+        if($finduser)
+        {
+            Auth::login($finduser);
+            return 'done with old';
+        }
+        else
+        {
+            
+            $user=new User;
+            $user->firstName=$socialuser->name;
+            $user->email=$socialuser->email;
+            $user->password=Hash::make(12345678);
+            $user->role='policyholder';
+            $user->save();
+            Auth::login($user);
+            return 'done with new';
+        }
     }
 }

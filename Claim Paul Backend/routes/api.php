@@ -33,8 +33,14 @@ Route::post('/send_token','App\Http\Controllers\loginController@sendToken');
 Route::post('/validate_token','App\Http\Controllers\loginController@validateToken');
 Route::post('/reset_password','App\Http\Controllers\loginController@resetPassword');
 
-Route::get('/google_login', 'App\Http\Controllers\loginController@redirectToProvider');
-Route::get('/google_login_callback', 'App\Http\Controllers\loginController@handleProviderCallback');
+//use to login with {service}
+Route::group(['middleware' => ['web']], function ($service) {
+    // your routes here
+    Route::get('/login/{service}', 'App\Http\Controllers\loginController@redirectToProvider');
+    Route::get('/login/{service}/callback', 'App\Http\Controllers\loginController@handleProviderCallback');
+});
+    //  Route::get('/login/{service}', 'App\Http\Controllers\loginController@redirectToProvider');
+    //  Route::get('/login/{service}/callback', 'App\Http\Controllers\loginController@handleProviderCallback');
 
 Route::get('/driver-history','App\Http\Controllers\viewController@driverHistoryShow');
 Route::get('/report','App\Http\Controllers\reportController@getReport');
