@@ -10,23 +10,28 @@ class registerController extends Controller
 {
     public  function register(Request $request)
     {
-        $request->validate([
+        // $request->validate([
 
-            'firstName'=>['required'],
-            'lastName'=>['required'],
-            'email'=>['required','email','unique:user_sign_ups'],
-            'password'=>['required','min:8','confirmed']
-        ]);
+        //     'firstName'=>['required'],
+        //     'lastName'=>['required'],
+        //     'email'=>['required','email','unique:user_sign_ups'],
+        //     'password'=>['required','min:8','confirmed']
+        // ]);
 
-        User::create([
+        $user=new User();
 
-            'firstName'=>$request->firstName,
-            'lastName'=>$request->lastName,
-            'email'=>$request->email,
-            'password'=> Hash::make($request->password),
-            'role'=>$request->role,
-            'isDeleted'=>'0',
-        ]);
+            $user->firstName=$request->firstName;
+            $user->lastName=$request->lastName;
+            $user->email=$request->email;
+            $user->password= Hash::make($request->password);
+            $user->role=$request->role;
+            $user->isDeleted='0';
+            $user->save();
+            return response()->json(['msg'=>$user],201);
+    
+    
+        
+        
 
         
         // User::create([

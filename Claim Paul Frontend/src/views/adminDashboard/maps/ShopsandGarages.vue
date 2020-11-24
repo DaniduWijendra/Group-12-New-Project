@@ -74,7 +74,7 @@ export default {
         const URL = `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${
         this.lat
       },${this.lng}&type=${this.type}&radius=${this.range *
-        1000}&key=AIzaSyBnPFIcqWQPAzFyJi04UW6_r-4sQuHqwDs`;
+        1000}&key=AIzaSyBkVXqsLx7jahv7XlIhuHRZyWZHYBGAcl8`;
          Axios.get(URL).then(response=>{
              this.places=response.data.results;
              console.log(response.data);

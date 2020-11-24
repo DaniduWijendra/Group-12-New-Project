@@ -1,99 +1,51 @@
+
+
 <template>
-  <div class="home col-5 mx-auto py-5 mt-5">
-    <h1 class="text-center">Register</h1>
-    <div class="card">
-      <div class="card-body">
-        <div class="form-group">
-          <label for="firstName">First Name:</label>
-          <input
-            type="text"
-            v-model="form.firstName"
-            class="form-control"
-            id="firstName"
-          />
-          <span class="text-danger" v-if="errors.firstName">
-            {{ errors.firstName[0] }}
-          </span>
-        </div>
-        <div class="form-group">
-          <label for="lastName">Last Name:</label>
-          <input
-            type="text"
-            v-model="form.lastName"
-            class="form-control"
-            id="lastName"
-          />
-          <span class="text-danger" v-if="errors.lastName">
-            {{ errors.lastName[0] }}
-          </span>
-        </div>
-        <div class="form-group">
-          <label for="email">Email address:</label>
-          <input
-            type="email"
-            v-model="form.email"
-            class="form-control"
-            id="email"
-          />
-          <span class="text-danger" v-if="errors.email">
-            {{ errors.email[0] }}
-          </span>
-        </div>
-
-
-         <div class="form-group">
-          
-          <input
-            type="hidden"
-            class="form-control"
-            id="role"
-            :value='form.role'
-          />
-          
-        </div>
-
-
-        <div class="form-group">
-          <label for="password">Password:</label>
-          <input
-            type="password"
-            v-model="form.password"
-            class="form-control"
-            id="password"
-          />
-          <span class="text-danger" v-if="errors.password">
-            {{ errors.password[0] }}
-          </span>
-        </div>
-        <div class="form-group">
-          <label for="password_confirmation">Confirm Password:</label>
-          <input
-            type="password"
-            v-model="form.password_confirmation"
-            class="form-control"
-            id="password_confirmation"
-          />
-          <span class="text-danger" v-if="errors.password_confirmation">
-            {{ errors.password_confirmation[0] }}
-          </span>
-        </div>
-        <button
-          type="submit"
-          @click.prevent="register"
-          class="btn btn-primary btn-block"
-          
-        >
-          Register
-        </button>
-      </div>
-    </div>
-  </div>
+ <div class="d-flex justify-center ">
+    <v-app>
+       
+        <v-flex xs12 sm12 md12 lg12 >
+             <v-card class="text-center ma-6" max-width="800" color="#3197b2">
+                <v-card-title class="justify-center">
+                         <h2 style="color:#fff; font-size:3rem">Registration Form</h2>
+                </v-card-title>
+                <v-card-text>
+                    <v-form ref="registerForm" v-model="valid" lazy-validation>
+                        <v-row>
+                                        <!-- normal sign up begins -->
+                                        <v-col cols="12">
+                                           <v-text-field prepend-icon="mdi-form-textbox" v-model="form.firstName" :rules="[rules.required,rules.namelength]" label="First Name" maxlength="20" required></v-text-field>
+                                        </v-col>
+                                        <v-col cols="12" >
+                                            <v-text-field prepend-icon="mdi-form-textbox" v-model="form.lastName" :rules="[rules.required,rules.namelength]" label="Last Name" maxlength="20" required></v-text-field>
+                                        </v-col>
+                                        <v-col cols="12">
+                                           <v-text-field prepend-icon="mdi-email" v-model="form.email" :rules="emailRules" label="E mail" required></v-text-field>
+                                        </v-col>
+                                        <v-col cols="12">
+                                            <v-text-field v-model="form.password" prepend-icon="mdi-lock" :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'" :rules="[rules.required, rules.min]" :type="show1 ? 'text' : 'password'" name="input-10-1" label="Password" hint="At least 8 characters" counter @click:append="show1 = !show1"></v-text-field>
+                                        </v-col>
+                                        <v-col cols="12">
+                                            <v-text-field block prepend-icon="mdi-lock" v-model="form.password_confirmation" :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'" :rules="[rules.required, passwordMatch]" :type="show1 ? 'text' : 'password'" name="input-10-1" label="Confirm Password" counter @click:append="show1 = !show1"></v-text-field>
+                                        </v-col>
+                                        <v-spacer></v-spacer>
+                                        <v-col class="d-flex ml-auto" cols="12" sm="3" xsm="12">
+                                            <v-btn x-large block :disabled="!valid" color="success" @click="register">Register</v-btn>
+                                        </v-col>
+                                    </v-row>
+                                </v-form>
+                            </v-card-text>
+                        </v-card>
+        </v-flex>
+        
+    </v-app>
+    </div>  
 </template>
-
 <script>
-import user from './api/user'
+import Axios from 'axios';
+import user from './api/user';
 export default {
-  data() {
+    data() {
     return {
       form: {
         firstName: "",
@@ -102,19 +54,40 @@ export default {
         role: "policyholder",
         password: "",
         password_confirmation: "",
-        
       },
+      verify: "",
+        valid: true,
+      loginEmailRules:
+    [
+      v => !!v || "Required",
+      v => /.+@.+\..+/.test(v) || "E-mail must be valid"
+    ],
+    emailRules: [
+      v => !!v || "Required",
+      v => /.+@.+\..+/.test(v) || "E-mail must be valid"
+    ],
+
+    show1: false,
+    rules: {
+      required: value => !!value || "Required.",
+      min: v => (v && v.length >= 8) || "Min 8 characters",
+      namelength: v => (v && v.length >= 3) || "Min 3 characters",
+    },
       errors: []
     };
   },
-
-  methods:{
-
+  computed: {
+    passwordMatch() {
+      return () => this.form.password === this.form.password_confirmation || "Password must match";
+    },
+  },
+  methods: {
     register(){
 
       
 
-          user.register(this.form)
+          //user.register(this.form)
+          Axios.post('http://127.0.0.1:8000/api/register',this.form)
           .then(()=>{
             this.$router.push({name:'login'});
           })
@@ -125,12 +98,26 @@ export default {
                   }
         });
 
-    
+      
 
       
+    },
+    reset() {
+      this.$refs.form.reset();
+    },
+    resetValidation() {
+      this.$refs.form.resetValidation();
     }
-
   },
-};
-  
+}
 </script>
+
+<style>
+  .inputPrice input[type='number'] {
+    -moz-appearance:textfield;
+}
+.inputPrice input::-webkit-outer-spin-button,
+.inputPrice input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+</style>
