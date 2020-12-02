@@ -52,6 +52,22 @@ const router= new Router({
       component: () => import('@/views/service'),
     },
     {
+      name: 'Garages',
+      path: '/garages',
+      component: () => import('@/views/Home/garages'),
+    },
+    {
+      name: 'Shops',
+      path: '/shops',
+      component: () => import('@/views/Home/shops'),
+    },
+    {
+      name: 'Spare Parts',
+      path: '/spare_parts',
+      component:() => import('@/views/Home/spareParts'),
+      
+    },
+    {
       name: 'Faq',
       path: '/faq',
       component: () => import('@/views/faq'),

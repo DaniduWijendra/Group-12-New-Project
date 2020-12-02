@@ -6,6 +6,8 @@
        
         <v-flex xs12 sm12 md12 lg12 >
              <v-card class="text-center ma-6" max-width="800" color="#3197b2">
+               <v-alert type="error" v-if='errorEmail'>  {{errorEmail}}
+                </v-alert>
                 <v-card-title class="justify-center">
                          <h2 style="color:#fff; font-size:3rem">Registration Form</h2>
                 </v-card-title>
@@ -56,6 +58,7 @@ export default {
         password_confirmation: "",
       },
       verify: "",
+      errorEmail:null,
         valid: true,
       loginEmailRules:
     [
@@ -95,6 +98,11 @@ export default {
             
                   if (error.response.status === 422) {
                     this.errors = error.response.data.errors;
+                  }
+                  
+                  if (error.response.status === 401) {
+                    this.errorEmail=error.response.data.error;
+                  console.log(this.errorEmail);
                   }
         });
 

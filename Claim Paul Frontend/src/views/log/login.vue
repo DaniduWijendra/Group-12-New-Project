@@ -1,4 +1,6 @@
 <template>
+    <div>
+      <Navbar/>
     <div class="d-flex justify-center mt-10">
         <v-app>
             <v-flex xs12 sm12 md12 lg12> 
@@ -36,13 +38,17 @@
             </v-flex>
         </v-app>
     </div>
+    </div>
+
 </template>
 
 <script>
 import Axios from 'axios'
 import user from './api/user.js'
+import Navbar from '../navbar'
 
 export default {
+  components:{Navbar},
   data() {
     return {
       form: {

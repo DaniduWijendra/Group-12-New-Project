@@ -28,6 +28,7 @@ import VueSocialauth from 'vue-social-auth'
 //import VuetifyGoogleAutocomplete from 'vuetify-google-autocomplete';
 
 Vue.mixin(notifications)
+
 Vue.config.productionTip = false
 Vue.use(ViewUI)
 // Vue.use(VuetifyGoogleAutocomplete, {

@@ -1,6 +1,7 @@
 <template>
  <div>
                 <Navbar/>
+                
                 <section class="claimpaul-banner">
                     <div class="slider">
                         <div class="slide">
@@ -46,8 +47,13 @@
                             
                         </div>
                     </div>
-
+                
                 </section>
+
+                <shopWrapper/>
+                <garageWrapper/>
+                <sparePrtWrapper/>
+
                 
                 <!-- photo / grid -->
                 <section class="container section scrollspy" id="photos">
@@ -220,10 +226,13 @@ import Parallax from './views/Home/parallax'
 import Footer from './views/footer'
 import Navbar from './views/navbar'
 import Card from './views/Home/cards'
+import shopWrapper from './views/Home/shop_wrapper'
+import garageWrapper from './views/Home/garage_wrapper'
+import sparePrtWrapper from './views/Home/sparePrt_wrapper'
 
 export default {
      
-    components:{Parallax,Footer,Navbar,Card},
+    components:{Parallax,Footer,Navbar,Card,shopWrapper,garageWrapper,sparePrtWrapper},
 
    
 }

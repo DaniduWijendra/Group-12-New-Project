@@ -130,5 +130,6 @@ class shopController extends Controller
                 'image'=>$fileName,
                 'isDeleted' =>0,]
         );
+        
     }
 }
