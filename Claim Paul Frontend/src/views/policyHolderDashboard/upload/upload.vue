@@ -163,7 +163,8 @@ export default {
 
             
           
-
+            message: 'Hey!',
+            loading: false,
             editedItem:{
            
             image1:'',
@@ -268,6 +269,15 @@ export default {
 
             console.log(this.editedItem.image4);
         },
+
+        clear()
+        {
+          this.image1= null,
+          this.image2= null,
+          this.image3= null,
+          this.image4= null
+          
+        }
     }
 }
 </script>

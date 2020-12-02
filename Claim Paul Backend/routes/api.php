@@ -37,6 +37,8 @@ Route::get('/google_login', 'App\Http\Controllers\loginController@redirectToProv
 Route::get('/google_login_callback', 'App\Http\Controllers\loginController@handleProviderCallback');
 
 Route::get('/driver-history','App\Http\Controllers\viewController@driverHistoryShow');
+Route::get('/get_driver_history/{email}','App\Http\Controllers\viewController@getHistory');
+
 Route::get('/report','App\Http\Controllers\reportController@getReport');
 Route::post('/put_report','App\Http\Controllers\reportController@putReport');
 Route::get('/get_report/{id}','App\Http\Controllers\reportController@getOneReport');
