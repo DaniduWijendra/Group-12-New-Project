@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 class vehicleController extends Controller
 {
-
+    
     public function getVehicle()
     {
         return DB::table('vehicles')

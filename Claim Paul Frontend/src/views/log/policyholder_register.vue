@@ -8,10 +8,15 @@
        
         <v-flex xs12 sm12 md12 lg12 >
              <v-card class="text-center ma-6" max-width="800" color="#3197b2">
+               <v-alert type="error" v-if='errorEmail'>
+                    {{errorEmail}}
+                </v-alert>
+               
                 <v-card-title class="justify-center">
                          <h2 style="color:#fff; font-size:3rem">Registration Form</h2>
                 </v-card-title>
                 <v-card-text>
+                  <!-- <span v-if='errorEmail' class="text-danger">{{errorEmail}}</span> -->
                     <v-form ref="registerForm" v-model="valid" lazy-validation>
                         <v-row>
                                         <!-- normal sign up begins -->
@@ -22,8 +27,13 @@
                                             <v-text-field prepend-icon="mdi-form-textbox" v-model="form.lastName" :rules="[rules.required,rules.namelength]" label="Last Name" maxlength="20" required></v-text-field>
                                         </v-col>
                                         <v-col cols="12">
-                                           <v-text-field prepend-icon="mdi-email" v-model="form.email" v-bind:class="{'is-invalid:errorEmail'}" :rules="emailRules" label="E mail" required></v-text-field>
-                                           <div class="invalid-feedback text-danger">{{errorEmail}}</div>
+                                           <v-text-field
+                                            prepend-icon="mdi-email" 
+                                            v-model="form.email" 
+                             
+                                            :rules="emailRules" 
+                                            label="E mail" required>
+                                          </v-text-field>
                                         </v-col>
                                         <v-col cols="12">
                                             <v-text-field v-model="form.password" prepend-icon="mdi-lock" :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'" :rules="[rules.required, rules.min]" :type="show1 ? 'text' : 'password'" name="input-10-1" label="Password" hint="At least 8 characters" counter @click:append="show1 = !show1"></v-text-field>
@@ -52,7 +62,7 @@ import Navbar from '../navbar'
 import Axios from 'axios'
 export default {
   components:{Navbar},
-export default {
+
     data() {
     return {
       form: {
@@ -110,7 +120,7 @@ export default {
 
                   if (error.response.status === 401) {
                     this.errorEmail=error.response.data.error;
-                  
+                  console.log(this.errorEmail);
                   }
 
                  

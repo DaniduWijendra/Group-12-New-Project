@@ -47,7 +47,7 @@ class registerController extends Controller
 
            else{ 
                
-            $user=new User();
+            
             
 
         //     'email'=>['required','email','unique:user_sign_ups'],

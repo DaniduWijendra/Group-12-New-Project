@@ -75,7 +75,7 @@ export default {
      created(){
     
       
-    Axios.get('get_shops').then(Response=>{
+    Axios.get('get_shop').then(Response=>{
           this.items=Response.data;
           console.log(Response.data);
           //console.log(this.items);

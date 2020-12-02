@@ -105,9 +105,9 @@
 11. Spare Parts
 ---------------------------
 
-	INSERT INTO spare_parts(sparePrtId,sparePrtName,brand,model,year,price,vehicleVid,shpId,isDeleted) VALUES('fdss123123','Windscreen','Toyota','Corolla','2015',90000.00,5,4,0);
-	INSERT INTO spare_parts(sparePrtId,sparePrtName,brand,model,year,price,vehicleVid,shpId,isDeleted) VALUES('fdss123122','Front Door','Toyota','Corolla','2015',45000.00,2,9,0);
-	INSERT INTO spare_parts(sparePrtId,sparePrtName,brand,model,year,price,vehicleVid,shpId,isDeleted) VALUES('fdsds1231123','Back Door','Toyota','Corolla','2015',48000.00,7,4,0);
+	INSERT INTO spare_parts(partId,sparePrtName,brand,model,year,price,vehicleVid,shpId,isDeleted) VALUES('fdss123123','Windscreen','Toyota','Corolla','2015',90000.00,5,4,0);
+	INSERT INTO spare_parts(partId,brand,model,year,price,vehicleVid,shpId,isDeleted) VALUES('fdss123122','Front Door','Toyota','Corolla','2015',45000.00,2,9,0);
+	INSERT INTO spare_parts(partId,brand,model,year,price,vehicleVid,shpId,isDeleted) VALUES('fdsds1231123','Back Door','Toyota','Corolla','2015',48000.00,7,4,0);
 
 11. Vehicle
 ---------------------------

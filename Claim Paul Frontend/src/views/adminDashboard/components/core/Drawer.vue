@@ -110,15 +110,15 @@
           title: 'user',
           to: '/admin/pages/user',
         },
-        {
-          icon: 'mdi-account-tie',
-          title: 'Create an Admin',
-          to: '/admin_register',
-        },
+        // {
+        //   icon: 'mdi-account-tie',
+        //   title: 'Create an Admin',
+        //   to: '/admin/admin_register',
+        // },
         {
           icon: 'mdi-face-agent',
           title: 'Create an Agent',
-          to: '/agent_register',
+          to: '/admin/agent_register',
         },
         {
           icon: 'mdi-car-key',
@@ -131,6 +131,11 @@
           to: '/admin/tables/agent-table',
         },
         {
+          icon: 'mdi-car',
+          title: 'Vehicle Information',
+          to: '/admin/tables/vehicle-table',
+        },
+        {
           icon: 'mdi-history',
           title: 'Driver History',
           to: '/admin/tables/driver-history',
@@ -140,21 +145,31 @@
           title: 'Reports',
           to: '/admin/reports',
         },
-         {
+        {
           icon: 'mdi-email-edit',
           title: 'Reports Handle',
           to: '/admin/reportsHandle',
+        },
+        {
+          icon: 'mdi-store',
+          title: 'View Shops',
+          to: '/admin/tables/shop-table',
+        },
+        {
+          icon: 'mdi-puzzle',
+          title: 'View Spare Parts',
+          to: '/admin/tables/spareParts-table',
         },
         {
           title: 'Shops and Garages',
           icon: 'mdi-map-marker',
           to: '/admin/maps/shops-garages-map',
         },
-        {
-          title: 'google',
-          icon: 'mdi-map-marker',
-          to: '/admin/maps/google-maps',
-        },
+        // {
+        //   title: 'google',
+        //   icon: 'mdi-map-marker',
+        //   to: '/admin/maps/google-maps',
+        // },
       ],
     }),
 

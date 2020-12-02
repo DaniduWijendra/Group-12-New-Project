@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class report extends Model
 {
+    
     protected $table='reports';
 
     /**

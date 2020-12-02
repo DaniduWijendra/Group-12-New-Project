@@ -18,6 +18,7 @@ class RemovePrefix extends Migration
         });
     }
 
+    
     /**
      * Reverse the migrations.
      *

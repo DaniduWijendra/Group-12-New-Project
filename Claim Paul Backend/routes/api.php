@@ -58,15 +58,26 @@ Route::post('/add_vehicle','App\Http\Controllers\vehicleController@addVehicle');
 Route::put('/edit_vehicle/{id}','App\Http\Controllers\vehicleController@editVehicle');
 Route::put('/delete_vehicle/{id}','App\Http\Controllers\vehicleController@deleteVehicle');
 Route::get('/get_image/{id}','App\Http\Controllers\vehicleController@getOneImage');
-
+//shops
+Route::get('/get_shop','App\Http\Controllers\shopController@getShops');
+Route::post('/add_shops','App\Http\Controllers\shopController@addShop');
+Route::put('/edit_shop/{id}','App\Http\Controllers\shopController@editShop');
+Route::put('/delete_shop/{id}','App\Http\Controllers\shopController@deleteShop');
+Route::get('/get_shopimage/{id}','App\Http\Controllers\shopController@getOneImage');
+//Spare Part
+Route::get('/get_sparepart','App\Http\Controllers\spareController@getSpare');
+Route::post('/add_sparepart','App\Http\Controllers\spareController@addSpare');
+Route::put('/edit_sparepart/{id}','App\Http\Controllers\spareController@editSpare');
+Route::put('/delete_sparepart/{id}','App\Http\Controllers\spareController@deleteSpare');
+Route::get('/get_spareimage/{id}','App\Http\Controllers\spareController@getOneImage');
 //costmodel
 Route::get('/getcost/{damageType}/{category}','App\Http\Controllers\vehicleController@getCost');
 
 //spare parts
 Route::get('/get_spare_parts','App\Http\Controllers\sparePartController@getSparePart');
 
-//shops
-Route::get('/get_shops','App\Http\Controllers\shopController@getShops');
+// //shops
+// Route::get('/get_shops','App\Http\Controllers\shopController@getShops');
 
 //garages
 Route::get('/get_garages','App\Http\Controllers\garageController@getGarages');
