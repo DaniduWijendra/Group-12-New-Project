@@ -1,55 +1,47 @@
 <template>
-<div>
-  <Navbar/>
-  <div class="home col-5 mx-auto py-5 mt-5 ">
-    <h1 class="text-center">Login</h1>
-    <div class="card">
-      <div class="card-body">
-        <div class="form-group">
-          <label for="email">Email address:</label>
-          <input
-            type="email"
-            v-model="form.email"
-            class="form-control"
-            id="email"
-          />
-          <span class="text-danger" v-if="errors.email">
-            {{ errors.email[0] }}
-          </span>
-        </div>
-        <div class="form-group">
-          <label for="password">Password:</label>
-          <input
-            type="password"
-            v-model="form.password"
-            class="form-control"
-            id="password"
-          />
-          <span class="text-danger" v-if="errors.password">
-            {{ errors.password[0] }}
-          </span>
-        </div>
-        <button @click.prevent="login" class="btn btn-primary btn-block">
-          Login
-        </button>
-        <button @click.prevent="usingGoogle" class="btn red btn-block">
-          using Google
-        </button>
-        <br>
-         <span class='alert alert-primary'><a href="/policyholder_register">create account here</a></span>
-         <span class='alert alert-danger ml-2'><a href="/reset_password">forgot password </a></span>
-      </div>
-
-     
+    <div class="d-flex justify-center mt-10">
+        <v-app>
+            <v-flex xs12 sm12 md12 lg12> 
+                <v-card class="text-center ma-6" max-width="600" color="#3197b2">
+                    <v-card-title class="justify-center">
+                            <h2 style="color:#fff; font-size:3rem">Login Form</h2>
+                             </v-card-title>
+                            <v-card-text>
+                                <v-form ref="loginForm" v-model="valid" lazy-validation>
+                                    <v-row>
+                                          <v-col cols="12" >
+                                           <v-text-field prepend-icon="mdi-email-lock" v-model="form.email" :rules="emailRules" label="E-mail" required></v-text-field>
+                                        </v-col>
+                                         <v-col cols="12">
+                                            <v-text-field v-model="form.password" prepend-icon="mdi-lock" :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'" :rules="[rules.required, rules.min]" :type="show1 ? 'text' : 'password'" name="input-10-1" label="Password" hint="At least 8 characters" counter @click:append="show1 = !show1"></v-text-field>
+                                        </v-col>
+                                        <!-- <v-col class="d-flex" cols="12" sm="12" xsm="12">
+                                        </v-col>
+                                        <v-spacer></v-spacer> -->
+                                        <v-col class="d-flex" cols="12" sm="12" md="12">
+                                            <v-btn x-large block :disabled="!valid" color="success" @click="login"> Login </v-btn>
+                                        </v-col>
+                                        <!-- social media login -->
+                                        <v-col cols="12" sm="12" md="12" >
+                                           <v-btn x-large color="primary" dark @click="usingGoogle"> <v-icon dark left>facebook</v-icon> Sign Up with FaceBook </v-btn>
+                                </v-col>
+                                <v-col cols="12" sm="12" md="12" >
+                                       <v-btn  x-large color="white" class="grey--text" dark @click="usingGoogle"> <v-icon color="green darken-1" dark left>mdi-google</v-icon> Sign Up with FaceBook</v-btn>                                        </v-col>
+                                    </v-row>
+                                </v-form>
+                            </v-card-text>
+                </v-card>
+            </v-flex>
+        </v-app>
     </div>
-  </div>
-</div>
+
 </template>
 
 <script>
 import Axios from 'axios'
 import user from './api/user.js'
 import Navbar from '../navbar'
+
 export default {
   components:{Navbar},
   data() {
@@ -60,13 +52,23 @@ export default {
         device_name:"browser",
         
       },
+      
+    show1: false,
+    rules: {
+      required: value => !!value || "Required.",
+      min: v => (v && v.length >= 8) || "Min 8 characters",
+    },
+    emailRules: [
+      v => !!v || "Required",
+      v => /.+@.+\..+/.test(v) || "E-mail must be valid"
+    ],
+       valid: true, 
       errors: [],
       user1:'',
     };
   },
-
-  methods:{
-     login() {
+  methods: {
+      login() {
       user.login(this.form)
         .then(response => {
           this.$root.$emit("login", true);
@@ -86,6 +88,16 @@ export default {
             this.errors = error.response.data.errors;
           }
         });
+    },
+    usingGoogle()
+    {
+      Axios.get('http://127.0.0.1:8000/api/login/google').then(Response=>{
+       console.log(Response.data);
+      }).catch(function(error){
+          
+              console.log(error);
+            
+        })
     },
 
     
@@ -133,10 +145,13 @@ export default {
       }).catch(error =>{
 
       });
+    },
+    reset() {
+      this.$refs.form.reset();
+    },
+    resetValidation() {
+      this.$refs.form.resetValidation();
     }
-
-  } ,
-
- 
+  },
 }
 </script>

@@ -18,3 +18,6 @@ Route::get('/', function () {
 });
 
 Route::get('/driver','App\Http\Controllers\viewController@driverHistoryShow');
+
+//  Route::get('/login/{service}', 'App\Http\Controllers\loginController@redirectToProvider');
+//  Route::get('/login/{service}/callback', 'App\Http\Controllers\loginController@handleProviderCallback');

@@ -4,8 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-
-    "content-hash": "1130c30281e6b3877fb983174e3ec59c",
+    "content-hash": "6ac718d0a06896150189b03e3e4d0d4b",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -385,7 +384,6 @@
         },
         {
             "name": "doctrine/dbal",
-
             "version": "3.0.0",
             "source": {
                 "type": "git",
@@ -475,12 +473,10 @@
                 "sqlserver",
                 "sqlsrv"
             ],
-
             "support": {
                 "issues": "https://github.com/doctrine/dbal/issues",
                 "source": "https://github.com/doctrine/dbal/tree/3.0.0"
             },
-
             "funding": [
                 {
                     "url": "https://www.doctrine-project.org/sponsorship.html",
@@ -495,7 +491,6 @@
                     "type": "tidelift"
                 }
             ],
-
             "time": "2020-11-15T18:20:41+00:00"
         },
         {
@@ -1634,6 +1629,10 @@
                 "laravel",
                 "oauth"
             ],
+            "support": {
+                "issues": "https://github.com/laravel/socialite/issues",
+                "source": "https://github.com/laravel/socialite"
+            },
             "time": "2020-11-03T19:24:43+00:00"
         },
         {
@@ -7581,5 +7580,5 @@
         "php": "^7.3"
     },
     "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.0.0"
 }

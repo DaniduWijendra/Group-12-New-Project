@@ -15,6 +15,7 @@ class registerController extends Controller
 
         //     'firstName'=>['required'],
         //     'lastName'=>['required'],
+
         //     'email'=>['required','email','unique:users'],
         //     'password'=>['required','min:8','confirmed']
         // ]);
@@ -48,6 +49,14 @@ class registerController extends Controller
                
             $user=new User();
             
+
+        //     'email'=>['required','email','unique:user_sign_ups'],
+        //     'password'=>['required','min:8','confirmed']
+        // ]);
+
+        $user=new User();
+
+
             $user->firstName=$request->firstName;
             $user->lastName=$request->lastName;
             $user->email=$request->email;
@@ -55,14 +64,11 @@ class registerController extends Controller
             $user->role=$request->role;
             $user->isDeleted='0';
             $user->save();
-
             return response()->json(['user'=>$user],201); 
         
         }
 
         
-
-       
 
         
         // User::create([
