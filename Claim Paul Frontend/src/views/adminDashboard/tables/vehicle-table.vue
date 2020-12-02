@@ -326,7 +326,8 @@
 
 <script>
 
- import Axios from 'axios'
+ import Axios from '../../../baseURL'
+
   export default {
     
     data:()=>({
@@ -513,7 +514,7 @@
       viewImage(item)
       {
 
-         Axios.get('http://127.0.0.1:8000/api/get_image/'+item.vId).then(Response=>{
+         Axios.get('get_image/'+item.vId).then(Response=>{
 
           this.images=Response.data.vehicle[0];
           

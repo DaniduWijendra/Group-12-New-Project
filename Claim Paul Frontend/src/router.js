@@ -234,6 +234,12 @@ const router= new Router({
         path: 'tables/spareParts-table',
         component: () => import('@/views/adminDashboard/tables/spareParts-table'),
       },
+      //garage Managment
+      {
+        name: 'Garage Managment',
+        path: 'tables/garage-table',
+        component: () => import('@/views/adminDashboard/tables/garage-table'),
+      },
       //garages and shops map
       {
         name: 'Shops and Garages',
