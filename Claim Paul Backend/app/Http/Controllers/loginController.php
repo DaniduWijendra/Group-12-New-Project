@@ -144,4 +144,45 @@ class loginController extends Controller
 
         // $user->token;
     }
+
+    // public function getUserProfile($email)
+    // {
+        
+    //     $user=DB::table('users')->where('email', $email)->exists();
+
+    //     if(!$user)
+    //     {
+    //         return response()->json(['msg'=>'this user is not found'],404);
+    //     }
+
+    //     else{
+            
+
+    //         $role =DB::table('users')->select('role')->where('email', $email)->get();
+    //         $user=DB::table('users')->select('users.*')->where('email', $email)->get();
+
+    //         if($user->role=='policyholder')
+    //         {
+    //             $users=DB::table('policy_holders')->select('policy_holders.*')->where('policyholder_email', $email)->get();
+    //             return response()->json(['users'=>$users],200);
+
+    //         }
+    //         if($role=='agent')
+    //         {
+    //             $users=DB::table('agents')->select('agents.*')->where('email', $email)->get();
+    //             return response()->json(['users'=>$users],200);
+
+    //         }
+    //         if($role=='admin')
+    //         {
+    //             $users=DB::table('admins')->select('admins.*')->where('adminEmail', $email)->get();
+    //             return response()->json(['users'=>$users],200);
+
+    //         }
+            
+
+            
+    //     }
+    
+    //}
 }

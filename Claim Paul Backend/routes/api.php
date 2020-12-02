@@ -53,3 +53,14 @@ Route::get('/get_image/{id}','App\Http\Controllers\vehicleController@getOneImage
 
 //costmodel
 Route::get('/getcost/{damageType}/{category}','App\Http\Controllers\vehicleController@getCost');
+
+//spare parts
+Route::get('/get_spare_parts','App\Http\Controllers\sparePartController@getSparePart');
+
+//shops
+Route::get('/get_shops','App\Http\Controllers\shopController@getShops');
+
+//garages
+Route::get('/get_garages','App\Http\Controllers\garageController@getGarages');
+
+Route::get('/get_user/{email}','App\Http\Controllers\loginController@getUserProfile');

@@ -1,4 +1,6 @@
 <template>
+<div>
+  <Navbar/>
   <div class="home col-5 mx-auto py-5 mt-5">
     <h1 class="text-center">Register</h1>
     <div class="card">
@@ -33,11 +35,13 @@
             type="email"
             v-model="form.email"
             class="form-control"
+            v-bind:class="{'is-invalid':errorEmail}"
             id="email"
           />
           <span class="text-danger" v-if="errors.email">
             {{ errors.email[0] }}
           </span>
+           <div class="invalid-feedback text-danger">{{errorEmail}}</div>
         </div>
 
 
@@ -88,11 +92,15 @@
       </div>
     </div>
   </div>
+</div>
 </template>
 
 <script>
 import user from './api/user'
+import Navbar from '../navbar'
+import Axios from 'axios'
 export default {
+  components:{Navbar},
   data() {
     return {
       form: {
@@ -104,7 +112,8 @@ export default {
         password_confirmation: "",
         
       },
-      errors: []
+      errors: [],
+      errorEmail:null,
     };
   },
 
@@ -114,7 +123,8 @@ export default {
 
       
 
-          user.register(this.form)
+          //user.register(this.form)
+          Axios.post('http://127.0.0.1:8000/api/register',this.form)
           .then(()=>{
             this.$router.push({name:'login'});
           })
@@ -122,7 +132,15 @@ export default {
             
                   if (error.response.status === 422) {
                     this.errors = error.response.data.errors;
+                  
                   }
+
+                  if (error.response.status === 401) {
+                    this.errorEmail=error.response.data.error;
+                  
+                  }
+
+                 
         });
 
     

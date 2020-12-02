@@ -27,6 +27,7 @@ import 'view-design/dist/styles/iview.css';
 //import VuetifyGoogleAutocomplete from 'vuetify-google-autocomplete';
 
 Vue.mixin(notifications)
+
 Vue.config.productionTip = false
 Vue.use(ViewUI)
 // Vue.use(VuetifyGoogleAutocomplete, {

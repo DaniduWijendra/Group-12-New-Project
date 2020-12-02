@@ -123,7 +123,7 @@
 
 import { jsPDF } from "jspdf"
 import 'jspdf-autotable'
-import Axios from 'axios'
+import Axios from '../../../baseURL'
 
 export default {
 
@@ -150,7 +150,7 @@ export default {
   methods: {
     inputData()
     {
-        Axios.get('http://127.0.0.1:8000/api/get_report/'+this.repoId).then(Response=>{
+        Axios.get('get_report/'+this.repoId).then(Response=>{
 
           this.reports=Response.data.report[0];
           

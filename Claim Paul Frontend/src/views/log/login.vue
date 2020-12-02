@@ -1,4 +1,6 @@
 <template>
+<div>
+  <Navbar/>
   <div class="home col-5 mx-auto py-5 mt-5 ">
     <h1 class="text-center">Login</h1>
     <div class="card">
@@ -41,12 +43,15 @@
      
     </div>
   </div>
+</div>
 </template>
 
 <script>
 import Axios from 'axios'
 import user from './api/user.js'
+import Navbar from '../navbar'
 export default {
+  components:{Navbar},
   data() {
     return {
       form: {
