@@ -28,7 +28,7 @@
       <v-row>
         <v-col cols="12" md="6">
               <v-main class=' py-16 mx-3 px-0 pl-sm-5 green accent-2'>
-                  <animation/>
+                  <!-- <animation/> -->
               </v-main>
         </v-col>
 
@@ -299,15 +299,15 @@
 
 
 <script>
-import animation from './component/animation/animation ' 
+//import animation from './component/animation/animation ' 
 import User from '../log/api/user'
 //import textAnim from './component/animation/textAnim'
   export default {
     name: 'Dashboard',
-    components:{animation},
+    components:{},
     data () {
       return {
-        //user:null,
+        user:null,
         dailySalesChart: {
           data: {
             labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],

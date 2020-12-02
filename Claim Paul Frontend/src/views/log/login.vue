@@ -34,13 +34,16 @@
             </v-flex>
         </v-app>
     </div>
+
 </template>
 
 <script>
 import Axios from 'axios'
 import user from './api/user.js'
+import Navbar from '../navbar'
 
 export default {
+  components:{Navbar},
   data() {
     return {
       form: {

@@ -58,10 +58,6 @@
 
 </template>
 
-<style scoped>
-	 @import './animation.css'; 
-</style>
-
 
 
 

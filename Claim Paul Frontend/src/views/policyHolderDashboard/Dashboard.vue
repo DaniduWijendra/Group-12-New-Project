@@ -4,7 +4,7 @@
     fluid
     tag="section"
   >
-  <span v-if='user'>{{user.email}}</span>
+  
     <v-row>
       <v-col
         cols="12"

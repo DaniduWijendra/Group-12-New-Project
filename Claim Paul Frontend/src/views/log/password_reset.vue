@@ -1,4 +1,7 @@
 <template>
+<div>
+    <Navbar/>
+
      <div class="home col-5 mx-auto py-5 mt-5">
         <div class="alert alert-primary">
             <h1 class="text-center">Passsword Reset</h1>
@@ -42,7 +45,7 @@
                 <div class="form-group">
                     <label>New Password</label>
                     <input
-                    type="text"
+                    type="password"
                     placeholder="New Password..."
                      class='form-control'
                     v-bind:class="{'is-invalid':errorNewPassword}"
@@ -53,7 +56,7 @@
                  <div class="form-group">
                     <label>Password Again</label>
                     <input
-                    type="text"
+                    type="password"
                     placeholder="Password Again..."
                      class='form-control'
                     v-bind:class="{'is-invalid':errorPasswordAgain}"
@@ -68,12 +71,14 @@
                
             
     </div>
+</div>
 </template>
 
 <script>
+import Navbar from '../navbar'
 import Axios from 'axios'
 export default {
-
+     components:{Navbar},
     data(){
         return{
             email:'',

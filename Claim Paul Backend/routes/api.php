@@ -43,6 +43,8 @@ Route::group(['middleware' => ['web']], function ($service) {
     //  Route::get('/login/{service}/callback', 'App\Http\Controllers\loginController@handleProviderCallback');
 
 Route::get('/driver-history','App\Http\Controllers\viewController@driverHistoryShow');
+Route::get('/get_driver_history/{email}','App\Http\Controllers\viewController@getHistory');
+
 Route::get('/report','App\Http\Controllers\reportController@getReport');
 Route::post('/put_report','App\Http\Controllers\reportController@putReport');
 Route::get('/get_report/{id}','App\Http\Controllers\reportController@getOneReport');
@@ -59,3 +61,14 @@ Route::get('/get_image/{id}','App\Http\Controllers\vehicleController@getOneImage
 
 //costmodel
 Route::get('/getcost/{damageType}/{category}','App\Http\Controllers\vehicleController@getCost');
+
+//spare parts
+Route::get('/get_spare_parts','App\Http\Controllers\sparePartController@getSparePart');
+
+//shops
+Route::get('/get_shops','App\Http\Controllers\shopController@getShops');
+
+//garages
+Route::get('/get_garages','App\Http\Controllers\garageController@getGarages');
+
+Route::get('/get_user/{email}','App\Http\Controllers\loginController@getUserProfile');

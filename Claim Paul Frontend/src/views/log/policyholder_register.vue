@@ -1,6 +1,8 @@
 
-
 <template>
+<div>
+<Navbar/>
+
  <div class="d-flex justify-center ">
     <v-app>
        
@@ -20,7 +22,8 @@
                                             <v-text-field prepend-icon="mdi-form-textbox" v-model="form.lastName" :rules="[rules.required,rules.namelength]" label="Last Name" maxlength="20" required></v-text-field>
                                         </v-col>
                                         <v-col cols="12">
-                                           <v-text-field prepend-icon="mdi-email" v-model="form.email" :rules="emailRules" label="E mail" required></v-text-field>
+                                           <v-text-field prepend-icon="mdi-email" v-model="form.email" v-bind:class="{'is-invalid:errorEmail'}" :rules="emailRules" label="E mail" required></v-text-field>
+                                           <div class="invalid-feedback text-danger">{{errorEmail}}</div>
                                         </v-col>
                                         <v-col cols="12">
                                             <v-text-field v-model="form.password" prepend-icon="mdi-lock" :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'" :rules="[rules.required, rules.min]" :type="show1 ? 'text' : 'password'" name="input-10-1" label="Password" hint="At least 8 characters" counter @click:append="show1 = !show1"></v-text-field>
@@ -39,11 +42,16 @@
         </v-flex>
         
     </v-app>
-    </div>  
+    </div> 
+    </div>
 </template>
 <script>
-import Axios from 'axios';
-import user from './api/user';
+
+import user from './api/user'
+import Navbar from '../navbar'
+import Axios from 'axios'
+export default {
+  components:{Navbar},
 export default {
     data() {
     return {
@@ -55,6 +63,8 @@ export default {
         password: "",
         password_confirmation: "",
       },
+      errorEmail:null,
+
       verify: "",
         valid: true,
       loginEmailRules:
@@ -95,7 +105,15 @@ export default {
             
                   if (error.response.status === 422) {
                     this.errors = error.response.data.errors;
+                  
                   }
+
+                  if (error.response.status === 401) {
+                    this.errorEmail=error.response.data.error;
+                  
+                  }
+
+                 
         });
 
       
