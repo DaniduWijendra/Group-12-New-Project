@@ -26,7 +26,9 @@
                                            <v-btn x-large color="primary" dark @click="usingGoogle"> <v-icon dark left>facebook</v-icon> Sign Up with FaceBook </v-btn>
                                 </v-col>
                                 <v-col cols="12" sm="12" md="12" >
-                                       <v-btn  x-large color="white" class="grey--text" dark @click="usingGoogle"> <v-icon color="green darken-1" dark left>mdi-google</v-icon> Sign Up with FaceBook</v-btn>                                        </v-col>
+                                       <v-btn  x-large color="white" class="grey--text" dark @click="usingGoogle"> <v-icon color="green darken-1" dark left>mdi-google</v-icon> Sign Up with Google</v-btn></v-col>
+                                        <v-col cols="12" sm="12" md="6" ><span class="alert alert-primary"><a href="/policyholder_register">Create Account</a></span></v-col>
+                                        <v-col cols="12" sm="12" md="6" ><span class="alert alert-warning"><a href="/reset_password">Forget Password</a></span></v-col>
                                     </v-row>
                                 </v-form>
                             </v-card-text>

@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class sparePart extends Model
-{
+{   
+    protected $table='spare_parts';
 
 }

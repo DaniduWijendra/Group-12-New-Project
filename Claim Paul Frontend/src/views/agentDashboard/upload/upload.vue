@@ -226,7 +226,7 @@
                                                            <v-card-actions>
                                                                       <v-spacer></v-spacer>
                                                                     
-                                                                      <v-btn v-if="formTitle=='New Item'"
+                                                                      <v-btn v-if="formTitle=='Add New Vehicle'"
                                                                         type="submit"
                                                                         :disabled="!valid"
                                                                         color="blue darken-1"
@@ -237,7 +237,7 @@
                                                                         Submit
                                                                       </v-btn>
 
-                                                                      <v-btn v-if="formTitle=='Edit Item'"
+                                                                      <v-btn v-if="formTitle=='Edit Vehicle'"
                                                                         type="submit"
                                                                         :disabled="!valid"
                                                                         color="blue darken-1"

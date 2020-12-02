@@ -43,7 +43,7 @@
 </template>
 <script>
 import Axios from 'axios';
-import user from './api/user';
+//import user from '../';
 export default {
     data() {
     return {

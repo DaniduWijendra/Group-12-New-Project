@@ -10,6 +10,7 @@
         :src="item.src"
         height="200px"
       ></v-img>
+    
   
       <v-card-title>
         {{item.title}}

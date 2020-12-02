@@ -18,12 +18,12 @@ const router= new Router({
       component: () => import('@/views/log/login'),
       meta:{ guestOnly:true },
     },
-    {
-      name: 'Admin Register',
-      path: '/admin_register',
-      component: () => import('@/views/log/admin_register'),
-      meta:{ guestOnly:true },
-    },
+    // {
+    //   name: 'Admin Register',
+    //   path: '/admin_register',
+    //   component: () => import('@/views/log/admin_register'),
+    //   meta:{ guestOnly:true },
+    // },
     {
       name: 'policy holder register',
       path: '/policyholder_register',
@@ -62,7 +62,83 @@ const router= new Router({
     //   path: '/login',
     //   component: () => import('@/views/login'),
     // },
+//superadmin routes
+{
+  path: '/superadmin',
+  component: () => import('@/views/superadminDashboard/Index'),
+  children: [
+    // Dashboard
+    {
+      name: 'Super Admin Dashboard',
+      path: '',
+      component: () => import('@/views/superadminDashboard/Dashboard'),
+    },
+    // Pages
+    {
+      name: 'Super Admin User Profile',
+      path: 'pages/user',
+      component: () => import('@/views/superadminDashboard/pages/UserProfile'),
+    },
+    {
+      name: 'Create an Admin',
+      path: '/superadmin/admin_register',
+      component: () => import('@/views/superadminDashboard/auth/admin_register'),
+    },
+    {
+      name: 'Create an Agent',
+      path: '/superadmin/agent_register',
+      component: () => import('@/views/superadminDashboard/auth/agent_register'),
+      meta:{ guestOnly:true },
+    },
+    {
+      name: 'Super Admin Notifications',
+      path: 'components/notifications',
+      component: () => import('@/views/superadminDashboard/component/Notifications'),
+    },
+    {
+      name: 'Policy Holder Managment',
+      path: 'tables/policyholder-table',
+      component: () => import('@/views/superadminDashboard/tables/policyholder-table'),
+    },
+    {
+      name: 'Agent Managment',
+      path: 'tables/agent-table',
+      component: () => import('@/views/superadminDashboard/tables/agent-table'),
+    },
+    //driver history
+    {
+      name: 'Driver History Managment',
+      path: 'tables/driver-history',
+      component: () => import('@/views/superadminDashboard/tables/driver-history'),
+    },
+     //reports
+     {
+      name: 'Reports Managment',
+      path: '/superadmin/reports',
+      component: () => import('@/views/superadminDashboard/reports/reports'),
+     },
 
+      //reports handle
+      {
+       name: 'Reports Handle Managment',
+       path: '/superadmin/reportsHandle',
+       component: () => import('@/views/superadminDashboard/reports/reportsHandle'),
+      },
+      //garages and shops map
+      {
+        name: 'View nearBy Shops and Garages',
+        path: '/superadmin/maps/shops-garages-map',
+        component: () => import('@/views/superadminDashboard/maps/ShopsandGarages'),
+       },
+
+    // // Maps
+    // {
+    //   name: 'Admin Google Maps',
+    //   path: 'maps/google-maps',
+    //   component: () => import('@/views/superadminDashboard/maps/GoogleMaps'),
+    // },
+  ],
+},
    //admin routes
    {
     path: '/admin',
@@ -80,14 +156,14 @@ const router= new Router({
         path: 'pages/user',
         component: () => import('@/views/adminDashboard/pages/UserProfile'),
       },
-      {
-        name: 'Admin Signup',
-        path: 'pages/admin-signup',
-        component: () => import('@/views/adminDashboard/pages/admin-signup'),
-      },
+      // {
+      //   name: 'Admin Register',
+      //   path: '/admin/admin_register',
+      //   component: () => import('@/views/adminDashboard/auth/admin_register'),
+      // },
       {
         name: 'Agent Register',
-        path: '/agent_register',
+        path: '/admin/agent_register',
         component: () => import('@/views/adminDashboard/auth/agent_register'),
         meta:{ guestOnly:true },
       },
@@ -106,6 +182,12 @@ const router= new Router({
         path: 'tables/agent-table',
         component: () => import('@/views/adminDashboard/tables/agent-table'),
       },
+      //vehicle managment
+      {
+        name: 'Vehicle Managment',
+        path: 'tables/vehicle-table',
+        component: () => import('@/views/adminDashboard/tables/vehicle-table'),
+      },
       //driver history
       {
         name: 'Driver History',
@@ -113,31 +195,42 @@ const router= new Router({
         component: () => import('@/views/adminDashboard/tables/driver-history'),
       },
        //reports
-       {
+        {
         name: 'Admin Reports',
         path: '/admin/reports',
         component: () => import('@/views/adminDashboard/reports/reports'),
-       },
-
-        //reports handle
-        {
-         name: 'Admin Reports Handle',
-         path: '/admin/reportsHandle',
-         component: () => import('@/views/adminDashboard/reports/reportsHandle'),
-        },
-        //garages and shops map
-        {
-          name: 'Shops and Garages',
-          path: '/admin/maps/shops-garages-map',
-          component: () => import('@/views/adminDashboard/maps/ShopsandGarages'),
-         },
+      },
+      //reports handle
+      {
+        name: 'Admin Reports Handle',
+        path: '/admin/reportsHandle',
+        component: () => import('@/views/adminDashboard/reports/reportsHandle'),
+      },
+      //shop managment
+      {
+        name: 'Shop Managment',
+        path: 'tables/shop-table',
+        component: () => import('@/views/adminDashboard/tables/shops-table'),
+      },
+      //spare parts managment
+      {
+        name: 'Spare Parts Managment Managment',
+        path: 'tables/spareParts-table',
+        component: () => import('@/views/adminDashboard/tables/spareParts-table'),
+      },
+      //garages and shops map
+      {
+        name: 'Shops and Garages',
+        path: '/admin/maps/shops-garages-map',
+        component: () => import('@/views/adminDashboard/maps/ShopsandGarages'),
+      },
 
       // Maps
-      {
-        name: 'Admin Google Maps',
-        path: 'maps/google-maps',
-        component: () => import('@/views/adminDashboard/maps/GoogleMaps'),
-      },
+      // {
+      //   name: 'Admin Google Maps',
+      //   path: 'maps/google-maps',
+      //   component: () => import('@/views/adminDashboard/maps/GoogleMaps'),
+      // },
     ],
   },
 

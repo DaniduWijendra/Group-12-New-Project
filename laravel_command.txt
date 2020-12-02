@@ -79,3 +79,5 @@
 
         5 Run migration using cli command:---------->php artisan migrate
    php artisan route:cache
+   make seeders
+   php artisan make:seeder UserSeeder
