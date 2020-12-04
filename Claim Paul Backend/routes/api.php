@@ -83,5 +83,9 @@ Route::get('/get_spare_parts','App\Http\Controllers\sparePartController@getSpare
 
 //garages
 Route::get('/get_garages','App\Http\Controllers\garageController@getGarages');
+Route::post('/add_garage','App\Http\Controllers\garageController@addGarage');
+Route::put('/edit_garage/{id}','App\Http\Controllers\garageController@editGarage');
+Route::put('/delete_garage/{id}','App\Http\Controllers\garageController@deleteGarage');
+Route::get('/get_garageimage/{id}','App\Http\Controllers\garageController@getOneImage');
 
 Route::get('/get_user/{email}','App\Http\Controllers\loginController@getUserProfile');
