@@ -12,7 +12,8 @@
         <base-material-card color='blue'>
           <template v-slot:heading>
             <div class="display-2 font-weight-light">
-              Edit Profile
+              User Profile
+              
             </div>
 
             <div class="subtitle-1 font-weight-light">
@@ -20,59 +21,55 @@
             </div>
           </template>
 
-          <v-form>
+          
             <v-container class="py-0">
-              <v-row>
+               <v-row>
                
                 <v-col
                   cols="12"
                   md="4"
                 >
                   <v-text-field
-                    label="NIC"
-                    class="purple-input"
-                    v-model='editedItem.NIC'
+                  outlined
+                    prepend-icon="mdi-account-star"
+                    label="First Name"
+                    v-model='policy_holder.fName'
 
                   />
                 </v-col>
+            
+              
+              
+                <v-col
+                  cols="12"
+                  md="4"
+                >
+                  <v-text-field
+                  outlined
+                    prepend-icon="mdi-account-star-outline"
+                    label="Last Name"
+                    v-model='policy_holder.lName'
+                  />
+                </v-col>
+
               </v-row>
               <v-row>
-                <v-col
-                  cols="12"
-                  md="6"
-                >
-                  <v-text-field
-                    label="First Name"
-                    class="purple-input"
-                    v-model='editedItem.fName'
-                  />
-                </v-col>
-
-                <v-col
-                  cols="12"
-                  md="6"
-                >
-                  <v-text-field
-                    label="Last Name"
-                    class="purple-input"
-                    v-model='editedItem.lName'
-                  />
-                </v-col>
-
                 <v-col cols="12">
                   <v-text-field
                     label="Adress"
-                    class="purple-input"
-                    v-model='editedItem.pAddress'
+                    outlined
+                    prepend-icon="mdi-shield-home"
+                    v-model='policy_holder.pAddress'
                   />
                 </v-col>
 
                 <v-col cols="12">
                   <v-text-field
-                    label="Email"
-                    class="purple-input"
+                    label="Email" 
+                    outlined
+                    prepend-icon="mdi-at"                
                     type="email"
-                    v-model='editedItem.policyholder_email'
+                    v-model='policy_holder.policyholder_email'
                   />
                 </v-col>
 
@@ -81,9 +78,10 @@
                   md="4"
                 >
                   <v-text-field
-                    class="purple-input"
                     label="Birth Date"
-                    type="number"
+                    outlined
+                    prepend-icon="mdi-cake-variant"
+                    v-model="policy_holder.pDOB"
                   />
                 </v-col>
 
@@ -93,8 +91,9 @@
                 >
                   <v-text-field
                     label="Gender"
-                    class="purple-input"
-                    v-model='editedItem.pGender'
+                    outlined
+                    prepend-icon="mdi-account-switch"
+                    v-model='policy_holder.pGender'
                   />
                 </v-col>
 
@@ -104,8 +103,21 @@
                 >
                   <v-text-field
                     label="Contact No"
-                    class="purple-input"
-                    v-model='editedItem.pContactNo'
+                    outlined
+                    prepend-icon="mdi-phone-message"
+                    v-model='policy_holder.pContactNo'
+                  />
+                </v-col>
+
+                 <v-col
+                  cols="12"
+                  
+                >
+                  <v-text-field
+                    label="NIC"
+                    outlined
+                    prepend-icon="mdi-card-account-details"
+                    v-model='policy_holder.NIC'
                   />
                 </v-col>
 
@@ -113,26 +125,15 @@
 
                 <v-col cols="12">
                   <v-textarea
-                    class="purple-input"
                     label="About Me"
                     value="I am proud of me ."
                   />
                 </v-col>
 
-                <v-col
-                  cols="12"
-                  class="text-right"
-                >
-                  <v-btn
-                    color="success"
-                    class="mr-0"
-                  >
-                    Update Profile
-                  </v-btn>
-                </v-col>
+               
               </v-row>
             </v-container>
-          </v-form>
+        
         </base-material-card>
       </v-col>
 
@@ -174,37 +175,35 @@
 
 <script>
 import User from '../../log/api/user'
+import Axios from '../../../baseURL'
   export default {
 
     data(){
       return{
         user:null,
 
-        editedItem:{
-         
-          NIC:'',
-          fName:'',
-          lName:'',
-           policyholder_email:'',
-           pContactNo:'',
-           pGender:'',
-           pDOB:'',
-           pAddress:'',
-
-
-        },
+        policy_holder:{},
+        
       }
     },
      mounted(){
       User.auth().then(Response=>{
         this.user=Response.data;
+        this.getAgent(this.user.email);
         console.log(this.user);
       })
     },
 
-    created()
+  methods:{
+    getAgent(email)
     {
-      
+        Axios.get('get_policyholder/'+email).then(Response=>{
+          this.policy_holder=Response.data[0];
+          console.log(this.policy_holder);
+        }).catch(error=>{
+          console.log(error);
+        });
     }
+  }
   }
 </script>
