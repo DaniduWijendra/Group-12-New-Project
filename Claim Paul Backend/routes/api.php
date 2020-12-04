@@ -52,6 +52,8 @@ Route::put('/edit_report/{id}','App\Http\Controllers\reportController@editReport
 Route::put('/delete_report/{id}','App\Http\Controllers\reportController@deleteReport');
 Route::get('/policy-holder','App\Http\Controllers\viewController@policyHolderShow');
 Route::get('/agents','App\Http\Controllers\viewController@agentsShow');
+Route::get('/get_agent/{email}','App\Http\Controllers\viewController@aAgentShow');
+Route::get('/get_policyholder/{email}','App\Http\Controllers\viewController@aPolicyholderShow');
 //vehicle
 Route::get('/get_vehicle','App\Http\Controllers\vehicleController@getVehicle');
 Route::post('/add_vehicle','App\Http\Controllers\vehicleController@addVehicle');

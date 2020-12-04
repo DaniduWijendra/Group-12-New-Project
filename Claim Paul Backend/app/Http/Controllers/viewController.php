@@ -42,4 +42,16 @@ class viewController extends Controller
          'vehicles.vehicleNumber','reports.rId','reports.rDescription','reports.rCost','reports.rDate',
          'reports.place','reports.adminId','reports.agId','reports.isAccepted')->where('policy_holders.isDeleted','=','0')->where('policy_holders.policyholder_email','=',$email)->get();
     }
+
+    public function aAgentShow($email)
+    {
+        return DB::table('agents')->select('agents.*')->where('agents.email', '=', $email)->get();
+
+    }
+
+    public function aPolicyholderShow($email)
+    {
+        return DB::table('policy_holders')->select('policy_holders.*')->where('policy_holders.policyholder_email', '=', $email)->get();
+
+    }
 }

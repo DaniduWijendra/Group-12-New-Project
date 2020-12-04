@@ -1,7 +1,7 @@
 <template>
     <div>
       <Navbar/>
-    <div class="d-flex justify-center mt-10">
+    <div class="d-flex justify-center  mt-10">
         <v-app>
             <v-flex xs12 sm12 md12 lg12> 
                 <v-card class="text-center ma-6" max-width="600" color="#3197b2">
@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import Axios from 'axios'
+import Axios from '../../baseURL'
 import user from './api/user.js'
 import Navbar from '../navbar'
 
@@ -96,7 +96,7 @@ export default {
     },
     usingGoogle()
     {
-      Axios.get('http://127.0.0.1:8000/api/login/google').then(Response=>{
+      Axios.get('login/google').then(Response=>{
        console.log(Response.data);
       }).catch(function(error){
           
@@ -108,7 +108,7 @@ export default {
     
     getLogin()
     {
-      Axios.get('http://127.0.0.1:8000/api/get_login/'+this.form.email).then(Response=>{
+      Axios.get('get_login/'+this.form.email).then(Response=>{
         this.user1=Response.data.users[0];
 
         console.log(this.user1.role);
@@ -143,7 +143,7 @@ export default {
 
     usingGoogle()
     {
-      Axios.get('http://127.0.0.1:8000/api/google_login_callback').then(Response=>{
+      Axios.get('google_login_callback').then(Response=>{
 
         console.log(Response.data);
 

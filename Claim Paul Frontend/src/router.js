@@ -362,7 +362,7 @@ const router= new Router({
         name: 'Policy Holder Dashboard',
         path: '',
         component: () => import('@/views/policyHolderDashboard/Dashboard'),
-        meta:{authOnly:true},
+        //meta:{authOnly:true},
       },
       // Pages
       {
@@ -404,7 +404,7 @@ const router= new Router({
       // Maps
       {
         name: 'Show Google Maps',
-        path: 'maps/google-maps',
+        path: '/policyholder/maps/google-maps',
         component: () => import('@/views/policyHolderDashboard/maps/GoogleMaps'),
       },
 

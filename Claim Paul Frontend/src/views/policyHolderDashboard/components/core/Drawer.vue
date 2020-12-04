@@ -130,7 +130,7 @@ import User from '../../../log/api/user'
 
          {
           icon: 'mdi-cloud-upload',
-          title: 'upload',
+          title: 'Upload & Generate Cost',
           to: '/policyholder/uploads',
         },
 
@@ -140,27 +140,32 @@ import User from '../../../log/api/user'
           to: '/policyholder/driverHistory',
         },
 
-         {
-          icon: 'mdi-cash-multiple',
-          title: 'Generate Cost',
-          to: '/policyholder/generateCost',
-        },
+        //  {
+        //   icon: 'mdi-cash-multiple',
+        //   title: 'Generate Cost',
+        //   to: '/policyholder/generateCost',
+        // },
 
          {
           icon: 'mdi-office-building-marker-outline',
-          title: 'Find Shops',
+          title: 'Find Shops & Garages',
           to: '/policyholder/findShops',
         },
 
-         {
-          icon: ' mdi-hammer-wrench',
-          title: 'Find Garages',
-          to: '/policyholder/findGarages',
-        },
+        //  {
+        //   icon: ' mdi-hammer-wrench',
+        //   title: 'Find Garages',
+        //   to: '/policyholder/findGarages',
+        // },
         {
           icon: 'mdi-message-bulleted',
           title: 'messages',
           to: '/policyholder/messages',
+        },
+        {
+          title: 'google',
+          icon: 'mdi-map-marker',
+          to: '/policyholder/maps/google-maps',
         },
 
 
