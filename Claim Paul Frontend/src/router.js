@@ -181,7 +181,7 @@ const router= new Router({
         name: 'Agent Register',
         path: '/admin/agent_register',
         component: () => import('@/views/adminDashboard/auth/agent_register'),
-        meta:{ guestOnly:true },
+        // meta:{ guestOnly:true },
       },
       {
         name: 'Admin Notifications',

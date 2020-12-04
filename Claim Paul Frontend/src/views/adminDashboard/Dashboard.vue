@@ -7,7 +7,7 @@
              <v-col cols="12" md="12" >
               <v-main class=' py-16 mx-3 px-0 pl-sm-5 blue accent-2'>
                 
-                <textanimate/>
+                <!-- <textanimate/> -->
               </v-main>
               </v-col>
             </v-row>
@@ -145,10 +145,10 @@
 </template>
 
 <script>
-  import textanimate from './component/animations/textanimate'
+  // import textanimate from './component/animations/textanimate'
   export default {
     name: 'agent_dashboard',
-    components:{textanimate},
+    // components:{textanimate},
     data () {
       return {
         

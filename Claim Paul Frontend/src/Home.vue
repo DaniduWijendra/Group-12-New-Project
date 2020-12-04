@@ -18,7 +18,7 @@
                                                     </div>
 
                                                     <div class="sub-title">
-                                                        well come to claim Paul!!!
+                                                        Welcome to claim Paul!!!
                                                     </div>
 
                                                     <div class="btn-sign-up"></div>
@@ -27,7 +27,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col12 xs12 s6">
+                                            <div class="col12 xs12 md6">
                                                 <div class="image responsive-img">
 
                                                 </div>

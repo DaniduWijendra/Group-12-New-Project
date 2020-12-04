@@ -1,61 +1,87 @@
 <template>
-  <div>
-    <Navbar/>
-    <div id="products" class="row view-group mx-5">
-                <div class="item col-xs-4 col-lg-4" v-for="item in items">
-                    <div class="thumbnail card">
-                        <div class="img-event">
-                            <img class="group list-group-image img-fluid" src="http://placehold.it/400x250/000/fff" alt="" />
-                        </div>
-                        <div class="caption card-body">
-                            <h4 class="group card-title inner list-group-item-heading">{{item.sparePrtName}}</h4>
-                            
-                            <div class="row">
-                                <div class="col-xs-12 col-md-6">
-                                    <p class="lead">
-                                        Rs {{item.price}}.00</p>
-                                </div>
-                                <div class="col-xs-12 col-md-6">
-                                    <a class="btn btn-success" href="#">Add to cart</a>
-                                </div>
-                                   
-                                       
-                                       <v-expansion-panels class="mb-6">
-                                            <v-expansion-panel>
-                                              <v-expansion-panel-header expand-icon="mdi-menu-down">
-                                                Item
-                                              </v-expansion-panel-header>
-                                                  <v-expansion-panel-content>
-                                                   <table>
-                                                     
-                                                       <tr>
-                                                         <td>Brand</td>
-                                                         <td>{{item.brand}}</td>
-                                                       </tr>
 
-                                                       <tr>
-                                                         <td>Model</td>
-                                                         <td>{{item.model}}</td>
-                                                       </tr>
+<div>
+  <!-- <Navbar/> -->
+   <v-layout row wrap>
+      <div class="item col-xs-12 col-sm-6 col-md-4 col-lg-4" v-for="item in items" :key="item.sparePrtId">
+   <v-card
+    class="mx-auto my-12"
+    max-width="374"
+  >
+    <template slot="progress">
+      <v-progress-linear
+        color="deep-purple"
+        height="10"
+        indeterminate
+      ></v-progress-linear>
+    </template>
 
-                                                       <tr>
-                                                         <td>Year</td>
-                                                         <td>{{item.year}}</td>
-                                                       </tr>
-                                                     
-                                                   </table>
-                                                  </v-expansion-panel-content>
-                                            </v-expansion-panel>
-                                          </v-expansion-panels>
-                                
-                                      
-                                </div>
-                                   
-                            </div>
-                        </div>
-                    </div>
-                </div>
-  </div>           
+    <v-img
+      height="250"
+      src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
+    ></v-img>
+
+    <v-card-title>Cafe Badilico</v-card-title>
+
+    <v-card-text>
+      <v-row
+        align="center"
+        class="mx-0"
+      >
+        <v-rating
+          :value="4.5"
+          color="amber"
+          dense
+          half-increments
+          readonly
+          size="14"
+        ></v-rating>
+
+        <div class="grey--text ml-4">
+          4.5 (413)
+        </div>
+      </v-row>
+
+      <div class="my-4 subtitle-1">
+        $ • Italian, Cafe
+      </div>
+
+      <div>Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.</div>
+    </v-card-text>
+
+    <v-divider class="mx-4"></v-divider>
+
+    <v-card-title>Tonight's availability</v-card-title>
+
+    <v-card-text>
+      <v-chip-group
+        v-model="selection"
+        active-class="deep-purple accent-4 white--text"
+        column
+      >
+        <v-chip>5:30PM</v-chip>
+
+        <v-chip>7:30PM</v-chip>
+
+        <v-chip>8:00PM</v-chip>
+
+        <v-chip>9:00PM</v-chip>
+      </v-chip-group>
+    </v-card-text>
+
+    <v-card-actions>
+      <v-btn
+        color="deep-purple lighten-2"
+        text
+        @click="reserve"
+      >
+        Reserve
+      </v-btn>
+    </v-card-actions>
+  </v-card>
+      </div>
+   </v-layout>
+</div>
 </template>
 
 <script>
@@ -66,8 +92,11 @@ export default {
     data(){
 
         return{
-             items:[],
+          
+          showdetails:false,
+          items:[],
         }
+        
     },
     created(){
     
