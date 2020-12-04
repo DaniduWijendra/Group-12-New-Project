@@ -142,9 +142,9 @@
       <v-btn small color="blue" class="mr-2" @click="editItem(item)">
         <v-icon>mdi-pencil</v-icon> 
       </v-btn>
-      <v-btn color="red" small @click="deleteItem(item)">
+      <!-- <v-btn color="red" small @click="deleteItem(item)">
         <v-icon>mdi-delete</v-icon>
-      </v-btn>
+      </v-btn> -->
     </template>
   </v-data-table>
   </base-material-card>

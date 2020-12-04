@@ -59,7 +59,7 @@
                 <section class="container section scrollspy" id="photos">
                     <div class="row">
                     <div class="col s12 l4">
-                        <img src="./assets/img/home/hello1.svg" alt="" class="responsive-img materialboxed">
+                        <img src="./assets/img/home/Group2.png" alt="" class="responsive-img materialboxed">
                     </div>
                     <div class="col s12 l6">
                         <h2 class="indigo-text text-darken-4">Portraits</h2>
@@ -68,7 +68,7 @@
                     </div>
                     <div class="row">
                             <div class="col s12 l4 offset-l1 push-l6">
-                                <img src="./assets/img/home/right.svg" alt="" class="responsive-img materialboxed">
+                                <img src="./assets/img/home/Group1.png" alt="" class="responsive-img materialboxed">
                             </div>
                             <div class="col s12 l6 offset-l1 pull-l5 right-align">
                                 <h2 class="indigo-text text-darken-4">Cityscapes</h2>
@@ -240,14 +240,14 @@ export default {
 
 <style scoped>
  @import './css/slider.css';
-  .image{
+  /* .image{
             position: absolute;
             top:0;bottom:0;left:0;right:0;
-            background-image: url(./assets/img/home/slider.svg);
+            background-image: url(./assets/img/home/Group10.png);
             background-repeat: no-repeat;
             background-position: right bottom;
             background-size:contain;
             background-repeat: no-repeat;
                    
-            }
+            } */
 </style>

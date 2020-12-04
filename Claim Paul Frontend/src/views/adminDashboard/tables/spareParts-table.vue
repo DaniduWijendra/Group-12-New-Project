@@ -42,7 +42,7 @@
                   single-line
                   hide-details
                   placeholder="Enter Spare Part Id"
-                  class="col-md-4 pr-4">
+                  class="col-md-4 pr-4" @keydown="nameKeydown($event)">
                 </v-text-field>
           </template>
           <v-card>
@@ -63,10 +63,11 @@
                     <v-row>
                       <v-col col="12" sm="12" >
                      <v-text-field
-                        v-model="editedItem.partId"
-                        :rules="nameRules"
-                        label="Part Id:"
-                        required>
+                     autofocus
+                      v-model="editedItem.partId"
+                      :rules="nameRules"
+                      label="Part Id:"
+                      required @keydown="nameKeydown($event)">
                       </v-text-field>
                       </v-col>
                     </v-row>
@@ -77,6 +78,7 @@
                       :rules="nameRules"
                       label="Spare Part Name:"
                       required
+                      @keydown="nameKeydown($event)"
                       ></v-text-field>
                       </v-col>
                     </v-row>
@@ -93,7 +95,7 @@
                                 v-model="editedItem.model"
                                 :rules="nameRules"
                                 label="Spare Part Model:"
-                                required
+                                required @keydown="nameKeydown($event)"
                                 ></v-text-field>
                       </v-col>
                       
@@ -102,7 +104,7 @@
                                 v-model="editedItem.year"
                                 :rules="nameRules"
                                 label="Spare Part Year:"
-                                required
+                                required @keypress="isNumber($event)" maxlength="4"
                                 ></v-text-field>
                       </v-col></v-row>
                       <v-row>
@@ -111,8 +113,8 @@
                                 <v-text-field
                                 v-model="editedItem.price"
                                 :rules="nameRules"
-                                label="Spare Part Price:"
-                                required
+                                label="Spare Part Price(Rs):"
+                                required @keypress="isNumberWithDot($event)"
                                 ></v-text-field>
                       </v-col>
                      
@@ -248,8 +250,8 @@ import Axios from '../../../baseURL'
         { text: 'Spare Name', value: 'sparePrtName',sortable: false  },
         { text: 'Brand', value: 'brand',sortable: false },
         { text: 'Model', value: 'model' ,sortable: false },
-        { text: 'Car Maufacture Year', value: 'year',sortable: false  },
-        { text: 'Spare Price', value: 'price' ,sortable: false },
+        { text: 'Car Maufacture Year', value: 'year',sortable: true  },
+        { text: 'Spare Price', value: 'price' ,sortable: true },
         { text: 'Image', value: 'image',sortable: false  },
         { text: 'Actions', value: 'actions', sortable: false },
       ],
@@ -298,7 +300,38 @@ import Axios from '../../../baseURL'
 
    
     methods: {
-      
+      nameKeydown(e) {
+      if (/^\W$/.test(e.key)) {
+        e.preventDefault();
+      }
+    },
+    isNumber: function(evt) {
+      evt = (evt) ? evt : window.event;
+      var charCode = (evt.which) ? evt.which : evt.keyCode;
+      if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        evt.preventDefault();;
+      } else {
+        return true;
+      }
+    },
+    isNumber: function(evt) {
+      evt = (evt) ? evt : window.event;
+      var charCode = (evt.which) ? evt.which : evt.keyCode;
+      if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        evt.preventDefault();;
+      } else {
+        return true;
+      }
+    },
+    isNumberWithDot: function(evt) {
+      evt = (evt) ? evt : window.event;
+      var charCode = (evt.which) ? evt.which : evt.keyCode;
+      if ((charCode > 31 && (charCode < 48 || charCode > 57)) && charCode !== 46) {
+        evt.preventDefault();;
+      } else {
+        return true;
+      }
+    },
 
       submit()
       {

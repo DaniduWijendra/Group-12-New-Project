@@ -54,6 +54,7 @@ Route::get('/policy-holder','App\Http\Controllers\viewController@policyHolderSho
 Route::get('/agents','App\Http\Controllers\viewController@agentsShow');
 Route::get('/get_agent/{email}','App\Http\Controllers\viewController@aAgentShow');
 Route::get('/get_policyholder/{email}','App\Http\Controllers\viewController@aPolicyholderShow');
+Route::get('/get_admin/{email}','App\Http\Controllers\viewController@aAdminShow');
 //vehicle
 Route::get('/get_vehicle','App\Http\Controllers\vehicleController@getVehicle');
 Route::post('/add_vehicle','App\Http\Controllers\vehicleController@addVehicle');

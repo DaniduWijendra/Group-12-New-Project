@@ -92,13 +92,14 @@
                                                                 rows="5"
                                                                 row-height="25"
                                                                 shaped
+                                                                @keydown="nameKeydown($event)"
                                                               ></v-textarea>
                                                                
                                                                 <v-text-field
                                                                 v-model="editedItem.rCost"
                                                                 :rules="nameRules"
-                                                                label="Claim Cost:"
-                                                                required
+                                                                label="Claim Cost(Rs):"
+                                                                required @keypress="isNumber($event)"
                                                                 ></v-text-field>
 
                                                              <v-menu
@@ -147,7 +148,7 @@
                                                                 v-model="editedItem.place"
                                                                 :rules="nameRules"
                                                                 label="Place:"
-                                                                required
+                                                                required @keydown="nameKeydown($event)"
                                                                 ></v-text-field>
 
                                                               <v-row>
@@ -165,7 +166,7 @@
                                                                             v-model="editedItem.adminId"
                                                                             :rules="nameRules"
                                                                             label="Admin Id:"
-                                                                            required
+                                                                            required @keypress="isNumber($event)"
                                                                             ></v-text-field>
                                                                           
                                                                           </div>
@@ -176,7 +177,7 @@
                                                                             v-model="editedItem.agId"
                                                                             :rules="nameRules"
                                                                             label="Agent Id:"
-                                                                            required
+                                                                            required @keypress="isNumber($event)"
                                                                             ></v-text-field>
                                                                   </v-col>
                                                         </v-row>
@@ -355,6 +356,20 @@ import Axios from '../../../baseURL'
     },
   
       methods:{
+         nameKeydown(e) {
+      if (/^\W$/.test(e.key)) {
+        e.preventDefault();
+      }
+    },
+    isNumber: function(evt) {
+      evt = (evt) ? evt : window.event;
+      var charCode = (evt.which) ? evt.which : evt.keyCode;
+      if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        evt.preventDefault();;
+      } else {
+        return true;
+      }
+    },
 
       submit()
       {

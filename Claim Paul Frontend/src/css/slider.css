@@ -48,12 +48,13 @@
 }
 
 .claimpaul-banner .slider .slide .content .image {
+  display:inline-block;
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  background-image: url(../assets/img/home/slider.svg);
+  background-image: url(../assets/img/home/background.svg);
   background-repeat: no-repeat;
   background-position: right bottom;
   background-size: contain;

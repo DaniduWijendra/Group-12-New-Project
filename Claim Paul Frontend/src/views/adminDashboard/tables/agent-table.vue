@@ -7,7 +7,7 @@
             label="Solo"
             v-model="search"
             placeholder="Enter Agent Name"
-            solo
+            solo  @keydown="nameKeydown($event)"
             >
             </v-text-field>
                 </v-col>
@@ -33,7 +33,7 @@
             <th>Contact Number</th>
             <th>Email</th>
             <th>Branch</th>
-            <th>Delete User</th>
+            <!-- <th>Delete User</th> -->
           </tr>
         </thead>
 
@@ -47,9 +47,9 @@
             <td>{{item.agContactNo}}</td>
             <td>{{item.email}}</td>
             <td>{{item.agBranch}}</td>
-            <td><v-btn small 
+            <!-- <td><v-btn small 
               color="error" dark> Delete 
-            </v-btn></td>
+            </v-btn></td> -->
           </tr>
         </tbody>
       </v-simple-table>
@@ -78,6 +78,11 @@ export default {
       }
     },
     methods:{
+       nameKeydown(e) {
+      if (/^\W$/.test(e.key)) {
+        e.preventDefault();
+      }
+    },
       
       viewAgents()
       {
