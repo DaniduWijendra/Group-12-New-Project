@@ -15,7 +15,9 @@ class AddImageColumnToShops extends Migration
     {
         Schema::table('shops', function (Blueprint $table) {
             
+
                 $table->text('image')->nullable()->after('sLocation')->default(null);
+
             
         });
     }

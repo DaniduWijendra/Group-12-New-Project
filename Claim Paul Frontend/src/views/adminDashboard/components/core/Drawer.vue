@@ -160,6 +160,11 @@
           title: 'View Spare Parts',
           to: '/admin/tables/spareParts-table',
         },
+         {
+          icon: 'mdi-garage',
+          title: 'View Garages',
+          to: '/admin/tables/garage-table',
+        },
         {
           title: 'Shops and Garages',
           icon: 'mdi-map-marker',

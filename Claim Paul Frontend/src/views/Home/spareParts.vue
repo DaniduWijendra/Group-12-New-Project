@@ -72,7 +72,9 @@ export default {
     created(){
     
       
-    Axios.get('get_spare_parts').then(Response=>{
+
+    Axios.get('get_sparepart').then(Response=>{
+
           this.items=Response.data;
           console.log(Response.data);
           //console.log(this.items);

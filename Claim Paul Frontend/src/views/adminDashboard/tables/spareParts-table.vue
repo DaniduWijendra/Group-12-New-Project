@@ -226,8 +226,7 @@
   </v-container>
 </template>
 <script>
-
- import Axios from 'axios'
+import Axios from '../../../baseURL'
   export default {
     
     data:()=>({
@@ -306,7 +305,7 @@
           this.$refs.form.validate()
           this.clear();
 
-          Axios.post('http://127.0.0.1:8000/api/add_sparepart',{
+          Axios.post('add_sparepart',{
             
               partId: this.editedItem.partId,
               sparePrtName: this.editedItem.sparePrtName,
@@ -372,7 +371,7 @@
       {
         
 
-        Axios.put('http://127.0.0.1:8000/api/edit_sparepart/'+this.editedItem.sparePrtId,this.editedItem).then(Response=>{
+        Axios.put('edit_sparepart/'+this.editedItem.sparePrtId,this.editedItem).then(Response=>{
           
                     this.s('Spare Part is successfully updated');
           }).catch(function(error){
@@ -386,7 +385,7 @@
       viewImage(item)
       {
 
-         Axios.get('http://127.0.0.1:8000/api/get_spareimage/'+item.sparePrtId).then(Response=>{
+         Axios.get('get_spareimage/'+item.sparePrtId).then(Response=>{
 
           this.images=Response.data.spare[0];
           
@@ -416,7 +415,7 @@
         this.items.splice(this.editedIndex, 1)
         this.closeDelete()
 
-         Axios.put('http://127.0.0.1:8000/api/delete_sparepart/'+this.editedItem.sparePrtId,this.editedItem).then(Response=>{
+         Axios.put('delete_sparepart/'+this.editedItem.sparePrtId,this.editedItem).then(Response=>{
                 this.s('Spare Part is successfully deleted');
           }).catch(function(error){
           console.log(error);
@@ -462,7 +461,7 @@
     created(){
     
       
-    Axios.get('http://127.0.0.1:8000/api/get_sparepart').then(Response=>{
+    Axios.get('get_sparepart').then(Response=>{
           this.items=Response.data;
           console.log(Response.data);
           //console.log(this.items);
