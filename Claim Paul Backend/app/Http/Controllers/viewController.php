@@ -26,6 +26,7 @@ class viewController extends Controller
             'policy_holders.pAddress','policy_holders.pDOB','policy_holders.pContactNo','policy_holders.isDeleted',
             'vehicles.vehicleNumber')->where('policy_holders.isDeleted','=','0')->get();
     }
+   
     public function agentsShow()
     {
         return DB::table('agents')->select('agents.agId','agents.fName','agents.lName','agents.agAddress','agents.agDob',
@@ -46,6 +47,11 @@ class viewController extends Controller
     public function aAgentShow($email)
     {
         return DB::table('agents')->select('agents.*')->where('agents.email', '=', $email)->get();
+
+    }
+    public function aAdminShow($email)
+    {
+        return DB::table('admins')->select('admins.*')->where('admins.adminEmail', '=', $email)->get();
 
     }
 

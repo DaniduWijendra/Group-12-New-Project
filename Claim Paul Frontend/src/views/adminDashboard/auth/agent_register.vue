@@ -16,10 +16,10 @@
                         <v-row>
                                         <!-- normal sign up begins -->
                                         <v-col cols="12">
-                                           <v-text-field prepend-icon="mdi-form-textbox" v-model="form.firstName" :rules="[rules.required,rules.namelength]" label="First Name" maxlength="20" required></v-text-field>
+                                           <v-text-field prepend-icon="mdi-form-textbox" @keydown="nameKeydown($event)" v-model="form.firstName" :rules="[rules.required,rules.namelength]" label="First Name" maxlength="20" required></v-text-field>
                                         </v-col>
                                         <v-col cols="12" >
-                                            <v-text-field prepend-icon="mdi-form-textbox" v-model="form.lastName" :rules="[rules.required,rules.namelength]" label="Last Name" maxlength="20" required></v-text-field>
+                                            <v-text-field prepend-icon="mdi-form-textbox" @keydown="nameKeydown($event)" v-model="form.lastName" :rules="[rules.required,rules.namelength]" label="Last Name" maxlength="20" required></v-text-field>
                                         </v-col>
                                         <v-col cols="12">
                                            <v-text-field prepend-icon="mdi-email" v-model="form.email" :rules="emailRules" label="E mail" required></v-text-field>
@@ -85,6 +85,11 @@ export default {
     },
   },
   methods: {
+     nameKeydown(e) {
+      if (/^\W$/.test(e.key)) {
+        e.preventDefault();
+      }
+    },
     register(){
 
       

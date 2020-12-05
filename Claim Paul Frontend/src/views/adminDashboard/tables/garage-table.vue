@@ -52,7 +52,7 @@
                   single-line
                   hide-details
                   placeholder="Enter Garage Id"
-                  class="col-md-4 pr-4"
+                  class="col-md-4 pr-4" @keydown="nameKeydown($event)"
             ></v-text-field>
           </template>
           <v-card>
@@ -74,11 +74,12 @@
                   <v-row>
                     <v-col col="12" sm="6" >
                      <v-text-field
-                        v-model="editedItem.gName"
-                        :rules="nameRules"
-                        label="Garage Name:"
-                        required
-                        ></v-text-field>
+                     autofocus
+                      v-model="editedItem.gName"
+                      :rules="nameRules"
+                      label="Garage Name:"
+                      required @keydown="nameKeydown($event)"
+                      ></v-text-field>
                     </v-col>
                   
                       <v-col col="12" sm="6" >
@@ -86,7 +87,7 @@
                                 v-model="editedItem.gAddress"
                                 :rules="nameRules"
                                 label="Garage Address:"
-                                required
+                                required @keydown="nameKeydown($event)"
                                 ></v-text-field>
                       </v-col>
                   </v-row>
@@ -96,7 +97,7 @@
                                 v-model="editedItem.gContactNo"
                                 :rules="nameRules"
                                 label="Garage Contact:"
-                                required
+                                required @keypress="isNumber($event)" maxlength="10"
                                 ></v-text-field>
                               
                               
@@ -107,7 +108,7 @@
                                 v-model="editedItem.gLocation"
                                 :rules="nameRules"
                                 label="Garage Location:"
-                                required
+                              required @keydown="nameKeydown($event)"
                                 ></v-text-field>
                       </v-col>
                   </v-row><v-row>
@@ -282,7 +283,20 @@ import Axios from '../../../baseURL'
 
    
     methods: {
-      
+      nameKeydown(e) {
+      if (/^\W$/.test(e.key)) {
+        e.preventDefault();
+      }
+    },
+    isNumber: function(evt) {
+      evt = (evt) ? evt : window.event;
+      var charCode = (evt.which) ? evt.which : evt.keyCode;
+      if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        evt.preventDefault();;
+      } else {
+        return true;
+      }
+    },
 
       submit()
       {

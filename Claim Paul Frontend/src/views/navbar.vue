@@ -2,18 +2,19 @@
      <div>
                     <nav class="nav-wrapper  navi-bar">
                     <div class="container">
+                        <img src="../assets/img/home/logomini.png" width="100px" height="100px">
                         <a href="#" class="logo display-4"> Claim Paul </a>
-                        <a href="#" class="sidenav-trigger" >
+                        <a href="#" class="sidenav-trigger">
                         <i class="material-icons">menu</i>
                         </a>
                         <ul class="right hide-on-med-and-down">
-                        <li><router-link :to="{name:'Home'}">Home</router-link></li>
-                        <li><router-link :to="{name:'About'}">About us</router-link></li>
-                        <li><router-link :to="{name:'Contact'}">contact</router-link></li>
-                        <li><router-link :to="{name:'Services'}">Services</router-link></li>
-                        <li><router-link :to="{name:'Faq'}">FAQ</router-link></li>
-                        <li><router-link :to="{name:'login'}">Login</router-link></li>
-                        <li><router-link :to="{name:'policy holder register'}">Register</router-link></li>
+                        <li><router-link :to="{name:'Home'}"><span class="navss-link">Home</span></router-link></li>
+                        <li><router-link :to="{name:'About'}"><span class="navss-link">About us</span></router-link></li>
+                        <li><router-link :to="{name:'Contact'}"><span class="navss-link">Contact</span></router-link></li>
+                        <li><router-link :to="{name:'Services'}"><span class="navss-link">Services</span></router-link></li>
+                        <li><router-link :to="{name:'Faq'}"><span class="navss-link">FAQ</span></router-link></li>
+                        <li><router-link :to="{name:'login'}"><span class="navss-link">Login</span></router-link></li>
+                        <li><router-link :to="{name:'policy holder register'}"><span class="navss-link">Register</span></router-link></li>
                         
                        
                         <li><a href="#" class="tooltipped btn-floating btn-small indigo darken-4" data-position="bottom" data-tooltip="Instagram"> 

@@ -80,26 +80,26 @@
                                                   
               <v-form ref="form" v-model="valid" lazy-validation>
                 <v-textarea label="Description" v-model="editedItem.rDescription"
-                 :rules="nameRules" auto-grow outline rows="5" row-height="25" shaped>
+                 :rules="nameRules" auto-grow outline rows="5" row-height="25" readonly shaped>
                 </v-textarea>                     
-                <v-text-field v-model="editedItem.rCost" :rules="nameRules" label="Claim Cost:" required>
+                <v-text-field v-model="editedItem.rCost" :rules="nameRules" label="Claim Cost:" readonly required>
                 </v-text-field>
-                <v-text-field v-model="editedItem.rDate" :rules="nameRules" label="Claim Date:" required>
+                <v-text-field v-model="editedItem.rDate" :rules="nameRules" label="Claim Date:" readonly required>
                  </v-text-field>
-                <v-text-field v-model="editedItem.place" :rules="nameRules" label="Place:" required> </v-text-field>
+                <v-text-field v-model="editedItem.place" :rules="nameRules" label="Place:" readonly required> </v-text-field>
                 <v-row>
                   <v-col col="12" sm="4" >
-                    <v-text-field v-model="editedItem.vehicleNumber" :rules="nameRules" label="Vehicle Number:" required>
+                    <v-text-field v-model="editedItem.vehicleNumber" :rules="nameRules" label="Vehicle Number:" readonly required>
                       </v-text-field>
                   </v-col>
                   <v-col col="12" sm="4" >
-                  <v-text-field v-model="editedItem.adminId" :rules="nameRules" label="Admin Id:" required>
+                  <v-text-field v-model="editedItem.adminId" :rules="nameRules" label="Admin Id:" readonly required>
                   </v-text-field>
                   </div>
                   </v-col>
                   <v-col col="12" sm="4" >
                   <v-text-field
-                    v-model="editedItem.agId" :rules="nameRules" label="Agent Id:" required>
+                    v-model="editedItem.agId" :rules="nameRules" label="Agent Id:" readonly required>
                   </v-text-field>
                   </v-col>
                   </v-row>
@@ -142,9 +142,9 @@
       <v-btn small color="blue" class="mr-2" @click="editItem(item)">
         <v-icon>mdi-pencil</v-icon> 
       </v-btn>
-      <v-btn color="red" small @click="deleteItem(item)">
+      <!-- <v-btn color="red" small @click="deleteItem(item)">
         <v-icon>mdi-delete</v-icon>
-      </v-btn>
+      </v-btn> -->
     </template>
   </v-data-table>
   </base-material-card>

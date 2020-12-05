@@ -52,7 +52,7 @@
                   single-line
                   hide-details
                   placeholder="Enter vehicle Id"
-                  class="col-md-4 pr-4"
+                  class="col-md-4 pr-4" @keydown="nameKeydown($event)"
             ></v-text-field>
           </template>
           <v-card>
@@ -83,7 +83,7 @@
                     v-model="editedItem.policyId"
                     :rules="nameRules"
                     label="Policy Id:"
-                    required
+                    required @keydown="nameKeydown($event)"
                     ></v-text-field>
 
                   <v-menu
@@ -139,7 +139,7 @@
                                 v-model="editedItem.color"
                                 :rules="nameRules"
                                 label="Vehicle Color:"
-                                required
+                                required @keydown="nameKeydown($event)"
                                 ></v-text-field>
                       </v-col>
 
@@ -148,7 +148,7 @@
                                 v-model="editedItem.model"
                                 :rules="nameRules"
                                 label="Vehicle Model:"
-                                required
+                                required 
                                 ></v-text-field>
                               
                               </div>
@@ -158,8 +158,8 @@
                                 <v-text-field
                                 v-model="editedItem.year"
                                 :rules="nameRules"
-                                label="Year:"
-                                required
+                                label="Year:" maxlength="4"
+                                required @keypress="isNumber($event)"
                                 ></v-text-field>
                       </v-col>
             </v-row>
@@ -169,8 +169,8 @@
                               <v-text-field
                               v-model="editedItem.valuation"
                               :rules="nameRules"
-                              label="Vehicle Valuation:"
-                              required
+                              label="Vehicle Valuation(Rs):"
+                              required @keypress="isNumberWithDot($event)"
                               ></v-text-field>
                     </v-col>
 
@@ -179,7 +179,7 @@
                               v-model="editedItem.policyPid"
                               :rules="nameRules"
                               label="Policy Pid:"
-                              required
+                              required @keypress="isNumber($event)"
                               ></v-text-field>
                             
                             </div>
@@ -190,7 +190,7 @@
                               v-model="editedItem.garageGid"
                               :rules="nameRules"
                               label="GarageId:"
-                              required
+                              required @keypress="isNumber($event)"
                               ></v-text-field>
                     </v-col>
           </v-row>
@@ -416,6 +416,29 @@
 
    
     methods: {
+       nameKeydown(e) {
+      if (/^\W$/.test(e.key)) {
+        e.preventDefault();
+      }
+    },
+    isNumber: function(evt) {
+      evt = (evt) ? evt : window.event;
+      var charCode = (evt.which) ? evt.which : evt.keyCode;
+      if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        evt.preventDefault();;
+      } else {
+        return true;
+      }
+    },
+    isNumberWithDot: function(evt) {
+      evt = (evt) ? evt : window.event;
+      var charCode = (evt.which) ? evt.which : evt.keyCode;
+      if ((charCode > 31 && (charCode < 48 || charCode > 57)) && charCode !== 46) {
+        evt.preventDefault();;
+      } else {
+        return true;
+      }
+    },
       
 
       submit()

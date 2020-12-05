@@ -78,6 +78,7 @@
                         :rules="nameRules"
                         label="Shop Name:"
                         required
+                        autofocus @keydown="nameKeydown($event)"
                         ></v-text-field>
                     </v-col>
                   
@@ -86,7 +87,7 @@
                                 v-model="editedItem.sAddress"
                                 :rules="nameRules"
                                 label="Shop Address:"
-                                required
+                                required @keydown="nameKeydown($event)"
                                 ></v-text-field>
                       </v-col>
                   </v-row>
@@ -96,7 +97,7 @@
                                 v-model="editedItem.sContact"
                                 :rules="nameRules"
                                 label="Shop Contact:"
-                                required
+                                required @keypress="isNumber($event)" maxlength="10"
                                 ></v-text-field>
                               
                               
@@ -107,7 +108,7 @@
                                 v-model="editedItem.sLocation"
                                 :rules="nameRules"
                                 label="Shop Location:"
-                                required
+                                required @keydown="nameKeydown($event)"
                                 ></v-text-field>
                       </v-col>
                   </v-row><v-row>
@@ -283,6 +284,20 @@
 
    
     methods: {
+       nameKeydown(e) {
+      if (/^\W$/.test(e.key)) {
+        e.preventDefault();
+      }
+    },
+    isNumber: function(evt) {
+      evt = (evt) ? evt : window.event;
+      var charCode = (evt.which) ? evt.which : evt.keyCode;
+      if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        evt.preventDefault();;
+      } else {
+        return true;
+      }
+    },
       
 
       submit()

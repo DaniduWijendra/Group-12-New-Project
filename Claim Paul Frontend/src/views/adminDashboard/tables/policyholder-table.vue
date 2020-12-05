@@ -31,7 +31,7 @@
             <th>Date of Birth</th>
             <th>Contact Number</th>
             <th>Vehicle Number</th>
-            <th>Delete User</th>
+            <!-- <th>Delete User</th> -->
           </tr>
         </thead>
 
@@ -44,10 +44,10 @@
             <td>{{item.pDOB}}</td>
             <td>{{item.pContactNo}}</td>
             <td>{{item.vehicleNumber}}</td>
-            <td><v-btn small 
+            <!-- <td><v-btn small 
               color="error" dark>
              Delete 
-            </v-btn></td>
+            </v-btn></td> -->
           </tr>
         </tbody>
       </v-simple-table>
@@ -79,6 +79,7 @@ export default {
       }
     },
     methods:{
+      
       
       viewDrivers()
       {
