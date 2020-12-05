@@ -239,7 +239,7 @@
         
           </v-card>
         </v-dialog>
-        <v-dialog v-model="dialogDelete" max-width="1000px">
+        <!-- <v-dialog v-model="dialogDelete" max-width="1000px">
           <v-card>
             <v-card-title class="headline">Are you sure you want to delete this item?</v-card-title>
             <v-card-actions>
@@ -249,7 +249,7 @@
               <v-spacer></v-spacer>
             </v-card-actions>
           </v-card>
-        </v-dialog>
+        </v-dialog> -->
       </v-toolbar>
     </template>
     <template v-slot:item.actions="{ item }">
@@ -262,13 +262,13 @@
       >
         <v-icon>mdi-pencil</v-icon> 
       </v-btn>
-      <v-btn
+      <!-- <v-btn
         color="red"
         small
         @click="deleteItem(item)"
       >
         <v-icon>mdi-delete</v-icon>
-      </v-btn>
+      </v-btn> -->
     </template>
    
   </v-data-table>
@@ -288,7 +288,7 @@ import Axios from '../../../baseURL'
      
       items:[],
       dialog: false,
-      dialogDelete: false,
+      //dialogDelete: false,
       editedIndex: -1,
       menu:'',
         headers: [
@@ -440,25 +440,25 @@ import Axios from '../../../baseURL'
 
       },
 
-      deleteItem (item) {
-        this.editedIndex = this.items.indexOf(item)
-        this.editedItem = Object.assign({}, item)
-        this.dialogDelete = true
+      // deleteItem (item) {
+      //   this.editedIndex = this.items.indexOf(item)
+      //   this.editedItem = Object.assign({}, item)
+      //   this.dialogDelete = true
 
         
-      },
+      // },
 
-      deleteItemConfirm () {
-        this.items.splice(this.editedIndex, 1)
-        this.closeDelete()
+      // deleteItemConfirm () {
+      //   this.items.splice(this.editedIndex, 1)
+      //   this.closeDelete()
 
-         Axios.put('delete_report/'+this.editedItem.rId,this.editedItem).then(Response=>{
-                this.s('report is successfully deleted');
-          }).catch(function(error){
-          console.log(error);
-          this.swr();
-        })
-      },
+      //    Axios.put('delete_report/'+this.editedItem.rId,this.editedItem).then(Response=>{
+      //           this.s('report is successfully deleted');
+      //     }).catch(function(error){
+      //     console.log(error);
+      //     this.swr();
+      //   })
+      // },
 
        close () {
         this.dialog = false
@@ -468,13 +468,13 @@ import Axios from '../../../baseURL'
         })
       },
 
-      closeDelete () {
-        this.dialogDelete = false
-        this.$nextTick(() => {
-          this.editedItem = Object.assign({}, this.defaultItem)
-          this.editedIndex = -1
-        })
-      },
+      // closeDelete () {
+      //   this.dialogDelete = false
+      //   this.$nextTick(() => {
+      //     this.editedItem = Object.assign({}, this.defaultItem)
+      //     this.editedIndex = -1
+      //   })
+      // },
 
       save () {
         if (this.editedIndex > -1) {
