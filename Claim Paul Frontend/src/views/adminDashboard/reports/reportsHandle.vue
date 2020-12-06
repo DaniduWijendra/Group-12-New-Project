@@ -75,14 +75,19 @@
 
 
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ pdf input~~~~~~~~~~~~~~~~~~~ -->
-  <v-card class="pa-4">
+  <v-card class="pa-4"> 
+    <v-form
+                ref="form"
+                v-model="valid"
+                lazy-validation
+              >
     <v-card-title>
         Input report pdf files below
     </v-card-title>
       <v-divider></v-divider>
       <br><br>  
         <v-file-input
-          v-model="files"
+          v-model="file"
           color="deep-purple accent-4"
           counter
           label="File input"
@@ -111,6 +116,18 @@
             </span>
           </template>
         </v-file-input>
+        <v-text-field
+            placeholder="Enter Email"
+            filled
+            prepend-inner-icon="mdi-email"
+            rounded
+            dense
+            v-model="sendEmail"
+          ></v-text-field>
+          <v-btn color='orange' type="submit"
+              :disabled="!valid" @click='sendPDF'>Send Mail</v-btn>
+    </v-form>
+
 </v-card>
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
     </v-container>
@@ -123,7 +140,7 @@
 
 import { jsPDF } from "jspdf"
 import 'jspdf-autotable'
-import Axios from 'axios'
+import Axios from '../../../baseURL'
 
 export default {
 
@@ -142,7 +159,11 @@ export default {
       reports:'',
         
       files: [],
-      
+      valid:true,
+      email:{
+        address:'',
+        
+      }
     }
     
     },
@@ -157,9 +178,13 @@ export default {
         return true;
       }
     },
+    sendPDF()
+    {
+
+    },
     inputData()
     {
-        Axios.get('http://127.0.0.1:8000/api/get_report/'+this.repoId).then(Response=>{
+        Axios.get('get_report/'+this.repoId).then(Response=>{
 
           this.reports=Response.data.report[0];
           

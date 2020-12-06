@@ -90,3 +90,6 @@ Route::put('/delete_garage/{id}','App\Http\Controllers\garageController@deleteGa
 Route::get('/get_garageimage/{id}','App\Http\Controllers\garageController@getOneImage');
 
 Route::get('/get_user/{email}','App\Http\Controllers\loginController@getUserProfile');
+
+// email
+Route::post('/sendemail','mailController@send');

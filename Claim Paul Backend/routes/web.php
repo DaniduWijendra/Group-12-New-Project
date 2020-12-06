@@ -19,5 +19,7 @@ Route::get('/', function () {
 
 Route::get('/driver','App\Http\Controllers\viewController@driverHistoryShow');
 
+Route::get('sendemail','App\Http\Controllers\mailController@index')->name('email');
+Route::post('/sendemail/send','App\Http\Controllers\mailController@send');
 //  Route::get('/login/{service}', 'App\Http\Controllers\loginController@redirectToProvider');
 //  Route::get('/login/{service}/callback', 'App\Http\Controllers\loginController@handleProviderCallback');
