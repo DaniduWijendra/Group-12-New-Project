@@ -112,46 +112,7 @@
 
 
 
-<!-- section2~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-      <v-col
-        cols="12"
-        md="6"
-      >
-         <base-material-card
-           color="warning"
-          class="px-5 py-3"
-        >
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam sapiente 
-               architecto totam qui. Obcaecati consequatur nam vero, nostrum eveniet deserunt 
-              quo quasi similique et nobis expedita, delectus laborum hic exercitationem.</p>
-        </base-material-card>
-      </v-col>
 
-      <v-col
-         cols="12"
-        md="6"
-      >
-        <base-material-card class="px-5 py-3">
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam sapiente 
-              architecto totam qui. Obcaecati consequatur nam vero, nostrum eveniet deserunt 
-              quo quasi similique et nobis expedita, delectus laborum hic exercitationem.</p>
-        </base-material-card>
-      </v-col>
-
-      <!-- <v-col
-        cols="12"
-      
-      >
-        <base-material-stats-card
-          color="orange"
-          icon="mdi-sofa"
-          title="Bookings"
-          value="184"
-          sub-icon="mdi-alert"
-          sub-icon-color="red"
-          sub-text="Get More Space..."
-        />
-      </v-col> -->
 
       <v-col
         cols="12"
@@ -278,6 +239,9 @@
                                             
       </base-material-card>
   </v-col>
+
+
+  
 
     <v-col
       cols="12"
