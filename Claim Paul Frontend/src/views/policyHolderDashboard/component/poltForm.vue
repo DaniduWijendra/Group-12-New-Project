@@ -2,8 +2,8 @@
 
   <v-form
     ref="form"
-    v-model="valid"
     lazy-validation
+    v-on:submit.prevent='sendMail'
   >
      <v-text-field
     
@@ -11,6 +11,7 @@
     outlined
     clearable
     prepend-icon="mdi-account"
+    v-model="mail.name"
     ></v-text-field>
 
      <v-text-field
@@ -19,6 +20,7 @@
     outlined
     clearable
     prepend-icon="mdi-at"
+    v-model="mail.email"
     ></v-text-field>
 
     <v-textarea
@@ -29,6 +31,7 @@
     row-height="25"
     shaped
     prepend-icon="mdi-comment-quote"
+    v-model="mail.complain"
     ></v-textarea>
     
 
@@ -38,7 +41,7 @@
       class="mr-4"
       fab
     >
-      <v-icon large>mdi-send-circle</v-icon>
+      <v-icon large @click="sendMail">mdi-send-circle</v-icon>
     </v-btn>
 
     
@@ -47,12 +50,33 @@
 
 
 <script>
+import Axios from '../../../baseURL'
   export default {
     data: () => ({
+
+      mail:{
+        name:'',
+        email:'',
+        complain:'',
+      }
       
     }),
 
     methods: {
+
+      sendMail(){
+
+          Axios.post('send_mail',this.mail).then(()=>{
+
+               
+
+            }).catch(error=>{
+                
+                console.log(error.response.data.error);
+          
+            });
+
+      }
       
     },
   }
