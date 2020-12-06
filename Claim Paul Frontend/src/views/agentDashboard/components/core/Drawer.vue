@@ -6,7 +6,7 @@
     :expand-on-hover="expandOnHover"
     :right="$vuetify.rtl"
     class='blue darken-1'
-    mobile-break-point="960"
+    mobile-breakpoint="960"
     app
     width="260"
     v-bind="$attrs"
@@ -15,6 +15,7 @@
       <v-img
         :gradient="`to bottom, ${barColor}`"
         v-bind="props"
+        
       />
     </template>
 
@@ -32,7 +33,7 @@
           size="100"
         >
           <v-avatar size="100">
-            <v-img src='./man.png' size=""></v-img>
+            <v-img src='../../../../assets/img/agent/man.png' size=""></v-img>
         
           </v-avatar>
         </v-list-item-avatar>
@@ -41,10 +42,10 @@
       </v-list-item>
       <v-list-item link>
           <v-list-item-content>
-            <v-list-item-title class="title">
-              John Leider
+            <v-list-item-title class="title" v-if='user'>
+              {{user.firstName}} {{user.lastName}}
             </v-list-item-title>
-            <v-list-item-subtitle>john@vuetifyjs.com</v-list-item-subtitle>
+            <v-list-item-subtitle><span v-if='user'>{{user.email}}</span></v-list-item-subtitle>
           </v-list-item-content>
 
           <v-list-item-action>
@@ -101,7 +102,7 @@
   import {
     mapState,
   } from 'vuex'
-
+import User from '../../../log/api/user'
   export default {
     name: 'DashboardCoreDrawer',
 
@@ -113,6 +114,7 @@
     },
 
     data: () => ({
+       user:null,
       items: [
         {
           icon: 'mdi-view-dashboard',
@@ -122,42 +124,47 @@
         {
           icon: 'mdi-account',
           title: 'user',
-          to: '/agent/pages/user',
+          to: '/agent/user',
         },
          {
           icon: 'mdi-message-bulleted',
           title: 'Messages',
-          to: '/messages',
+          to: '/agent/messages',
         },
-         {
+        {
           icon: 'mdi-email-plus',
           title: 'Reports',
-          to: '/reports',
+          to: '/agent/reports',
+        },
+         {
+          icon: 'mdi-email-edit',
+          title: 'Reports Handle',
+          to: '/agent/reportsHandle',
         },
          {
           icon: 'mdi-history',
           title: 'Driver History',
-          to: '/driver_history',
+          to: '/agent/driver_history',
         },
          {
           icon: 'mdi-cloud-upload',
           title: 'Upload',
-          to: '/uploads',
+          to: '/agent/uploads',
         },
          {
           icon: 'mdi-credit-card-outline',
           title: 'Payments',
-          to: '/payments',
+          to: '/agent/payments',
+        },
+        {
+          icon: 'mdi-credit-card-outline',
+          title: 'test',
+          to: '/agent/test',
         },
         {
           icon: 'mdi-credit-card-outline',
           title: 'Payments',
-          to: '/payments',
-        },
-        {
-          icon: 'mdi-credit-card-outline',
-          title: 'Payments',
-          to: '/payments',
+          to: '/agent/payments',
         },
         
         // {
@@ -218,6 +225,13 @@
         }
       },
     },
+
+    mounted(){
+      User.auth().then(Response=>{
+        this.user=Response.data;
+        console.log(this.user);
+      })
+    }
   }
 </script>
 

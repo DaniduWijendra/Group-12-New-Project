@@ -9,10 +9,11 @@
         cols="12"
         md="8"
       >
-        <base-material-card>
+        <base-material-card color='blue'>
           <template v-slot:heading>
             <div class="display-2 font-weight-light">
-              Edit Profile
+              User Profile
+              
             </div>
 
             <div class="subtitle-1 font-weight-light">
@@ -20,119 +21,119 @@
             </div>
           </template>
 
-          <v-form>
+          
             <v-container class="py-0">
-              <v-row>
+               <v-row>
+               
                 <v-col
                   cols="12"
                   md="4"
                 >
                   <v-text-field
-                    label="Company (disabled)"
-                    disabled
-                  />
-                </v-col>
-
-                <v-col
-                  cols="12"
-                  md="4"
-                >
-                  <v-text-field
-                    class="purple-input"
-                    label="User Name"
-                  />
-                </v-col>
-
-                <v-col
-                  cols="12"
-                  md="4"
-                >
-                  <v-text-field
-                    label="Email Address"
-                    class="purple-input"
-                  />
-                </v-col>
-
-                <v-col
-                  cols="12"
-                  md="6"
-                >
-                  <v-text-field
+                  outlined
+                    prepend-icon="mdi-account-star"
                     label="First Name"
-                    class="purple-input"
+                    v-model='agent.fName'
+
                   />
                 </v-col>
-
+            
+              
+              
                 <v-col
                   cols="12"
-                  md="6"
+                  md="4"
                 >
                   <v-text-field
+                  outlined
+                    prepend-icon="mdi-account-star-outline"
                     label="Last Name"
-                    class="purple-input"
+                    v-model='agent.lname'
                   />
                 </v-col>
 
+              </v-row>
+              <v-row>
                 <v-col cols="12">
                   <v-text-field
                     label="Adress"
-                    class="purple-input"
-                  />
-                </v-col>
-
-                <v-col
-                  cols="12"
-                  md="4"
-                >
-                  <v-text-field
-                    label="City"
-                    class="purple-input"
-                  />
-                </v-col>
-
-                <v-col
-                  cols="12"
-                  md="4"
-                >
-                  <v-text-field
-                    label="Country"
-                    class="purple-input"
-                  />
-                </v-col>
-
-                <v-col
-                  cols="12"
-                  md="4"
-                >
-                  <v-text-field
-                    class="purple-input"
-                    label="Postal Code"
-                    type="number"
+                    outlined
+                    prepend-icon="mdi-shield-home"
+                    v-model='agent.agAddress'
                   />
                 </v-col>
 
                 <v-col cols="12">
-                  <v-textarea
-                    class="purple-input"
-                    label="About Me"
-                    value="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                  <v-text-field
+                    label="Email" 
+                    outlined
+                    prepend-icon="mdi-at"                
+                    type="email"
+                    v-model='agent.email'
                   />
                 </v-col>
 
                 <v-col
                   cols="12"
-                  class="text-right"
+                  md="4"
                 >
-                  <v-btn
-                    color="success"
-                    class="mr-0"
-                  >
-                    Update Profile
-                  </v-btn>
+                  <v-text-field
+                    label="Birth Date"
+                    outlined
+                    prepend-icon="mdi-cake-variant"
+                    v-model="agent.agDob"
+                  />
                 </v-col>
+
+                <v-col
+                  cols="12"
+                  md="4"
+                >
+                  <v-text-field
+                    label="Gender"
+                    outlined
+                    prepend-icon="mdi-account-switch"
+                    v-model='agent.agGender'
+                  />
+                </v-col>
+
+                <v-col
+                  cols="12"
+                  md="4"
+                >
+                  <v-text-field
+                    label="Contact No"
+                    outlined
+                    prepend-icon="mdi-phone-message"
+                    v-model='agent.agContactNo'
+                  />
+                </v-col>
+
+                 <v-col
+                  cols="12"
+                  
+                >
+                  <v-text-field
+                    label="Branch"
+                    outlined
+                    prepend-icon="mdi-source-branch"
+                    v-model='agent.agBranch'
+                  />
+                </v-col>
+
+             
+
+                <v-col cols="12">
+                  <v-textarea
+                    label="About Me"
+                    value="I am proud of me ."
+                  />
+                </v-col>
+
+               
               </v-row>
             </v-container>
-          </v-form>
+        
         </base-material-card>
       </v-col>
 
@@ -144,21 +145,22 @@
           class="v-card-profile"
           avatar="https://demos.creative-tim.com/vue-material-dashboard/img/marc.aba54d65.jpg"
         >
-          <v-card-text class="text-center">
-            <h6 class="display-1 mb-1 grey--text">
-              CEO / CO-FOUNDER
+          <v-card-text class="text-center" v-if='user'>
+            <h6 class="display-1 mb-1 grey--text" >
+              {{user.role}}
             </h6>
 
             <h4 class="display-2 font-weight-light mb-3 black--text">
-              Alec Thompson
+              {{user.firstName}} {{user.lastName}}
             </h4>
 
             <p class="font-weight-light grey--text">
-              Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
+              Don't be scared of the truth because we need to restart the human foundation in truth
+               And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
             </p>
 
             <v-btn
-              color="success"
+              color="blue"
               rounded
               class="mr-0"
             >
@@ -172,7 +174,37 @@
 </template>
 
 <script>
+import User from '../../log/api/user'
+import Axios from '../../../baseURL'
   export default {
-    //
+
+    data(){
+      return{
+        user:null,
+
+        agent:{},
+        
+        
+      }
+    },
+     mounted(){
+      User.auth().then(Response=>{
+        this.user=Response.data;
+        this.getAgent(this.user.email);
+        console.log(this.user);
+      })
+    },
+
+  methods:{
+    getAgent(email)
+    {
+        Axios.get('get_agent/'+email).then(Response=>{
+          this.agent=Response.data[0];
+          console.log(this.agent);
+        }).catch(error=>{
+          console.log(error);
+        });
+    }
+  }
   }
 </script>

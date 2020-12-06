@@ -5,8 +5,8 @@
     :dark="barColor !== 'rgba(228, 226, 226, 1), rgba(255, 255, 255, 0.7)'"
     :expand-on-hover="expandOnHover"
     :right="$vuetify.rtl"
-    :src="barImage"
-    mobile-break-point="960"
+    class='blue darken-1'
+    mobile-breakpoint="960"
     app
     width="260"
     v-bind="$attrs"
@@ -24,25 +24,33 @@
       dense
       nav
     >
-      <v-list-item>
+      <v-list-item class='mx-12'>
         <v-list-item-avatar
           class="align-self-center"
           color="white"
           contain
+          size="100"
         >
-          <v-img
-            src="https://demos.creative-tim.com/vuetify-material-dashboard/favicon.ico"
-            max-height="30"
-          />
+          <v-avatar size="100">
+            <v-img src='../../../../assets/img/policyholder/man.png' size=""></v-img>
+        
+          </v-avatar>
         </v-list-item-avatar>
 
-        <v-list-item-content>
-          <v-list-item-title
-            class="display-1"
-            v-text="profile.title"
-          />
-        </v-list-item-content>
+      
       </v-list-item>
+      <v-list-item link>
+          <v-list-item-content>
+            <v-list-item-title class="title" v-if='user'>
+              {{user.firstName}} {{user.lastName}}
+            </v-list-item-title>
+            <v-list-item-subtitle><span v-if='user'>{{user.email}}</span></v-list-item-subtitle>
+          </v-list-item-content>
+
+          <v-list-item-action>
+            <v-icon>mdi-menu-down</v-icon>
+          </v-list-item-action>
+        </v-list-item>
     </v-list>
 
     <v-divider class="mb-2" />
@@ -76,7 +84,7 @@
       <div />
     </v-list>
 
-    <template v-slot:append>
+    <!-- <template v-slot:append>
       <base-item
         :item="{
           title: $t('upgrade'),
@@ -84,11 +92,12 @@
           to: '/upgrade',
         }"
       />
-    </template>
+    </template> -->
   </v-navigation-drawer>
 </template>
 
 <script>
+import User from '../../../log/api/user'
   // Utilities
   import {
     mapState,
@@ -105,43 +114,63 @@
     },
 
     data: () => ({
+      user:null,
       items: [
         {
           icon: 'mdi-view-dashboard',
           title: 'dashboard',
           to: '/policyholder',
         },
-        {
+
+         {
           icon: 'mdi-account',
           title: 'user',
-          to: '/policyholder/pages/user',
+          to: '/policyholder/user',
         },
-        {
-          title: 'rtables',
-          icon: 'mdi-clipboard-outline',
-          to: '/policyholder/tables/regular-tables',
+
+         {
+          icon: 'mdi-cloud-upload',
+          title: 'Upload & Generate Cost',
+          to: '/policyholder/uploads',
         },
-        {
-          title: 'typography',
-          icon: 'mdi-format-font',
-          to: '/policyholder/components/typography',
+
+         {
+          icon: 'mdi-history',
+          title: 'Driver History',
+          to: '/policyholder/driverHistory',
         },
-        {
-          title: 'icons',
-          icon: 'mdi-chart-bubble',
-          to: '/policyholder/components/icons',
-        },
-        {
-          title: 'google',
-          icon: 'mdi-map-marker',
+
+        //  {
+        //   icon: 'mdi-cash-multiple',
+        //   title: 'Generate Cost',
+        //   to: '/policyholder/generateCost',
+        // },
+
+         {
+          icon: 'mdi-office-building-marker-outline',
+          title: 'Find Shops & Garages',
           to: '/policyholder/maps/google-maps',
         },
-        {
-          title: 'notifications',
-          icon: 'mdi-bell',
-          to: '/policyholder/components/notifications',
-        },
-      ],
+
+        //  {
+        //   icon: ' mdi-hammer-wrench',
+        //   title: 'Find Garages',
+        //   to: '/policyholder/findGarages',
+        // },
+        // {
+        //   icon: 'mdi-message-bulleted',
+        //   title: 'messages',
+        //   to: '/policyholder/messages',
+        // },
+        // {
+        //   title: 'google',
+        //   icon: 'mdi-map-marker',
+        //   to: '/policyholder/maps/google-maps',
+        // },
+
+
+
+      ]
     }),
 
     computed: {
@@ -174,6 +203,13 @@
         }
       },
     },
+
+    mounted(){
+      User.auth().then(Response=>{
+        this.user=Response.data;
+        console.log(this.user);
+      })
+    }
   }
 </script>
 

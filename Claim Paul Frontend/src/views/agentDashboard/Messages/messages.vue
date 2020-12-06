@@ -1,157 +1,152 @@
 <template>
-    <v-container
-    id="dashboard"
-    fluid
-    tag="section"
+ 
+  <v-card
+    class="mx-auto overflow-hidden"
+    height="800"
+    width="1000"
   >
+    <v-system-bar color="deep-purple darken-3"></v-system-bar>
 
-         <v-card
-    v-bind="$attrs"
-    :class="classes"
-    class="v-card--material pa-3"
-  >
-    <div class="d-flex grow flex-wrap">
-      <v-avatar
-        v-if="avatar"
-        size="128"
-        class="mx-auto v-card--material__avatar elevation-6"
-        color="grey"
-      >
-        <v-img :src="avatar" />
-      </v-avatar>
+    <v-app-bar
+      color="deep-purple accent-4"
+      dark
+      prominent
+    >
+     
 
-      <v-sheet
-        v-else
-        :class="{
-          'pa-7': !$slots.image
-        }"
-        :color="color"
-        :max-height="icon ? 90 : undefined"
-        :width="icon ? 'auto' : '100%'"
-        elevation="6"
-        class="text-start v-card--material__heading mb-n6"
-        dark
-      >
-        <slot
-          v-if="$slots.heading"
-          name="heading"
-        />
+      <v-toolbar-title>Send Email</v-toolbar-title>
 
-        <slot
-          v-else-if="$slots.image"
-          name="image"
-        />
+      <v-spacer></v-spacer>
 
-        <div
-          v-else-if="title && !icon"
-          class="display-1 font-weight-light"
-          v-text="title"
-        />
+      
+    </v-app-bar>
 
-        <v-icon
-          v-else-if="icon"
-          size="32"
-          v-text="icon"
-        />
+   
 
-        <div
-          v-if="text"
-          class="headline font-weight-thin"
-          v-text="text"
-        />
-      </v-sheet>
+    <v-card-text>
+      <v-form enctype="multipart/form-data" method="post" class="contact-form" @submit.prevent="sendEmail">
+          
+  <v-container fluid>
+    <v-row>
+      <v-col cols="4">
+        <v-subheader>Name</v-subheader>
+      </v-col>
+      <v-col cols="8">
+        <v-text-field
+          label="Name"
+          name="name"
+          value="buddhi"
+          prefix="Mr/Mrs"
+        ></v-text-field>
+      </v-col>
+    </v-row>
 
-      <div
-        v-if="$slots['after-heading']"
-        class="ml-6"
-      >
-        <slot name="after-heading" />
-      </div>
 
-      <div
-        v-else-if="icon && title"
-        class="ml-4"
-      >
-        <div
 
-          class="card-title font-weight-light"
-          v-text="title"
-        />
-      </div>
-    </div>
+    <v-row>
+      <v-col cols="4">
+        <v-subheader>Email</v-subheader>
+      </v-col>
+      <v-col cols="8">
+        <v-text-field
+          label="Email address"
+          name="email"
+          value="example"
+          suffix="@gmail.com"
+        ></v-text-field>
+      </v-col>
+    </v-row>
 
-    <slot />
+        <v-row>
+      <v-col cols="4">
+        <v-subheader>Subject</v-subheader>
+      </v-col>
+      <v-col cols="8">
+        <v-text-field
+          label="Subject"
+          name="subject"
+          
+        ></v-text-field>
+      </v-col>
+    </v-row>
 
-    <template v-if="$slots.actions">
-      <v-divider class="mt-2" />
+        <v-row>
+      <v-col cols="4">
+        <v-subheader>Message</v-subheader>
+      </v-col>
+      <v-col cols="8">
+       <v-textarea
+          filled
+          auto-grow
+          label="Message"
+          name="message"
+          rows="5"
+          row-height="30"
+          shaped
+          
+        ></v-textarea>
+      </v-col>
+    </v-row>
 
-      <v-card-actions class="pb-0">
-        <slot name="actions" />
-      </v-card-actions>
-    </template>
+    <v-row>
+      <v-col cols="4">
+        <v-btn 
+        type='submit'
+        fab
+       dark
+       large
+       color="cyan"
+       >
+
+       <v-icon>mdi-send</v-icon>
+       
+       </v-btn>
+      </v-col>
+    </v-row>
+
+  </v-container>
+
+
+          <!-- <label>Attachment</label>
+          <input type="file" name="file" id=""> -->
+
+          
+      </v-form>
+    </v-card-text>
   </v-card>
-    </v-container>
+
 </template>
 
 <script>
-  export default {
-    name: 'MaterialCard',
+import emailjs from 'emailjs-com';
 
-    props: {
-      avatar: {
-        type: String,
-        default: '',
-      },
-      color: {
-        type: String,
-        default: 'success',
-      },
-      icon: {
-        type: String,
-        default: undefined,
-      },
-      image: {
-        type: Boolean,
-        default: false,
-      },
-      text: {
-        type: String,
-        default: '',
-      },
-      title: {
-        type: String,
-        default: '',
-      },
+export default {
+
+  data: () => ({
+      
+      
+    
+      
+     
+    }),
+
+   
+  methods: {
+    sendEmail: (e) => {
+      emailjs.sendForm('service_g6if7zb','claim_paul', e.target, 'user_STuuqjdWTVs3IQSFqi0Bx')
+        .then((result) => {
+            console.log('SUCCESS!', result.status, result.text);
+        }, (error) => {
+            console.log('FAILED...', error);
+        });
+
+        this.clear();
     },
-
-    computed: {
-      classes () {
-        return {
-          'v-card--material--has-heading': this.hasHeading,
-        }
-      },
-      hasHeading () {
-        return Boolean(this.$slots.heading || this.title || this.icon)
-      },
-      hasAltHeading () {
-        return Boolean(this.$slots.heading || (this.title && this.icon))
-      },
-    },
-  }
-</script>
-
-<style lang="sass">
-  .v-card--material
-    &__avatar
-      position: relative
-      top: -64px
-      margin-bottom: -32px
-
-    &__heading
-      position: relative
-      top: -40px
-      transition: .3s ease
-      z-index: 1
-</style>
 
     
+    clearMessage () {
+        this.message = ''
+      },
+  }
+}
+</script>

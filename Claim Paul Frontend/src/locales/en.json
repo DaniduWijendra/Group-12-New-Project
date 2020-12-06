@@ -41,5 +41,19 @@
   "user": "User Profile",
   "vforms": "Validation Forms",
   "widgets": "Widgets",
-  "wizard": "Wizard"
+  "wizard": "Wizard",
+  "Shops and Garages":"Shops and Garages",
+  "Reports Handle":"Reports Handle",
+  "Reports":"Reports",
+  "Driver History":"Driver History",
+  "Agent Information":"Agent Information",
+  "Policy Holder Information":"Policy Holder Information",
+  "Create an Admin":"Create an Admin",
+  "Create an Agent":"Create an Agent",
+  "Messages":"Messages",
+  "test":"test",
+  "Payments":"Payments",
+  "Upload":"Upload",
+  "Vehicle Information":"Vehicle Information",
+  "View Shops":"View Shops"
 }
