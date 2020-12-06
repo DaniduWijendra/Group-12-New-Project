@@ -59,7 +59,10 @@
                 <section class="container section scrollspy" id="photos">
                     <div class="row">
                     <div class="col s12 l4">
-                        <img src="./assets/img/home/Group2.png" alt="" class="responsive-img materialboxed">
+                        <v-img pa-2
+  src="./assets/img/home/Group2.png" class="responsive-img materialboxed" 
+></v-img>
+                        
                     </div>
                     <div class="col s12 l6">
                         <h2 class="indigo-text text-darken-4">Portraits</h2>

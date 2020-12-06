@@ -10,14 +10,14 @@ class mailController extends Controller
     {
         return view('email');
     }
-    public function send(Request $request)
+    public function send(Request $request) 
     {
-        $data=array(
+        $data=[
             'address' => $request->address,
             'document' => $request->file('document')
-        );
+        ];
         
-        $to=$this->data['address'];
+        $to='daniduwijendra@gmail.com';
         \Mail::to($to)->send(new \App\Mail\sendReportAttachment($data));
         
         echo 'sent email success';

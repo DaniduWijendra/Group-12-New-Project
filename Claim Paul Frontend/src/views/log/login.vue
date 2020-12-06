@@ -1,7 +1,7 @@
 <template>
-    <div>
+  
       <!-- <Navbar/> -->
-    <div class="d-flex justify-center  mt-10">
+    <div class="d-flex justify-center  mt-5 ml-5">
         <v-app>
             <v-flex xs12 sm12 md12 lg12> 
                 <v-card class="text-center ma-6" max-width="600" color="#3197b2">
@@ -38,7 +38,7 @@
             </v-flex>
         </v-app>
     </div>
-    </div>
+
 
 </template>
 

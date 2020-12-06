@@ -17,7 +17,7 @@ class sendReportAttachment extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($data)
     {
         $this->data=$data;
     }
@@ -29,10 +29,11 @@ class sendReportAttachment extends Mailable
      */
     public function build()
     {
-        return $this->from('claimpaul1@gmail.com')->subject('Test Mail Recieved')->view
-        ('dynamic_email_template')->with('data',$this->data)->
-        attach($this->data['file']->getRealPath(),[
-            'as'=>$this->data['file']->getClientOriginalName()
+        $name=$this->data['address'];
+        return $this->subject('Test Mail Recieved')->view
+        ('dynamic_email_template',compact('name'))->
+        attach($this->data['document']->getRealPath(),[
+            'as'=>$this->data['document']->getClientOriginalName()
         ]);
     }
 }

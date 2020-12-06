@@ -4,7 +4,8 @@
         <title>About Email</title>
     </head>
     <body>
-        <form action="{{route('sendemail/send')}}" method="POST" enctype="multipart/form.data">
+        <form action="{{ route('sendemail/send')}}" method="POST" enctype="multipart/form.data">
+            @csrf
             <input type="email" name="address">
             <input type="file" name="document">
             <input type="submit" value="submit">
