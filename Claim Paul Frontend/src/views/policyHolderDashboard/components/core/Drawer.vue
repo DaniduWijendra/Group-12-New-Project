@@ -149,7 +149,7 @@ import User from '../../../log/api/user'
          {
           icon: 'mdi-office-building-marker-outline',
           title: 'Find Shops & Garages',
-          to: '/policyholder/findShops',
+          to: '/policyholder/maps/google-maps',
         },
 
         //  {
@@ -157,16 +157,16 @@ import User from '../../../log/api/user'
         //   title: 'Find Garages',
         //   to: '/policyholder/findGarages',
         // },
-        {
-          icon: 'mdi-message-bulleted',
-          title: 'messages',
-          to: '/policyholder/messages',
-        },
-        {
-          title: 'google',
-          icon: 'mdi-map-marker',
-          to: '/policyholder/maps/google-maps',
-        },
+        // {
+        //   icon: 'mdi-message-bulleted',
+        //   title: 'messages',
+        //   to: '/policyholder/messages',
+        // },
+        // {
+        //   title: 'google',
+        //   icon: 'mdi-map-marker',
+        //   to: '/policyholder/maps/google-maps',
+        // },
 
 
 

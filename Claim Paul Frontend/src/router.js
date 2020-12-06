@@ -72,6 +72,15 @@ const router= new Router({
       path: '/faq',
       component: () => import('@/views/faq'),
     },
+
+    {
+      name: 'ab',
+      path: '/ab',
+      component: () => import('./views/policyHolderDashboard/component/Tabs.vue'),
+    },
+
+
+
     
     // {
     //   name: 'login',
@@ -343,18 +352,14 @@ const router= new Router({
               path: '/agent/payments',
               component: () => import('@/views/agentDashboard/payments/payments'),
             },
-             //payments
+             
              {
               name: 'Agent Driver History',
               path: '/agent/driver_history',
               component: () => import('@/views/agentDashboard/driverHistory/driverHistory'),
             },
-        // Upgrade
-        {
-          name: 'Upgrade',
-          path: 'upgrade',
-          component: () => import('@/views/agentDashboard/Upgrade'),
-        },
+      
+       
       ],
     },
 
@@ -386,22 +391,9 @@ const router= new Router({
         path: '/policyHolder/driverHistory',
         component: () => import('@/views/policyHolderDashboard/driverHistory/driverHistory'),
       },
-      {
-        name: 'Find Shops',
-        path: '/policyHolder/findShops',
-        component: () => import('@/views/policyHolderDashboard/find/findShops'),
-      },
-      {
-        name: 'Find Garages',
-        path: '/policyHolder/findGarages',
-        component: () => import('@/views/policyHolderDashboard/find/findGarages'),
-      },
+   
       // Tables
-      {
-        name: 'Generate Cost',
-        path: '/policyHolder/generateCost',
-        component: () => import('@/views/policyHolderDashboard/generateCost/generateCost'),
-      },
+     
       {
         name: 'Messages',
         path: '/policyHolder/messages',

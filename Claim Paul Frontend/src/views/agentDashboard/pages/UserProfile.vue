@@ -184,6 +184,7 @@ import Axios from '../../../baseURL'
 
         agent:{},
         
+        
       }
     },
      mounted(){

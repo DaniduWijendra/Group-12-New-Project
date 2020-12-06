@@ -33,7 +33,7 @@
           size="100"
         >
           <v-avatar size="100">
-            <v-img src='./man.png' size=""></v-img>
+            <v-img src='../../../../assets/img/agent/man.png' size=""></v-img>
         
           </v-avatar>
         </v-list-item-avatar>
