@@ -16,6 +16,42 @@ class reportController extends Controller
 
     }
 
+    public function filterReportById($filterItem)
+    {
+        return DB::table('reports')->select('reports.*')->where('rId',$filterItem)->get();
+
+    }
+
+    public function filterReportByDescription($filterItem)
+    {
+        return DB::table('reports')->select('reports.*')->where('rDescription',$filterItem)->get();
+
+    }
+
+    public function filterReportByDate($filterItem)
+    {
+        return DB::table('reports')->select('reports.*')->where('rDate',$filterItem)->get();
+
+    }
+
+    public function filterReportByVehicleNumber($filterItem)
+    {
+        return DB::table('reports')->select('reports.*')->where('vehicleNumber',$filterItem)->get();
+
+    }
+
+    public function filterReportByAdmin($filterItem)
+    {
+        return DB::table('reports')->select('reports.*')->where('adminId',$filterItem)->get();
+
+    }
+
+    public function filterReportByAgent($filterItem)
+    {
+        return DB::table('reports')->select('reports.*')->where('agId',$filterItem)->get();
+
+    }
+
     public function putReport(Request $rs)
     {
         DB::table('reports')->insert(
@@ -127,5 +163,7 @@ class reportController extends Controller
 
 
     }
+
+ 
 
 }

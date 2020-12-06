@@ -76,7 +76,7 @@
 
 <script>
 import Navbar from '../navbar'
-import Axios from 'axios'
+import Axios from '../../baseURL'
 export default {
      components:{Navbar},
     data(){
@@ -114,7 +114,7 @@ export default {
                 const datas={
                     email:this.email
                 }
-            Axios.post('http://127.0.0.1:8000/api/send_token',datas).then(()=>{
+            Axios.post('send_token',datas).then(()=>{
 
                this.infoEmail='Email Sent';
 
@@ -142,7 +142,7 @@ export default {
                 const datas={
                     token:this.token
                 }
-            Axios.post('http://127.0.0.1:8000/api/validate_token',datas).then(Response=>{
+            Axios.post('validate_token',datas).then(Response=>{
                 
                 if(Response.data.id)
                 {
@@ -193,7 +193,7 @@ export default {
                     password:this.newPassword,
                     id:this.user.id,
                 }
-            Axios.post('http://127.0.0.1:8000/api/reset_password',datas).then(()=>{
+            Axios.post('reset_password',datas).then(()=>{
                 
                     this.$router.push({path:'/login'});
 

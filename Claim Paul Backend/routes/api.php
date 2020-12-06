@@ -50,6 +50,15 @@ Route::post('/put_report','App\Http\Controllers\reportController@putReport');
 Route::get('/get_report/{id}','App\Http\Controllers\reportController@getOneReport');
 Route::put('/edit_report/{id}','App\Http\Controllers\reportController@editReport');
 Route::put('/delete_report/{id}','App\Http\Controllers\reportController@deleteReport');
+Route::get('/filter_report_id/{filterItem}','App\Http\Controllers\reportController@filterReportById');
+Route::get('/filter_report_description/{filterItem}','App\Http\Controllers\reportController@filterReportByDescription');
+Route::get('/filter_report_date/{filterItem}','App\Http\Controllers\reportController@filterReportByDate');
+Route::get('/filter_report_vehicleNumber/{filterItem}','App\Http\Controllers\reportController@filterReportByVehicleNumber');
+Route::get('/filter_report_place/{filterItem}','App\Http\Controllers\reportController@filterReportByPlace');
+Route::get('/filter_report_adminId/{filterItem}','App\Http\Controllers\reportController@filterReportByAdmin');
+Route::get('/filter_report_agentId/{filterItem}','App\Http\Controllers\reportController@filterReportByAgent');
+
+
 Route::get('/policy-holder','App\Http\Controllers\viewController@policyHolderShow');
 Route::get('/agents','App\Http\Controllers\viewController@agentsShow');
 Route::get('/get_agent/{email}','App\Http\Controllers\viewController@aAgentShow');
@@ -90,3 +99,6 @@ Route::put('/delete_garage/{id}','App\Http\Controllers\garageController@deleteGa
 Route::get('/get_garageimage/{id}','App\Http\Controllers\garageController@getOneImage');
 
 Route::get('/get_user/{email}','App\Http\Controllers\loginController@getUserProfile');
+
+
+Route::post('/send_mail','App\Http\Controllers\mailController@sendMail');
