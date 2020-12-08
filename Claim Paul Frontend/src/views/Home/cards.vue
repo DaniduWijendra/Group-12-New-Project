@@ -77,10 +77,10 @@ export default {
   data: () => ({
     showdetails:false,
     items:[
-        {title:' Vehicle Cost Prediction',subtitle:' Find estimate cost',text:'You can estimate your damage car cost using claim paul. Upload images of the car and claim paul is ready to estimate your cost', src: 'https://picsum.photos/800/800',showdetails:false},
-        {title:' Find Garage',subtitle:'View nearest garage',text:'Need a garage? Claim paul is ready for find the nerest and recommended garages nearby location.',src: 'https://cdn.vuetifyjs.com/images/cards/house.jpg',showdetails:false},
-        {title:' Find Spare Parts',subtitle:'View nearest spare parts shops',text:'Are you looking spare parts for your vehicle. Claim paul can find you to best shop for you nearby your location',src: 'https://cdn.vuetifyjs.com/images/cards/road.jpg',showdetails:false},
-        {title:' FAQ',subtitle:'Frequently Asked Questions',text:'Questions related to site',src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg',showdetails:false}
+        {title:' Vehicle Cost Prediction',subtitle:' Find estimate cost',text:'You can estimate your damage car cost using claim paul. Upload images of the car and claim paul is ready to estimate your cost', src: '../../assets/img/home/cost_prediction.png',showdetails:false},
+        {title:' Find Garage',subtitle:'View nearest garage',text:'Need a garage? Claim paul is ready for find the nerest and recommended garages nearby location.',src: '../../assets/img/home/find_garage.png',showdetails:false},
+        {title:' Find Spare Parts',subtitle:'View nearest spare parts shops',text:'Are you looking spare parts for your vehicle. Claim paul can find you to best shop for you nearby your location',src: '../../assets/img/home/spare_part.png',showdetails:false},
+        {title:' FAQ',subtitle:'Frequently Asked Questions',text:'Questions related to site',src: '../../assets/img/home/faq.png',showdetails:false}
     ]
   }),
 }

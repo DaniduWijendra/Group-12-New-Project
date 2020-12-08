@@ -1,6 +1,6 @@
 <template>
     <div>
-      <!-- <Navbar/> -->
+      <Navbar/>
     <div class="d-flex justify-center  mt-10">
         <v-app>
             <v-flex xs12 sm12 md12 lg12> 

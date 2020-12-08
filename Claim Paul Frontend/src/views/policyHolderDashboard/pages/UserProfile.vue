@@ -182,7 +182,16 @@ import Axios from '../../../baseURL'
       return{
         user:null,
 
-        policy_holder:{},
+        policy_holder:{
+          fName:'',
+          lName:'',
+          pAddress:'',
+          policyholder_email:'',
+          pDOB:'',
+          pGender:'',
+          pContactNo:'',
+          NIC:'',
+        },
         
       }
     },
