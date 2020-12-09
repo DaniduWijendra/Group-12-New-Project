@@ -1,44 +1,73 @@
 <template>
-    <div>
+    <v-app>
       <Navbar/>
-    <div class="d-flex justify-center  mt-10">
-        <v-app>
-            <v-flex xs12 sm12 md12 lg12> 
-                <v-card class="text-center ma-6" max-width="600" color="#3197b2">
+        <div class="mx-3 mt-6 ">
+              <v-row>
+                <v-col col="12" sm="6">
+                   <v-card class="text-center mx-5" max-width="600px" color="indigo lighten-4">
                     <v-card-title class="justify-center">
                             <h2 style="color:#fff; font-size:3rem">Login Form</h2>
                              </v-card-title>
                             <v-card-text>
                                 <v-form ref="loginForm" v-model="valid" lazy-validation>
                                     <v-row>
-                                          <v-col cols="12" >
-                                           <v-text-field prepend-icon="mdi-email-lock" v-model="form.email" :rules="emailRules" label="E-mail" required></v-text-field>
+                                          <v-col cols="12" class="mt-5" >
+                                           <v-text-field outlined prepend-icon="mdi-at" v-model="form.email" :rules="emailRules" label="E-mail" required></v-text-field>
                                         </v-col>
                                          <v-col cols="12">
-                                            <v-text-field v-model="form.password" prepend-icon="mdi-lock" :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'" :rules="[rules.required, rules.min]" :type="show1 ? 'text' : 'password'" name="input-10-1" label="Password" hint="At least 8 characters" counter @click:append="show1 = !show1"></v-text-field>
+                                            <v-text-field outlined v-model="form.password" prepend-icon="mdi-lock" :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'" :rules="[rules.required, rules.min]" :type="show1 ? 'text' : 'password'" name="input-10-1" label="Password" hint="At least 8 characters" counter @click:append="show1 = !show1"></v-text-field>
                                         </v-col>
                                         <!-- <v-col class="d-flex" cols="12" sm="12" xsm="12">
                                         </v-col>
                                         <v-spacer></v-spacer> -->
                                         <v-col class="d-flex" cols="12" sm="12" md="12">
-                                            <v-btn x-large block :disabled="!valid" color="success" @click="login"> Login </v-btn>
+                                            <v-btn x-large block :disabled="!valid" color="deep-purple darken-4" @click="login"> Login </v-btn>
                                         </v-col>
                                         <!-- social media login -->
                                         <v-col cols="12" sm="12" md="12" >
-                                           <v-btn x-large block color="primary" dark @click="usingGoogle"> <v-icon dark left>facebook</v-icon> Sign Up with FaceBook </v-btn>
+                                           <v-btn x-large block color="indigo accent-3" dark @click="usingGoogle"> <v-icon dark left>facebook</v-icon> Sign Up with FaceBook </v-btn>
                                 </v-col>
                                 <v-col cols="12" sm="12" md="12" >
-                                       <v-btn  x-large block dark @click="usingGoogle"> <v-icon color="green darken-1" dark left>mdi-google</v-icon> Sign Up with Google</v-btn></v-col>
-                                        <v-col cols="12" sm="12" md="6" ><span class="alert alert-primary"><a href="/policyholder_register">Create Account</a></span></v-col>
-                                        <v-col cols="12" sm="12" md="6" ><span class="alert alert-warning"><a href="/reset_password">Forget Password</a></span></v-col>
+                                       <v-btn  x-large block dark @click="usingGoogle" color="red"> <v-icon  dark left>mdi-google</v-icon>+Sign Up with Google</v-btn></v-col>
+
+                                        <v-col cols="12" sm="12" md="6" >
+                                          <p class="alert alert-primary mx-3">
+
+                                            <router-link to="/policyholder_register">Create Account</router-link>
+                                          </p>
+
+                                     
+                                          </v-col>
+
+                                        <v-col cols="12" sm="12" md="6" >
+                                          
+
+                                          <p class="alert alert-warning">
+                                            <router-link to="/reset_password">Forget Password</router-link>
+                                          </p>
+                                            
+                                        </v-col>
+                                       
                                     </v-row>
-                                </v-form>
+                                </v-form> 
                             </v-card-text>
-                </v-card>
-            </v-flex>
-        </v-app>
+                   </v-card>
+                </v-col>
+
+                <v-col col="12" sm="6"> 
+                  <v-card class="text-center mx-5" max-width="600px" color="indigo lighten-4">
+                 
+                 </v-card>
+                </v-col>
+              </v-row>
+           
+               
+
+              
+            
+      
     </div>
-    </div>
+    </v-app>
 
 </template>
 

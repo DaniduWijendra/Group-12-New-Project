@@ -1,16 +1,16 @@
 
 <template>
-<div>
+<v-app>
 <Navbar/>
 
- <div class="d-flex justify-center ">
-    <v-app>
+ <div >
+    
        
-        <v-flex xs12 sm12 md12 lg12 >
-             <v-card class="text-center ma-6" max-width="800" color="#3197b2">
+        <!-- <v-flex xs12 sm12 md12 lg12 > -->
+             <v-card class="text-center ma-6" max-width="800" color="indigo lighten-4">
                <v-alert type="error" v-if='errorEmail'>
                     {{errorEmail}}
-                </v-alert>
+               </v-alert>
                
                 <v-card-title class="justify-center">
                          <h2 style="color:#fff; font-size:3rem">Registration Form</h2>
@@ -43,17 +43,17 @@
                                         </v-col>
                                         <v-spacer></v-spacer>
                                         <v-col class="d-flex ml-auto" cols="12" sm="3" xsm="12">
-                                            <v-btn x-large block :disabled="!valid" color="success" @click="register">Register</v-btn>
+                                            <v-btn x-large block :disabled="!valid" color="deep-purple darken-4" @click="register">Register</v-btn>
                                         </v-col>
                                     </v-row>
                                 </v-form>
                             </v-card-text>
                         </v-card>
-        </v-flex>
+        <!-- </v-flex> -->
         
-    </v-app>
+    
     </div> 
-    </div>
+    </v-app>
 </template>
 <script>
 
