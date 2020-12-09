@@ -24,7 +24,8 @@ class mailController extends Controller
             'name'=>$rs->name,
             'complain'=>$rs->complain,
             'branch'=>$rs->branch,
-            'topic'=>$rs->topic
+            'topic'=>$rs->topic,
+            'role'=>$rs->role
             
         );
         Mail::to($rs->email)->send(new mailManage($data));

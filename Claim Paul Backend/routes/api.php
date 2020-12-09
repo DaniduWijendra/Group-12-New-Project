@@ -58,6 +58,8 @@ Route::get('/filter_report_place/{filterItem}','App\Http\Controllers\reportContr
 Route::get('/filter_report_adminId/{filterItem}','App\Http\Controllers\reportController@filterReportByAdmin');
 Route::get('/filter_report_agentId/{filterItem}','App\Http\Controllers\reportController@filterReportByAgent');
 
+//pdf store
+Route::put('/savePdf/{id}','App\Http\Controllers\reportController@savePdf');
 
 Route::get('/policy-holder','App\Http\Controllers\viewController@policyHolderShow');
 Route::get('/agents','App\Http\Controllers\viewController@agentsShow');
@@ -104,3 +106,6 @@ Route::get('/get_user/{email}','App\Http\Controllers\loginController@getUserProf
 Route::post('/send_mail','App\Http\Controllers\mailController@sendMail');
 //manage admin and agents mail
 Route::post('/admin_mail','App\Http\Controllers\mailController@adminMail');
+
+
+

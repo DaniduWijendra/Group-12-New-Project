@@ -87,7 +87,7 @@
       <v-divider></v-divider>
       <br><br>  
         <v-file-input
-          v-model="file"
+          
           color="deep-purple accent-4"
           counter
           label="File input"
@@ -122,7 +122,7 @@
             prepend-inner-icon="mdi-email"
             rounded
             dense
-            v-model="sendEmail"
+            
           ></v-text-field>
           <v-btn color='orange' type="submit"
               :disabled="!valid" @click='sendPDF'>Send Mail</v-btn>
@@ -264,6 +264,17 @@ export default {
       
         this.i('New Report is Generating');
         this.clear();
+        //var pdf=doc.output();
+        var pdf=doc.output('datauri');
+        // console.log(pdf);
+        // console.log('report id' + this.reports.rId);
+        Axios.put('savePdf/'+this.reports.rId, null,
+           {
+              params: {'pdf':  doc.output('datauri')}          
+           }).then(Response => (
+           console.log(Response.data)
+         ))
+        .catch(error => console.log(error));
     }
   }
   

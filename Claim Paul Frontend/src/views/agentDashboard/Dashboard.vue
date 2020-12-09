@@ -114,30 +114,19 @@
 
 
 
-      <v-col
-        cols="12"
-        md="6"
-      >
+     <v-col cols="12" md="12">
         <base-material-card
-          color="warning"
-          class="px-5 py-3"
-        >
-          <template v-slot:heading>
-            <div class="display-2 font-weight-light">
-              Employees Stats
-            </div>
+      color="blue"
+      icon="mdi-text-box-multiple-outline"
+      title="Send Messages to Agents"
+      class=" px-5 py-3"
+      >
 
-            <div class="subtitle-1 font-weight-light">
-              New employees on 15th September, 2016
-            </div>
-          </template>
-          <v-card-text>
-            <v-data-table
-              :headers="headers"
-              :items="items"
-            />
-          </v-card-text>
-        </base-material-card>
+        
+            <agentEmail/>
+          
+        
+      </base-material-card>
       </v-col>
 
       <v-col
@@ -265,10 +254,11 @@
 <script>
 //import animation from './component/animation/animation ' 
 import User from '../log/api/user'
+import agentEmail from './component/agentEmail'
 //import textAnim from './component/animation/textAnim'
   export default {
     name: 'Dashboard',
-    components:{},
+    components:{agentEmail},
     data () {
       return {
         user:null,

@@ -142,7 +142,7 @@
 </template>
 
 <script>
-  import adminEmail from './component/adminEmail'
+    import adminEmail from './component/adminEmail'
   // import textanimate from './component/animations/textanimate'
   export default {
     name: 'agent_dashboard',
