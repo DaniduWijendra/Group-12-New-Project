@@ -56,7 +56,7 @@
 
                 
                 <!-- photo / grid -->
-                <section class="container section scrollspy" id="photos">
+                <section class="container section ">
                     <div class="row">
                     <div class="col s12 l4">
                         <v-img pa-2
@@ -65,8 +65,10 @@
                         
                     </div>
                     <div class="col s12 l6">
-                        <h2 class="indigo-text text-darken-4">Portraits</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at lacus congue, suscipit elit nec, tincidunt orci.</p>
+                        <br><br><br><br>
+                        <h2 class="indigo-text text-darken-4">Vehicle damage</h2>
+                        
+                        <p class="pt-6">Our AI assesses car damage and expedites claims and settlements today, in real time.</p>
                     </div>
                     </div>
                     <div class="row">
@@ -74,7 +76,7 @@
                                 <img src="./assets/img/home/Group1.png" alt="" class="responsive-img materialboxed">
                             </div>
                             <div class="col s12 l6 offset-l1 pull-l5 right-align">
-                                <h2 class="indigo-text text-darken-4">Cityscapes</h2>
+                                <h2 class="indigo-text text-darken-4">Claim Valuation</h2>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at lacus congue, suscipit elit nec, tincidunt orci.</p>
                             </div>      
                     </div>
@@ -84,7 +86,7 @@
                             </div>
                             
                             <div class="col s12 l6 offset-l1">
-                                <h2 class="indigo-text text-darken-4">Nature</h2>
+                                <h2 class="indigo-text text-darken-4">Helpful</h2>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at lacus congue, suscipit elit nec, tincidunt orci.</p>
                             </div>
                     </div>
@@ -94,7 +96,7 @@
 
                 <div class="row">
                          <div class="col s12 l4">
-                            <h2 class="indigo-text text-darken-4">What I do..</h2>
+                            <h2 class="indigo-text text-darken-4">What we do..</h2>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at lacus congue, suscipit elit nec, tincidunt orci.</p>
                             <p>Mauris dolor augue, vulputate in pharetra ac, facilisis nec libero. Fusce condimentum gravida urna, vitae scelerisque erat ornare nec.</p>
                         </div>
@@ -104,21 +106,21 @@
                   <!-- tabs -->
                 <ul class="tabs">
                 <li class="tab col s6">
-                    <a href="#photography" class="active indigo-text text-darken-4">Photography</a>
+                    <a href="#photography" class="active indigo-text text-darken-4">Machine Learning</a>
                 </li>
                 <li class="tab col s6">
-                    <a href="#editing" class="indigo-text text-darken-4">Editing</a>
+                    <a href="#editing" class="indigo-text text-darken-4">Generate Cost</a>
                 </li>
                 </ul>
 
                 <div id="photography" class="col s12">
-                    <p class="flow-text indigo-text text-darken-4">Photography</p>
+                    <p class="flow-text indigo-text text-darken-4">Machine Learning</p>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at lacus congue, suscipit elit nec, tincidunt orci.</p>
                     <p>Mauris dolor augue, vulputate in pharetra ac, facilisis nec libero. Fusce condimentum gravida urna, vitae scelerisque erat ornare nec.</p>
                 </div>
 
                 <div id="editing" class="col s12">
-                    <p class="flow-text indigo-text text-darken-4">Editing</p>
+                    <p class="flow-text indigo-text text-darken-4">Generate Cost</p>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at lacus congue, suscipit elit nec, tincidunt orci.</p>
                     <p>Mauris dolor augue, vulputate in pharetra ac, facilisis nec libero. Fusce condimentum gravida urna, vitae scelerisque erat ornare nec.</p>
                 </div>

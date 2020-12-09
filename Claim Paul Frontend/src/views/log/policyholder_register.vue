@@ -1,7 +1,7 @@
 
 <template>
 <div>
-<!-- <Navbar/> -->
+<Navbar/>
 
  <div class="d-flex justify-center ">
     <v-app>

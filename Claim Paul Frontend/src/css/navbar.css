@@ -1,12 +1,11 @@
-.navi-bar {
-  background: #1E0261;
-}
 
-.navi-bar .logo {
+
+.logo {
   font-family: 'Dancing Script', cursive;
 }
 
 .navi-bar .navss-link {
   font-size: 1.25rem;
+  color: black;
 }
 /*# sourceMappingURL=navbar.css.map */

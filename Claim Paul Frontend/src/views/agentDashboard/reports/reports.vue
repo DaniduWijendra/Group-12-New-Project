@@ -235,7 +235,7 @@
                                                                   </v-col>
                                                         </v-row>
 
-                                                        <v-row>
+                                                        <!-- <v-row>
                                                                   <v-col col="12" sm="4" >
                                                                     
                                                                       <v-select 
@@ -248,7 +248,7 @@
                                                                                 
                                           
                                                                   </v-col>
-                                                        </v-row>
+                                                        </v-row> -->
                                                            
                                                         <v-card-actions>
                                                                       <v-spacer></v-spacer>
@@ -374,7 +374,6 @@ import Axios from '../../../baseURL'
         adminId:'',
         agId:'',
 
-        isAccepted:'',
       },
 
       defaultItem:{
@@ -386,13 +385,12 @@ import Axios from '../../../baseURL'
         adminId:'',
         agId:'',
 
-        isAccepted:'pending',
       },
         
-        status: [
-                'Accepted',
-                'Rejected',
-            ],
+        // status: [
+        //         'Accepted',
+        //         'Rejected',
+        //     ],
             
         nameRules: [v => !!v || '*this field is required',],
       //   email: '',
@@ -466,8 +464,8 @@ import Axios from '../../../baseURL'
           this.place='',
           this.vehicleNumber='',
           this.adminId='',
-          this.agId='',
-          this.select=null
+          this.agId=''
+          //this.select=null
       },
 
       editItem (item) {

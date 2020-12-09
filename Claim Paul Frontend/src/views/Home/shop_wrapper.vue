@@ -4,7 +4,7 @@
     <v-card
       id="settings"
       class="py-2 px-4"
-      color="green lighten-3"
+      color="indigo lighten-1"
       dark
       flat
       link
