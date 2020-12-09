@@ -446,7 +446,7 @@
           this.$refs.form.validate()
           this.clear();
 
-          Axios.post('http://127.0.0.1:8000/api/add_vehicle',{
+          Axios.post('add_vehicle',{
             
                vehicleNumber: this.editedItem.vehicleNumber,
                policyId: this.editedItem.policyId,

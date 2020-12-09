@@ -4,6 +4,7 @@
     ref="form"
     lazy-validation
     v-on:submit.prevent='sendMail'
+    enctype="multipart/form-data"
   >
      <v-text-field
     
@@ -33,7 +34,7 @@
     prepend-icon="mdi-comment-quote"
     v-model="mail.complain"
     ></v-textarea>
-    
+
 
     <v-btn
       
@@ -58,11 +59,13 @@ import Axios from '../../../baseURL'
         name:'',
         email:'',
         complain:'',
+        file:''
       }
       
     }),
 
     methods: {
+  
 
       sendMail(){
 

@@ -6,21 +6,20 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Http\File;
 
 class complainMail extends Mailable
 {
     use Queueable, SerializesModels;
-    public $name;
-    public $complain;
+    protected $data;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($name,$complain)
+    public function __construct($data=[])
     {
-        $this->name=$name;
-        $this->complain=$complain;
+        $this->data=$data;
     }
 
     /**
@@ -30,6 +29,6 @@ class complainMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('view_complain')->view('view_complain');
+        return $this->subject('view_complain')->view('view_complain')->with('data', $this->data);
     }
 }

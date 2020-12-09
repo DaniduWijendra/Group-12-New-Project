@@ -6,8 +6,8 @@
     <title>Email</title>
 </head>
 <body>
-    <h1>you have new Complain from {{$name}} </h1>
-    <p>complain is <strong>{{$complain}}</strong></p>
+    <h1>you have new Complain from {{$data['name']}} </h1>
+    <p>complain is <strong>{{$data['complain']}}</strong></p>
     <p>Thank you</p>
 </body>
 </html>
