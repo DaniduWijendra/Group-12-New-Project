@@ -2,73 +2,70 @@
   <v-container id="dashboard" fluid tag="section">
     <v-row>
         <v-col cols="12" md="12">
-          <base-material-card color="pink" class="px-5 py-auto ">
+          <base-material-card color="blue" class="px-5 py-auto ">
+          <template v-slot:heading>
+            <div class="display-3 font-weight-light">
+              Welcome Admin
+            </div>
+
+            <div class="subtitle-1 font-weight-dark">
+             You Last Visited on Today
+            </div>
+          </template>
             <v-row>
              <v-col cols="12" md="12" >
               <v-main class=' py-16 mx-3 px-0 pl-sm-5 blue accent-2'>
-                
+               <v-img pa-2
+  src="../../assets/img/admin/adminImage.png" max-width="960" max-hight="250" 
+></v-img>
                 <!-- <textanimate/> -->
               </v-main>
               </v-col>
             </v-row>
           </base-material-card>
          </v-col>
-
-        <v-col cols="12" sm="6" lg="3">
+         <v-col cols="12" sm="12" lg="12">
+         <div class="display-2 font-weight-dark">
+              User Managment
+            </div>
+         </v-col>
+        <v-col cols="12" sm="6" lg="4">
           <base-material-stats-card
-          color="info" icon="mdi-twitter" title="Followers"
-           value="+245" sub-icon="mdi-clock" sub-text="Just Updated"/>
+          color="info" icon="mdi-face-agent" title="Create an Agent"
+          sub-icon="mdi-clock" sub-text="Newly Added" to='admin/agent_register'/>
         </v-col>
 
-      <v-col cols="12" sm="6" lg="3">
+      <v-col cols="12" sm="6" lg="4">
         <base-material-stats-card
           color="primary"
-          icon="mdi-poll"
-          title="Website Visits"
-          value="75.521"
-          sub-icon="mdi-tag" sub-text="Tracked from Google Analytics"/>
+          icon="mdi-car-key"
+          title="Policy Holders"
+          sub-icon="mdi-tag" sub-text="View Policy Holder Information" to="admin/tables/policyholder-table"/>
       </v-col>
 
-      <v-col cols="12" m="6" lg="3">
-        <base-material-stats-card
-          color="success"
-          icon="mdi-store"
-          title="Revenue"
-          value="$ 34,245"
-          sub-icon="mdi-calendar"
-          sub-text="Last 24 Hours"/>
-      </v-col>
-
-      <v-col cols="12" sm="6" lg="3">
+      <v-col cols="12" m="6" lg="4">
         <base-material-stats-card
           color="orange"
-          icon="mdi-sofa"
-          title="Bookings"
-          value="184"
-          sub-icon="mdi-alert"
-          sub-icon-color="red"
-          sub-text="Get More Space..."/>
+          icon="mdi-history"
+          title="Driver History"
+          sub-icon="mdi-calendar"
+          sub-text="View Previous Reports"
+          to="admin/tables/driver-history"/>
       </v-col>
 
-      <v-col cols="12" md="6">
+    <v-col cols="12" md="12">
         <base-material-card
-          color="warning"
-          class="px-5 py-3">
-          <template v-slot:heading>
-            <div class="display-2 font-weight-light">
-              Employees Stats
-            </div>
+      color="blue"
+      icon="mdi-text-box-multiple-outline"
+      title="Send Messages to Agents"
+      class=" px-5 py-3"
+      >
 
-            <div class="subtitle-1 font-weight-light">
-              New employees on 15th September, 2016
-            </div>
-          </template>
-          <v-card-text>
-            <v-data-table
-              :headers="headers"
-              :items="items"/>
-          </v-card-text>
-        </base-material-card>
+        
+            <adminEmail/>
+          
+        
+      </base-material-card>
       </v-col>
 
       <v-col cols="12" md="6">
@@ -145,10 +142,11 @@
 </template>
 
 <script>
+  import adminEmail from './component/adminEmail'
   // import textanimate from './component/animations/textanimate'
   export default {
     name: 'agent_dashboard',
-    // components:{textanimate},
+    components:{adminEmail},
     data () {
       return {
         
@@ -332,3 +330,9 @@
     },
   }
 </script>
+<style>
+  .dashboardImage
+  {
+    background-image: url(../../assets/img/admin/adminImage.png);
+  }
+</style>

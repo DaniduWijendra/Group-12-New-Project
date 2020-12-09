@@ -38,7 +38,7 @@
             </v-flex>
         </v-app>
     </div>
-    </div>
+
 
 </template>
 
