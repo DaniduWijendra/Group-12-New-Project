@@ -1,6 +1,7 @@
 <template>
-<div >
 
+
+<v-app>
 
 	<Navbar/>
 
@@ -95,7 +96,8 @@
 </v-card>
 
 
-</div>
+</v-app>
+
 </template>
 
 

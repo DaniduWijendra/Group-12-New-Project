@@ -5,23 +5,23 @@
       dark
     >
       <v-icon @click="drawer = true" class="mx-2">mdi-menu</v-icon>
-      <v-toolbar-title>
-      <span class="logo display-3"> Claim Paul </span>
+      <v-toolbar-title class="d-none d-sm-block">
+      <span class="logo display-3 "> ClaimPaul. </span>
       </v-toolbar-title>
 
       <v-spacer></v-spacer>
       
-            <v-text-field
+            <!-- <v-text-field
             append-icon="mdi-microphone"
-            class="mx-4 shrink"
+            class="mx-2 shrink"
             flat
             hide-details
             label="Search"
             prepend-inner-icon="mdi-magnify"
             solo-inverted
             
-          ></v-text-field>
-    
+          ></v-text-field> -->
+          
      
     <!-- notification -->
     <div class="text-center">

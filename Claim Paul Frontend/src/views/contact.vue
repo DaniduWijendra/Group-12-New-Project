@@ -1,9 +1,5 @@
 <template>
-    <div>
-        <h1>contact </h1>
-    </div>
-</template><template>
-    <div>
+    <v-app>
         <Navbar/>
          <section class="claimpaul-banner">
                     <div class="slider">
@@ -59,7 +55,7 @@
         <footer>
             <Footer/>
         </footer>
-    </div>
+    </v-app>
 </template>
 
 <script>
