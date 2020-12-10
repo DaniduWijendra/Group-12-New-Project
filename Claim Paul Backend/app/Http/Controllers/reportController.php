@@ -43,6 +43,24 @@ class reportController extends Controller
          ->select('reports.*')->where('isDeleted','0')->get();
 
     }
+    public function getAgentMail($id)
+    {
+        $item=DB::table('reports')->where('rId', $id)->exists();
+        if(!$item)
+        {
+            return response()->json(['msg'=>'this record is not found'],404);
+        }
+
+        else{
+
+            $record= DB::table('agents')
+         ->join('reports','reports.agId','agents.agId')
+         ->select('agents.email')->where('reports.rId','=',$id)->get();
+
+            return response()->json(['agent'=>$record],200);
+
+        }
+    }
 
     public function filterReportById($filterItem)
     {

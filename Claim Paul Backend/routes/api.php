@@ -46,6 +46,7 @@ Route::get('/driver-history','App\Http\Controllers\viewController@driverHistoryS
 Route::get('/get_driver_history/{email}','App\Http\Controllers\viewController@getHistory');
 
 Route::get('/report','App\Http\Controllers\reportController@getReport');
+Route::get('/get_agentmail/{id}','App\Http\Controllers\reportController@getAgentMail');
 Route::post('/put_report','App\Http\Controllers\reportController@putReport');
 Route::get('/get_report/{id}','App\Http\Controllers\reportController@getOneReport');
 Route::put('/edit_report/{id}','App\Http\Controllers\reportController@editReport');

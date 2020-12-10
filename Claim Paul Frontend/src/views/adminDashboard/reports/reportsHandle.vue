@@ -73,63 +73,75 @@
       </v-card>
   </v-card>
 
+<!-- mail part -->
 
-<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ pdf input~~~~~~~~~~~~~~~~~~~ -->
-  <v-card class="pa-4"> 
-    <v-form
-                ref="form"
-                v-model="valid"
-                lazy-validation
-              >
-    <v-card-title>
+<base-material-card color="blue"
+        icon="mdi-text-box-multiple-outline"
+      title="Send Messages to Agents"
+      class=" px-5 py-3"
+          > 
+  <!-- <v-card-title>
         Input report pdf files below
-    </v-card-title>
-      <v-divider></v-divider>
-      <br><br>  
-        <v-file-input
-          
-          color="deep-purple accent-4"
-          counter
-          label="File input"
-          multiple
-          placeholder="Select your files"
-          prepend-icon="mdi-paperclip"
-          outlined
-          :show-size="1000"
-        >
-          <template v-slot:selection="{ index, text }">
-            <v-chip
-              v-if="index < 2"
-              color="deep-purple accent-4"
-              dark
-              label
-              small
-            >
-              {{ text }}
-            </v-chip>
+    </v-card-title> -->
+<v-form
+    ref="form"
+    lazy-validation
+    v-on:submit.prevent='sendMail'
+  >
+     <v-text-field
+    
+    label="Your Name"
+    outlined
+    clearable
+    prepend-icon="mdi-account"
+    v-model="mail.name"
+    ></v-text-field>
 
-            <span
-              v-else-if="index === 2"
-              class="overline grey--text text--darken-3 mx-2"
-            >
-              +{{ files.length - 2 }} File(s)
-            </span>
-          </template>
-        </v-file-input>
-        <v-text-field
-            placeholder="Enter Email"
-            filled
-            prepend-inner-icon="mdi-email"
-            rounded
-            dense
-            
-          ></v-text-field>
-          <v-btn color='orange' type="submit"
-              :disabled="!valid" @click='sendPDF'>Send Mail</v-btn>
-    </v-form>
+    <v-select v-model="mail.branch" prepend-icon="mdi-home-analytics" outlined :items="branch" label="Your Branch:" required>
+    </v-select>
 
-</v-card>
-<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+     <v-text-field   
+    label="Topic"
+    outlined
+    clearable
+    prepend-icon="mdi-text"
+    v-model="mail.topic"
+    ></v-text-field>
+
+    <v-text-field
+    label="email"
+    outlined
+    clearable
+    prepend-icon="mdi-at"
+    v-model="mail.agMail.email"
+    readonly
+    ></v-text-field>
+
+    <v-textarea
+    label="Message"
+    auto-grow
+    outlined
+    rows="3"
+    row-height="25"
+    shaped
+    prepend-icon="mdi-comment-quote"
+    v-model="mail.complain"
+    ></v-textarea>
+    <input type="file" name="media" @click="uploadPdf">
+
+
+    <v-btn
+      
+      color="blue"
+      class="mr-4"
+      fab
+    >
+      <v-icon large @click="sendMail">mdi-send-circle</v-icon>
+    </v-btn>
+
+    
+  </v-form>
+</base-material-card>
     </v-container>
   </v-app>
 </div>
@@ -143,11 +155,26 @@ import 'jspdf-autotable'
 import Axios from '../../../baseURL'
 
 export default {
-
   data(){
 
     return{
-    
+      mail:{
+        name:'',
+        agMail:'',
+        complain:'',
+        file:'',
+        branch:'',
+        topic:'',
+        role:'Admin',
+
+      },
+      agentMail:'',
+      branch:[
+           'Galle',
+        'Matara',
+        'Ambalangoda',
+        'Kurunagala'
+      ],
       repoId:'',
       heading: "Claim Paul Report",
       moreText: [
@@ -169,6 +196,54 @@ export default {
     },
 
   methods: {
+    uploadPdf(e)
+    {
+      let reader=new FileReader();
+      // console.log('uploading');
+      let file = e.target.files[0];
+      console.log(file);
+      reader.readAsDataURL(file);
+      reader.onloadend=(file)=>
+      {
+        
+        this.mail.file=reader.result;
+      }
+      
+    },
+    sendMail(){
+
+          Axios.post('admin_mail',{
+            name:this.mail.name,
+            email:this.mail.agMail.email,
+            complain:this.mail.complain,
+            branch:this.mail.branch,
+            topic:this.mail.topic,
+            role:this.mail.role,
+            
+          }).then(()=>{
+
+               this.s('Your Mail Successfully sent');
+
+            }).catch(error=>{
+                
+                console.log(error.response.data.error);
+          
+            });
+
+      },
+    getAgentMail()
+    {
+      Axios.get('get_agentmail/'+this.repoId).then(Response=>{
+
+          this.mail.agMail=Response.data.agent[0]; 
+          //console.log(this.agMail);          
+        }).catch(function(error){
+          
+              console.log(error);
+              
+            
+        })
+    },
      isNumber: function(evt) {
       evt = (evt) ? evt : window.event;
       var charCode = (evt.which) ? evt.which : evt.keyCode;
@@ -184,6 +259,7 @@ export default {
     },
     inputData()
     {
+      this.getAgentMail();
         Axios.get('get_report/'+this.repoId).then(Response=>{
 
           this.reports=Response.data.report[0];

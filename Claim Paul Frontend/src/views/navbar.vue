@@ -6,7 +6,8 @@
     >
       <v-icon @click="drawer = true" class="mx-2">mdi-menu</v-icon>
       <v-toolbar-title>
-      <span class="logo display-3"> Claim Paul </span>
+      <span class="logo display-3"> Claim Paul.</span>
+
       </v-toolbar-title>
 
       <v-spacer></v-spacer>
@@ -130,17 +131,17 @@
       dense
       nav
     >
-      <v-list-item class='mx-6'>
+      <v-list-item class='mx-'>
         <v-list-item-avatar
-          class="mx-5"
-          color="white"
+          class="mx-4"
+          color="blue"
           contain
-          size="100"
+          size="150"
         >
-          <v-avatar size="100">
-            <v-img src='../assets/img/policyholder/man.png' size=""></v-img>
+          <!-- <v-avatar size="120"> -->
+            <img src='../assets/img/home/logo.png'></img>
         
-          </v-avatar>
+          <!-- </v-avatar> -->
         </v-list-item-avatar>
 
       
