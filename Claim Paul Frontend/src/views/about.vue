@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <v-app>
         <Navbar/>
          <section class="claimpaul-banner">
                     <div class="slider">
@@ -55,7 +55,7 @@
         <footer>
             <Footer/>
         </footer>
-    </div>
+    </v-app>
 </template>
 
 <script>
