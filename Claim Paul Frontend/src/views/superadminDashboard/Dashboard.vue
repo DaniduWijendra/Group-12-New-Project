@@ -50,25 +50,19 @@
           sub-text="Get More Space..."/>
       </v-col>
 
-      <v-col cols="12" md="6">
+     <v-col cols="12" md="12">
         <base-material-card
-          color="warning"
-          class="px-5 py-3">
-          <template v-slot:heading>
-            <div class="display-2 font-weight-light">
-              Employees Stats
-            </div>
+      color="blue"
+      icon="mdi-text-box-multiple-outline"
+      title="Send Messages to Agents"
+      class=" px-5 py-3"
+      >
 
-            <div class="subtitle-1 font-weight-light">
-              New employees on 15th September, 2016
-            </div>
-          </template>
-          <v-card-text>
-            <v-data-table
-              :headers="headers"
-              :items="items"/>
-          </v-card-text>
-        </base-material-card>
+        
+            <superAdminEmail/>
+          
+        
+      </base-material-card>
       </v-col>
 
       <v-col cols="12" md="6">
@@ -146,9 +140,10 @@
 
 <script>
   import textanimate from './component/animations/textanimate'
+  import superAdminEmail from './component/superAdminEmail'
   export default {
     name: 'agent_dashboard',
-    components:{textanimate},
+    components:{textanimate,superAdminEmail},
     data () {
       return {
         

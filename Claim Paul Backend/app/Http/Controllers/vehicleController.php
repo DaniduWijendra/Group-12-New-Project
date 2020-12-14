@@ -43,7 +43,7 @@ class vehicleController extends Controller
 
     public function addVehicle(Request $rs)
     {
-        $expl=explode(',',$rs->image);
+        $expl=explode(',',$rs->image);//devide to two parts
         $decode=base64_decode($expl[1]);
 
        if(str_contains($expl[0],'png'))

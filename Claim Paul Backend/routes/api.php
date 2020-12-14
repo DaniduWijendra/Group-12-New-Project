@@ -46,6 +46,7 @@ Route::get('/driver-history','App\Http\Controllers\viewController@driverHistoryS
 Route::get('/get_driver_history/{email}','App\Http\Controllers\viewController@getHistory');
 
 Route::get('/report','App\Http\Controllers\reportController@getReport');
+Route::get('/get_agentmail/{id}','App\Http\Controllers\reportController@getAgentMail');
 Route::post('/put_report','App\Http\Controllers\reportController@putReport');
 Route::get('/get_report/{id}','App\Http\Controllers\reportController@getOneReport');
 Route::put('/edit_report/{id}','App\Http\Controllers\reportController@editReport');
@@ -58,6 +59,8 @@ Route::get('/filter_report_place/{filterItem}','App\Http\Controllers\reportContr
 Route::get('/filter_report_adminId/{filterItem}','App\Http\Controllers\reportController@filterReportByAdmin');
 Route::get('/filter_report_agentId/{filterItem}','App\Http\Controllers\reportController@filterReportByAgent');
 
+//pdf store
+Route::put('/savePdf/{id}','App\Http\Controllers\reportController@savePdf');
 
 Route::get('/policy-holder','App\Http\Controllers\viewController@policyHolderShow');
 Route::get('/agents','App\Http\Controllers\viewController@agentsShow');
@@ -104,3 +107,6 @@ Route::get('/get_user/{email}','App\Http\Controllers\loginController@getUserProf
 Route::post('/send_mail','App\Http\Controllers\mailController@sendMail');
 //manage admin and agents mail
 Route::post('/admin_mail','App\Http\Controllers\mailController@adminMail');
+
+
+

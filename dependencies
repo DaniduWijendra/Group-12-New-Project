@@ -14,3 +14,5 @@ backend
 
 composer require laravel/sanctum
     composer require laravel/socialite
+php artisan route:cache
+php artisan config:cache
