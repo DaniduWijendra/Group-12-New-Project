@@ -342,8 +342,8 @@ export default {
         this.clear();
         //var pdf=doc.output();
         var pdf=doc.output('datauri');
-        // console.log(pdf);
-        // console.log('report id' + this.reports.rId);
+         console.log(pdf);
+         console.log('report id' + this.reports.rId);
         Axios.put('savePdf/'+this.reports.rId, null,
            {
               params: {'pdf':  doc.output('datauri')}          

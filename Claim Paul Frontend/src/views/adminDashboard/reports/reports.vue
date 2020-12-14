@@ -178,7 +178,9 @@ import Axios from 'axios'
         { text: 'Admin Id', value: 'adminId',sortable: false  },
         { text: 'Agent Id', value: 'agId',sortable: false  },
         { text: 'Status', value: 'isAccepted',sortable: false  },
+        { text: 'Reports', value: 'pdf', sortable: false },
         { text: 'Actions', value: 'actions', sortable: false },
+       
       ],
 
       editedItem:{
@@ -189,6 +191,8 @@ import Axios from 'axios'
         vehicleNumber:'',
         adminId:'',
         agId:'',
+        pdf:'',
+        
 
         isAccepted:'pending',
       },
@@ -201,6 +205,7 @@ import Axios from 'axios'
         vehicleNumber:'',
         adminId:'',
         agId:'',
+        pdf:'',
 
         isAccepted:'pending',
       },

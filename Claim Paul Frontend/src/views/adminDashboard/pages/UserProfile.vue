@@ -17,7 +17,7 @@
             </div>
 
             <div class="subtitle-1 font-weight-light">
-              Complete your profile
+              Your profile
             </div>
           </template>
 
@@ -161,10 +161,6 @@
               {{user.firstName}} {{user.lastName}}
             </h4>
 
-            <p class="font-weight-light grey--text">
-              Don't be scared of the truth because we need to restart the human foundation in truth
-               And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
-            </p>
 
             <v-btn
               color="blue"
