@@ -68,7 +68,7 @@
       </base-material-card>
       </v-col>
 
-      <v-col cols="12" md="6">
+      <!-- <v-col cols="12" md="6">
         <base-material-card class="px-5 py-3">
           <template v-slot:heading>
             <v-tabs
@@ -136,13 +136,13 @@
             </v-tab-item>
           </v-tabs-items>
         </base-material-card>
-      </v-col>
+      </v-col> -->
     </v-row>
   </v-container>
 </template>
 
 <script>
-  import adminEmail from './component/adminEmail'
+    import adminEmail from './component/adminEmail'
   // import textanimate from './component/animations/textanimate'
   export default {
     name: 'agent_dashboard',

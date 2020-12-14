@@ -6,9 +6,11 @@
     <title>Email</title>
 </head>
 <body>
-    <h1>you recieved a new Mail from {{$data['name']}} </h1>
-    <h4>Admin Branch {{$data['branch']}}</h4>
-    <p>Your Message:<br><strong>{{$data['complain']}}</strong></p>
+    <h1>You recieved a new Mail from {{$data['role']}}</h1>
+    <h4>Name: {{$data['name']}}</h4>
+    <h4>{{$data['role']}} Branch: {{$data['branch']}}</h4>
+    <h4>Message</h4><br>
+    <strong>{{$data['complain']}}</strong>
     <p>Thank you</p>
 </body>
 </html>

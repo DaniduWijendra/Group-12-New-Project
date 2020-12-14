@@ -2,8 +2,8 @@
     <v-app>
       <Navbar/>
         <div class="mx-3 mt-6 ">
-              <v-row>
-                <v-col col="12" sm="6">
+             
+                
                    <v-card class="text-center mx-5" max-width="600px" color="indigo lighten-4">
                     <v-card-title class="justify-center">
                             <h2 style="color:#fff; font-size:3rem">Login Form</h2>
@@ -52,14 +52,14 @@
                                 </v-form> 
                             </v-card-text>
                    </v-card>
-                </v-col>
+                
 
                 <v-col col="12" sm="6"> 
                   <v-card class="text-center mx-5" max-width="600px" color="indigo lighten-4">
                  
                  </v-card>
                 </v-col>
-              </v-row>
+              
            
                
 
