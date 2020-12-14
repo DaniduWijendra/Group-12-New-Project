@@ -29,11 +29,11 @@
           md="auto"
         >
           <div class="body-1 font-weight-light pt-6 pt-md-0 text-center">
-            &copy; 2019, made with
+            &copy; 2020
             <v-icon size="18">
-              mdi-heart
+              mdi-jellyfish-outline 
             </v-icon>
-            by <a href="https://www.creative-tim.com">Creative Tim</a> for a better web.
+             <a href="/">ClaimPaul</a> vehicle damage classification and cost prediction system
           </div>
         </v-col>
       </v-row>

@@ -63,7 +63,7 @@
 
 <script>
 import Axios from '../../../baseURL'
-import User from ''
+import User from '../../log/api/user'
   export default {
     data: () => ({
 
