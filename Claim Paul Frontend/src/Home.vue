@@ -3,7 +3,7 @@
      
                 <Navbar/>
                 
-                <section class="claimpaul-banner">
+                <!-- <section class="claimpaul-banner">
                     <div class="slider">
                         <div class="slide">
                             <div class="content-holder">
@@ -14,15 +14,15 @@
                                             <div class="col12 xs12 s6">
                                                 <div class="sub-content col px-md-5">
 
-                                                    <div class="title">
-                                                       <h1 class="display-1">Claim Paul</h1>
+                                                    <!-- <div class="title">
+                                                       <h1 class="display-">Claim Paul</h1>
                                                     </div>
 
                                                     <div class="sub-title">
                                                         Welcome to claim Paul!!!
-                                                    </div>
+                                                    </div> -->
 
-                                                    <div class="btn-sign-up"></div>
+                                                    <!-- <div class="btn-sign-up"></div>
                                                     <div class="btn-get-started"></div>
 
                                                 </div>
@@ -41,15 +41,17 @@
 
 
 
-                                    </div>
+                                    </div> -->
                               
-                            </div>
+                            <!-- </div>
                             
                             
                         </div>
                     </div>
                 
-                </section>
+                </section> --> 
+                
+                <carousel/>
 
                 <shopWrapper/>
                 <garageWrapper/>
@@ -235,25 +237,15 @@ import Card from './views/Home/cards'
 import shopWrapper from './views/Home/shop_wrapper'
 import garageWrapper from './views/Home/garage_wrapper'
 import sparePrtWrapper from './views/Home/sparePrt_wrapper'
+import carousel from './views/Home/carousel'
 
 export default {
      
-    components:{Parallax,Footer,Navbar,Card,shopWrapper,garageWrapper,sparePrtWrapper},
+    components:{Parallax,Footer,Navbar,Card,shopWrapper,garageWrapper,sparePrtWrapper,carousel},
 
    
 }
 </script>
 
-<style scoped>
- @import './css/slider.css';
-  /* .image{
-            position: absolute;
-            top:0;bottom:0;left:0;right:0;
-            background-image: url(./assets/img/home/Group10.png);
-            background-repeat: no-repeat;
-            background-position: right bottom;
-            background-size:contain;
-            background-repeat: no-repeat;
-                   
-            } */
-</style>
+
+ 

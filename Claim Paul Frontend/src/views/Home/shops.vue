@@ -1,60 +1,79 @@
 <template>
+
 <div>
-    <Navbar/>
-    
-     <div id="products" class="row view-group mx-5">
-                <div class="item col-xs-4 col-lg-4" v-for="item in items">
-                    <div class="thumbnail card">
-                        <div class="img-event">
-                            <img class="group list-group-image img-fluid" src="http://placehold.it/400x250/000/fff" alt="" />
-                        </div>
-                        <div class="caption card-body">
-                            <h4 class="group card-title inner list-group-item-heading">{{item.sName}}</h4>
-                            
-                            <div class="row">
-                                <div class="col-xs-12 col-md-6">
-                                    <p class="lead">
-                                        {{item.sAddress}}</p>
-                                </div>
-                                <div class="col-xs-12 col-md-6">
-                                    <a class="btn btn-success" href="#">Add to cart</a>
-                                </div>
-                                   
-                                       
-                                       <v-expansion-panels class="mb-6">
-                                            <v-expansion-panel>
-                                              <v-expansion-panel-header expand-icon="mdi-menu-down">
-                                                Item
-                                              </v-expansion-panel-header>
-                                                  <v-expansion-panel-content>
-                                                   <table>
-                                                     
-                                                       <tr>
-                                                         <td>contact</td>
-                                                         <td>{{item.sContact}}</td>
-                                                       </tr>
+   <Navbar/> 
+  <h2 class="center blue-text text-darken-4">Spare Part Shops</h2>
+   <v-layout row wrap>
+      <div class="item col-xs-12 col-sm-6 col-md-4 col-lg-4" v-for="item in items" :key="item.shpId">
+   <v-card
+    class="mx-auto my-12"
+    max-width="374"
+  >
+    <template slot="progress">
+      <v-progress-linear
+        color="deep-purple"
+        height="10"
+        indeterminate
+      ></v-progress-linear>
+    </template>
 
-                                                       <tr>
-                                                         <td>Location</td>
-                                                         <td>{{item.sLocation}}</td>
-                                                       </tr>
+    <v-img
+      height="250"
+      v-bind:src="'http://127.0.0.1:8000/images/'+item.image" alt="">
+    </v-img>
 
-                                                
-                                                     
-                                                   </table>
-                                                  </v-expansion-panel-content>
-                                            </v-expansion-panel>
-                                          </v-expansion-panels>
-                                
-                                      
-                                </div>
-                                   
-                            </div>
-                        </div>
-                    </div>
-                </div> 
+    <v-card-title>{{item.sName}}</v-card-title>
 
-    
+    <v-card-text>
+      <v-row
+        align="center"
+        class="mx-0"
+      >
+        <v-rating
+          :value="4.5"
+          color="amber"
+          dense
+          half-increments
+
+          size="14"
+        ></v-rating>
+
+        <div class="grey--text ml-4">
+          4.5 (413)
+        </div>
+      </v-row>
+
+      <div class="my-4 subtitle-1">
+        <b>Shop Information</b>
+      </div>
+
+      <div>
+        Shop Address:{{item.sAddress}}<br>
+        Item Contact:{{item.sContact}}<br>
+        Item Location:{{item.sLocation}}
+      </div>
+    </v-card-text>
+
+    <!-- <v-divider class="mx-4"></v-divider> -->
+
+    <!-- <v-card-title>Part Price: (Rs)</v-card-title>
+
+    <v-card-text>
+    <div>{{item.price}}</div>
+    </v-card-text> -->
+
+    <v-card-actions>
+      <!-- <v-btn
+        color="deep-purple lighten-2"
+        text
+        @click="reserve"
+      >
+        Reserve
+      </v-btn> -->
+    </v-card-actions>
+  </v-card>
+      </div>
+   </v-layout>
 </div>
 </template>
 
@@ -67,6 +86,7 @@ export default {
     data(){
 
         return{
+            showdetails:false,
              items:[],
         }
 
