@@ -8,7 +8,24 @@ use Carbon\Carbon;
 
 
 class reportController extends Controller
-{    public function savePdf(Request $request,$id)
+{   public function getReportDetails($id) 
+    {
+        $item=DB::table('reports')->where('rId', $id)->exists();
+        if(!$item)
+        {
+            return response()->json(['msg'=>'this record is not found'],404);
+        }
+        else
+        {
+            $record=DB::table('reports')
+            ->join('vehicles','vehicles.vehicleNumber','reports.vehicleNumber')
+            ->join('policy_holders','policy_holders.pId','vehicles.policyPid')
+            ->select(
+                'vehicles.vehicleNumber','policy_holders.*','reports.*')->where('reports.rId','=',$id)->get();
+                return response()->json(['report'=>$record],200);
+        }
+    }
+    public function savePdf(Request $request,$id)
     {
         $expl=explode(',',$request->get('pdf'));//devide to two parts should get using get when add as params
         $decode=base64_decode($expl[1]);

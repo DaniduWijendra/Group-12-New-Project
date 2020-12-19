@@ -58,6 +58,7 @@ Route::get('/filter_report_vehicleNumber/{filterItem}','App\Http\Controllers\rep
 Route::get('/filter_report_place/{filterItem}','App\Http\Controllers\reportController@filterReportByPlace');
 Route::get('/filter_report_adminId/{filterItem}','App\Http\Controllers\reportController@filterReportByAdmin');
 Route::get('/filter_report_agentId/{filterItem}','App\Http\Controllers\reportController@filterReportByAgent');
+Route::get('/report_detail/{id}','App\Http\Controllers\reportController@getReportDetails');
 
 //pdf store
 Route::put('/savePdf/{id}','App\Http\Controllers\reportController@savePdf');
