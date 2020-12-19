@@ -22,10 +22,9 @@
 
 
     <!-- calander -->
-    <v-col col="12" sm="9">
-
-     <Calander/>
-    </v-col>
+   <v-col col="12" sm="9">
+     <base-material-card color="blue" height="800"> </base-material-card>
+   </v-col>
   </v-row>
 
   <v-row>
@@ -87,7 +86,6 @@
 import User from '../log/api/user'
 import Banner from './component/Banner'
 import timeLine from './component/timeLine'
-import Calander from './component/calander'
 import Stepper from './component/stepper'
 import chartCard from './component/chartCard'
 import statusCard from './component/statusCard'
@@ -97,7 +95,7 @@ import costAssits from './component/costAssists'
 import messageBox from './component/messageBox'
   export default {
     name: 'PolicyHolderDashboard',
-    components:{Banner,timeLine,Calander,Stepper,chartCard,statusCard,event,polyForm,costAssits,messageBox},
+    components:{Banner,timeLine,Stepper,chartCard,statusCard,event,polyForm,costAssits,messageBox},
     data () {
       return {
         user:null,

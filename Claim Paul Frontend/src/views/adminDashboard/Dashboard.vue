@@ -16,7 +16,7 @@
              <v-col cols="12" md="12" >
               <v-main class=' py-16 mx-3 px-0 pl-sm-5 blue accent-2'>
                <v-img pa-2
-  src="../../assets/img/admin/adminImage.png" max-width="960" max-hight="250" 
+  src="../../assets/img/admin/adminImage.png" max-width="1500" max-hight="250" 
 ></v-img>
                 <!-- <textanimate/> -->
               </v-main>

@@ -60,4 +60,5 @@ class viewController extends Controller
         return DB::table('policy_holders')->select('policy_holders.*')->where('policy_holders.policyholder_email', '=', $email)->get();
 
     }
+    
 }

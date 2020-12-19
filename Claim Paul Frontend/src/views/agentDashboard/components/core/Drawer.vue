@@ -30,10 +30,10 @@
           class="align-self-center"
           color="white"
           contain
-          size="100"
+          size="110"
         >
-          <v-avatar size="100">
-            <v-img src='../../../../assets/img/agent/man.png' size=""></v-img>
+          <v-avatar size="110">
+            <v-img src='../../../../assets/img/home/logo.png' size=""></v-img>
         
           </v-avatar>
         </v-list-item-avatar>

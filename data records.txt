@@ -115,3 +115,21 @@
 	INSERT INTO vehicles(vehicleNumber,policyId,type,model,color,year,insuranceDate,valuation,insuranceType,policyPid,garageGid,isDeleted) VALUES('KA-2235','fsgw1231312312','Motor Car','Toyota Corolla','Pearl Black','2015','2020-05-08',4500000.00,'full-option',4,9,0);
 	INSERT INTO vehicles(vehicleNumber,policyId,type,model,color,year,insuranceDate,valuation,insuranceType,policyPid,garageGid,isDeleted) VALUES('KM-8235','fsgw12313232312','Motor Car','Toyota Corolla','Pearl Black','2019','2020-06-01',9500000.00,'full-option',2,4,0);
 	INSERT INTO vehicles(vehicleNumber,policyId,type,model,color,year,insuranceDate,valuation,insuranceType,policyPid,garageGid,isDeleted) VALUES('PA-2245','fsgw123342312','VAN','Toyota KDH','Pearl White','2019','2020-05-08',8000000.00,'full-option',5,5,0);
+
+
+
+
+
+
+
+
+
+
+
+
+file changes
+-----------------
+
+report controller getOneReport modify
+
+	

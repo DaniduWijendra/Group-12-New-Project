@@ -16,33 +16,29 @@
   <v-row>
       <!--  -->
                                         
-      <v-col
-      cols="12"
-      md="12"
-     >
-                                            
-      <base-material-card
-        color="pink"
-        class="px-5 py-auto "
-      >
-      <v-row>
-        <v-col cols="12" md="6">
-              <v-main class=' py-16 mx-3 px-0 pl-sm-5 green accent-2'>
-                  <!-- <animation/> -->
-              </v-main>
-        </v-col>
+         <v-col cols="12" md="12">
+          <base-material-card color="blue" class="px-5 py-auto ">
+          <template v-slot:heading>
+            <div class="display-3 font-weight-light">
+              Welcome Agent
+            </div>
 
-        <v-col cols="12" md="6">
-              <v-main class='py-16 mx-3 px-0 pl-sm-3 green accent-2'>
-                <!-- <textAnim class=' pa-0 pa-sm-1 green accent-2  '/> -->
+            <div class="subtitle-1 font-weight-dark">
+             You Last Visited on Today
+            </div>
+          </template>
+            <v-row>
+             <v-col cols="12" md="12" >
+              <v-main class=' py-16 mx-3 px-0 pl-sm-5 '>
+               <v-img pa-2
+  src="../../assets/img/agent/agentDashBoard.png" max-width="1500" max-hight="250" 
+></v-img>
+                <!-- <textanimate/> -->
               </v-main>
-        </v-col>
-      </v-row>
-                                          
-      </base-material-card>
-                                            
-                                            
-    </v-col>
+              </v-col>
+            </v-row>
+          </base-material-card>
+         </v-col>
 
                                          
 
@@ -102,7 +98,7 @@
           value="+"
           sub-icon="mdi-calendar"
           sub-text="search driver history"
-          to='/driver_history'
+          to='agent/driver_history'
         />
       </v-col>
 
@@ -114,7 +110,7 @@
 
 
 
-     <v-col cols="12" md="12">
+     <v-col cols="12" sm="4">
         <base-material-card
       color="blue"
       icon="mdi-text-box-multiple-outline"
@@ -131,9 +127,9 @@
 
       <v-col
         cols="12"
-        md="6"
+        sm="8"
       >
-        <base-material-card class="px-5 py-3">
+        <base-material-card color="blue" class="px-5 py-3">
           <template v-slot:heading>
             <v-tabs
               v-model="tabs"
