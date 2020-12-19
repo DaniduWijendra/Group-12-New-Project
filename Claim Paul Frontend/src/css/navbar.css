@@ -1,6 +1,8 @@
+.navi-bar {
+  background: #1E0261;
+}
 
-
-.logo {
+.navi-bar .logo {
   font-family: 'Dancing Script', cursive;
 }
 

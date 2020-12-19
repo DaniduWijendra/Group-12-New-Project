@@ -1,7 +1,8 @@
 <template>
 
 <div>
-  <!-- <Navbar/> -->
+   <Navbar/> 
+  <h2 class="center blue-text text-darken-4">Spare Parts</h2>
    <v-layout row wrap>
       <div class="item col-xs-12 col-sm-6 col-md-4 col-lg-4" v-for="item in items" :key="item.sparePrtId">
    <v-card
@@ -18,10 +19,10 @@
 
     <v-img
       height="250"
-      src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
-    ></v-img>
+      v-bind:src="'http://127.0.0.1:8000/images/'+item.image" alt="">
+    </v-img>
 
-    <v-card-title>Cafe Badilico</v-card-title>
+    <v-card-title>{{item.sparePrtName}}</v-card-title>
 
     <v-card-text>
       <v-row
@@ -33,7 +34,7 @@
           color="amber"
           dense
           half-increments
-          readonly
+
           size="14"
         ></v-rating>
 
@@ -43,40 +44,32 @@
       </v-row>
 
       <div class="my-4 subtitle-1">
-        $ • Italian, Cafe
+        <b>Item Specification</b>
       </div>
 
-      <div>Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.</div>
+      <div>
+        Item Brand:{{item.brand}}<br>
+        Item Model:{{item.model}}<br>
+        Item Year:{{item.year}}
+      </div>
     </v-card-text>
 
     <v-divider class="mx-4"></v-divider>
 
-    <v-card-title>Tonight's availability</v-card-title>
+    <v-card-title>Part Price: (Rs)</v-card-title>
 
     <v-card-text>
-      <v-chip-group
-        v-model="selection"
-        active-class="deep-purple accent-4 white--text"
-        column
-      >
-        <v-chip>5:30PM</v-chip>
-
-        <v-chip>7:30PM</v-chip>
-
-        <v-chip>8:00PM</v-chip>
-
-        <v-chip>9:00PM</v-chip>
-      </v-chip-group>
+    <div>{{item.price}}</div>
     </v-card-text>
 
     <v-card-actions>
-      <v-btn
+      <!-- <v-btn
         color="deep-purple lighten-2"
         text
         @click="reserve"
       >
         Reserve
-      </v-btn>
+      </v-btn> -->
     </v-card-actions>
   </v-card>
       </div>
@@ -94,14 +87,14 @@ export default {
         return{
           
           showdetails:false,
-          items:[],
+          items:[]
         }
         
     },
     created(){
     
       
-
+      
     Axios.get('get_sparepart').then(Response=>{
 
           this.items=Response.data;
@@ -113,5 +106,27 @@ export default {
         
       
     },
+    methods:{
+      // viewImage(item)
+      // {
+
+      //    Axios.get('get_spareimage/'+item.sparePrtId).then(Response=>{
+
+      //     this.images=Response.data.spare[0];
+          
+          
+      //       this.s("success")})
+      //       .catch(function(error){
+          
+      //         console.log(error);
+            
+      //       })
+      //       console.log( this.images);
+          
+          
+  
+      //       this.dialogView = true;
+      // },
+    }
 }
 </script>

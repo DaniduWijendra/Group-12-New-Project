@@ -4,14 +4,14 @@ $enable-responsive-font-sizes :true;
 
 .claimpaul-banner{
     .slider{
-        min-height:920px;
+        // min-height:1000px;
         background-color:$blue;
         color:white;
         display:flex;
         background-size:cover;
         .slide{
             flex:1;
-            height:824px;
+            // max-height:824px;
             background-color: $mint-blue;
             border: 2px solid white;
             border-radius: 23px;
@@ -25,7 +25,7 @@ $enable-responsive-font-sizes :true;
           }
            
            .content{
-                height:780px;
+                height:300px;
                 border: 1px solid #707070;
                 border-radius: 51px;
                 background: #fff;
@@ -46,11 +46,26 @@ $enable-responsive-font-sizes :true;
                     }
 
                 }
+                .image
+                {
+                    display:inline-block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-image: url(@/../assets/img/home/homeimg.png);
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-size: contain;
+  background-repeat: no-repeat;
+                }
 
                
                 
                 
             }
+
 
             
         }

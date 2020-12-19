@@ -4,12 +4,12 @@
     <v-card
       id="settings"
       class="py-2 px-4"
-      color="indigo lighten-1"
+      color="red darken-1"
       dark
       flat
       link
       min-width="100"
-      style="position: fixed; top: 400px; right: -35px; border-radius: 8px;"
+      style="position: fixed; top: 300px; right: -35px; border-radius: 8px;"
       
     >
 
