@@ -1,57 +1,14 @@
 <template>
     <v-app>
         <Navbar/>
-         <section class="claimpaul-banner">
-                    <div class="slider">
-                        <div class="slide">
-                            <div class="content-holder">
-                                
-
-                                    <div class="content">
-                                        <div class="row">
-                                            <div class="col12 xs12 s6">
-                                                <div class="sub-content col px-md-5">
-
-                                                    <div class="title">
-                                                       <h1 class="display-1">Claim Paul</h1>
-                                                    </div>
-
-                                                    <div class="sub-title">
-                                                        well come to claim Paul!!!
-                                                    </div>
-
-                                                    <div class="btn-sign-up"></div>
-                                                    <div class="btn-get-started"></div>
-
-                                                </div>
-                                            </div>
-
-                                            <div class="col12 xs12 s6">
-                                                <div class="image responsive-img">
-
-                                                </div>
-
-                                            </div>
-                                            
-                                    
-
-                                        </div>
-
-
-
-                                    </div>
-                              
-                            </div>
-                            
-                            
-                        </div>
-                    </div>
-
-                </section>
-
-        <section>
-            <h1>About</h1>
-        </section>
+         <h2 class="center blue-text text-darken-4">About Us</h2>
+         <v-row>
+              <v-col col="12" sm="12">
+                  <v-img class="ma-5"
+  src="../assets/img/home/aboutus.jpg" max-width="960"
+></v-img>
+              </v-col>
+         </v-row>
         <footer>
             <Footer/>
         </footer>

@@ -19,7 +19,7 @@
 
     <v-img
       height="250"
-      v-bind:src="'http://127.0.0.1:8000/images/'+item.image" alt="">
+      v-bind:src="'http://hms.ruh.ac.lk/images/'+item.image" alt="">
     </v-img>
 
     <v-card-title>{{item.sparePrtName}}</v-card-title>

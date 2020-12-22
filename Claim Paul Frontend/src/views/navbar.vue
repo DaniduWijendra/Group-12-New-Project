@@ -3,6 +3,7 @@
     <v-app-bar
       color="deep-purple darken-4"
       dark
+      class="navi-bar"
     >
       <v-icon @click="drawer = true" class="mx-2">mdi-menu</v-icon>
       <v-toolbar-title class="d-none d-sm-block">

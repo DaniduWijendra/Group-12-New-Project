@@ -184,4 +184,30 @@ class vehicleController extends Controller
 
 
     }
+    //filter section
+    public function filterVehicleById($filterItem)
+    {
+        return DB::table('vehicles')->select('vehicles.*')->where('vId',$filterItem)->get();
+
+    }
+
+    public function filterVehicleByType($filterItem)
+    {
+        return DB::table('vehicles')->select('vehicles.*')->where('type',$filterItem)->get();
+
+    }
+
+    public function filterVehicleByDate($filterItem)
+    {
+        return DB::table('vehicles')->select('reports.*')->where('insuranceDate',$filterItem)->get();
+
+    }
+
+    
+
+    public function filterVehicleByPolicy($filterItem)
+    {
+        return DB::table('vehicles')->select('vehicles.*')->where('policyPid',$filterItem)->get();
+
+    }
 }

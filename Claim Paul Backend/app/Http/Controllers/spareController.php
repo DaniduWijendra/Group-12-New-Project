@@ -136,4 +136,10 @@ class spareController extends Controller
                 'isDeleted' => 0,]
         );
     }
+    //filter
+    public function filterSpareById($filterItem)
+    {
+        return DB::table('spare_parts')->select('spare_parts.*')->where('sparePrtId',$filterItem)->get();
+
+    }
 }

@@ -45,6 +45,7 @@ Route::group(['middleware' => ['web']], function ($service) {
 Route::get('/driver-history','App\Http\Controllers\viewController@driverHistoryShow');
 Route::get('/get_driver_history/{email}','App\Http\Controllers\viewController@getHistory');
 
+//Report Handle
 Route::get('/report','App\Http\Controllers\reportController@getReport');
 Route::get('/get_agentmail/{id}','App\Http\Controllers\reportController@getAgentMail');
 Route::post('/put_report','App\Http\Controllers\reportController@putReport');
@@ -74,18 +75,26 @@ Route::post('/add_vehicle','App\Http\Controllers\vehicleController@addVehicle');
 Route::put('/edit_vehicle/{id}','App\Http\Controllers\vehicleController@editVehicle');
 Route::put('/delete_vehicle/{id}','App\Http\Controllers\vehicleController@deleteVehicle');
 Route::get('/get_image/{id}','App\Http\Controllers\vehicleController@getOneImage');
+Route::get('/filter_vehicle_id/{filterItem}','App\Http\Controllers\vehicleController@filterVehicleById');
+Route::get('/filter_vehicle_type/{filterItem}','App\Http\Controllers\vehicleController@filterVehicleByType');
+Route::get('/filter_vehicle_date/{filterItem}','App\Http\Controllers\vehicleController@filterVehicleByDate');
+// Route::get('/filter_vehicle_insurance/{filterItem}','App\Http\Controllers\vehicleController@filterVehicleByInsurance');
+Route::get('/filter_vehicle_policypid/{filterItem}','App\Http\Controllers\vehicleController@filterVehicleByPolicy');
 //shops
 Route::get('/get_shop','App\Http\Controllers\shopController@getShops');
 Route::post('/add_shops','App\Http\Controllers\shopController@addShop');
 Route::put('/edit_shop/{id}','App\Http\Controllers\shopController@editShop');
 Route::put('/delete_shop/{id}','App\Http\Controllers\shopController@deleteShop');
 Route::get('/get_shopimage/{id}','App\Http\Controllers\shopController@getOneImage');
+Route::get('/filter_shop_id/{filterItem}','App\Http\Controllers\shopController@filterShopById');
+
 //Spare Part
 Route::get('/get_sparepart','App\Http\Controllers\spareController@getSpare');
 Route::post('/add_sparepart','App\Http\Controllers\spareController@addSpare');
 Route::put('/edit_sparepart/{id}','App\Http\Controllers\spareController@editSpare');
 Route::put('/delete_sparepart/{id}','App\Http\Controllers\spareController@deleteSpare');
 Route::get('/get_spareimage/{id}','App\Http\Controllers\spareController@getOneImage');
+Route::get('/filter_spare_id/{filterItem}','App\Http\Controllers\spareController@filterSpareById');
 //costmodel
 Route::get('/getcost/{damageType}/{category}','App\Http\Controllers\vehicleController@getCost');
 
@@ -101,7 +110,8 @@ Route::post('/add_garage','App\Http\Controllers\garageController@addGarage');
 Route::put('/edit_garage/{id}','App\Http\Controllers\garageController@editGarage');
 Route::put('/delete_garage/{id}','App\Http\Controllers\garageController@deleteGarage');
 Route::get('/get_garageimage/{id}','App\Http\Controllers\garageController@getOneImage');
-
+Route::get('/filter_garage_id/{filterItem}','App\Http\Controllers\garageController@filterGarageById');
+//costmodel
 Route::get('/get_user/{email}','App\Http\Controllers\loginController@getUserProfile');
 
 

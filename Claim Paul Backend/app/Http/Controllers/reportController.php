@@ -114,6 +114,11 @@ class reportController extends Controller
         return DB::table('reports')->select('reports.*')->where('agId',$filterItem)->get();
 
     }
+    public function filterReportByPlace($filterItem)
+    {
+        return DB::table('reports')->select('reports.*')->where('place',$filterItem)->get();
+
+    }
 
     public function putReport(Request $rs)
     {
