@@ -49,7 +49,7 @@
           </template>
 
           <h4 class="card-title font-weight-light mt-2 ml-2">
-            Website Views
+            Our community of 2020
           </h4>
 
           <p class="d-inline-flex font-weight-light ml-2 mt-1">
@@ -116,7 +116,7 @@
           </template>
 
           <h4 class="card-title font-weight-light mt-2 ml-2">
-            Daily Sales
+            Daily Accident
           </h4>
 
           <p class="d-inline-flex font-weight-light ml-2 mt-1">
@@ -126,8 +126,8 @@
             >
               mdi-arrow-up
             </v-icon>
-            <span class="green--text">55%</span>&nbsp;
-            increase in today's sales
+            <span class="green--text">2%</span>&nbsp;
+            today precentage
           </p>
 
           <template v-slot:actions>
@@ -190,7 +190,7 @@
           </template>
 
           <h3 class="card-title font-weight-light mt-2 ml-2">
-            Completed Tasks
+            probability of daily vehicle accident in day time 
           </h3>
 
           <p class="d-inline-flex font-weight-light ml-2 mt-1">

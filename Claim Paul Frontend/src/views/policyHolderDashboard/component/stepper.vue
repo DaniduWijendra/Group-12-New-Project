@@ -9,7 +9,7 @@
       step="1"
       complete
     >
-      Name of step 1
+      1 Capture photos of Damaged Places
     </v-stepper-step>
 
     <v-stepper-content step="1">
@@ -17,14 +17,19 @@
         color="grey lighten-1"
         class="mb-12"
         height="200px"
-      ></v-card>
+      >
+      
+                <v-img pa-2
+         src="../../../assets/img/policyholder/damage1.jpg" max-width="800" min-height="200"></v-img>
+      
+      </v-card>
       <v-btn
         color="primary"
         @click="e13 = 2"
       >
         Continue
       </v-btn>
-      <v-btn text>
+      <v-btn text class="red">
         Cancel
       </v-btn>
     </v-stepper-content>
@@ -33,7 +38,7 @@
       step="2"
       complete
     >
-      Name of step 2
+      2 Upload Photos through Mobile App
     </v-stepper-step>
 
     <v-stepper-content step="2">
@@ -41,24 +46,27 @@
         color="grey lighten-1"
         class="mb-12"
         height="200px"
-      ></v-card>
+      >
+        <v-img pa-2
+         src="../../../assets/img/policyholder/upload.jpg" max-width="800" min-height="200"></v-img>
+      </v-card>
       <v-btn
         color="primary"
         @click="e13 = 3"
       >
         Continue
       </v-btn>
-      <v-btn text>
+      <v-btn text class="red">
         Cancel
       </v-btn>
     </v-stepper-content>
 
     <v-stepper-step
-      :rules="[() => false]"
+      complete
       step="3"
     >
-      Ad templates
-      <small>Alert message</small>
+      Get Cost
+  
     </v-stepper-step>
 
     <v-stepper-content step="3">
@@ -66,20 +74,24 @@
         color="grey lighten-1"
         class="mb-12"
         height="200px"
-      ></v-card>
+      >
+      
+        <v-img pa-2
+         src="../../../assets/img/policyholder/cost.jpg" max-width="800" min-height="400"></v-img>
+      </v-card>
       <v-btn
         color="primary"
         @click="e13 = 4"
       >
         Continue
       </v-btn>
-      <v-btn text>
+      <v-btn text class="red">
         Cancel
       </v-btn>
     </v-stepper-content>
 
     <v-stepper-step step="4">
-      View setup instructions
+      Enjoy With ClaimPaul
     </v-stepper-step>
 
     <v-stepper-content step="4">
@@ -87,14 +99,17 @@
         color="grey lighten-1"
         class="mb-12"
         height="200px"
-      ></v-card>
+      >
+                <v-img pa-2
+         src="../../../assets/img/policyholder/enjoy.jpg" max-width="800" min-height="400"></v-img>
+      </v-card>
       <v-btn
         color="primary"
         @click="e13 = 1"
       >
         Continue
       </v-btn>
-      <v-btn text>
+      <v-btn text class="red">
         Cancel
       </v-btn>
     </v-stepper-content>

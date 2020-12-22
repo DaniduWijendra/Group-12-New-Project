@@ -22,10 +22,19 @@
 
 
     <!-- calander -->
-    <v-col col="12" sm="9">
+   <v-col col="12" sm="9">
+     <base-material-card color="blue" height="800"> 
+     
+        <v-img pa-2
+         src="../../assets/img/policyholder/policihld1.jpg" max-width="1500" max-height="500"></v-img>
 
-     <Calander/>
-    </v-col>
+         <div class="dropbox">
+
+           <p>Please stay with us ,We do simple your life</p>
+
+         </div>
+     </base-material-card>
+   </v-col>
   </v-row>
 
   <v-row>
@@ -87,7 +96,6 @@
 import User from '../log/api/user'
 import Banner from './component/Banner'
 import timeLine from './component/timeLine'
-import Calander from './component/calander'
 import Stepper from './component/stepper'
 import chartCard from './component/chartCard'
 import statusCard from './component/statusCard'
@@ -97,7 +105,7 @@ import costAssits from './component/costAssists'
 import messageBox from './component/messageBox'
   export default {
     name: 'PolicyHolderDashboard',
-    components:{Banner,timeLine,Calander,Stepper,chartCard,statusCard,event,polyForm,costAssits,messageBox},
+    components:{Banner,timeLine,Stepper,chartCard,statusCard,event,polyForm,costAssits,messageBox},
     data () {
       return {
         user:null,
@@ -120,3 +128,26 @@ import messageBox from './component/messageBox'
     
   }
 </script>
+
+<style scoped>
+ .dropbox {
+    outline: 2px dashed grey; /* the dash box */
+    outline-offset: -15px;
+     background: rgb(245, 195, 232);
+    border-radius: 2em;
+    color: black;
+    padding: 10px 10px;
+    min-height:250px; /* minimum height */
+    position: relative;
+    cursor: pointer;
+    
+  }
+
+
+
+  .dropbox p {
+    font-size: 2.2em;
+    text-align: center;
+    padding: 50px 0;
+  }
+</style>

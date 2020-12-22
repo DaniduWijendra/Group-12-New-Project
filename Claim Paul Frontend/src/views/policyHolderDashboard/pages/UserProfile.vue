@@ -17,7 +17,7 @@
             </div>
 
             <div class="subtitle-1 font-weight-light">
-              Complete your profile
+              your profile
             </div>
           </template>
 
@@ -141,6 +141,9 @@
         cols="12"
         md="4"
       >
+
+        <v-row>
+          <v-col>
         <base-material-card
           class="v-card-profile"
           avatar="https://demos.creative-tim.com/vue-material-dashboard/img/marc.aba54d65.jpg"
@@ -154,10 +157,6 @@
               {{user.firstName}} {{user.lastName}}
             </h4>
 
-            <p class="font-weight-light grey--text">
-              Don't be scared of the truth because we need to restart the human foundation in truth
-               And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
-            </p>
 
             <v-btn
               color="blue"
@@ -166,9 +165,25 @@
             >
               Follow
             </v-btn>
+
+            <h4>Join with us & enjoy the <strong>Life</strong></h4>
           </v-card-text>
         </base-material-card>
+        </v-col>
+        </v-row>
+
+      <v-row>
+       <v-col >
+
+        <v-img pa-2
+         src="../../../assets/img/policyholder/profile.jpg" max-width="1500" max-height="400"></v-img>
+
       </v-col>
+    </v-row>
+      </v-col>
+    
+
+     
     </v-row>
   </v-container>
 </template>

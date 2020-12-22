@@ -364,13 +364,15 @@ import Axios from '../../../baseURL'
       //   this.items.splice(this.editedIndex, 1)
       //   this.closeDelete()
 
-      //    Axios.put('http://127.0.0.1:8000/api/delete_report/'+this.editedItem.rId,this.editedItem).then(Response=>{
-      //           this.s('report is successfully deleted');
-      //     }).catch(function(error){
-      //     console.log(error);
-      //     this.swr();
-      //   })
-      // },
+
+         Axios.put('delete_report/'+this.editedItem.rId,this.editedItem).then(Response=>{
+                this.s('report is successfully deleted');
+          }).catch(function(error){
+          console.log(error);
+          this.swr();
+        })
+      },
+
 
        close () {
         this.dialog = false
