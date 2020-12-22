@@ -57,7 +57,7 @@
             >
               New Item
             </v-btn>
-             
+
              <v-text-field
                   append-icon="mdi-magnify"
                   single-line
