@@ -14,7 +14,6 @@
  :headers="headers"
  :items="items" 
  :search="search"
- 
  sort-by="rId"
  class="elevation-1"
   >

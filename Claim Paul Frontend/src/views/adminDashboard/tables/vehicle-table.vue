@@ -12,7 +12,8 @@
  >
   <v-data-table
  :headers="headers"
- :items="items" 
+ :items="items"
+ :search="search" 
  sort-by="vId"
  class="elevation-1"
   >
@@ -46,13 +47,48 @@
             >
               +New Item
             </v-btn>
-             
+               <v-menu
+          rounded="rounded"
+          offset-y
+      >
+      <template v-slot:activator="{ attrs, on }">
+        <v-btn
+          color="red"
+          v-bind="attrs"
+          v-on="on"
+          :loading="loading"
+          @click="loader = 'loading'"
+        >
+            <v-icon color="white">mdi-filter</v-icon>
+        </v-btn>
+      </template>
+
+      <v-list>
+        <v-list-item>
+          <v-list-item-title class="mx-2" >
+              <v-btn @click="searchById" rounded color="blue darken-3" >Id</v-btn>
+              <!-- <v-btn @click="searchByVehicleNumber" rounded color="blue darken-3">Vehicle Number</v-btn> -->
+              <!-- <v-btn @click="searchByPolicy" rounded color="blue darken-3">Policy Id</v-btn> -->
+              <v-btn @click="searchByType" rounded color="blue darken-3">Type</v-btn>
+              
+              <v-btn @click="searchByDate" rounded color="blue darken-3">Date</v-btn><br><br>
+              <!-- <v-btn @click="searchByInsurance" rounded color="blue darken-3">Insurance Type</v-btn> -->
+              <v-btn @click="searchByPolicyPid" rounded color="blue darken-3">Policy Pid</v-btn>
+              
+          </v-list-item-title>
+          
+         
+
+        </v-list-item>
+      </v-list>
+    </v-menu>
              <v-text-field
+                  v-model="search"
                   append-icon="mdi-magnify"
                   single-line
                   hide-details
-                  placeholder="Enter vehicle Id"
-                  class="col-md-4 pr-4" @keydown="nameKeydown($event)"
+                  placeholder="Search"
+                  class="col-md-4 pr-4"
             ></v-text-field>
           </template>
           <v-card>
@@ -274,8 +310,8 @@
 
         <v-dialog v-model="dialogView" max-width="1000px">
           <v-card>
-            
-              <img v-bind:src="'http://127.0.0.1:8000/images/'+images.image" style="width:1000px;height:500px" alt="">
+           
+              <img v-bind:src="'http://hms.ruh.ac.lk/images/'+images.image" style="width:1000px;height:500px" alt="">
           </v-card>
         </v-dialog>
 
@@ -333,7 +369,10 @@
     data:()=>({
       
       items:[],
+      search:'',
       dialog: false,
+      loading:false,
+      loader:null,
       dialogDelete: false,
       dialogView:false,
       editedIndex: -1,
@@ -356,17 +395,18 @@
           text: 'Vehicle Id',
           align: 'start',
           value: 'vId',
+          sortable: true
         },
         { text: 'Vehicle Number', value: 'vehicleNumber',sortable: false  },
         { text: 'Policy Id', value: 'policyId' },
         { text: 'Vehicle Type', value: 'type' ,sortable: false },
         { text: 'Vehicle Model', value: 'model',sortable: false  },
         { text: 'Vehicle Color', value: 'color',sortable: false  },
-        { text: 'year', value: 'year'},
-        { text: 'Insurance Date', value: 'insuranceDate'},
+        { text: 'year', value: 'year',sortable: true},
+        { text: 'Insurance Date', value: 'insuranceDate',sortable: true},
         { text: 'Valuation', value: 'valuation' },
-        { text: 'Insurance Type', value: 'insuranceType',sortable: false},
-        { text: 'Policy Pid', value: 'policyPid' ,sortable: false},
+        { text: 'Insurance Type', value: 'insuranceType',sortable: true},
+        { text: 'Policy Pid', value: 'policyPid' ,sortable: true},
         { text: 'Garage Id', value: 'garageGid',sortable: false},
         { text: 'Image', value: 'image',sortable: false  },
         { text: 'Actions', value: 'actions', sortable: false },
@@ -523,7 +563,7 @@
       {
         
 
-         Axios.put('http://127.0.0.1:8000/api/edit_vehicle/'+this.editedItem.vId,this.editedItem).then(Response=>{
+         Axios.put('edit_vehicle/'+this.editedItem.vId,this.editedItem).then(Response=>{
           
                     this.s('vehicle is successfully updated');
           }).catch(function(error){
@@ -567,13 +607,62 @@
         this.items.splice(this.editedIndex, 1)
         this.closeDelete()
 
-         Axios.put('http://127.0.0.1:8000/api/delete_vehicle/'+this.editedItem.vId,this.editedItem).then(Response=>{
+         Axios.put('delete_vehicle/'+this.editedItem.vId,this.editedItem).then(Response=>{
                 this.s('vehicle is successfully deleted');
           }).catch(function(error){
           console.log(error);
         
         })
       },
+      searchById(){
+          this.loading=true;
+          Axios.get('filter_vehicle_id/'+this.search).then(Response=>{
+                    this.items=Response.data;
+                    console.log(Response.data);
+                    this.loading=false;
+                  }).catch(error=>{
+                    console.log(error);
+                  });
+
+          
+      },
+      
+      searchByType(){
+        Axios.get('filter_vehicle_type/'+this.search).then(Response=>{
+                    this.items=Response.data;
+                    console.log(Response.data);
+                  }).catch(error=>{
+                    console.log(error);
+                  });
+      },
+      searchByDate(){
+        Axios.get('filter_vehicle_date/'+this.search).then(Response=>{
+                    this.items=Response.data;
+                    console.log(Response.data);
+                  }).catch(error=>{
+                    console.log(error);
+                  });
+      },
+      // searchByInsurance(){
+      //   Axios.get('filter_vehicle_insurance/'+this.search).then(Response=>{
+      //               this.items=Response.data;
+      //               console.log(Response.data);
+      //             }).catch(error=>{
+      //               console.log(error);
+      //             });
+      // },
+       searchByPolicyPid(){
+        Axios.get('filter_vehicle_policypid/'+this.search).then(Response=>{
+                    this.items=Response.data;
+                    console.log(Response.data);
+                  }).catch(error=>{
+                    console.log(error);
+                  });
+      },
+      
+      
+      
+      
 
       close () {
         this.dialog = false
@@ -607,13 +696,21 @@
       dialogDelete (val) {
         val || this.closeDelete()
       },
+      loader () {
+        const l = this.loader
+        this[l] = !this[l]
+
+        setTimeout(() => (this[l] = false), 3000)
+
+        this.loader = null
+      },
     },
     
 
     created(){
     
       
-    Axios.get('http://127.0.0.1:8000/api/get_vehicle').then(Response=>{
+    Axios.get('get_vehicle').then(Response=>{
           this.items=Response.data;
           console.log(Response.data);
           //console.log(this.items);

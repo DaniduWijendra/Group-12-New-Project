@@ -13,10 +13,18 @@
   <v-data-table
  :headers="headers"
  :items="items" 
+ :search="search"
  sort-by="rId"
  class="elevation-1"
   >
-  
+   <template v-slot:item.isAccepted="{ item }">
+      <v-chip
+        :color="getColor(item.isAccepted)"
+        dark
+      >
+        {{ item.isAccepted }}
+      </v-chip>
+    </template>
      
     <template v-slot:top>
       <v-toolbar
@@ -57,14 +65,50 @@
             >
               New Item
             </v-btn>
+              <v-menu
+          rounded="rounded"
+          offset-y
+      >
+      <template v-slot:activator="{ attrs, on }">
+        <v-btn
+          color="red"
+          v-bind="attrs"
+          v-on="on"
+          :loading="loading"
+          @click="loader = 'loading'"
+        >
+            <v-icon color="white">mdi-filter</v-icon>
+        </v-btn>
+      </template>
+
+      <v-list>
+        <v-list-item>
+          <v-list-item-title class="mx-2" >
+              <v-btn @click="searchById">Id</v-btn>
+              <v-btn @click="searchByDescription">Report Description</v-btn>
+              <v-btn @click="searchByDate">Date</v-btn><br><br>
+             
+
+              <v-btn @click="searchByAdminId">Admin Id</v-btn>
+              <v-btn @click="searchByAgentId">Agent Id</v-btn>
+              <v-btn @click="searchByPlace">Place</v-btn>
+              <v-btn >Status</v-btn></br> 
+          </v-list-item-title>
+          
+         
+
+        </v-list-item>
+      </v-list>
+    </v-menu>
 
              <v-text-field
-                  append-icon="mdi-magnify"
-                  single-line
-                  hide-details
-                  placeholder="Enter Report Id"
-                  class="col-md-4 pr-4"
-                  v-model="search"
+                   v-model="search"
+        class="mx-2"
+        flat
+        hide-details
+        label="Search"
+        prepend-inner-icon="mdi-magnify"
+        solo-inverted @keydown="nameKeydown($event)"
             ></v-text-field>
           </template>
           <v-card>
@@ -125,7 +169,7 @@
         </v-card-text>
       </v-card>
       </v-dialog>
-        <v-dialog v-model="dialogDelete" max-width="1000px">
+        <!-- <v-dialog v-model="dialogDelete" max-width="1000px">
           <v-card>
             <v-card-title class="headline">Are you sure you want to delete this item?</v-card-title>
             <v-card-actions>
@@ -135,7 +179,7 @@
               <v-spacer></v-spacer>
             </v-card-actions>
           </v-card>
-        </v-dialog>
+        </v-dialog> -->
       </v-toolbar>
     </template>
     <template v-slot:item.actions="{ item }">
@@ -161,9 +205,14 @@ import Axios from '../../../baseURL'
     data: () =>({
      
       items:[],
+      search:'',
       dialog: false,
-      dialogDelete: false,
+      loading:false,
+      loader:null,
+      //dialogDelete: false,
       editedIndex: -1,
+      menu:'',
+      colr:'blue lighten-5',
         headers: [
         {
           text: 'Report Id',
@@ -223,7 +272,6 @@ import Axios from '../../../baseURL'
       // ],
 
         valid: true,
-        search:'',
     }),
 
     computed: {
@@ -273,8 +321,8 @@ import Axios from '../../../baseURL'
           this.place='',
           this.vehicleNumber='',
           this.adminId='',
-          this.agId='',
-          this.select=null
+          this.agId=''
+         // this.select=null
       },
 
          editItem (item) {
@@ -304,17 +352,18 @@ import Axios from '../../../baseURL'
 
       },
 
-      deleteItem (item) {
-        this.editedIndex = this.items.indexOf(item)
-        this.editedItem = Object.assign({}, item)
-        this.dialogDelete = true
+      // deleteItem (item) {
+      //   this.editedIndex = this.items.indexOf(item)
+      //   this.editedItem = Object.assign({}, item)
+      //   this.dialogDelete = true
 
         
-      },
+      // },
 
-      deleteItemConfirm () {
-        this.items.splice(this.editedIndex, 1)
-        this.closeDelete()
+      // deleteItemConfirm () {
+      //   this.items.splice(this.editedIndex, 1)
+      //   this.closeDelete()
+
 
          Axios.put('delete_report/'+this.editedItem.rId,this.editedItem).then(Response=>{
                 this.s('report is successfully deleted');
@@ -323,6 +372,7 @@ import Axios from '../../../baseURL'
           this.swr();
         })
       },
+
 
        close () {
         this.dialog = false
@@ -347,7 +397,74 @@ import Axios from '../../../baseURL'
           this.submit();}
         this.close();
       },
+      searchById(){
+          this.loading=true;
+          Axios.get('filter_report_id/'+this.search).then(Response=>{
+                    this.items=Response.data;
+                    console.log(Response.data);
+                    this.loading=false;
+                  }).catch(error=>{
+                    console.log(error);
+                  });
 
+          
+      },
+
+      searchByDescription(){
+          Axios.get('filter_report_description/'+this.search).then(Response=>{
+                    this.items=Response.data;
+                    console.log(Response.data);
+                  }).catch(error=>{
+                    console.log(error);
+                  });
+
+      },
+      searchByDate(){
+        Axios.get('filter_report_date/'+this.search).then(Response=>{
+                    this.items=Response.data;
+                    console.log(Response.data);
+                  }).catch(error=>{
+                    console.log(error);
+                  });
+      },
+      searchByPlace(){
+        Axios.get('filter_report_place/'+this.search).then(Response=>{
+                    this.items=Response.data;
+                    console.log(Response.data);
+                  }).catch(error=>{
+                    console.log(error);
+                  });
+      },
+      searchByVehicleNumber(){
+        Axios.get('filter_report_vehicleNumber/'+this.search).then(Response=>{
+                    this.items=Response.data;
+                    console.log(Response.data);
+                  }).catch(error=>{
+                    console.log(error);
+                  });
+      },
+      searchByAdminId(){
+        Axios.get('filter_report_adminId/'+this.search).then(Response=>{
+                    this.items=Response.data;
+                    console.log(Response.data);
+                  }).catch(error=>{
+                    console.log(error);
+                  });
+      },
+      searchByAgentId(){
+        Axios.get('filter_report_agentId/'+this.search).then(Response=>{
+                    this.items=Response.data;
+                    console.log(Response.data);
+                  }).catch(error=>{
+                    console.log(error);
+                  });
+      },
+
+      getColor (status) {
+        if (status==0) return 'red'
+        
+        else return 'green'
+      },
      
 
     },
@@ -358,6 +475,14 @@ import Axios from '../../../baseURL'
       },
       dialogDelete (val) {
         val || this.closeDelete()
+      },
+       loader () {
+        const l = this.loader
+        this[l] = !this[l]
+
+        setTimeout(() => (this[l] = false), 3000)
+
+        this.loader = null
       },
     },
 

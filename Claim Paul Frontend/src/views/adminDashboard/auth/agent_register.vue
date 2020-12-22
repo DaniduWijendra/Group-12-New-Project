@@ -44,7 +44,7 @@
     </div>  
 </template>
 <script>
-import Axios from 'axios';
+import Axios from '../../../baseURL';
 //import user from '../';
 export default {
     data() {
@@ -95,7 +95,7 @@ export default {
       
 
           //user.register(this.form)
-          Axios.post('http://127.0.0.1:8000/api/register',this.form)
+          Axios.post('register',this.form)
           .then(()=>{
             this.$router.push({name:'login'});
           })

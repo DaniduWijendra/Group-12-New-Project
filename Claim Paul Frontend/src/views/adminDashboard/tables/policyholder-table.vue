@@ -59,7 +59,7 @@
     </v-form>
 </template>
 <script>
-import Axios from 'axios'
+import Axios from '../../../baseURL'
 export default {
     data: () => ({
      items:[],
@@ -83,7 +83,7 @@ export default {
       
       viewDrivers()
       {
-        Axios.get('http://127.0.0.1:8000/api/policy-holder').then(Response =>{
+        Axios.get('policy-holder').then(Response =>{
           this.items=Response.data;
         })
         .catch(function (error)

@@ -34,10 +34,7 @@
           max-width="1000px"
         >
           <template v-slot:activator="{ on, attrs }">
-            
-            
-
-            <v-btn
+           <v-btn
               color="primary"
               dark
               class="mb-2"
@@ -45,9 +42,23 @@
               v-on="on"
             >
               +New Item
+            </v-btn> <v-divider
+            class="mx-4"
+            inset
+            vertical></v-divider>
+            
+          <v-btn
+              color="warning"
+              dark
+              class="mb-2"
+              @click="searchById">
+              Search
             </v-btn>
+           
+           
              
              <v-text-field
+                  v-model="search"
                   append-icon="mdi-magnify"
                   single-line
                   hide-details
@@ -78,7 +89,7 @@
                         :rules="nameRules"
                         label="Shop Name:"
                         required
-                        autofocus @keydown="nameKeydown($event)"
+                        autofocus
                         ></v-text-field>
                     </v-col>
                   
@@ -87,7 +98,7 @@
                                 v-model="editedItem.sAddress"
                                 :rules="nameRules"
                                 label="Shop Address:"
-                                required @keydown="nameKeydown($event)"
+                                required 
                                 ></v-text-field>
                       </v-col>
                   </v-row>
@@ -182,7 +193,7 @@
         <v-dialog v-model="dialogView" max-width="1000px">
           <v-card>
             
-              <img v-bind:src="'http://127.0.0.1:8000/images/'+images.image" style="width:1000px;height:500px" alt="">
+              <img v-bind:src="'http://hms.ruh.ac.lk/images/'+images.image" style="width:1000px;height:500px" alt="">
           </v-card>
         </v-dialog>
 
@@ -235,7 +246,10 @@
     data:()=>({
       
       items:[],
+      search:'',
       dialog: false,
+      loading:false,
+      loader:null,
       dialogDelete: false,
       dialogView:false,
       editedIndex: -1,
@@ -284,6 +298,17 @@
 
    
     methods: {
+      
+        searchById(){
+          this.loading=true;
+          Axios.get('filter_shop_id/'+this.search).then(Response=>{
+                    this.items=Response.data;
+                    console.log(Response.data);
+                    this.loading=false;
+                  }).catch(error=>{
+                    console.log(error);
+                  });
+      },
        nameKeydown(e) {
       if (/^\W$/.test(e.key)) {
         e.preventDefault();

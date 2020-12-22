@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\DB;
 
 class garageController extends Controller
 {
+    
     public function getGarages()
     {
         return DB::table('garages')
@@ -132,4 +133,10 @@ class garageController extends Controller
         );
         
     }
+     //filter
+     public function filterGarageById($filterItem)
+     {
+         return DB::table('garages')->select('garages.*')->where('gId',$filterItem)->get();
+ 
+     }
 }

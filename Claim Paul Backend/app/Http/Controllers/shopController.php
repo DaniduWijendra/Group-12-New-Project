@@ -132,4 +132,10 @@ class shopController extends Controller
         );
         
     }
+    //filter
+    public function filterShopById($filterItem)
+    {
+        return DB::table('shops')->select('shops.*')->where('shpId',$filterItem)->get();
+
+    }
 }

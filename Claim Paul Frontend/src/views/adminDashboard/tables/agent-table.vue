@@ -58,7 +58,7 @@
     </v-form>
 </template>
 <script>
-import Axios from 'axios'
+import Axios from '../../../baseURL'
 export default {
     data: () => ({
      items:[],
@@ -86,7 +86,7 @@ export default {
       
       viewAgents()
       {
-        Axios.get('http://127.0.0.1:8000/api/agents').then(Response =>{
+        Axios.get('agents').then(Response =>{
           this.items=Response.data;
         })
         .catch(function (error)

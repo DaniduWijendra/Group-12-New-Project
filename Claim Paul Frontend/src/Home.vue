@@ -71,7 +71,9 @@
                         <br><br><br><br>
                         <h2 class="indigo-text text-darken-4">Vehicle damage</h2>
                         
-                        <p class="pt-6">Our AI assesses car damage and expedites claims and settlements today, in real time.</p>
+                        <p class="pt-6">Our AI assesses car damage and 
+                            expedites claims
+                            and settlements today, in real time.</p>
                     </div>
                     </div>
                     <div class="row">
@@ -79,8 +81,8 @@
                                 <img src="./assets/img/home/Group1.png" alt="" class="responsive-img materialboxed">
                             </div>
                             <div class="col s12 l6 offset-l1 pull-l5 right-align">
-                                <h2 class="indigo-text text-darken-4">Claim Valuation</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at lacus congue, suscipit elit nec, tincidunt orci.</p>
+                                <h2 class="indigo-text text-darken-4">Triage claims instantly</h2>
+                                <p>Immediate damage assessments means accelerated triage from first notice of loss - no total losses sent to the bodyshops, and a faster cycle for the policyholder.</p>
                             </div>      
                     </div>
                     <div class="row">
@@ -90,7 +92,7 @@
                             
                             <div class="col s12 l6 offset-l1">
                                 <h2 class="indigo-text text-darken-4">Helpful</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at lacus congue, suscipit elit nec, tincidunt orci.</p>
+                                <p>Always willing to provide best service for keep our clients happy.</p>
                             </div>
                     </div>
                 </section>
