@@ -141,6 +141,7 @@
         cols="12"
         md="4"
       >
+        <v-row>
         <base-material-card
           class="v-card-profile"
           avatar="https://demos.creative-tim.com/vue-material-dashboard/img/marc.aba54d65.jpg"
@@ -164,7 +165,16 @@
             </v-btn>
           </v-card-text>
         </base-material-card>
+        </v-row>
+        <v-row>
+          <v-col>
+            <v-img pa-2
+         src="../../../assets/img/agent/profile.jpg" max-width="1500" max-height="400"></v-img>
+          </v-col>
+        </v-row>
       </v-col>
+      
+
     </v-row>
   </v-container>
 </template>

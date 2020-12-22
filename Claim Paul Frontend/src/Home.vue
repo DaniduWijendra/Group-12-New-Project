@@ -191,7 +191,7 @@
                         </div>
                     </section>
 
-                     <footer class="page-footer grey darken-3">
+                     <!-- <footer class="page-footer grey darken-3">
 
                          <div class="container">
                              <div class="row">
@@ -216,7 +216,7 @@
                          </div>
 
                               
-                     </footer>
+                     </footer> -->
 
               <Footer/>
                 

@@ -115,6 +115,12 @@ class reportController extends Controller
 
     }
 
+    public function filterReportByPlace($filterItem)
+    {
+        return DB::table('reports')->select('reports.*')->where('place',$filterItem)->get();
+
+    }
+
     public function putReport(Request $rs)
     {
         DB::table('reports')->insert(
@@ -143,17 +149,17 @@ class reportController extends Controller
 
         else{
 
-            $report = DB::table('reports')
-                            ->where('rId', '=', $id)->get();
+            // $report = DB::table('reports')
+            //                 ->where('rId', '=', $id)->get();
 
-            return response()->json(['report'=>$report],200);
+            // return response()->json(['report'=>$report],200);
 
-            // $record=DB::table('reports')
-            // ->join('vehicles','vehicles.vehicleNumber','reports.vehicleNumber')
-            // ->join('policy_holders','policy_holders.pId','vehicles.policyPid')
-            // ->select(
-            //     'vehicles.vehicleNumber','policy_holders.*','reports.*')->where('reports.rId','=',$id)->get();
-            //     return response()->json(['report'=>$record],200);
+            $record=DB::table('reports')
+            ->join('vehicles','vehicles.vehicleNumber','reports.vehicleNumber')
+            ->join('policy_holders','policy_holders.pId','vehicles.policyPid')
+            ->select(
+                'vehicles.vehicleNumber','policy_holders.*','reports.*')->where('reports.rId','=',$id)->get();
+                return response()->json(['report'=>$record],200);
 
         }
        

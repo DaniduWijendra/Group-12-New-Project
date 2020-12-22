@@ -19,7 +19,7 @@
       <v-card-title class=" purple lighten-3">
         
         <h3 class="title font-weight-light text-center grow">
-          Timeline
+          News
         </h3>
         <v-avatar>
           <v-img src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairStraight&accessoriesType=Blank&hairColor=BrownDark&facialHairType=Blank&clotheType=BlazerShirt&eyeType=Default&eyebrowType=Default&mouthType=Default&skinColor=Light"></v-img>
@@ -48,7 +48,7 @@
             <v-col>
               <strong>New Icon</strong>
               <div class="caption">
-                Mobile App
+                Mobile App Update
               </div>
             </v-col>
           </v-row>
@@ -60,7 +60,7 @@
         >
           <v-row class="pt-1">
             <v-col cols="3">
-              <strong>3-4pm</strong>
+              <strong>3.42pm</strong>
             </v-col>
             <v-col>
               <strong>Design Stand Up</strong>
@@ -95,7 +95,7 @@
               <strong>12pm</strong>
             </v-col>
             <v-col>
-              <strong>Lunch break</strong>
+              <strong>Pandemic time activities</strong>
             </v-col>
           </v-row>
         </v-timeline-item>
@@ -109,9 +109,9 @@
               <strong>9-11am</strong>
             </v-col>
             <v-col>
-              <strong>Finish Home Screen</strong>
+              <strong>Your idea add</strong>
               <div class="caption">
-                Web App
+                great
               </div>
             </v-col>
           </v-row>

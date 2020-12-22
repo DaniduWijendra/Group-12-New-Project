@@ -47,6 +47,12 @@
         </v-card-text>
       </v-card>
       </v-col>
+
+      <v-col col="12" sm="6">
+
+        <v-img pa-2
+         src="../../../assets/img/policyholder/driver-history.jpg" max-width="1500" max-height="500"></v-img>
+      </v-col>
     </v-row>
   </v-container>
 </template>

@@ -219,6 +219,18 @@ export default {
 
       var w=doc.internal.pageSize.getWidth()-0.4;
       var h=doc.internal.pageSize.getHeight()-0.4;
+      var dt=new Date();
+
+      var status;
+
+      if(this.reports.isAccepted == 0)
+      {
+        status="Not Accepted";
+      }
+      else{
+
+        status="Accepted";
+      }
 
       var imgData=this.getDataUrl();
       
@@ -233,6 +245,10 @@ export default {
 
       doc.setFontSize(8).text(this.email,0.28,2.2);
       doc.setFontSize(8).text(this.tel,0.28,2.4);
+      doc.setFontSize(8).text("Date-"+dt.getDate().toString()+"/"+(dt.getMonth()+1).toString()+"/"+dt.getFullYear().toString(),0.28,2.5);
+
+      //content start
+      doc.setFontSize(8).text("Report Id:"+this.reports.rId,7.0,0.7);
       doc.setFontSize(14).text(this.heading, 2.25, 1.0);
       // create a line under heading 
       doc.setLineWidth(0.01).line(2.24, 1.1, 8.0, 1.1);
@@ -241,29 +257,52 @@ export default {
       doc.text(this.moreText, 2.28, 1.5, { align: "left", maxWidth: "5.5" });
 
       
-
-      //doc.text('Description',0.5,2.5);
-      //doc.text(this.reports.rDescription,1.5,2.5);
-
+      doc.setFontSize(14).text("Report Details", 2.25, 2.9);
+      doc.setLineWidth(0.01).line(2.25,2.93,8,2.93);
       doc.autoTable({
         
         body: [
+            ['User Id',this.reports.pId],
+            ['NIC',this.reports.NIC],
+            ['First Name',this.reports.fName],
+            ['Last Name',this.reports.lName],
+            ['Email',this.reports.policyholder_email],
+            ['Address',this.reports.pAddress],
+            ['Contact No',this.reports.pContactNo],
             ['Description',this.reports.rDescription],
             ['Place',this.reports.place],
             ['Date(y-m-d)',this.reports.rDate],
             ['Cost',this.reports.rCost],
             ['Vehicle Number',this.reports.vehicleNumber],
-            
+            ['Status',status],
             ],
-          margin: { left: 2.25, top: 2.9 }
+          margin: { left: 2.25, top: 3.2 }
         
             
-      })
+      });
+
+         doc.setLineWidth(0.03).line(2.25,8,8,8);
+
+         //doc.setFillColor(0,128,255).ellipse((w-0.4),(h-0.4),1,1,'F');
+
+      doc.setFontSize(8).text(
+           "claim paul 2020",
+          (doc.internal.pageSize.width/2)-0.3,
+          doc.internal.pageSize.height - 0.09
+      )
+     
+
+      //add new page
+      doc.addPage("A4","potrait");
+      doc.setLineWidth(0.01).rect(0.2,0.2,w,h,'S');
+
+      doc.setFillColor(0,128,255).rect(0.21,0.21,2,h,'F');
+
       doc.text("Any comments in there:-",2.27,(h-1.8))
       doc.setFillColor(224,224,224).roundedRect(2.25,(h-1.5),5.5,1.5,0.2,0.2,'F')
       doc.text(this.comment,2.3,(h-1.3), { align: "left", maxWidth: "5.3" })
       
-          // Creating footer and saving file
+      // Creating footer and saving file
       doc.autoPrint({variant:"non-conform"})
 
       doc.setFontSize(8).text(

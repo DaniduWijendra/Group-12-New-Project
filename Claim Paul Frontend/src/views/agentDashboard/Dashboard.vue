@@ -31,8 +31,7 @@
              <v-col cols="12" md="12" >
               <v-main class=' py-16 mx-3 px-0 pl-sm-5 '>
                <v-img pa-2
-  src="../../assets/img/agent/agentDashBoard.png" max-width="1500" max-hight="250" 
-></v-img>
+  src="../../assets/img/agent/agentDashBoard.gif" max-width="1500"></v-img>
                 <!-- <textanimate/> -->
               </v-main>
               </v-col>
@@ -108,9 +107,10 @@
 
 
 
+    </v-row>
+    <v-row>
 
-
-     <v-col cols="12" sm="4">
+     <v-col col="12" sm="4">
         <base-material-card
       color="blue"
       icon="mdi-text-box-multiple-outline"
@@ -124,8 +124,9 @@
         
       </base-material-card>
       </v-col>
+  
 
-      <v-col
+      <!-- <v-col
         cols="12"
         sm="8"
       >
@@ -211,16 +212,30 @@
             </v-tab-item>
           </v-tabs-items>
         </base-material-card>
-      </v-col>
+      </v-col> -->
+
+    </v-row>
+    <v-row>
 
     <v-col
-      cols="12"
-       md="6"
+      col="12"
+      sm="6"
      >
+
       <base-material-card
         color="warning"
-        class="px-5 py-3"
+        class="px-5 py-3 inLine"
+        icon="mdi-hours-24"
       >
+
+      <v-col col="12" sm="6">
+
+        <v-img pa-2
+         src="../../assets/img/agent/agentDshBord1.jpg" max-width="1500" max-height="500"></v-img>
+        
+      </v-col>
+
+     
                                             
       </base-material-card>
   </v-col>
@@ -229,11 +244,66 @@
   
 
     <v-col
-      cols="12"
+      col="12"
       md="6"
     >
                                          
-      <base-material-card >
+      <base-material-card class="px-5 py-3 inLine" icon="mdi-clock" >
+
+         <v-col col="12" sm="6">
+
+        <v-img pa-2
+         src="../../assets/img/agent/agentDshBord2.jpg" max-width="1500" max-height="500"></v-img>
+        
+      </v-col>
+
+      
+                                            
+      </base-material-card>
+                                          
+    </v-col>
+
+
+    <v-col
+      col="12"
+       md="6"
+     >
+      <base-material-card
+        color="blue"
+        class="px-5 py-3 inLine"
+        icon=" mdi-file-document-multiple"
+      >
+
+      <v-col col="12" sm="6">
+
+        <v-img pa-2
+         src="../../assets/img/agent/agentDshBord.jpg" max-width="1500" max-height="500"></v-img>
+        
+      </v-col>
+
+   
+                                            
+      </base-material-card>
+  </v-col>
+
+
+  
+
+    <v-col
+      col="12"
+      md="6"
+    >
+                                         
+      <base-material-card color="red" class="px-5 py-3 inLine" icon="mdi-checkbox-multiple-marked-circle-outline">
+
+         <v-col col="12" sm="6">
+           
+        <v-img pa-2
+         src="../../assets/img/agent/agentDshBord4.jpg" max-width="1500" max-height="500"></v-img>
+        
+      </v-col>
+
+
                                             
       </base-material-card>
                                           
@@ -466,3 +536,12 @@ import agentEmail from './component/agentEmail'
     // }
   }
 </script>
+
+<style scoped>
+
+.inLine{
+  display:inline-flex;
+}
+
+</style>
+

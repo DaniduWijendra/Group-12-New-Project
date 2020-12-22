@@ -154,7 +154,7 @@
 
 
 <script>
-import Axios from 'axios'
+import Axios from '../../../baseURL'
 
 
   export default {
@@ -240,7 +240,7 @@ import Axios from 'axios'
           this.$refs.form.validate()
           this.clear();
 
-          Axios.post('http://127.0.0.1:8000/api/put_report',{
+          Axios.post('put_report',{
             
                rDescription: this.editedItem.rDescription,
                rCost: this.editedItem.rCost,
@@ -293,7 +293,7 @@ import Axios from 'axios'
       {
         
 
-         Axios.put('http://127.0.0.1:8000/api/edit_report/'+this.editedItem.rId,this.editedItem).then(Response=>{
+         Axios.put('edit_report/'+this.editedItem.rId,this.editedItem).then(Response=>{
           
                     this.s('report is successfully updated');
           }).catch(function(error){
@@ -316,7 +316,7 @@ import Axios from 'axios'
         this.items.splice(this.editedIndex, 1)
         this.closeDelete()
 
-         Axios.put('http://127.0.0.1:8000/api/delete_report/'+this.editedItem.rId,this.editedItem).then(Response=>{
+         Axios.put('delete_report/'+this.editedItem.rId,this.editedItem).then(Response=>{
                 this.s('report is successfully deleted');
           }).catch(function(error){
           console.log(error);
@@ -366,7 +366,7 @@ import Axios from 'axios'
     created(){
     
       
-    Axios.get('http://127.0.0.1:8000/api/report').then(Response=>{
+    Axios.get('report').then(Response=>{
           this.items=Response.data;
           console.log(Response.data);
           //console.log(this.items);
