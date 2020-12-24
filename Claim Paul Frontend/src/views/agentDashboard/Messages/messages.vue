@@ -14,7 +14,7 @@
     >
      
 
-      <v-toolbar-title>Send Email</v-toolbar-title>
+      <v-toolbar-title>Send Urgent Text Email</v-toolbar-title>
 
       <v-spacer></v-spacer>
 
@@ -24,85 +24,69 @@
    
 
     <v-card-text>
-      <v-form enctype="multipart/form-data" method="post" class="contact-form" @submit.prevent="sendEmail">
+      
           
   <v-container fluid>
-    <v-row>
-      <v-col cols="4">
-        <v-subheader>Name</v-subheader>
-      </v-col>
-      <v-col cols="8">
-        <v-text-field
-          label="Name"
-          name="name"
-          value="buddhi"
-          prefix="Mr/Mrs"
-        ></v-text-field>
-      </v-col>
-    </v-row>
+  <v-form
+    ref="form"
+    lazy-validation
+    v-on:submit.prevent='sendMail'
+  >
+     <v-text-field
+    
+    label="Your Name"
+    outlined
+    clearable
+    prepend-icon="mdi-account"
+    v-model="mail.name"
+    ></v-text-field>
+
+    <v-select v-model="mail.branch" prepend-icon="mdi-home-analytics" outlined :items="branch" label="Your Branch:" required>
+    </v-select>
+
+     <v-text-field
+    
+    label="Topic"
+    outlined
+    clearable
+    prepend-icon="mdi-text"
+    v-model="mail.topic"
+    ></v-text-field>
+
+     <v-text-field
+    
+    label="email"
+    outlined
+    clearable
+    prepend-icon="mdi-at"
+    v-model="mail.email"
+    ></v-text-field>
+
+    <v-textarea
+    label="Message"
+    auto-grow
+    outlined
+    rows="3"
+    row-height="25"
+    shaped
+    prepend-icon="mdi-comment-quote"
+    v-model="mail.complain"
+    ></v-textarea>
 
 
+    <v-btn
+      
+      color="blue"
+      class="mr-4"
+      fab
+    >
+      <v-icon large @click="sendMail">mdi-send-circle</v-icon>
+    </v-btn>
 
-    <v-row>
-      <v-col cols="4">
-        <v-subheader>Email</v-subheader>
-      </v-col>
-      <v-col cols="8">
-        <v-text-field
-          label="Email address"
-          name="email"
-          value="example"
-          suffix="@gmail.com"
-        ></v-text-field>
-      </v-col>
-    </v-row>
+    Do you want dend file attachment pleaase click link<a href="https://mail.google.com"> here</a>
 
-        <v-row>
-      <v-col cols="4">
-        <v-subheader>Subject</v-subheader>
-      </v-col>
-      <v-col cols="8">
-        <v-text-field
-          label="Subject"
-          name="subject"
-          
-        ></v-text-field>
-      </v-col>
-    </v-row>
-
-        <v-row>
-      <v-col cols="4">
-        <v-subheader>Message</v-subheader>
-      </v-col>
-      <v-col cols="8">
-       <v-textarea
-          filled
-          auto-grow
-          label="Message"
-          name="message"
-          rows="5"
-          row-height="30"
-          shaped
-          
-        ></v-textarea>
-      </v-col>
-    </v-row>
-
-    <v-row>
-      <v-col cols="4">
-        <v-btn 
-        type='submit'
-        fab
-       dark
-       large
-       color="cyan"
-       >
-
-       <v-icon>mdi-send</v-icon>
-       
-       </v-btn>
-      </v-col>
-    </v-row>
+    
+  </v-form>
 
   </v-container>
 
@@ -111,20 +95,33 @@
           <input type="file" name="file" id=""> -->
 
           
-      </v-form>
+
     </v-card-text>
   </v-card>
 
 </template>
 
 <script>
-import emailjs from 'emailjs-com';
-
+import Axios from '../../../baseURL'
 export default {
 
   data: () => ({
       
-      
+mail:{
+        name:'',
+        email:'',
+        complain:'',
+        file:'',
+        branch:'',
+        topic:'',
+        role:'Agent'
+      },
+      branch:[
+           'Galle',
+        'Matara',
+        'Ambalangoda',
+        'Kurunagala'
+      ]
     
       
      
@@ -132,21 +129,38 @@ export default {
 
    
   methods: {
-    sendEmail: (e) => {
-      emailjs.sendForm('service_g6if7zb','claim_paul', e.target, 'user_STuuqjdWTVs3IQSFqi0Bx')
-        .then((result) => {
-            console.log('SUCCESS!', result.status, result.text);
-        }, (error) => {
-            console.log('FAILED...', error);
-        });
+    // sendEmail: (e) => {
+    //   emailjs.sendForm('service_g6if7zb','claim_paul', e.target, 'user_STuuqjdWTVs3IQSFqi0Bx')
+    //     .then((result) => {
+    //         console.log('SUCCESS!', result.status, result.text);
+    //     }, (error) => {
+    //         console.log('FAILED...', error);
+    //     });
 
-        this.clear();
-    },
+    //     this.clear();
+    // },
 
     
-    clearMessage () {
-        this.message = ''
-      },
+    // clearMessage () {
+    //     this.message = ''
+    //   },
+
+    
+      sendMail(){
+
+          Axios.post('admin_mail',this.mail).then(()=>{
+
+               this.s('Your Mail Successfully sent');
+
+            }).catch(error=>{
+                
+                console.log(error.response.data.error);
+          
+            });
+
+      }
+      
+    
   }
 }
 </script>

@@ -21,9 +21,10 @@
   <template v-slot:item.isAccepted="{ item }">
       <v-chip
         :color="getColor(item.isAccepted)"
+        :text="getStatus(item.isAccepted)"
         dark
       >
-        {{ item.isAccepted }}
+        <!-- {{ item.isAccepted }} -->
       </v-chip>
     </template>
 
@@ -604,6 +605,12 @@ import Axios from '../../../baseURL'
         
         else return 'green'
       },
+
+      getStatus(status)
+      {
+        if(status==0) return 'pending'
+        else return 'Accepted'
+      }
 
      
 

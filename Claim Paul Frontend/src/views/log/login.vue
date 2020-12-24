@@ -108,10 +108,10 @@ export default {
           this.$root.$emit("login", true);
            localStorage.setItem("token", response.data);
 
-           setInterval(function(){
-                      localStorage.removeItem("token"); 
-                      window.location.replace("/login");}
-          , 3600000);
+          //  setInterval(function(){
+          //             localStorage.removeItem("token"); 
+          //             window.location.replace("/login");}
+          // , 3600000);
 
           
           //this.$router.push({name:'Policy Holder Dashboard' });

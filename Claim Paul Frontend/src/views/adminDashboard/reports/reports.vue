@@ -365,13 +365,13 @@ import Axios from '../../../baseURL'
       //   this.closeDelete()
 
 
-         Axios.put('delete_report/'+this.editedItem.rId,this.editedItem).then(Response=>{
-                this.s('report is successfully deleted');
-          }).catch(function(error){
-          console.log(error);
-          this.swr();
-        })
-      },
+      //    Axios.put('delete_report/'+this.editedItem.rId,this.editedItem).then(Response=>{
+      //           this.s('report is successfully deleted');
+      //     }).catch(function(error){
+      //     console.log(error);
+      //     this.swr();
+      //   })
+      // },
 
 
        close () {

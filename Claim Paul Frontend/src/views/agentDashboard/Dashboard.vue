@@ -16,7 +16,7 @@
   <v-row>
       <!--  -->
                                         
-         <v-col cols="12" md="12">
+         <v-col cols="12" md="8">
           <base-material-card color="blue" class="px-5 py-auto ">
           <template v-slot:heading>
             <div class="display-3 font-weight-light">
@@ -38,6 +38,11 @@
             </v-row>
           </base-material-card>
          </v-col>
+
+            <v-col cols="12" md="4">
+          
+                  <event/>
+            </v-col>
 
                                          
 
@@ -123,6 +128,12 @@
           
         
       </base-material-card>
+      </v-col>
+
+      <v-col col="12" sm="8">
+        
+          <chartCard/>
+          
       </v-col>
   
 
@@ -321,10 +332,12 @@
 //import animation from './component/animation/animation ' 
 import User from '../log/api/user'
 import agentEmail from './component/agentEmail'
+import chartCard from './component/chartCard'
+import event from './component/event'
 //import textAnim from './component/animation/textAnim'
   export default {
     name: 'Dashboard',
-    components:{agentEmail},
+    components:{agentEmail,chartCard,event},
     data () {
       return {
         user:null,

@@ -265,10 +265,9 @@
       ],
 
       languages: [
-        { title: 'Click Me' },
-        { title: 'Click Me' },
-        { title: 'Click Me' },
-        { title: 'Click Me 2' },
+        { title: 'Sinhala' },
+        { title: 'English' },
+    
       ],
     }),
 
