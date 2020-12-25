@@ -97,6 +97,7 @@ const router= new Router({
       name: 'Super Admin Dashboard',
       path: '',
       component: () => import('@/views/superadminDashboard/Dashboard'),
+      meta:{authOnly:true}
     },
     // Pages
     {
@@ -174,6 +175,7 @@ const router= new Router({
         name: 'Admin Dashboard',
         path: '',
         component: () => import('@/views/adminDashboard/Dashboard'),
+        
       },
       // Pages
       {
@@ -442,18 +444,18 @@ router.beforeEach((to, from, next) => {
     }
   } 
 
- else if (to.matched.some(record => record.meta.guestOnly)) {
-    // this route requires auth, check if logged in
-    // if not, redirect to login page.
-    if (isLoggedIn()) {
-      next({
-        path: '/policyholder',
-        query: { redirect: to.fullPath }
-      })
-    } else {
-      next()
-    }
-  } 
+//  else if (to.matched.some(record => record.meta.guestOnly)) {
+//     // this route requires auth, check if logged in
+//     // if not, redirect to login page.
+//     if (isLoggedIn()) {
+//       next({
+//         path: '/policyholder',
+//         query: { redirect: to.fullPath }
+//       })
+//     } else {
+//       next()
+//     }
+//   } 
   else {
     next() // make sure to always call next()!
   }

@@ -38,10 +38,10 @@
       </v-list-item>
       <v-list-item link>
           <v-list-item-content>
-            <v-list-item-title class="title">
-              John Leider
+            <v-list-item-title class="title" v-if='user'>
+              {{user.firstName}} {{user.lastName}}
             </v-list-item-title>
-            <v-list-item-subtitle>john@vuetifyjs.com</v-list-item-subtitle>
+            <v-list-item-subtitle><span v-if='user'>{{user.email}}</span></v-list-item-subtitle>
           </v-list-item-content>
 
           <v-list-item-action>
@@ -87,7 +87,7 @@
   import {
     mapState,
   } from 'vuex'
-
+import User from '../../../log/api/user'
   export default {
     name: 'DashboardCoreDrawer',
 
@@ -99,6 +99,7 @@
     },
 
     data: () => ({
+      user:null,
       items: [
         {
           icon: 'mdi-view-dashboard',
@@ -208,6 +209,12 @@
         }
       },
     },
+    mounted(){
+      User.auth().then(Response=>{
+        this.user=Response.data;
+        console.log(this.user);
+      })
+    }
   }
 </script>
 

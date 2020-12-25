@@ -144,7 +144,8 @@
         <v-row>
         <base-material-card
           class="v-card-profile"
-          avatar="https://demos.creative-tim.com/vue-material-dashboard/img/marc.aba54d65.jpg"
+          
+          avatar="https://gravatar.com/avatar/1a6a66021ada4f0804ff1c81ee39861d?s=400&d=robohash&r=x"
         >
           <v-card-text class="text-center" v-if='user'>
             <h6 class="display-1 mb-1 grey--text" >
