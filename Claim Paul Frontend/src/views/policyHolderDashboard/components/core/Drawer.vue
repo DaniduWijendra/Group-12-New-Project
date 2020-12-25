@@ -128,11 +128,11 @@ import User from '../../../log/api/user'
           to: '/policyholder/user',
         },
 
-         {
-          icon: 'mdi-cloud-upload',
-          title: 'Upload & Generate Cost',
-          to: '/policyholder/uploads',
-        },
+        //  {
+        //   icon: 'mdi-cloud-upload',
+        //   title: 'Upload & Generate Cost',
+        //   to: '/policyholder/uploads',
+        // },
 
          {
           icon: 'mdi-history',
