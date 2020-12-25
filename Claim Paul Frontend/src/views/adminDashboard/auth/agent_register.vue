@@ -97,7 +97,8 @@ export default {
           //user.register(this.form)
           Axios.post('register',this.form)
           .then(()=>{
-            this.$router.push({name:'login'});
+            //this.$router.push({name:'login'});
+            this.s("New Agent is created");
           })
           .catch(error => {
             

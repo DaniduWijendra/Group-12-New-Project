@@ -98,7 +98,7 @@ const router= new Router({
       name: 'Super Admin Dashboard',
       path: '',
       component: () => import('@/views/superadminDashboard/Dashboard'),
-      meta:{authOnly:true},
+      //meta:{authOnly:true},
 
     },
     // Pages
