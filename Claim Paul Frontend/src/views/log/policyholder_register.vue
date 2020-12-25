@@ -3,11 +3,11 @@
 <v-app>
 <Navbar/>
 
- <div >
+ <v-row class="bgs" >
     
-       
+   <v-col cols="12" sm="6">    
         <!-- <v-flex xs12 sm12 md12 lg12 > -->
-             <v-card class="text-center ma-6" max-width="800" color="indigo lighten-4">
+             <v-card class="text-center ma-12" max-width="800" color="indigo lighten-4">
                <v-alert type="error" v-if='errorEmail'>
                     {{errorEmail}}
                </v-alert>
@@ -49,10 +49,18 @@
                                 </v-form>
                             </v-card-text>
                         </v-card>
+                    </v-col>
+
+                    <v-col cols="12" sm="6">
+
+                      <img src="../../assets/img/home/brain.svg" style="width:500px;height:500px;" class="responsive-image" alt="">
+                      <p class='s'>Join with us and be Smart</p>
+
+                    </v-col>
         <!-- </v-flex> -->
         
     
-    </div> 
+    </v-row> 
     </v-app>
 </template>
 <script>
@@ -141,11 +149,26 @@ export default {
 </script>
 
 <style>
+
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Langar&display=swap');
   .inputPrice input[type='number'] {
     -moz-appearance:textfield;
 }
 .inputPrice input::-webkit-outer-spin-button,
 .inputPrice input::-webkit-inner-spin-button {
     -webkit-appearance: none;
+}
+
+.bgs{
+  background-color: indigo;
+}
+
+.s{
+
+  font-family: 'Anton', sans-serif;
+font-family: 'Langar', cursive;
+font-size: 4rem;
+color:azure;
+
 }
 </style>

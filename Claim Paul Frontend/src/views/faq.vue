@@ -12,16 +12,7 @@
                                             <div class="col12 xs12 s6">
                                                 <div class="sub-content col px-md-5">
 
-                                                    <div class="title">
-                                                       <h1 class="display-1">Claim Paul</h1>
-                                                    </div>
-
-                                                    <div class="sub-title">
-                                                        well come to claim Paul!!!
-                                                    </div>
-
-                                                    <div class="btn-sign-up"></div>
-                                                    <div class="btn-get-started"></div>
+                                                    
 
                                                 </div>
                                             </div>
@@ -49,9 +40,11 @@
 
                 </section>
 
-        <section>
-            <h1>FAQ</h1>
-        </section>
+            <v-container>
+                <Tab/>
+            </v-container> 
+                
+        
         <footer>
             <Footer/>
         </footer>
@@ -61,9 +54,10 @@
 <script>
 import Navbar from './navbar'
 import Footer from './footer'
+import Tab from '../components/base/Tabs'
 export default {
 
-    components:{Navbar,Footer},
+    components:{Navbar,Footer,Tab},
     
 }
 </script>
