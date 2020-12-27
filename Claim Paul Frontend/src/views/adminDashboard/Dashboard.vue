@@ -26,9 +26,9 @@
          </v-col>
          
          <v-col cols="12" sm="12" lg="12">
-         <div class="display-2 font-weight-dark">
-              User Managment
-            </div>
+        <div class="display-2 font-weight-dark">
+            User Managment
+          </div>
          </v-col>
         <v-col cols="12" sm="6" lg="4">
           <base-material-stats-card
@@ -70,6 +70,11 @@
           
         
       </base-material-card>
+      </v-col>
+      <v-col col="12" sm="12">
+        
+          <chartCard/>
+          
       </v-col>
 
       <!-- <v-col cols="12" md="6">
@@ -142,16 +147,111 @@
         </base-material-card>
       </v-col> -->
     </v-row>
+     <v-row>
+
+    <v-col
+      col="12"
+      sm="6"
+     >
+
+      <base-material-card
+        color="warning"
+        class="px-5 py-3 inLine"
+        icon="mdi-hours-24"
+      >
+
+      <v-col col="12" sm="6">
+
+        <v-img pa-2
+         src="../../assets/img/agent/agentDshBord1.jpg" max-width="1500" max-height="500"></v-img>
+        
+      </v-col>
+
+     
+                                            
+      </base-material-card>
+  </v-col>
+
+
+  
+
+    <v-col
+      col="12"
+      md="6"
+    >
+                                         
+      <base-material-card class="px-5 py-3 inLine" icon="mdi-clock" >
+
+         <v-col col="12" sm="6">
+
+        <v-img pa-2
+         src="../../assets/img/agent/agentDshBord2.jpg" max-width="1500" max-height="500"></v-img>
+        
+      </v-col>
+
+      
+                                            
+      </base-material-card>
+                                          
+    </v-col>
+
+
+    <v-col
+      col="12"
+       md="6"
+     >
+      <base-material-card
+        color="blue"
+        class="px-5 py-3 inLine"
+        icon=" mdi-file-document-multiple"
+      >
+
+      <v-col col="12" sm="6">
+
+        <v-img pa-2
+         src="../../assets/img/agent/agentDshBord.jpg" max-width="1500" max-height="500"></v-img>
+        
+      </v-col>
+
+   
+                                            
+      </base-material-card>
+  </v-col>
+
+
+  
+
+    <v-col
+      col="12"
+      md="6"
+    >
+                                         
+      <base-material-card color="red" class="px-5 py-3 inLine" icon="mdi-checkbox-multiple-marked-circle-outline">
+
+         <v-col col="12" sm="6">
+           
+        <v-img pa-2
+         src="../../assets/img/agent/agentDshBord4.jpg" max-width="1500" max-height="500"></v-img>
+        
+      </v-col>
+
+
+                                            
+      </base-material-card>
+                                          
+    </v-col>
+    </v-row>
   </v-container>
 </template>
 
 <script>
     import adminEmail from './component/adminEmail'
     import event from './component/event'
+    import chartCard from './component/chartCard'
   // import textanimate from './component/animations/textanimate'
   export default {
     name: 'agent_dashboard',
-    components:{adminEmail,event},
+    components:{adminEmail,event,chartCard},
     data () {
       return {
         
@@ -340,4 +440,7 @@
   {
     background-image: url(../../assets/img/admin/adminImage.png);
   }
+  .inLine{
+  display:inline-flex;
+}
 </style>
