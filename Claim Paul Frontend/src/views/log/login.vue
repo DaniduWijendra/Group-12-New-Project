@@ -11,7 +11,7 @@
                     <v-card-title class="justify-center">
                             <h2 style="color:#fff; font-size:3rem">Login Form</h2>
                     </v-card-title>
-                    <v-card-action>
+                    <v-container>
                       <v-btn
                       class="ma-2"
                       outlined
@@ -45,7 +45,7 @@
                     >
                       <v-icon>mdi-linkedin</v-icon>
                     </v-btn>
-                    </v-card-action>
+                    </v-container>
                             <v-card-text>
                               <p>Or Use your account</p>
                                 <v-form ref="loginForm" v-model="valid" lazy-validation>
@@ -134,7 +134,6 @@
                     Sign up
               </v-btn>
               </div>
-
           </v-card>
 
          
@@ -208,6 +207,9 @@ export default {
             
         })
     },
+
+    usingFaceBook(){},
+    usingLinkedIn(){},
 
     
     getLogin()
