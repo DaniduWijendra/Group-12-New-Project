@@ -59,7 +59,7 @@
                                         
                                           
                                             <v-card-text class="justify-center">
-                                              <p><a href="/reset_password">Forgot your Password?</a></p>
+                                              <p><a class="blue-text" href="/reset_password">Forgot your Password?</a></p>
                                             </v-card-text>
                                           
                                             
@@ -266,3 +266,4 @@ export default {
   },
 }
 </script>
+

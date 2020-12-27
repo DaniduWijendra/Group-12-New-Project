@@ -44,7 +44,7 @@ Route::group(['middleware' => ['web']], function ($service) {
 
 Route::get('/driver-history','App\Http\Controllers\viewController@driverHistoryShow');
 Route::get('/get_driver_history/{email}','App\Http\Controllers\viewController@getHistory');
-
+Route::get('/get_vehiclenumbers/{nic}','App\Http\Controllers\viewController@getVehicleNumbers');
 //Report Handle
 Route::get('/report','App\Http\Controllers\reportController@getReport');
 Route::get('/get_agentmail/{id}','App\Http\Controllers\reportController@getAgentMail');
@@ -70,6 +70,7 @@ Route::get('/get_agent/{email}','App\Http\Controllers\viewController@aAgentShow'
 Route::get('/get_policyholder/{email}','App\Http\Controllers\viewController@aPolicyholderShow');
 Route::get('/get_admin/{email}','App\Http\Controllers\viewController@aAdminShow');
 //vehicle
+
 Route::get('/get_vehicle','App\Http\Controllers\vehicleController@getVehicle');
 Route::post('/add_vehicle','App\Http\Controllers\vehicleController@addVehicle');
 Route::put('/edit_vehicle/{id}','App\Http\Controllers\vehicleController@editVehicle');
@@ -118,6 +119,8 @@ Route::get('/get_user/{email}','App\Http\Controllers\loginController@getUserProf
 Route::post('/send_mail','App\Http\Controllers\mailController@sendMail');
 //manage admin and agents mail
 Route::post('/admin_mail','App\Http\Controllers\mailController@adminMail');
+//send contact us mail
+Route::post('/contact_mail','App\Http\Controllers\mailController@contactMail');
 
 
 

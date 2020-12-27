@@ -7,7 +7,7 @@
     >
       <v-icon @click="drawer = true" class="mx-2">mdi-menu</v-icon>
       <v-toolbar-title class="d-none d-sm-block">
-      <span class="logo display-3 "> ClaimPaul. </span>
+      <span class="logo display-3 "> ClaimPaul</span>
       </v-toolbar-title>
 
       <v-spacer></v-spacer>

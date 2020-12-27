@@ -1,57 +1,67 @@
 <template>
     <v-app>
         <Navbar/>
-         <section class="claimpaul-banner">
-                    <div class="slider">
-                        <div class="slide">
-                            <div class="content-holder">
-                                
+         <h2 class="center blue-text text-darken-4">About Us</h2>
+         <v-row>
+              <v-col col="12" sm="12">
+                  <v-img class="ma-5"
+  src="../assets/img/home/aboutus.jpg" max-width="960"
+></v-img>
+              </v-col>
+         </v-row>
+         <v-container>
+             <v-row>
+                 <v-col cols="12" sm="6">
+                     <h2 class="heading">Face any problem? Inform Us</h2>
+                     <v-img class="ma-5" max-width="500px" src="../assets/img/home/contact.png"></v-img>
+                 </v-col>
+                 <v-col cols="12" sm="6"  >
+                     
+                        <h5 class="heading">We’re glad to discuss your organisation’s situation. 
+                             So please contact us via the details below, or enter your request.</h5>
+                             <contactMail/>
+                   
+                 </v-col>
+             </v-row>
+             <v-row>
+                 <v-col cols="12" sm="4" v-for="(item, i) in listitem"
+          :key="i">
+                     <v-card class="mx-auto" >
+    <v-list-item >
+        <v-row>
+        
+        <v-icon left dark large color="green">{{item.icon}}</v-icon>
+        
+        
+      <v-list flat>
+      <v-list-item-group
+       
+      >
+      <v-list-item>
+           <v-list-item-content>
+     
+     
+        <v-list-item-title class="headline mb-1"><b>{{item.title}}</b></v-list-item-title>
+       <div>{{item.text}}</div>
+        <!-- <v-list-item-subtitle>Greyhound divisely hello coldly fonwderfully</v-list-item-subtitle> -->
+      </v-list-item-content>
 
-                                    <div class="content">
-                                        <div class="row">
-                                            <div class="col12 xs12 s6">
-                                                <div class="sub-content col px-md-5">
+      </v-list-item>
+      </v-list-item-group>
+      </v-list>
+        
+        </v-row>
+    </v-list-item>
+  </v-card>
+                 </v-col>
+                 <v-col cols="12" sm="12" md="12">
+                    
 
-                                                    <div class="title">
-                                                       <h1 class="display-1">Claim Paul</h1>
-                                                    </div>
-
-                                                    <div class="sub-title">
-                                                        well come to claim Paul!!!
-                                                    </div>
-
-                                                    <div class="btn-sign-up"></div>
-                                                    <div class="btn-get-started"></div>
-
-                                                </div>
-                                            </div>
-
-                                            <div class="col12 xs12 s6">
-                                                <div class="image responsive-img">
-
-                                                </div>
-
-                                            </div>
-                                            
-                                    
-
-                                        </div>
-
-
-
-                                    </div>
-                              
-                            </div>
-                            
-                            
-                        </div>
-                    </div>
-
-                </section>
-
-        <section>
-            <h1>About</h1>
-        </section>
+                 </v-col>
+             </v-row>
+         </v-container>
+         <div> <iframe width="100%" height="460px" src="https://maps.google.com/maps?hl=en&amp;q=matara+(Outlet Locations)&amp;ie=UTF8&amp;t=&amp;z=10&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+              </iframe></div>
         <footer>
             <Footer/>
         </footer>
@@ -61,105 +71,39 @@
 <script>
 import Navbar from './navbar'
 import Footer from './footer'
+import contactMail from '../components/base/contactMail'
 export default {
 
-    components:{Navbar,Footer},
+    components:{Navbar,Footer,contactMail},
+    data:()=>(
+        {
+            listitem:[
+                {icon:'mdi-map-marker',title:'Our Office Address',text:'No 85,Galle'},
+                {icon:'mdi-email',title:'Mail Us',text:'claimpaul1@gmail.com'},
+                {icon:'mdi-phone-in-talk',title:'Call for Help',text:'(+94) 777444555'}
+            ]
+        }
+    )
+
     
 }
 </script>
-
 <style scoped>
- @import '../css/slider.css';
-  .image{
-            position: absolute;
-            top:0;bottom:0;left:0;right:0;
-            background-image: url(../assets/img/home/slider.svg);
-            background-repeat: no-repeat;
-            background-position: right bottom;
-            background-size:contain;
-            background-repeat: no-repeat;
-                   
+ @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
+  
+            .heading
+            {
+                font-family: 'Anton', sans-serif;
             }
-</style><template>
-    <div>
-        <Navbar/>
-         <section class="claimpaul-banner">
-                    <div class="slider">
-                        <div class="slide">
-                            <div class="content-holder">
-                                
-
-                                    <div class="content">
-                                        <div class="row">
-                                            <div class="col12 xs12 s6">
-                                                <div class="sub-content col px-md-5">
-
-                                                    <div class="title">
-                                                       <h1 class="display-1">Claim Paul</h1>
-                                                    </div>
-
-                                                    <div class="sub-title">
-                                                        well come to claim Paul!!!
-                                                    </div>
-
-                                                    <div class="btn-sign-up"></div>
-                                                    <div class="btn-get-started"></div>
-
-                                                </div>
-                                            </div>
-
-                                            <div class="col12 xs12 s6">
-                                                <div class="image responsive-img">
-
-                                                </div>
-
-                                            </div>
-                                            
-                                    
-
-                                        </div>
-
-
-
-                                    </div>
-                              
-                            </div>
-                            
-                            
-                        </div>
-                    </div>
-
-                </section>
-
-        <section>
-            <h1>Contact</h1>
-        </section>
-        <footer>
-            <Footer/>
-        </footer>
-    </div>
-</template>
-
-<script>
-import Navbar from './navbar'
-import Footer from './footer'
-export default {
-
-    components:{Navbar,Footer},
-    
-}
-</script>
-
-<style scoped>
- @import '../css/slider.css';
-  .image{
-            position: absolute;
-            top:0;bottom:0;left:0;right:0;
-            background-image: url(../assets/img/home/slider.svg);
-            background-repeat: no-repeat;
-            background-position: right bottom;
-            background-size:contain;
-            background-repeat: no-repeat;
-                   
+            .text
+            {
+                font-family: 'Roboto Condensed', sans-serif;
             }
+            
+          
 </style>
+
+
+
+

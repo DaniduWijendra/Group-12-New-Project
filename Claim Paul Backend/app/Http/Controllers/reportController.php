@@ -26,8 +26,8 @@ class reportController extends Controller
         }
     }
     public function savePdf(Request $request,$id)
-    {
-        $expl=explode(',',$request->get('pdf'));//devide to two parts should get using get when add as params
+    {//$request->get('pdf')
+        $expl=explode(',',$request->pdf);//devide to two parts should get using get when add as params
         $decode=base64_decode($expl[1]);
         $ext='pdf';
         $current=Carbon::now()->timestamp;
@@ -116,11 +116,6 @@ class reportController extends Controller
     }
  
 
-    public function filterReportByPlace($filterItem)
-    {
-        return DB::table('reports')->select('reports.*')->where('place',$filterItem)->get();
-
-    }
 
     public function putReport(Request $rs)
     {

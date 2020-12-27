@@ -78,7 +78,7 @@
             
                     <v-btn color='red' @click='clear'>Clear</v-btn>
                     <v-btn color='orange' @click='generatePDF'>Generate PDF</v-btn>
-                   <v-btn color="green"> <a href="https://accounts.google.com"><v-icon color="white">mdi-google-drive </v-icon></a></v-btn>
+                   <v-btn color="green"> <a href="https://drive.google.com"><v-icon color="white">mdi-google-drive </v-icon></a></v-btn>
                    <v-btn color="blue"> <a href="https://www.dropbox.com/?landing=dbv2"><v-icon color="white">mdi-dropbox</v-icon></a></v-btn>
                    <v-btn color="white"> <a href="https://mail.google.com"><v-icon large color="red">mdi-gmail</v-icon></a></v-btn>
 

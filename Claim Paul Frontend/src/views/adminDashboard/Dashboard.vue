@@ -24,6 +24,7 @@
             </v-row>
           </base-material-card>
          </v-col>
+         
          <v-col cols="12" sm="12" lg="12">
          <div class="display-2 font-weight-dark">
               User Managment
@@ -52,8 +53,11 @@
           sub-text="View Previous Reports"
           to="admin/tables/driver-history"/>
       </v-col>
-
-    <v-col cols="12" md="12">
+      <v-col cols="12" md="6">
+          
+                  <event/>
+            </v-col>
+    <v-col cols="12" md="6">
         <base-material-card
       color="blue"
       icon="mdi-text-box-multiple-outline"
@@ -143,10 +147,11 @@
 
 <script>
     import adminEmail from './component/adminEmail'
+    import event from './component/event'
   // import textanimate from './component/animations/textanimate'
   export default {
     name: 'agent_dashboard',
-    components:{adminEmail},
+    components:{adminEmail,event},
     data () {
       return {
         
