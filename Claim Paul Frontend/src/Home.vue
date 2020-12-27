@@ -1,5 +1,5 @@
 <template>
- <div>
+ <v-app>
      
                 <Navbar/>
                 
@@ -227,7 +227,7 @@
 
        
 
-    </div>
+    </v-app>
 </template>
 
 <script>

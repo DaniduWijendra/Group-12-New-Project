@@ -78,6 +78,10 @@
             
                     <v-btn color='red' @click='clear'>Clear</v-btn>
                     <v-btn color='orange' @click='generatePDF'>Generate PDF</v-btn>
+                   <v-btn color="green"> <a href="https://drive.google.com"><v-icon color="white">mdi-google-drive </v-icon></a></v-btn>
+                   <v-btn color="blue"> <a href="https://www.dropbox.com/?landing=dbv2"><v-icon color="white">mdi-dropbox</v-icon></a></v-btn>
+                   <v-btn color="white"> <a href="https://mail.google.com"><v-icon large color="red">mdi-gmail</v-icon></a></v-btn>
+
               
           </v-card-actions>
       </v-card>
@@ -85,13 +89,13 @@
 
 
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ pdf input~~~~~~~~~~~~~~~~~~~ -->
-  <v-card class="pa-4">
+  <!-- <v-card class="pa-4">
     <v-card-title>
         Input report pdf files below
     </v-card-title>
       <v-divider></v-divider>
-      <br><br>  
-        <v-file-input
+      <br><br>   -->
+        <!-- <v-file-input
           v-model="files"
           color="deep-purple accent-4"
           counter
@@ -120,8 +124,10 @@
               +{{ files.length - 2 }} File(s)
             </span>
           </template>
-        </v-file-input>
-</v-card>
+        </v-file-input> -->
+
+
+<!-- </v-card> -->
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
     </v-container>
   </v-app>

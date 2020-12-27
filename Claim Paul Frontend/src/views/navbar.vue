@@ -7,7 +7,7 @@
     >
       <v-icon @click="drawer = true" class="mx-2">mdi-menu</v-icon>
       <v-toolbar-title class="d-none d-sm-block">
-      <span class="logo display-3 "> ClaimPaul. </span>
+      <span class="logo display-3 "> ClaimPaul</span>
       </v-toolbar-title>
 
       <v-spacer></v-spacer>
@@ -44,10 +44,10 @@
 
       <v-list>
         <v-list-item
-          v-for="(language, index) in languages"
+          v-for="(notification, index) in notifications"
           :key="index"
         >
-          <v-list-item-title>{{ language.title }}</v-list-item-title>
+          <v-list-item-title>{{ notification.title }}</v-list-item-title>
         </v-list-item>
       </v-list>
     </v-menu>
@@ -103,10 +103,10 @@
 
       <v-list>
         <v-list-item
-          v-for="(language, index) in languages"
+          v-for="(account, index) in accounts"
           :key="index"
         >
-          <v-list-item-title>{{ language.title }}</v-list-item-title>
+          <v-list-item-title>{{ account.title }}</v-list-item-title>
         </v-list-item>
       </v-list>
     </v-menu>
@@ -265,11 +265,18 @@
       ],
 
       languages: [
-        { title: 'Click Me' },
-        { title: 'Click Me' },
-        { title: 'Click Me' },
-        { title: 'Click Me 2' },
+        { title: 'Sinhala' },
+        { title: 'English' },
+    
       ],
+
+        notifications: [
+        { title: '1' },
+        { title: '2' },
+    
+      ],
+
+      accounts:[{title:'login'},{title:'details'}],
     }),
 
     computed: {

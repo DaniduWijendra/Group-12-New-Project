@@ -119,6 +119,8 @@ Route::get('/get_user/{email}','App\Http\Controllers\loginController@getUserProf
 Route::post('/send_mail','App\Http\Controllers\mailController@sendMail');
 //manage admin and agents mail
 Route::post('/admin_mail','App\Http\Controllers\mailController@adminMail');
+//send contact us mail
+Route::post('/contact_mail','App\Http\Controllers\mailController@contactMail');
 
 
 

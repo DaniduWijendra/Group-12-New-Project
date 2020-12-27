@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\complainMail;
 use App\Mail\mailManage;
+use App\Mail\contactManage;
 use Illuminate\Http\Request;
 
 class mailController extends Controller
@@ -29,5 +30,16 @@ class mailController extends Controller
             
         );
         Mail::to($rs->email)->send(new mailManage($data));
+    }
+    public function contactMail(Request $rs)
+    {   
+        $data=array(
+            'fname'=>$rs->fname,
+            'lname'=>$rs->lname,
+            'phone'=>$rs->phone,
+            'message'=>$rs->message,
+            
+        );
+        Mail::to($rs->email)->send(new contactManage($data));
     }
 }

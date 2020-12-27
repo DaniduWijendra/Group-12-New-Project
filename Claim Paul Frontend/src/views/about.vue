@@ -240,9 +240,9 @@ export default {
     ],
     listitem:[
         {first:'Teamwork',second:'Give our Best',third:'Customer Satisty',icon:'mdi-chevron-double-right'},
-        {first:'Respect clients',second:'Give our Best',third:'Customer Satisty',icon:'mdi-chevron-double-right'},
-        {first:'24X7 Available',second:'Give our Best',third:'Customer Satisty',icon:'mdi-chevron-double-right'},
-        {first:'Truethfullness',second:'Give our Best',third:'Customer Satisty',icon:'mdi-chevron-double-right'},
+        {first:'Respect clients',second:'Best Service',third:'Bring Innovation',icon:'mdi-chevron-double-right'},
+        {first:'24X7 Available',second:'More Productive',third:'Creative Minds',icon:'mdi-chevron-double-right'},
+        {first:'Truethfullness',second:'Feasible Energy',third:'Best Experience',icon:'mdi-chevron-double-right'},
         
     ]
   }),

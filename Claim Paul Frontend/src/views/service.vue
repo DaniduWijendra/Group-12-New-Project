@@ -4,7 +4,7 @@
 <v-app>
 
 	<Navbar/>
-
+  <!-- carousel -->
   <v-card>
     
     <v-carousel
@@ -46,7 +46,9 @@
   height="200px">
 
   </v-card>
-
+  <!-- sidebar -->
+<v-row>
+  <v-col cols="12" sm="2">
 <div id='sidebar'>
     <v-navigation-drawer class='indigo lighten-4' permanent>
       <v-list-item>
@@ -83,15 +85,39 @@
       </v-list>
     </v-navigation-drawer>
   </div>
-<v-card>
-<div id="grid">
-
-    <div class="container">
-      
-               
-    </div>
-</div>
-</v-card>        
+  </v-col>
+  <!-- cards -->
+  <v-col cols="12" sm="8">
+    <v-row>
+    <v-col
+      v-for="n in images"
+      :key="images.icon"
+      class="d-flex child-flex"
+      cols="4"
+    >
+      <v-img
+        :src="n.icon"
+        
+        aspect-ratio="1"
+        class="grey lighten-2"
+      >
+        <template v-slot:placeholder>
+          <v-row
+            class="fill-height ma-0"
+            align="center"
+            justify="center"
+          >
+            <v-progress-circular
+              indeterminate
+              color="grey lighten-5"
+            ></v-progress-circular>
+          </v-row>
+        </template>
+      </v-img>
+    </v-col>
+  </v-row>
+  </v-col> 
+</v-row>      
 </div>
 
 </v-card>
@@ -114,7 +140,22 @@
 
      data () {
       return {
-         
+         cards: [
+        { title: 'Pre-fab homes', src: 'https://cdn.vuetifyjs.com/images/cards/house.jpg', flex: 12 },
+        { title: 'Favorite road trips', src: 'https://cdn.vuetifyjs.com/images/cards/road.jpg', flex: 6 },
+        { title: 'Best airlines', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 6 },
+      ],
+      images:[
+       {icon:require('@/assets/img/home/customerservice.jpg')},
+       {icon:require('@/assets/img/home/faq.png')},
+       {icon:require('@/assets/img/home/faq.png')},
+       {icon:require('@/assets/img/home/faq.png')},
+       {icon:require('@/assets/img/home/faq.png')},
+       {icon:require('@/assets/img/home/faq.png')},
+       {icon:require('@/assets/img/home/faq.png')},
+       {icon:require('@/assets/img/home/faq.png')},
+       {icon:require('@/assets/img/home/faq.png')}
+      ],
         colors: [
           'indigo lighten-1',
           'indigo darken-1',
@@ -168,10 +209,10 @@
 #sidebar{
 	float:left;
 	background:#d0d0e5;
-	width:275px;	
+	max-width:200px;	
   padding:10px 0 0 0px;
   margin-top:0;
-	height:1300px;
+	height:900px;
 
 }
 

@@ -10,7 +10,8 @@
 import axios from "axios";
 
 let BaseApi = axios.create({
-  baseURL: "http://hms.ruh.ac.lk/api"
+ // baseURL: "http://hms.ruh.ac.lk/api"
+  baseURL: "http://localhost:8000/api"
 });
 
 let Api = function() {

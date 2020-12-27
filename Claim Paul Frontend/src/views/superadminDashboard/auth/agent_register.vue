@@ -89,7 +89,8 @@ export default {
           //user.register(this.form)
           Axios.post('http://127.0.0.1:8000/api/register',this.form)
           .then(()=>{
-            this.$router.push({name:'login'});
+            //this.$router.push({name:'login'});
+            this.s("New Agent Is Created");
           })
           .catch(error => {
             

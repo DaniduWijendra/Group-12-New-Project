@@ -50,7 +50,7 @@
           sub-text="Get More Space..."/>
       </v-col>
 
-     <v-col cols="12" md="12">
+     <v-col cols="12" sm="6">
         <base-material-card
       color="blue"
       icon="mdi-text-box-multiple-outline"
@@ -63,6 +63,12 @@
           
         
       </base-material-card>
+      </v-col>
+
+      <v-col cols="12" sm="6">
+
+        <chartCard/>
+
       </v-col>
 
       <v-col cols="12" md="6">
@@ -134,6 +140,12 @@
           </v-tabs-items>
         </base-material-card>
       </v-col>
+
+      <v-col cols="12" sm="6">
+
+        <adminList/>
+
+      </v-col>
     </v-row>
   </v-container>
 </template>
@@ -141,9 +153,11 @@
 <script>
   import textanimate from './component/animations/textanimate'
   import superAdminEmail from './component/superAdminEmail'
+  import adminList from './component/adminList'
+  import chartCard from './component/chartCard'
   export default {
     name: 'agent_dashboard',
-    components:{textanimate,superAdminEmail},
+    components:{textanimate,superAdminEmail,adminList,chartCard},
     data () {
       return {
         

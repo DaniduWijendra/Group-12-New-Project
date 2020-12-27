@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
+
 Vue.use(Router)
 
 const router= new Router({
@@ -97,7 +98,8 @@ const router= new Router({
       name: 'Super Admin Dashboard',
       path: '',
       component: () => import('@/views/superadminDashboard/Dashboard'),
-      meta:{authOnly:true}
+      //meta:{authOnly:true},
+
     },
     // Pages
     {
@@ -114,7 +116,7 @@ const router= new Router({
       name: 'Create an Agent',
       path: '/superadmin/agent_register',
       component: () => import('@/views/superadminDashboard/auth/agent_register'),
-      meta:{ guestOnly:true },
+      //meta:{ guestOnly:true },
     },
     {
       name: 'Super Admin Notifications',
@@ -192,7 +194,7 @@ const router= new Router({
         name: 'Agent Register',
         path: '/admin/agent_register',
         component: () => import('@/views/adminDashboard/auth/agent_register'),
-        // meta:{ guestOnly:true },
+        //meta:{ guestOnly:true },
       },
       {
         name: 'Admin Notifications',
@@ -281,6 +283,7 @@ const router= new Router({
           path: '',
           component: () => import('@/views/agentDashboard/Dashboard'),
           meta:{authOnly:true},
+          
         },
         // Pages
         {
@@ -375,7 +378,8 @@ const router= new Router({
         name: 'Policy Holder Dashboard',
         path: '',
         component: () => import('@/views/policyHolderDashboard/Dashboard'),
-        //meta:{authOnly:true},
+        meta:{authOnly:true},
+      
       },
       // Pages
       {
@@ -427,6 +431,11 @@ const router= new Router({
 
 function isLoggedIn(){
   return localStorage.getItem("token");
+}
+
+function getRole()
+{
+  
 }
 
 router.beforeEach((to, from, next) => {
