@@ -1,5 +1,5 @@
 <template>
-   <v-card class="mb-0 px-6 cyan lighten-3">
+   <v-card class="mb-0 px-6 grey darken-3">
     <v-row>
       <v-col cols="12" sm="4" >
         
@@ -31,10 +31,10 @@
       <v-col cols="12" sm="8">
 
         <v-row>
-          <v-col cols="12" sm="12" class="cyan accent-2">
-            <v-container class="d-flex cyan accent-2 mx-3">
+          <v-col cols="12" sm="12" class="blue-grey darken-1">
+            <v-container class="d-flex blue-grey darken-1">
               <v-col cols="12" sm="4"><v-btn fab class="cyan"><v-icon large >mdi-phone</v-icon></v-btn><span>call us:(+94774444444)(week days)</span></v-col>
-              <v-col cols="12" sm="4" ><v-btn fab class="cyan"><v-icon large  >mdi-message</v-icon></v-btn><span>Mai us for any help:claimpaul1@gmail.com</span></v-col>
+              <v-col cols="12" sm="4" ><v-btn fab class="cyan"><v-icon large  >mdi-message</v-icon></v-btn><span>Mail us for any help:claimpaul1@gmail.com</span></v-col>
               <v-col cols="12" sm="4" ><v-btn fab class="cyan"><v-icon large >mdi-clock</v-icon></v-btn><span>Opening time:Mon-Fri:8a.m-7p.m</span></v-col>
             </v-container>
           </v-col>
@@ -102,7 +102,7 @@
                 <v-btn
                               v-for="icon in icons"
                               :key="icon"
-                              class="mx-4"
+                          class="mx-2"
                               dark
                               icon
                               

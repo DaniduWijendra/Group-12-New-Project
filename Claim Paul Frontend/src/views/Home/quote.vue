@@ -11,7 +11,7 @@
                         <v-text-field filled clearable class="mx-12" label="Full Name" prepend-icon="mdi-account"></v-text-field>
                         <v-text-field filled clearable class="mx-12" label="Mail Address" prepend-icon="mdi-mail"></v-text-field>
                         <v-text-field filled clearable class="mx-12" label="Phone Number" prepend-icon="mdi-phone"></v-text-field>
-                        <v-btn  class="blue offset-9 mb-3">Get Quote Now</v-btn>
+                        <v-btn  class="blue offset-8 mb-3">Get Quote Now</v-btn>
                     </v-form>
                 </v-card>
                 

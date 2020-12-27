@@ -14,55 +14,33 @@
           </base-material-card>
          </v-col>
 
-        <v-col cols="12" sm="6" lg="3">
+       <v-col cols="12" sm="12" lg="12">
+        <div class="display-2 font-weight-dark">
+            User Managment
+          </div>
+         </v-col>
+         <v-col cols="12" sm="6" lg="4">
           <base-material-stats-card
-          color="info" icon="mdi-twitter" title="Followers"
-           value="+245" sub-icon="mdi-clock" sub-text="Just Updated"/>
+          color="info" icon="mdi-face-agent" title="Create an Agent"
+          sub-icon="mdi-clock" sub-text="Newly Added" to='admin/agent_register'/>
         </v-col>
 
-      <v-col cols="12" sm="6" lg="3">
+      <v-col cols="12" sm="6" lg="4">
         <base-material-stats-card
           color="primary"
-          icon="mdi-poll"
-          title="Website Visits"
-          value="75.521"
-          sub-icon="mdi-tag" sub-text="Tracked from Google Analytics"/>
+          icon="mdi-car-key"
+          title="Policy Holders"
+          sub-icon="mdi-tag" sub-text="View Policy Holder Information" to="admin/tables/policyholder-table"/>
       </v-col>
 
-      <v-col cols="12" m="6" lg="3">
-        <base-material-stats-card
-          color="success"
-          icon="mdi-store"
-          title="Revenue"
-          value="$ 34,245"
-          sub-icon="mdi-calendar"
-          sub-text="Last 24 Hours"/>
-      </v-col>
-
-      <v-col cols="12" sm="6" lg="3">
+      <v-col cols="12" m="6" lg="4">
         <base-material-stats-card
           color="orange"
-          icon="mdi-sofa"
-          title="Bookings"
-          value="184"
-          sub-icon="mdi-alert"
-          sub-icon-color="red"
-          sub-text="Get More Space..."/>
-      </v-col>
-
-     <v-col cols="12" sm="6">
-        <base-material-card
-      color="blue"
-      icon="mdi-text-box-multiple-outline"
-      title="Send Messages to Agents"
-      class=" px-5 py-3"
-      >
-
-        
-            <superAdminEmail/>
-          
-        
-      </base-material-card>
+          icon="mdi-history"
+          title="Driver History"
+          sub-icon="mdi-calendar"
+          sub-text="View Previous Reports"
+          to="admin/tables/driver-history"/>
       </v-col>
 
       <v-col cols="12" sm="6">

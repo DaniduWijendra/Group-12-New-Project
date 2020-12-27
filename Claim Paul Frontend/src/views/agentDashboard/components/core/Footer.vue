@@ -1,25 +1,36 @@
 <template>
-  <v-footer
+<div>
+
+ <v-footer
     id="dashboard-core-footer"
+     color="deep-purple darken-4"
   >
     <v-container>
+
+      
       <v-row
         align="center"
         no-gutters
+       
       >
+      
         <v-col
-          v-for="(link, i) in links"
-          :key="i"
+         
           class="text-center mb-sm-0 mb-5"
           cols="auto"
         >
-          <a
-            :href="link.href"
-            class="mr-0 grey--text text--darken-3"
-            rel="noopener"
-            target="_blank"
-            v-text="link.text"
-          />
+       <v-btn
+          v-for="icon in icons"
+          :key="icon"
+          class="mx-4"
+          dark
+          icon
+          
+        >
+          <v-icon size="24px" color="white">
+            {{ icon }}
+          </v-icon>
+        </v-btn>
         </v-col>
 
         <v-spacer class="hidden-sm-and-down" />
@@ -28,17 +39,20 @@
           cols="12"
           md="auto"
         >
-          <div class="body-1 font-weight-light pt-6 pt-md-0 text-center">
+          <div class="body-1 font-weight-light pt-6 pt-md-0 text-center white-text ">
             &copy; 2020
-            <v-icon size="18">
+            <v-icon size="18" color="white">
               mdi-jellyfish-outline 
             </v-icon>
-             <a href="/">ClaimPaul</a> vehicle damage classification and cost prediction system
+             ClaimPaul vehicle damage classification and cost prediction system
           </div>
         </v-col>
       </v-row>
     </v-container>
   </v-footer>
+
+</div>
+ 
 </template>
 
 <script>
@@ -46,24 +60,14 @@
     name: 'DashboardCoreFooter',
 
     data: () => ({
-      links: [
-        {
-          href: '#',
-          text: 'Creative Tim',
-        },
-        {
-          href: '#',
-          text: 'About Us',
-        },
-        {
-          href: '#',
-          text: 'Blog',
-        },
-        {
-          href: '#',
-          text: 'Licenses',
-        },
+      icons: [
+        'mdi-facebook',
+        'mdi-twitter',
+        'mdi-linkedin',
+        'mdi-instagram',
       ],
+
+  
     }),
   }
 </script>
