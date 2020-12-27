@@ -134,17 +134,24 @@
 
             
 
+            
+
                 <div class="container">
+                                <counter/>
                    
                                 <Card/>
                                  <Parallax/>
+                                 
                 </div>
+                <quote/>
+                <footerParallax/>
+
 
                  <!-- parallax -->
                 
 
                 <!-- contact form -->
-                    <section class="section container scrollspy" id="contact">
+                    <!-- <section class="section container scrollspy" id="contact">
                         <div class="row">
                         <div class="col s12 l5">
                             <h2 class="indigo-text text-darken-4">Get in Touch</h2>
@@ -191,36 +198,14 @@
                             </form>
                         </div>
                         </div>
-                    </section>
+                    </section> -->
 
-                     <!-- <footer class="page-footer grey darken-3">
-
-                         <div class="container">
-                             <div class="row">
-                                <div class="col l6 s12">
-                                    <h5>About Me</h5>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at lacus congue.</p>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at lacus congue, suscipit elit nec, tincidunt orci.</p>
-                                </div>
-
-                                <div class="col l4 offset-l2 s12">
-                                    <h5 class="white-text">Connect</h5>
-                                    <ul>
-                                        <li><a class="grey-text text-lighten-3" href="#">Facebook</a></li>
-                                        <li><a class="grey-text text-lighten-3" href="#">Twitter</a></li>
-                                        <li><a class="grey-text text-lighten-3" href="#">Linked In</a></li>
-                                        <li><a class="grey-text text-lighten-3" href="#">Instagram</a></li>
-                                    </ul>
-                                </div>
-                             </div>
-
-                             
-                         </div>
-
+                     
+                        <Footer/>
                               
-                     </footer> -->
+        
 
-              <Footer/>
+              
                 
   
   
@@ -240,10 +225,12 @@ import shopWrapper from './views/Home/shop_wrapper'
 import garageWrapper from './views/Home/garage_wrapper'
 import sparePrtWrapper from './views/Home/sparePrt_wrapper'
 import carousel from './views/Home/carousel'
-
+import footerParallax from './views/Home/footerParallax'
+import counter from './views/Home/counter'
+import quote from './views/Home/quote'
 export default {
      
-    components:{Parallax,Footer,Navbar,Card,shopWrapper,garageWrapper,sparePrtWrapper,carousel},
+    components:{Parallax,Footer,Navbar,Card,shopWrapper,garageWrapper,sparePrtWrapper,carousel,footerParallax,counter,quote}
 
    
 }

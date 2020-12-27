@@ -134,7 +134,6 @@
                     Sign up
               </v-btn>
               </div>
-
           </v-card>
 
          
@@ -208,6 +207,9 @@ export default {
             
         })
     },
+
+    usingFaceBook(){},
+    usingLinkedIn(){},
 
     
     getLogin()
