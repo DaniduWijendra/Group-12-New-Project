@@ -10,17 +10,20 @@
     "i18n:report": "vue-cli-service i18n:report --src './src/**/*.?(js|vue)' --locales './src/locales/**/*.json'",
     "now-start": "vue-cli-service serve",
     "test:e2e": "vue-cli-service test:e2e",
-    "test:unit": "vue-cli-service test:unit"
+    "test:unit": "vue-cli-service test:unit",
+    "start":"node server.js"
   },
   "dependencies": {
     "@tinymce/tinymce-vue": "^4.0.0",
     "axios": "^0.21.0",
     "core-js": "^3.6.2",
     "emailjs-com": "^2.6.4",
+    "express": "^4.17.1",
     "jquery": "^3.5.1",
     "js-cookie": "^2.2.1",
     "jspdf": "^2.1.1",
     "jspdf-autotable": "^3.5.13",
+    "serve-static": "^1.14.1",
     "view-design": "^4.4.0",
     "vue": "^2.6.11",
     "vue-google-autocomplete": "^1.1.0",

@@ -144,12 +144,7 @@
         <v-row>
         <base-material-card
           class="v-card-profile"
-<<<<<<< HEAD
           avatar='https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairShortFlat&accessoriesType=Prescription01&hairColor=Black&facialHairType=BeardLight&facialHairColor=Black&clotheType=Hoodie&clotheColor=Blue02&eyeType=Squint&eyebrowType=Angry&mouthType=Default&skinColor=Pale'
-=======
-          
-          avatar="https://gravatar.com/avatar/1a6a66021ada4f0804ff1c81ee39861d?s=400&d=robohash&r=x"
->>>>>>> d2ebc1a95284e618f0b3dcf5dd12fb11c66cc47e
         >
           <v-card-text class="text-center" v-if='user'>
             <h6 class="display-1 mb-1 grey--text" >
