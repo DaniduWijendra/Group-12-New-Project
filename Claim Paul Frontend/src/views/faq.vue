@@ -1,7 +1,7 @@
 <template>
     <v-app>
         <Navbar/>
-         <section class="claimpaul-banner">
+         <!-- <section class="claimpaul-banner">
                     <div class="slider">
                         <div class="slide">
                             <div class="content-holder">
@@ -38,8 +38,14 @@
                         </div>
                     </div>
 
-                </section>
-
+                </section> -->
+             <v-row>
+              <v-col col="12" sm="12">
+                  <v-img class="ma-5"
+  src="../assets/img/home/faq.jpg"
+></v-img>
+              </v-col>
+         </v-row>
             <v-container>
                 <Tab/>
             </v-container> 

@@ -97,8 +97,8 @@
     >
       <v-img
         :src="n.icon"
-        
-        aspect-ratio="1"
+        max-height="250"
+        aspect-ratio="1.5"
         class="grey lighten-2"
       >
         <template v-slot:placeholder>
@@ -146,15 +146,15 @@
         { title: 'Best airlines', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 6 },
       ],
       images:[
-       {icon:require('@/assets/img/home/customerservice.jpg')},
-       {icon:require('@/assets/img/home/faq.png')},
-       {icon:require('@/assets/img/home/faq.png')},
-       {icon:require('@/assets/img/home/faq.png')},
-       {icon:require('@/assets/img/home/faq.png')},
-       {icon:require('@/assets/img/home/faq.png')},
-       {icon:require('@/assets/img/home/faq.png')},
-       {icon:require('@/assets/img/home/faq.png')},
-       {icon:require('@/assets/img/home/faq.png')}
+       {icon:require('@/assets/img/home/customerservice.png')},
+       {icon:require('@/assets/img/home/service.png')},
+       {icon:require('@/assets/img/home/auto-service.png')},
+       {icon:require('@/assets/img/home/contact.png')},
+       {icon:require('@/assets/img/home/navigate.png')},
+       {icon:require('@/assets/img/home/policy.png')},
+       {icon:require('@/assets/img/home/report.png')},
+       {icon:require('@/assets/img/home/scan.png')},
+       {icon:require('@/assets/img/home/vehicle.png')}
       ],
         colors: [
           'indigo lighten-1',

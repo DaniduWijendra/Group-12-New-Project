@@ -6,7 +6,7 @@
          <v-row>
               <v-col col="12" sm="12">
                   <v-img class="ma-5"
-  src="../assets/img/home/aboutus.jpg" max-width="960"
+  src="../assets/img/home/about.jpg" 
 ></v-img>
               </v-col>
          </v-row>
@@ -60,11 +60,16 @@
           
                                     
                                 </v-card> -->
-                                  <v-card class="mx-auto" outlined>
+                                 <v-hover
+        v-slot="{ hover }"
+        open-delay="200" 
+      >
+                                  <v-card class="mx-auto" outlined :elevation="hover ? 16 : 2"
+          :class="{ 'on-hover': hover }">
     <v-list-item>
         <v-row>
         <v-col cols="12" col12 sm="6">
-        <v-list-item-avatar round size="200" color="grey"><v-img src='../assets/img/home/aboutus.jpg'></v-img></v-list-item-avatar>
+        <v-list-item-avatar round size="200" color="grey"><v-img src='../assets/img/home/samp.jpg'></v-img></v-list-item-avatar>
         </v-col>
         <v-col cols="12" col12 sm="6">
       <v-list flat>
@@ -91,16 +96,22 @@
         </v-row>
     </v-list-item>
   </v-card>
+                                 </v-hover>
                                 
 
                             </v-stepper-content>
 
                             <v-stepper-content step="2">
-                                <v-card class="mx-auto" outlined>
+                              <v-hover
+        v-slot="{ hover }"
+        open-delay="200" 
+      >
+                                <v-card class="mx-auto" outlined :elevation="hover ? 16 : 2"
+          :class="{ 'on-hover': hover }">
     <v-list-item>
         <v-row>
         <v-col cols="12" col12 sm="6">
-        <v-list-item-avatar round size="200" color="grey"><v-img src='../assets/img/home/aboutus.jpg'></v-img></v-list-item-avatar>
+        <v-list-item-avatar round size="200" color="grey"><v-img src='../assets/img/home/samp.jpg'></v-img></v-list-item-avatar>
         </v-col>
         <v-col cols="12" col12 sm="6">
       <v-list flat>
@@ -127,15 +138,21 @@
         </v-row>
     </v-list-item>
   </v-card>
+                              </v-hover>
 
                             </v-stepper-content>
 
                             <v-stepper-content step="3">
-                               <v-card class="mx-auto" outlined>
+                               <v-hover
+        v-slot="{ hover }"
+        open-delay="200" 
+      >
+                               <v-card class="mx-auto" outlined :elevation="hover ? 16 : 2"
+          :class="{ 'on-hover': hover }">
     <v-list-item>
         <v-row>
         <v-col cols="12" col12 sm="6">
-        <v-list-item-avatar round size="200" color="grey"><v-img src='../assets/img/home/aboutus.jpg'></v-img></v-list-item-avatar>
+        <v-list-item-avatar round size="200" color="grey"><v-img src='../assets/img/home/samp.jpg'></v-img></v-list-item-avatar>
         </v-col>
         <v-col cols="12" col12 sm="6">
       <v-list flat>
@@ -162,6 +179,7 @@
         </v-row>
     </v-list-item>
   </v-card>
+                               </v-hover>
                                
                             </v-stepper-content>
 
@@ -183,8 +201,13 @@
   <!-- </v-row> -->
               </v-col>
               <v-col col="12" xs12 sm6 md6 lg6>
+                <v-hover
+        v-slot="{ hover }"
+        open-delay="200" 
+      >
                    <v-card
-    class="mx-auto"
+    class="mx-auto" :elevation="hover ? 16 : 2"
+          :class="{ 'on-hover': hover }"
   >
     <v-img
       class="white--text align-end"
@@ -211,6 +234,7 @@
      
     </v-card-text>
   </v-card>
+                </v-hover>
 
               </v-col>
               

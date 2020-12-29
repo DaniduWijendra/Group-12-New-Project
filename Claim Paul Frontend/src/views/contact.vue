@@ -5,7 +5,7 @@
          <v-row>
               <v-col col="12" sm="12">
                   <v-img class="ma-5"
-  src="../assets/img/home/aboutus.jpg" max-width="960"
+  src="../assets/img/home/contactus.jpg"
 ></v-img>
               </v-col>
          </v-row>
@@ -13,6 +13,7 @@
              <v-row>
                  <v-col cols="12" sm="6">
                      <h2 class="heading">Face any problem? Inform Us</h2>
+                     
                      <v-img class="ma-5" max-width="500px" src="../assets/img/home/contact.png"></v-img>
                  </v-col>
                  <v-col cols="12" sm="6"  >
@@ -26,7 +27,13 @@
              <v-row>
                  <v-col cols="12" sm="4" v-for="(item, i) in listitem"
           :key="i">
-                     <v-card class="mx-auto" >
+
+          <v-hover
+        v-slot="{ hover }"
+        open-delay="200"
+      >
+                     <v-card class="mx-auto"  :elevation="hover ? 16 : 2"
+          :class="{ 'on-hover': hover }">
     <v-list-item >
         <v-row>
         
@@ -53,6 +60,7 @@
         </v-row>
     </v-list-item>
   </v-card>
+          </v-hover>
                  </v-col>
                  <v-col cols="12" sm="12" md="12">
                     

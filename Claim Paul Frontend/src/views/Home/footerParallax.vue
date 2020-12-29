@@ -137,17 +137,17 @@
           <v-col cols="12" sm="4" class="my-3">
 
             <v-col
-            v-for="n in 6"
-            :key="n"
+            v-for="n in images"
+            :key="images.icon"
             class="d-flex child-flex"
             cols="4"
           >
             <v-img
-              :src="`https://picsum.photos/500/300?image=${n * 5 + 10}`"
-              :lazy-src="`https://picsum.photos/10/6?image=${n * 5 + 10}`"
-              aspect-ratio="1"
-              class="grey lighten-2"
-            >
+        :src="n.icon"
+        max-height="250"
+        aspect-ratio="1.5"
+        class="grey lighten-2"
+      >
               <template v-slot:placeholder>
                 <v-row
                   class="fill-height ma-0"
@@ -214,6 +214,8 @@
     
 
     data: () => ({
+      message:'',
+      loading:'',
       icons: [
         'mdi-facebook',
         'mdi-twitter',
@@ -228,6 +230,14 @@
         { img: 'messenger.png', title: 'Messenger' },
         { img: 'google.png', title: 'Google+' },
       ],
+       images:[
+       {icon:require('@/assets/img/home/customerservice.png')},
+       {icon:require('@/assets/img/home/service.png')},
+       {icon:require('@/assets/img/home/auto-service.png')},
+       {icon:require('@/assets/img/home/contact.png')},
+       {icon:require('@/assets/img/home/navigate.png')},
+       {icon:require('@/assets/img/home/policy.png')},
+       ]
   
     }),
   }
