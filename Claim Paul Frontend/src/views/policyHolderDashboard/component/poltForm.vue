@@ -71,13 +71,24 @@ import Axios from '../../../baseURL'
 
           Axios.post('send_mail',this.mail).then(()=>{
 
-               
+               this.s("OK Your Complain is Sended Successfully,");
+               this.i("We try to immdiately respond you");
 
             }).catch(error=>{
                 
                 console.log(error.response.data.error);
           
             });
+
+            this.clear();
+
+      },
+
+      clear(){
+        this.mail.name="";
+         this.mail.email="";
+          this.mail.complain="";
+           
 
       }
       

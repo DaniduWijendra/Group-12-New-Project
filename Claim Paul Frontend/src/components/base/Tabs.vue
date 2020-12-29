@@ -23,7 +23,7 @@
         <br>
         <br>
         <p>
-          At vero eos et accusamus et iusto odio digni <br> sendeno ssimos ducimus qui blanditiis praese. Ntium<br> voluum deleniti atque corrupti quos.
+          You can ask any questions <br>that are complex to you<br> we try to respond you as soon as possible.
         </p>
 
 
@@ -110,7 +110,7 @@
         </v-list-item-icon>
 
         <v-list-item-content>
-          <v-list-item-title>(650) 555-1234</v-list-item-title>
+          <v-list-item-title>(+94)444444444</v-list-item-title>
           <v-list-item-subtitle>Mobile</v-list-item-subtitle>
         </v-list-item-content>
 
@@ -123,7 +123,7 @@
         <v-list-item-action></v-list-item-action>
 
         <v-list-item-content>
-          <v-list-item-title>(323) 555-6789</v-list-item-title>
+          <v-list-item-title>(+94)71 555-6789</v-list-item-title>
           <v-list-item-subtitle>Work</v-list-item-subtitle>
         </v-list-item-content>
 
@@ -158,7 +158,7 @@
         </v-list-item-icon>
 
         <v-list-item-content>
-          <v-list-item-title>1400 Main Street</v-list-item-title>
+          <v-list-item-title>30,Commercial Road,</v-list-item-title>
           <v-list-item-subtitle>Colombo</v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
@@ -189,15 +189,15 @@ import faqMail from './faqMail'
     data: () => ({
       
         items1:[
-          {title:'What should I include in my personal statement?',subtitle:'Lorem ipsum dolor sit amet consecte tur adipiscing elit sed do eiu smod tempor incididunt ut labore.'},
-          {title:'Will membership plans be charged automatically?',subtitle:'Lorem ipsum dolor sit amet consecte tur adipiscing elit sed do eiu smod tempor incididunt ut labore.'},
-          {title:'How can I make a change to my application?',subtitle:'Lorem ipsum dolor sit amet consecte tur adipiscing elit sed do eiu smod tempor incididunt ut labore.'},
+          {title:'What should I include in my personal statement?',subtitle:'To Identify you uniquely'},
+          {title:'Will membership plans be charged automatically?',subtitle:'No ,dont afraid'},
+          {title:'How can I make a change to my application?',subtitle:'please contact us'},
         ] ,
 
           items2:[
-          {title:'Where can I find out about funding?',subtitle:'Lorem ipsum dolor sit amet consecte tur adipiscing elit sed do eiu smod tempor incididunt ut labore.'},
-          {title:'What will happen when I’ve sent my application?',subtitle:'Lorem ipsum dolor sit amet consecte tur adipiscing elit sed do eiu smod tempor incididunt ut labore.'},
-          {title:'Can I get a free trial before I purchase?',subtitle:'Lorem ipsum dolor sit amet consecte tur adipiscing elit sed do eiu smod tempor incididunt ut labore.'},
+          {title:'Where can I find out about funding?',subtitle:'you can ask nearest branch'},
+          {title:'What will happen when I’ve sent my application?',subtitle:'we store your details for feutre needs'},
+          {title:'Can I get a free trial before I purchase?',subtitle:'yes,you can get free trial for 30 days'},
         ] ,
     })
   

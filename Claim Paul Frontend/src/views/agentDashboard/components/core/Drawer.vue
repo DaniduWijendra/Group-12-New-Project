@@ -146,26 +146,26 @@ import User from '../../../log/api/user'
           title: 'Driver History',
           to: '/agent/driver_history',
         },
-         {
-          icon: 'mdi-cloud-upload',
-          title: 'Upload',
-          to: '/agent/uploads',
-        },
+        //  {
+        //   icon: 'mdi-cloud-upload',
+        //   title: 'Upload',
+        //   to: '/agent/uploads',
+        // },
          {
           icon: 'mdi-credit-card-outline',
           title: 'Payments',
           to: '/agent/payments',
         },
-        {
-          icon: 'mdi-credit-card-outline',
-          title: 'test',
-          to: '/agent/test',
-        },
-        {
-          icon: 'mdi-credit-card-outline',
-          title: 'Payments',
-          to: '/agent/payments',
-        },
+        // {
+        //   icon: 'mdi-credit-card-outline',
+        //   title: 'test',
+        //   to: '/agent/test',
+        // },
+        // {
+        //   icon: 'mdi-credit-card-outline',
+        //   title: 'Payments',
+        //   to: '/agent/payments',
+        // },
         
         // {
         //   title: 'rtables',
