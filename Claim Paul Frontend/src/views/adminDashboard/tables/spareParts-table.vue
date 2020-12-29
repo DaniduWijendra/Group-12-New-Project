@@ -406,12 +406,12 @@ import Axios from '../../../baseURL'
 
        clear()
       {
-        this.partId= '',
-        this.brand='',
-        this.model='',
-        this.year='',
-        this.price='',
-        this.image=null
+        this.editedItem.partId= '',
+        this.editedItem.brand='',
+        this.editedItem.model='',
+        this.editedItem.year='',
+        this.editedItem.price='',
+        this.editedItem.image=null
       },
 
       
