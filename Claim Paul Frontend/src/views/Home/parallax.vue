@@ -3,13 +3,33 @@
   <div>
 
         
-<iframe width="100%" height="20" scrolling="no" frameborder="no" allow=""  ></iframe>
+<!-- <iframe width="100%" height="20" scrolling="no" frameborder="no" allow=""  ></iframe> -->
 <div id="a">
 
 </div>
   <!--Scrolling Gradient Backgrounds-->
-<div class="div-sherbert">
-  <div class="divabstract"></div>
+<div class="div-sherbert ">
+  <v-row>
+    <v-col col="12" sm="6"><img src="../../assets/img/home/brain.svg" style="width:500px;height:500px;" class="responsive-image" alt=""></v-col>
+    
+     <v-col col="12" sm="6">
+       <div class="divabstract ">
+         <br>
+         <br>
+         <br>
+         <br>
+         <br>
+         <p>
+          <h2> Under the hood</h2>
+         
+          With our AI, the auto repair ecosystem - from insurers to bodyshops - can respond to accidents up to 10 times faster.
+
+          Our AI Review and AI Estimating products help them improve their claims processes and produce live, end-to-end estimates of vehicle damage.</p>
+       </div>
+       
+     </v-col>
+  </v-row>
+  
 </div>
 
 
@@ -20,9 +40,7 @@
 
 <style>
     /* Gradient Scrolling Borders 2800px Sections*/
-iframe{
-    display:none;
-}
+
 #a{
     font-size: 10px; color: #cccccc;
     line-break: anywhere;
@@ -39,18 +57,20 @@ a{
 .div-sherbert {
   background: linear-gradient(
     0deg,
-    #6930c3,
-    #f15bb5);
-  Height: 2800px;
-  width: 100%;
+    #26C6DA,
+    #1E0261);
+
+  padding-left:25px;
+  padding-right:25px;
+  
 }
 .divabstract {
-  background-image: url(https://assets.codepen.io/4996277/original_2.jpg);      
+      
   background-repeat: no-repeat ;
-  background-attachment: fixed; 
   background-position: center;
-  width: 95%;
-  height: 2800px;
+  color:white;
+  padding-left:25px;
+  padding-bottom:25px;
 } 
 
 </style>

@@ -1,5 +1,12 @@
 <template>
-  <v-app-bar id="app-bar" absolute app color="transparent" flat height="75">
+  <v-app-bar
+    id="app-bar"
+    absolute
+    app
+    color="transparent"
+    flat
+    height="75"
+  >
     <v-btn
       class="mr-3"
       elevation="1"
@@ -18,7 +25,8 @@
 
     <v-toolbar-title
       class="hidden-sm-and-down font-weight-light"
-      v-text="$route.name"/>
+      v-text="$route.name"
+    />
 
     <v-spacer />
 
@@ -49,7 +57,7 @@
       class="ml-2"
       min-width="0"
       text
-      to="/"
+      to="/admin"
     >
       <v-icon>mdi-view-dashboard</v-icon>
     </v-btn>
@@ -98,14 +106,106 @@
       </v-list>
     </v-menu>
 
-    <v-btn
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+     <div class="text-center">
+    <v-menu offset-y>
+      <template v-slot:activator="{ on, attrs }">
+        <v-btn
+          color="black"
+          dark
+          fab
+          small
+          v-bind="attrs"
+          v-on="on"
+        >
+         <v-icon>mdi-account</v-icon>
+        </v-btn>
+      </template>
+      <v-list>
+      <v-list-item>
+        <v-list-item-icon>
+          <v-icon>mdi-home</v-icon>
+        </v-list-item-icon>
+
+        <v-list-item-title><a href="/admin">Dashboard</a> </v-list-item-title>
+      </v-list-item>
+
+      <v-list-group
+        :value="true"
+        prepend-icon="mdi-account-circle"
+      >
+        <template v-slot:activator>
+          <v-list-item-title><a href="/admin/pages/user">UserProfile</a></v-list-item-title></v-list-item-title>
+        </template>
+
+        <v-list-group
+          :value="true"
+          no-action
+          sub-group
+        >
+          <template v-slot:activator>
+            <v-list-item-content>
+              <v-list-item-title>Admin</v-list-item-title>
+            </v-list-item-content>
+          </template>
+
+          <v-list-item
+            v-for="([title, icon], i) in admins"
+            :key="i"
+            link
+          >
+            <v-list-item-title v-text="title"></v-list-item-title>
+
+            <v-list-item-icon>
+              <v-icon v-text="icon"></v-icon>
+            </v-list-item-icon>
+          </v-list-item>
+        </v-list-group>
+
+        <v-list-group
+          no-action
+          sub-group
+        >
+          <template v-slot:activator>
+            <v-list-item-content>
+              <v-list-item-title>Actions</v-list-item-title>
+            </v-list-item-content>
+          </template>
+
+          <v-list-item
+            v-for="([title, icon], i) in cruds"
+            :key="i"
+            link
+          >
+            <v-list-item-title v-text="title"></v-list-item-title>
+
+            <v-list-item-icon>
+              <v-icon v-text="icon"></v-icon>
+            </v-list-item-icon>
+          </v-list-item>
+        </v-list-group>
+      </v-list-group>
+      <v-list-item>
+        <v-list-item-icon>
+          <v-icon>mdi-power</v-icon>
+        </v-list-item-icon>
+
+        <v-list-item-title><a v-if="isLoggedIn" @click.prevent="logout" href="#">Logout</a> </v-list-item-title>
+      </v-list-item>
+    </v-list>
+    </v-menu>
+  </div>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+    <!-- <v-btn
       class="ml-2"
       min-width="0"
       text
-      to="/pages/user"
+      to="/agent/pages/user"
     >
       <v-icon>mdi-account</v-icon>
-    </v-btn>
+    </v-btn> -->
   </v-app-bar>
 </template>
 
@@ -115,7 +215,7 @@
 
   // Utilities
   import { mapState, mapMutations } from 'vuex'
-
+  import User from '../../../log/api/user'
   export default {
     name: 'DashboardCoreAppBar',
 
@@ -153,12 +253,28 @@
     },
 
     data: () => ({
+       isLoggedIn: false,
+       items: [
+        { icon:'mdi-power',title: 'Logout' },
+      
+      ],
       notifications: [
         'Mike John Responded to your email',
         'You have 5 new tasks',
         'You\'re now friends with Andrew',
         'Another Notification',
         'Another one',
+      ],
+
+      admins: [
+        ['Management', 'mdi-account-multiple-outline'],
+        ['Settings', 'mdi-cog-outline'],
+      ],
+      cruds: [
+        ['Create', 'mdi-plus-outline'],
+        ['Read', 'mdi-file-outline'],
+        ['Update', 'mdi-update'],
+        ['Delete', 'mdi-delete'],
       ],
     }),
 
@@ -170,6 +286,22 @@
       ...mapMutations({
         setDrawer: 'SET_DRAWER',
       }),
+    
+
+    logout() {
+      User.logout().then(() => {
+        localStorage.removeItem("token");
+        this.isLoggedIn = false;
+        this.$router.push({ name: "Home" });
+      });
+    }
     },
+
+     mounted() {
+    this.$root.$on("login", () => {
+      this.isLoggedIn = true;
+    });
+    this.isLoggedIn = !!localStorage.getItem("token");
+  },
   }
 </script>

@@ -8,7 +8,7 @@
       flat
       link
       min-width="100"
-      style="position: fixed; top: 115px; right: -35px; border-radius: 8px;"
+      style="position: fixed; top: 400px; right: -35px; border-radius: 8px;"
     >
       <v-icon large>
         mdi-settings
@@ -98,7 +98,7 @@
 
           <v-divider class="my-4 secondary" />
 
-          <strong class="mb-3 d-inline-block">IMAGES</strong>
+          <!-- <strong class="mb-3 d-inline-block">IMAGES</strong>
 
           <v-item-group
             v-model="image"
@@ -124,9 +124,9 @@
                 </v-sheet>
               </template>
             </v-item>
-          </v-item-group>
+          </v-item-group> -->
 
-          <v-btn
+          <!-- <v-btn
             block
             class="mb-3"
             color="success"
@@ -149,13 +149,13 @@
             target="_blank"
           >
             Documentation
-          </v-btn>
+          </v-btn> -->
 
           <div class="my-12" />
 
-          <div>
+          <!-- <div>
             <strong class="mb-3 d-inline-block">THANK YOU FOR SHARING!</strong>
-          </div>
+          </div> -->
 
           <v-btn
             class="ma-1"
@@ -195,7 +195,7 @@
     mixins: [Proxyable],
 
     data: () => ({
-      color: '#E91E63',
+      color: '#FF5252',
       colors: [
         '#9C27b0',
         '#00CAE3',

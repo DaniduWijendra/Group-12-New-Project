@@ -1,157 +1,177 @@
 <template>
-    <v-container
-    id="dashboard"
-    fluid
-    tag="section"
+ 
+  <v-card
+    class="mx-auto overflow-hidden"
+    height="800"
+    width="1000"
   >
+    <v-system-bar color="deep-purple darken-3"></v-system-bar>
 
-         <v-card
-    v-bind="$attrs"
-    :class="classes"
-    class="v-card--material pa-3"
+    <v-app-bar
+      color="deep-purple accent-4"
+      dark
+      prominent
+    >
+     
+
+      <v-toolbar-title>Send Urgent Text Email</v-toolbar-title>
+
+      <v-spacer></v-spacer>
+
+      
+    </v-app-bar>
+
+   
+
+    <v-card-text>
+      
+          
+  <v-container fluid>
+  <v-form
+    ref="form"
+    lazy-validation
+    v-on:submit.prevent='sendMail'
   >
-    <div class="d-flex grow flex-wrap">
-      <v-avatar
-        v-if="avatar"
-        size="128"
-        class="mx-auto v-card--material__avatar elevation-6"
-        color="grey"
-      >
-        <v-img :src="avatar" />
-      </v-avatar>
+     <v-text-field
+    
+    label="Your Name"
+    outlined
+    clearable
+    prepend-icon="mdi-account"
+    v-model="mail.name"
+    ></v-text-field>
 
-      <v-sheet
-        v-else
-        :class="{
-          'pa-7': !$slots.image
-        }"
-        :color="color"
-        :max-height="icon ? 90 : undefined"
-        :width="icon ? 'auto' : '100%'"
-        elevation="6"
-        class="text-start v-card--material__heading mb-n6"
-        dark
-      >
-        <slot
-          v-if="$slots.heading"
-          name="heading"
-        />
+    <v-select v-model="mail.branch" prepend-icon="mdi-home-analytics" outlined :items="branch" label="Your Branch:" required>
+    </v-select>
 
-        <slot
-          v-else-if="$slots.image"
-          name="image"
-        />
+     <v-text-field
+    
+    label="Topic"
+    outlined
+    clearable
+    prepend-icon="mdi-text"
+    v-model="mail.topic"
+    ></v-text-field>
 
-        <div
-          v-else-if="title && !icon"
-          class="display-1 font-weight-light"
-          v-text="title"
-        />
+     <v-text-field
+    
+    label="email"
+    outlined
+    clearable
+    prepend-icon="mdi-at"
+    v-model="mail.email"
+    ></v-text-field>
 
-        <v-icon
-          v-else-if="icon"
-          size="32"
-          v-text="icon"
-        />
+    <v-textarea
+    label="Message"
+    auto-grow
+    outlined
+    rows="3"
+    row-height="25"
+    shaped
+    prepend-icon="mdi-comment-quote"
+    v-model="mail.complain"
+    ></v-textarea>
 
-        <div
-          v-if="text"
-          class="headline font-weight-thin"
-          v-text="text"
-        />
-      </v-sheet>
 
-      <div
-        v-if="$slots['after-heading']"
-        class="ml-6"
-      >
-        <slot name="after-heading" />
-      </div>
+    <v-btn
+      
+      color="blue"
+      class="mr-4"
+      fab
+    >
+      <v-icon large @click="sendMail">mdi-send-circle</v-icon>
+    </v-btn>
 
-      <div
-        v-else-if="icon && title"
-        class="ml-4"
-      >
-        <div
+    Do you want dend file attachment pleaase click link<a href="https://mail.google.com"> here</a>
 
-          class="card-title font-weight-light"
-          v-text="title"
-        />
-      </div>
-    </div>
+    
+  </v-form>
 
-    <slot />
+  </v-container>
 
-    <template v-if="$slots.actions">
-      <v-divider class="mt-2" />
 
-      <v-card-actions class="pb-0">
-        <slot name="actions" />
-      </v-card-actions>
-    </template>
+          <!-- <label>Attachment</label>
+          <input type="file" name="file" id=""> -->
+
+          
+
+    </v-card-text>
   </v-card>
-    </v-container>
+
 </template>
 
 <script>
-  export default {
-    name: 'MaterialCard',
+import Axios from '../../../baseURL'
+export default {
 
-    props: {
-      avatar: {
-        type: String,
-        default: '',
+  data: () => ({
+      
+mail:{
+        name:'',
+        email:'',
+        complain:'',
+        file:'',
+        branch:'',
+        topic:'',
+        role:'Agent'
       },
-      color: {
-        type: String,
-        default: 'success',
-      },
-      icon: {
-        type: String,
-        default: undefined,
-      },
-      image: {
-        type: Boolean,
-        default: false,
-      },
-      text: {
-        type: String,
-        default: '',
-      },
-      title: {
-        type: String,
-        default: '',
-      },
-    },
+      branch:[
+           'Galle',
+        'Matara',
+        'Ambalangoda',
+        'Kurunagala'
+      ]
+    
+      
+     
+    }),
 
-    computed: {
-      classes () {
-        return {
-          'v-card--material--has-heading': this.hasHeading,
-        }
-      },
-      hasHeading () {
-        return Boolean(this.$slots.heading || this.title || this.icon)
-      },
-      hasAltHeading () {
-        return Boolean(this.$slots.heading || (this.title && this.icon))
-      },
-    },
-  }
-</script>
+   
+  methods: {
+    // sendEmail: (e) => {
+    //   emailjs.sendForm('service_g6if7zb','claim_paul', e.target, 'user_STuuqjdWTVs3IQSFqi0Bx')
+    //     .then((result) => {
+    //         console.log('SUCCESS!', result.status, result.text);
+    //     }, (error) => {
+    //         console.log('FAILED...', error);
+    //     });
 
-<style lang="sass">
-  .v-card--material
-    &__avatar
-      position: relative
-      top: -64px
-      margin-bottom: -32px
-
-    &__heading
-      position: relative
-      top: -40px
-      transition: .3s ease
-      z-index: 1
-</style>
+    //     this.clear();
+    // },
 
     
+    // clearMessage () {
+    //     this.message = ''
+    //   },
+
+    
+      sendMail(){
+
+          Axios.post('admin_mail',this.mail).then(()=>{
+
+               this.s('Your Mail Successfully sent');
+
+            }).catch(error=>{
+                
+                console.log(error.response.data.error);
+          
+            });
+
+            this.clear();
+
+      },
+
+      clear(){
+        this.mail.name="";
+        this.mail.email="";
+        this.mail.complain="";
+        this.mail.branch="";
+        this.mail.topic="";
+        
+      }
+      
+    
+  }
+}
+</script>

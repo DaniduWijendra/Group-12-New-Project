@@ -1,0 +1,64 @@
+.claimpaul-banner .slider {
+  min-height: 920px;
+  background-color: #1E0261;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-size: cover;
+}
+
+.claimpaul-banner .slider .slide {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  height: 824px;
+  background-color: #220555;
+  border: 2px solid white;
+  border-radius: 23px;
+  margin-left: 50px;
+  margin-top: 50px;
+  margin-right: 50px;
+  position: relative;
+}
+
+.claimpaul-banner .slider .slide .content-holder {
+  -webkit-box-flex: 0.5;
+      -ms-flex: 0.5;
+          flex: 0.5;
+}
+
+.claimpaul-banner .slider .slide .content {
+  height: 780px;
+  border: 1px solid #707070;
+  border-radius: 51px;
+  background: #fff;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.claimpaul-banner .slider .slide .content .sub-content .title {
+  color: #0C0101;
+}
+
+.claimpaul-banner .slider .slide .content .sub-content .sub-title {
+  color: #0C0101;
+}
+
+
+.claimpaul-banner .slider .slide .content .image {
+  display:inline-block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-image: url(../assets/img/home/homeimg.png);
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+/*# sourceMappingURL=style_home.css.map */

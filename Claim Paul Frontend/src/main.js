@@ -21,14 +21,25 @@ import './plugins/vee-validate'
 import vuetify from './plugins/vuetify'
 import i18n from './i18n'
 import axios from 'axios'
+import notifications from './notification'
+import ViewUI from 'view-design';
+import 'view-design/dist/styles/iview.css';
+import VueSocialauth from 'vue-social-auth'
+//import VuetifyGoogleAutocomplete from 'vuetify-google-autocomplete';
+
+Vue.mixin(notifications)
 
 Vue.config.productionTip = false
-
+Vue.use(ViewUI)
+// Vue.use(VuetifyGoogleAutocomplete, {
+//   apiKey: 'AIzaSyBnPFIcqWQPAzFyJi04UW6_r-4sQuHqwDs', // Can also be an object. E.g, for Google Maps Premium API, pass `{ client: <YOUR-CLIENT-ID> }`
+// });
 new Vue({
   router,
   store,
   vuetify,
   i18n,
   axios,
+  notifications,
   render: h => h(App),
 }).$mount('#app')

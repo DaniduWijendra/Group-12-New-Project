@@ -6,7 +6,7 @@
     :expand-on-hover="expandOnHover"
     :right="$vuetify.rtl"
     color="blue lighten"
-    mobile-break-point="960"
+    mobile-breakpoint="960"
     app
     width="260"
     v-bind="$attrs"
@@ -26,10 +26,10 @@
           class="align-self-center"
           color="white"
           contain
-          size="100"
+          size="120"
         >
-          <v-avatar size="100">
-            <v-img src='./man.png'></v-img>
+          <v-avatar size="120">
+            <v-img src='../../../../assets/img/admin/logo.png'></v-img>
         
           </v-avatar>
         </v-list-item-avatar>
@@ -38,10 +38,10 @@
       </v-list-item>
       <v-list-item link>
           <v-list-item-content>
-            <v-list-item-title class="title">
-              John Leider
+            <v-list-item-title class="title" v-if='user'>
+              {{user.firstName}} {{user.lastName}}
             </v-list-item-title>
-            <v-list-item-subtitle>john@vuetifyjs.com</v-list-item-subtitle>
+            <v-list-item-subtitle><span v-if='user'>{{user.email}}</span></v-list-item-subtitle>
           </v-list-item-content>
 
           <v-list-item-action>
@@ -87,7 +87,7 @@
   import {
     mapState,
   } from 'vuex'
-
+import User from '../../../log/api/user'
   export default {
     name: 'DashboardCoreDrawer',
 
@@ -99,6 +99,7 @@
     },
 
     data: () => ({
+      user:null,
       items: [
         {
           icon: 'mdi-view-dashboard',
@@ -110,46 +111,71 @@
           title: 'user',
           to: '/admin/pages/user',
         },
-        {
-          icon: 'mdi-account-tie',
-          title: 'Create an Admin',
-          to: '/admin/pages/admin-signup',
-        },
+        // {
+        //   icon: 'mdi-account-tie',
+        //   title: 'Create an Admin',
+        //   to: '/admin/admin_register',
+        // },
         {
           icon: 'mdi-face-agent',
           title: 'Create an Agent',
-          to: '/admin/pages/agent-signup',
+          to: '/admin/agent_register',
         },
         {
-          icon: 'mdi-cash-multiple',
-          title: 'Update Cost',
-          to: '/admin/tables/cost-table',
+          icon: 'mdi-car-key',
+          title: 'Policy Holder Information',
+          to: '/admin/tables/policyholder-table',
         },
         {
-          title: 'rtables',
-          icon: 'mdi-clipboard-outline',
-          to: '/admin/tables/regular-tables',
+          icon: 'mdi-face-agent',
+          title: 'Agent Information',
+          to: '/admin/tables/agent-table',
         },
         {
-          title: 'typography',
-          icon: 'mdi-format-font',
-          to: '/admin/components/typography',
+          icon: 'mdi-car',
+          title: 'Vehicle Information',
+          to: '/admin/tables/vehicle-table',
         },
         {
-          title: 'icons',
-          icon: 'mdi-chart-bubble',
-          to: '/admin/components/icons',
+          icon: 'mdi-history',
+          title: 'Driver History',
+          to: '/admin/tables/driver-history',
         },
         {
-          title: 'google',
+          icon: 'mdi-email-plus',
+          title: 'Reports',
+          to: '/admin/reports',
+        },
+        {
+          icon: 'mdi-email-edit',
+          title: 'Reports Handle',
+          to: '/admin/reportsHandle',
+        },
+        {
+          icon: 'mdi-store',
+          title: 'View Shops',
+          to: '/admin/tables/shop-table',
+        },
+        {
+          icon: 'mdi-puzzle',
+          title: 'View Spare Parts',
+          to: '/admin/tables/spareParts-table',
+        },
+         {
+          icon: 'mdi-garage',
+          title: 'View Garages',
+          to: '/admin/tables/garage-table',
+        },
+        {
+          title: 'Shops and Garages',
           icon: 'mdi-map-marker',
-          to: '/admin/maps/google-maps',
+          to: '/admin/maps/shops-garages-map',
         },
-        {
-          title: 'notifications',
-          icon: 'mdi-bell',
-          to: '/admin/components/notifications',
-        },
+        // {
+        //   title: 'google',
+        //   icon: 'mdi-map-marker',
+        //   to: '/admin/maps/google-maps',
+        // },
       ],
     }),
 
@@ -183,6 +209,12 @@
         }
       },
     },
+    mounted(){
+      User.auth().then(Response=>{
+        this.user=Response.data;
+        console.log(this.user);
+      })
+    }
   }
 </script>
 
