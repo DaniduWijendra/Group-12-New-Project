@@ -368,11 +368,11 @@ import Axios from '../../../baseURL'
 
        clear()
       {
-        this.gName= '',
-        this.gAddress='',
-        this.gContactNo='',
-        this.gLocation='',
-        this.image=null
+        this.editedItem.gName= '',
+        this.editedItem.gAddress='',
+        this.editedItem.gContactNo='',
+        this.editedItem.gLocation='',
+        this.editedItem.image=null
       },
 
       

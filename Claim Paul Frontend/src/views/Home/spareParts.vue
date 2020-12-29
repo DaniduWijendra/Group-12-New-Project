@@ -1,6 +1,6 @@
 <template>
 
-<div>
+<v-app>
    <Navbar/> 
   <h2 class="center blue-text text-darken-4">Spare Parts</h2>
    <v-layout row wrap>
@@ -74,7 +74,7 @@
   </v-card>
       </div>
    </v-layout>
-</div>
+</v-app>
 </template>
 
 <script>

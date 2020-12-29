@@ -347,7 +347,7 @@
           console.log(error);
         
         })
-
+        this.clear();
         this.close();
         
           
@@ -369,11 +369,11 @@
 
        clear()
       {
-        this.sName= '',
-        this.sAddress='',
-        this.sContact='',
-        this.sLocation='',
-        this.image=null
+        this.editedItem.sName='',
+        this.editedItem.sAddress='',
+        this.editedItem.sContact='',
+        this.editedItem.sLocation=''
+        //this.image=null
       },
 
       
