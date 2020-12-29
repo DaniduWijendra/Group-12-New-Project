@@ -42,7 +42,7 @@
           max-width="1000px"
         >
           <template v-slot:activator="{ on, attrs }">
-            <router-link to='/agent/reportsHandle'>
+            <router-link to='/admin/reportsHandle'>
             <v-btn
               color="warning"
               dark
