@@ -9,25 +9,13 @@
         icon="mdi-lock"
         color="white"
       >
-        mdi-lock
+        mdi-hand
       </v-icon>
     </v-avatar>
 
-    Three line text string example with two actions. One to two lines is preferable. Three lines should be considered the maximum string length on desktop in order to keep messages short and actionable.
+     do not cheat from any one.there are lot of ungenuine systems .our services are genuine and,if you want to get any information, please contact our hotline or email to us.
+     <strong>Be Smart</strong>
 
-    <template v-slot:actions>
-      <v-btn
-        text
-        color="deep-purple accent-4"
-      >
-        Action
-      </v-btn>
-      <v-btn
-        text
-        color="deep-purple accent-4"
-      >
-        Action
-      </v-btn>
-    </template>
+    
   </v-banner>
 </template>

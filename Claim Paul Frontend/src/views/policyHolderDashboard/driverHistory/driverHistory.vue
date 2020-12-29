@@ -27,7 +27,8 @@
                
                 <div class="font-weight-normal textf">
                   
-                 Vehicle Number: <strong>{{ datas.vehicleNumber }}</strong></br> 
+                 Vehicle Number: <strong>{{ datas.vehicleNumber }}</strong></br>
+                 Description:<strong> {{ datas.rDescription }}</strong></br> 
                  Cost:<strong> Rs     {{ datas.rCost }}.00</strong></br>
                  Date:<strong> {{ datas.rDate }}</strong></br>
                  Place:<strong> {{ datas.place }}</strong></br>

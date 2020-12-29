@@ -158,6 +158,17 @@ mail:{
           
             });
 
+            this.clear();
+
+      },
+
+      clear(){
+        this.mail.name="";
+        this.mail.email="";
+        this.mail.complain="";
+        this.mail.branch="";
+        this.mail.topic="";
+        
       }
       
     

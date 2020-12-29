@@ -146,9 +146,11 @@
           <v-col>
         <base-material-card
           class="v-card-profile"
-          avatar="https://demos.creative-tim.com/vue-material-dashboard/img/marc.aba54d65.jpg"
+          avatar='https://avataaars.io/?avatarStyle=Transparent&topType=LongHairNotTooLong&accessoriesType=Prescription01&hairColor=Black&facialHairType=Blank&clotheType=GraphicShirt&clotheColor=Pink&graphicType=Bear&eyeType=Side&eyebrowType=FlatNatural&mouthType=Serious&skinColor=Pale'
         >
+                  <!-- avatar="https://demos.creative-tim.com/vue-material-dashboard/img/marc.aba54d65.jpg" -->
           <v-card-text class="text-center" v-if='user'>
+            
             <h6 class="display-1 mb-1 grey--text" >
               {{user.role}}
             </h6>
