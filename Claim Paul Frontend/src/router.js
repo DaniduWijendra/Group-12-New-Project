@@ -387,6 +387,7 @@ const router= new Router({
         name: 'Policy Holder User Profile',
         path: '/policyholder/user',
         component: () => import('@/views/policyHolderDashboard/pages/UserProfile'),
+        meta:{authOnly:true},
       },
       {
         name: 'Policy Holder Upload',
