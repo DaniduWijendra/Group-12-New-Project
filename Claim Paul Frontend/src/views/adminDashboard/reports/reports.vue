@@ -84,15 +84,15 @@
       <v-list>
         <v-list-item>
           <v-list-item-title class="mx-2" >
-              <v-btn @click="searchById">Id</v-btn>
-              <v-btn @click="searchByDescription">Report Description</v-btn>
-              <v-btn @click="searchByDate">Date</v-btn><br><br>
+              <v-btn @click="searchById" rounded color="blue darken-3">Id</v-btn>
+              <v-btn @click="searchByDescription" rounded color="blue darken-3">Report Description</v-btn>
+              <v-btn @click="searchByDate" rounded color="blue darken-3">Date</v-btn><br><br>
              
 
-              <v-btn @click="searchByAdminId">Admin Id</v-btn>
-              <v-btn @click="searchByAgentId">Agent Id</v-btn>
-              <v-btn @click="searchByPlace">Place</v-btn>
-              <v-btn >Status</v-btn></br> 
+              <v-btn @click="searchByAdminId" rounded color="blue darken-3">Admin Id</v-btn>
+              <v-btn @click="searchByAgentId" rounded color="blue darken-3">Agent Id</v-btn>
+              <v-btn @click="searchByPlace" rounded color="blue darken-3">Place</v-btn>
+              <v-btn rounded color="blue darken-3">Status</v-btn></br> 
           </v-list-item-title>
           
          

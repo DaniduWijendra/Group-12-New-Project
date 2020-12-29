@@ -17,7 +17,7 @@
             </div>
 
             <div class="subtitle-1 font-weight-light">
-              Your profile
+              your profile
             </div>
           </template>
 
@@ -34,7 +34,7 @@
                     prepend-icon="mdi-account-star"
                     label="First Name"
                     v-model='admin.fName'
-                    readonly
+
                   />
                 </v-col>
             
@@ -49,7 +49,6 @@
                     prepend-icon="mdi-account-star-outline"
                     label="Last Name"
                     v-model='admin.lName'
-                    readonly
                   />
                 </v-col>
 
@@ -61,7 +60,6 @@
                     outlined
                     prepend-icon="mdi-shield-home"
                     v-model='admin.adminAddress'
-                    readonly
                   />
                 </v-col>
 
@@ -72,7 +70,6 @@
                     prepend-icon="mdi-at"                
                     type="email"
                     v-model='admin.adminEmail'
-                    readonly
                   />
                 </v-col>
 
@@ -85,7 +82,6 @@
                     outlined
                     prepend-icon="mdi-cake-variant"
                     v-model="admin.adminDOB"
-                    readonly
                   />
                 </v-col>
 
@@ -98,7 +94,6 @@
                     outlined
                     prepend-icon="mdi-account-switch"
                     v-model='admin.adminGender'
-                    readonly
                   />
                 </v-col>
 
@@ -111,7 +106,6 @@
                     outlined
                     prepend-icon="mdi-phone-message"
                     v-model='admin.adminContactNo'
-                    readonly
                   />
                 </v-col>
 
@@ -124,7 +118,6 @@
                     outlined
                     prepend-icon="mdi-source-branch"
                     v-model='admin.adminBranch'
-                    readonly
                   />
                 </v-col>
 
@@ -148,9 +141,15 @@
         cols="12"
         md="4"
       >
+        <v-row>
         <base-material-card
           class="v-card-profile"
+<<<<<<< HEAD
           avatar='https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairShortFlat&accessoriesType=Prescription01&hairColor=Black&facialHairType=BeardLight&facialHairColor=Black&clotheType=Hoodie&clotheColor=Blue02&eyeType=Squint&eyebrowType=Angry&mouthType=Default&skinColor=Pale'
+=======
+          
+          avatar="https://gravatar.com/avatar/1a6a66021ada4f0804ff1c81ee39861d?s=400&d=robohash&r=x"
+>>>>>>> d2ebc1a95284e618f0b3dcf5dd12fb11c66cc47e
         >
           <v-card-text class="text-center" v-if='user'>
             <h6 class="display-1 mb-1 grey--text" >
@@ -161,7 +160,7 @@
               {{user.firstName}} {{user.lastName}}
             </h4>
 
-
+            
             <v-btn
               color="blue"
               rounded
@@ -171,7 +170,16 @@
             </v-btn>
           </v-card-text>
         </base-material-card>
+        </v-row>
+        <v-row>
+          <v-col>
+            <v-img pa-2
+         src="../../../assets/img/admin/admin.jpg" max-width="1500" max-height="400"></v-img>
+          </v-col>
+        </v-row>
       </v-col>
+      
+
     </v-row>
   </v-container>
 </template>
