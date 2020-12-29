@@ -199,6 +199,7 @@ export default {
     clear(){
 
       this.repoId="";
+      this.comment="";
       this.reports.rDescription="";
       this.reports.place="";
       this.reports.rDate="";

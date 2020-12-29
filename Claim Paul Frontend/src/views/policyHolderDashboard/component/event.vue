@@ -36,7 +36,7 @@
         no-gutters
       >
         <v-col class="grow">
-          asdfghjkjkkkll
+          You have New Events
         </v-col>
         <v-spacer></v-spacer>
         <v-col class="shrink">
@@ -87,9 +87,9 @@ export default {
             return{
 
         eves: [
-          { title: 'new event1'},
-          { title: 'new event2'},
-          { title: 'new event3'},
+          { title: 'Stay safe'},
+          { title: 'Update New Features'},
+          { title: 'share our services among your friends'},
           //{ title: 'new event1'},
         ],
 

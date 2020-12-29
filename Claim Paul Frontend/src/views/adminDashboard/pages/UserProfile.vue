@@ -150,7 +150,7 @@
       >
         <base-material-card
           class="v-card-profile"
-          avatar="https://demos.creative-tim.com/vue-material-dashboard/img/marc.aba54d65.jpg"
+          avatar='https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairShortFlat&accessoriesType=Prescription01&hairColor=Black&facialHairType=BeardLight&facialHairColor=Black&clotheType=Hoodie&clotheColor=Blue02&eyeType=Squint&eyebrowType=Angry&mouthType=Default&skinColor=Pale'
         >
           <v-card-text class="text-center" v-if='user'>
             <h6 class="display-1 mb-1 grey--text" >

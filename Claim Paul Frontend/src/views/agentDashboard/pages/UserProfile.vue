@@ -145,7 +145,7 @@
         <base-material-card
           class="v-card-profile"
           
-          avatar="https://gravatar.com/avatar/1a6a66021ada4f0804ff1c81ee39861d?s=400&d=robohash&r=x"
+          avatar='https://avataaars.io/?avatarStyle=Transparent&topType=Hat&accessoriesType=Prescription02&facialHairType=BeardMagestic&facialHairColor=Black&clotheType=CollarSweater&clotheColor=Blue02&eyeType=Default&eyebrowType=UpDown&mouthType=Default&skinColor=Pale'
         >
           <v-card-text class="text-center" v-if='user'>
             <h6 class="display-1 mb-1 grey--text" >

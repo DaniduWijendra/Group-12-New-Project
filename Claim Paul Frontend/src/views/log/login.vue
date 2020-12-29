@@ -76,14 +76,14 @@
                                 <v-col cols="12" sm="12" md="12" >
                                        <v-btn  x-large block dark @click="usingGoogle" color="red"> <v-icon  dark left>mdi-google</v-icon>+Sign Up with Google</v-btn></v-col> -->
 
-                                        <v-col cols="12" sm="12" md="6" >
+                                        <!-- <v-col cols="12" sm="12" md="6" >
                                           <p class="alert alert-primary mx-3">
 
                                             <router-link to="/policyholder_register">Create Account</router-link>
                                           </p>
 
                                      
-                                          </v-col>
+                                          </v-col> -->
 
                                         <!-- <v-col cols="12" sm="12" md="6" >
                                           

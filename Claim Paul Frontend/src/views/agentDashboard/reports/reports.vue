@@ -92,7 +92,7 @@
               <v-btn @click="searchById">Id</v-btn>
               <v-btn @click="searchByDescription">Report Description</v-btn>
               <v-btn @click="searchByDate">Date</v-btn>
-              <v-btn @click="searchByVehicleNumber">Vehicle Number</v-btn></br><br>
+              </br><br>
 
               <v-btn @click="searchByAdminId">Admin Id</v-btn>
               <v-btn @click="searchByAgentId">Agent Id</v-btn>
@@ -450,21 +450,22 @@ import Axios from '../../../baseURL'
           console.log(error);
           
         })
-
+        this.clear();
         this.close();
+        
         
           
       },
 
       clear()
       {
-          this.rDescription= '',
-          this.rCost='',
-          this.rDate='',
-          this.place='',
-          this.vehicleNumber='',
-          this.adminId='',
-          this.agId=''
+          this.editedItem.rDescription= '',
+          this.editedItem.rCost='',
+          this.editedItem.rDate='',
+          this.editedItem.place='',
+          this.editedItem.vehicleNumber='',
+          this.editedItem.adminId='',
+          this.editedItem.agId=''
           //this.select=null
       },
 
