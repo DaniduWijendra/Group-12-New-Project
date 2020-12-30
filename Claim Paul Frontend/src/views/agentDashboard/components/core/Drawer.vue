@@ -151,11 +151,7 @@ import User from '../../../log/api/user'
         //   title: 'Upload',
         //   to: '/agent/uploads',
         // },
-         {
-          icon: 'mdi-credit-card-outline',
-          title: 'Payments',
-          to: '/agent/payments',
-        },
+      
         // {
         //   icon: 'mdi-credit-card-outline',
         //   title: 'test',

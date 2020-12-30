@@ -5,11 +5,14 @@
     tag="section"
   >
 
+    <v-row>
 
+    
       <!--  ##########################credit card payment form##########################################################################-->
-      <v-col>
+      <v-col cols="12" sm="4">
+<base-material-card color="blue" title="Credit Card Payment">
 
-      <div class="wrapper" id="app">
+    <div class="wrapper" id="app">
         <div class="card-form">
             <div class="card-list">
                 <div class="card-item" v-bind:class="{ '-active' : isCardFlipped }">
@@ -71,6 +74,7 @@
                             <div class="card-item__content">
                                 <label for="cardName" class="card-item__info" ref="cardName">
                                     <div class="card-item__holder">Card Holder</div>
+                                    
                                     <transition name="slide-fade-up">
                                         <div class="card-item__name" v-if="cardName.length" key="1">
                                             <transition-group name="slide-fade-right">
@@ -81,7 +85,10 @@
                                         </div>
                                         <div class="card-item__name" v-else key="2">Full Name</div>
                                     </transition>
+
+                                    
                                 </label>
+                                
                                 <div class="card-item__date" ref="cardDate">
                                     <label for="cardMonth" class="card-item__dateTitle">Expires</label>
                                     <label for="cardMonth" class="card-item__dateItem">
@@ -136,6 +143,16 @@
                     <input type="text" id="cardName" class="card-input__input" v-model="cardName"
                         v-on:focus="focusInput" v-on:blur="blurInput" data-ref="cardName" autocomplete="off">
                 </div>
+                <div class="card-input">
+                    <label for="cardName" class="card-input__label">Phone number</label>
+                    <input type="text"  class="card-input__input" 
+                        v-on:focus="focusInput" v-on:blur="blurInput"  autocomplete="off">
+                </div>
+                <div class="card-input">
+                    <label for="cardName" class="card-input__label">Email</label>
+                    <input type="email" class="card-input__input"
+                        v-on:focus="focusInput" v-on:blur="blurInput"  autocomplete="off">
+                </div>
                 <div class="card-form__row">
                     <div class="card-form__col">
                         <div class="card-form__group">
@@ -167,18 +184,106 @@
                     </div>
                 </div>
 
-                <button class="card-form__button">
-                    Submit
+                <button class="card-form__button" @click="add">
+                    Add
+                </button>
+
+                <button class="card-form__button" @click="pays">
+                    Pay Now
                 </button>
             </div>
         </div>
     </div>
 
-    </div>                 
+    </div>
+          
+          </base-material-card>
+
+                 
             
             
       </v-col>  
-      </v-row>
+
+      <v-col cols="12" sm="4">
+
+          
+    <base-material-card color="blue" title="PayPal Payment">
+
+    <v-form
+    ref="form"
+    v-model="valid"
+    lazy-validation
+    class="mx-3"
+  >
+  
+    <p>login to paypal here</p>
+    <v-text-field
+        filled
+      v-model="email"
+      :rules="emailRules"
+      label="E-mail"
+      required
+    ></v-text-field>
+  <v-text-field
+    filled
+      v-model="password"
+      :counter="10"
+      :rules="nameRules"
+      label="Password"
+      required
+      type="password"
+    ></v-text-field>
+  
+
+    <v-checkbox
+      v-model="checkbox"
+      :rules="[v => !!v || 'You must agree to continue!']"
+      label="Do you agree?"
+      required
+    ></v-checkbox>
+
+    <v-col cols="12" sm="12">
+        <v-btn
+      :disabled="!valid"
+      color="blue"
+      @click="paypal">
+
+      Login to Paypal
+    </v-btn>
+
+    <v-card height="678px">
+
+        <v-img src="../../../assets/img/policyholder/payment.png" class="mb-5"></v-img>
+         <v-img src="../../../assets/img/policyholder/PayPal-logo.png"></v-img>
+    </v-card>
+      
+    
+
+    </v-col>
+    
+      
+
+ 
+  </v-form>
+          
+          </base-material-card>
+
+      </v-col>
+
+      <v-col cols="12" sm="4">
+
+          <base-material-card color="blue" title="QR pay">
+
+            <v-card height="1035px">
+                <v-img src="../../../assets/img/policyholder/QR_Code-512.png" class="mb-5"></v-img>
+                 <v-img src="../../../assets/img/policyholder/scanQR.jpg"></v-img>
+            </v-card>
+          
+          </base-material-card>
+
+
+      </v-col>
+    </v-row>
 
       <!-- ################################################################################################################################### -->
 </v-container>
@@ -223,7 +328,24 @@ export default {
             cardNumberTemp: "",
             isCardFlipped: false,
             focusElementStyle: null,
-            isInputFocused: false
+            isInputFocused: false,
+
+
+             valid: true,
+      
+      password:'',
+      nameRules: [
+        v => !!v || 'Name is required',
+        v => (v && v.length <= 10) || 'Name must be less than 10 characters',
+      ],
+      email: '',
+      emailRules: [
+        v => !!v || 'E-mail is required',
+        v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
+      ],
+    
+    
+      checkbox: false,
         }
        },
 
@@ -291,6 +413,16 @@ export default {
                 }
             }, 300);
             vm.isInputFocused = false;
+        },
+
+        add(){this.s("card is successfully added");},
+
+        pays(){
+            this.s("payment is successfully");
+        },
+
+        paypal(){
+            this.s("login successfully");
         }
     }
 }
