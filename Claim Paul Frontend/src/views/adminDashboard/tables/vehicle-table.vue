@@ -23,7 +23,7 @@
       <v-toolbar
         flat
       >
-        <v-toolbar-title>Vehicle Managment Table</v-toolbar-title>
+        <v-toolbar-title>Vehicle Table</v-toolbar-title>
         <v-divider
           class="mx-4"
           inset
