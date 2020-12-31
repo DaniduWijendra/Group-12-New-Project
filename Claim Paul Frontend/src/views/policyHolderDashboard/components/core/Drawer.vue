@@ -139,6 +139,11 @@ import User from '../../../log/api/user'
           title: 'Driver History',
           to: '/policyholder/driverHistory',
         },
+           {
+          icon: 'mdi-credit-card-outline',
+          title: 'Payments',
+          to: '/policyHolder/payments',
+        },
 
         //  {
         //   icon: 'mdi-cash-multiple',

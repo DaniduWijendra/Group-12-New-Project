@@ -353,11 +353,7 @@ const router= new Router({
             component: () => import('@/views/agentDashboard/upload/upload'),
           },
             //payments
-            {
-              name: 'Payments',
-              path: '/agent/payments',
-              component: () => import('@/views/agentDashboard/payments/payments'),
-            },
+            
              
              {
               name: 'Agent Driver History',
@@ -398,6 +394,12 @@ const router= new Router({
         name: 'View Driver History',
         path: '/policyHolder/driverHistory',
         component: () => import('@/views/policyHolderDashboard/driverHistory/driverHistory'),
+      },
+
+      {
+        name: 'Payments',
+        path: '/policyHolder/payments',
+        component: () => import('@/views/policyHolderDashboard/payments/payments'),
       },
    
       // Tables
