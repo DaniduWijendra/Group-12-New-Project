@@ -134,7 +134,7 @@
             <div class="card-form__inner">
                 <div class="card-input">
                     <label for="cardNumber" class="card-input__label">Card Number</label>
-                    <input type="text" id="cardNumber" class="card-input__input" v-mask="generateCardNumberMask"
+                    <input type="text" id="cardNumber" class="card-input__input" 
                         v-model="cardNumber" v-on:focus="focusInput" v-on:blur="blurInput" data-ref="cardNumber"
                         autocomplete="off">
                 </div>
@@ -143,15 +143,19 @@
                     <input type="text" id="cardName" class="card-input__input" v-model="cardName"
                         v-on:focus="focusInput" v-on:blur="blurInput" data-ref="cardName" autocomplete="off">
                 </div>
-                <div class="card-input">
-                    <label for="cardName" class="card-input__label">Phone number</label>
-                    <input type="text"  class="card-input__input" 
+
+                  <div class="card-input">
+                    <label for="cardName" class="card-input__label">Phone Number</label>
+                    <input type="text"  class="card-input__input"
                         v-on:focus="focusInput" v-on:blur="blurInput"  autocomplete="off">
                 </div>
-                <div class="card-input">
+
+                  <div class="card-input">
                     <label for="cardName" class="card-input__label">Email</label>
-                    <input type="email" class="card-input__input"
+                    <input type="text" class="card-input__input" 
                         v-on:focus="focusInput" v-on:blur="blurInput"  autocomplete="off">
+                </div>
+               
                 </div>
                 <div class="card-form__row">
                     <div class="card-form__col">
@@ -177,7 +181,7 @@
                     <div class="card-form__col -cvv">
                         <div class="card-input">
                             <label for="cardCvv" class="card-input__label">CVV</label>
-                            <input type="text" class="card-input__input" id="cardCvv" v-mask="'####'" maxlength="4"
+                            <input type="text" class="card-input__input" id="cardCvv" maxlength="4"
                                 v-model="cardCvv" v-on:focus="flipCard(true)" v-on:blur="flipCard(false)"
                                 autocomplete="off">
                         </div>
@@ -188,8 +192,8 @@
                     Add
                 </button>
 
-                <button class="card-form__button" @click="pays">
-                    Pay Now
+                <button class="card-form__button" @click="pays" >
+                     Pay Now
                 </button>
             </div>
         </div>
@@ -250,7 +254,8 @@
 
       Login to Paypal
     </v-btn>
-
+    
+    
     <v-card height="678px">
 
         <v-img src="../../../assets/img/policyholder/payment.png" class="mb-5"></v-img>

@@ -1,7 +1,7 @@
 <template>
     <v-app>
         <Navbar/>
-         <h2 class="center blue-text text-darken-4">About Us</h2>
+         <h2 class="center blue-text text-darken-4">Contact Us</h2>
          <v-row>
               <v-col col="12" sm="12">
                   <v-img class="ma-5"

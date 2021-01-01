@@ -1,7 +1,10 @@
 <template>
 
-<div>
+<v-app>
    <Navbar/> 
+   <shopWrapper/>
+    <garageWrapper/>
+    <sparePrtWrapper/>
   <h2 class="center blue-text text-darken-4">Garages</h2>
    <v-layout row wrap>
       <div class="item col-xs-12 col-sm-6 col-md-4 col-lg-4" v-for="item in items" :key="item.gId">
@@ -74,14 +77,17 @@
   </v-card>
       </div>
    </v-layout>
-</div>
+</v-app>
 </template>
 
 <script>
 import Axios from '../../baseURL'
 import Navbar from '../navbar'
+import shopWrapper from './shop_wrapper'
+import garageWrapper from './garage_wrapper'
+import sparePrtWrapper from './sparePrt_wrapper'
 export default {
-    components:{Navbar},
+    components:{Navbar,shopWrapper,garageWrapper,sparePrtWrapper},
 
     data(){
 
