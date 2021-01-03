@@ -307,7 +307,7 @@ import Axios from '../../../baseURL'
           console.log(error);
           this.swr();
         })
-
+        this.clear();
         this.close();
         
           
