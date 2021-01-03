@@ -33,7 +33,7 @@
                   outlined
                     prepend-icon="mdi-account-star"
                     label="First Name"
-                    v-model='policy_holder.fName'
+                    v-model='admin.fName'
 
                   />
                 </v-col>
@@ -48,7 +48,7 @@
                   outlined
                     prepend-icon="mdi-account-star-outline"
                     label="Last Name"
-                    v-model='policy_holder.lName'
+                    v-model='admin.lName'
                   />
                 </v-col>
 
@@ -59,7 +59,7 @@
                     label="Adress"
                     outlined
                     prepend-icon="mdi-shield-home"
-                    v-model='policy_holder.pAddress'
+                    v-model='admin.adminAddress'
                   />
                 </v-col>
 
@@ -69,7 +69,7 @@
                     outlined
                     prepend-icon="mdi-at"                
                     type="email"
-                    v-model='policy_holder.policyholder_email'
+                    v-model='admin.adminEmail'
                   />
                 </v-col>
 
@@ -81,7 +81,7 @@
                     label="Birth Date"
                     outlined
                     prepend-icon="mdi-cake-variant"
-                    v-model="policy_holder.pDOB"
+                    v-model="admin.adminDOB"
                   />
                 </v-col>
 
@@ -93,7 +93,7 @@
                     label="Gender"
                     outlined
                     prepend-icon="mdi-account-switch"
-                    v-model='policy_holder.pGender'
+                    v-model='admin.adminGender'
                   />
                 </v-col>
 
@@ -105,7 +105,7 @@
                     label="Contact No"
                     outlined
                     prepend-icon="mdi-phone-message"
-                    v-model='policy_holder.pContactNo'
+                    v-model='admin.adminContactNo'
                   />
                 </v-col>
 
@@ -114,10 +114,10 @@
                   
                 >
                   <v-text-field
-                    label="NIC"
+                    label="Branch"
                     outlined
-                    prepend-icon="mdi-card-account-details"
-                    v-model='policy_holder.NIC'
+                    prepend-icon="mdi-source-branch"
+                    v-model='admin.adminBranch'
                   />
                 </v-col>
 
@@ -141,12 +141,10 @@
         cols="12"
         md="4"
       >
-
         <v-row>
-          <v-col>
         <base-material-card
           class="v-card-profile"
-          avatar="https://demos.creative-tim.com/vue-material-dashboard/img/marc.aba54d65.jpg"
+          avatar='https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairShortFlat&accessoriesType=Prescription01&hairColor=Black&facialHairType=BeardLight&facialHairColor=Black&clotheType=Hoodie&clotheColor=Blue02&eyeType=Squint&eyebrowType=Angry&mouthType=Default&skinColor=Pale'
         >
           <v-card-text class="text-center" v-if='user'>
             <h6 class="display-1 mb-1 grey--text" >
@@ -157,7 +155,7 @@
               {{user.firstName}} {{user.lastName}}
             </h4>
 
-
+            
             <v-btn
               color="blue"
               rounded
@@ -165,25 +163,18 @@
             >
               Follow
             </v-btn>
-
-            <h4>Join with us & enjoy the <strong>Life</strong></h4>
           </v-card-text>
         </base-material-card>
-        </v-col>
         </v-row>
-
-      <v-row>
-       <v-col >
-
-        <v-img pa-2
-         src="../../../assets/img/policyholder/profile.jpg" max-width="1500" max-height="400"></v-img>
-
+        <v-row>
+          <v-col>
+            <v-img pa-2
+         src="../../../assets/img/admin/admin.jpg" max-width="1500" max-height="400"></v-img>
+          </v-col>
+        </v-row>
       </v-col>
-    </v-row>
-      </v-col>
-    
+      
 
-     
     </v-row>
   </v-container>
 </template>
@@ -197,33 +188,24 @@ import Axios from '../../../baseURL'
       return{
         user:null,
 
-        policy_holder:{
-          fName:'',
-          lName:'',
-          pAddress:'',
-          policyholder_email:'',
-          pDOB:'',
-          pGender:'',
-          pContactNo:'',
-          NIC:'',
-        },
+        admin:{},
         
       }
     },
      mounted(){
       User.auth().then(Response=>{
         this.user=Response.data;
-        this.getAgent(this.user.email);
+        this.getAdmin(this.user.email);
         console.log(this.user);
       })
     },
 
   methods:{
-    getAgent(email)
+    getAdmin(email)
     {
-        Axios.get('get_policyholder/'+email).then(Response=>{
-          this.policy_holder=Response.data[0];
-          console.log(this.policy_holder);
+        Axios.get('get_admin/'+email).then(Response=>{
+          this.admin=Response.data[0];
+          console.log(this.admin);
         }).catch(error=>{
           console.log(error);
         });

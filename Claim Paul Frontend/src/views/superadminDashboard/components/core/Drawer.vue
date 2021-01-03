@@ -131,6 +131,11 @@
           title: 'Agent Information',
           to: '/superadmin/tables/agent-table',
         },
+         {
+          icon: 'mdi-car',
+          title: 'Vehicle Information',
+          to: '/superadmin/tables/vehicle-table',
+        },
         {
           icon: 'mdi-history',
           title: 'Driver History',
@@ -145,6 +150,21 @@
           icon: 'mdi-email-edit',
           title: 'Reports Handle',
           to: '/superadmin/reportsHandle',
+        },
+         {
+          icon: 'mdi-store',
+          title: 'View Shops',
+          to: '/superadmin/tables/shop-table',
+        },
+        {
+          icon: 'mdi-puzzle',
+          title: 'View Spare Parts',
+          to: '/superadmin/tables/spareParts-table',
+        },
+         {
+          icon: 'mdi-garage',
+          title: 'View Garages',
+          to: '/superadmin/tables/garage-table',
         },
         {
           title: 'Shops and Garages',

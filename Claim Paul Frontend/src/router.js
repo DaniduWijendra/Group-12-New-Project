@@ -139,6 +139,11 @@ const router= new Router({
       path: 'tables/driver-history',
       component: () => import('@/views/superadminDashboard/tables/driver-history'),
     },
+    {
+      name: 'Vehicle Managment',
+      path: 'tables/vehicle-table',
+      component: () => import('@/views/superadminDashboard/tables/vehicle-table'),
+    },
      //reports
      {
       name: 'Reports Managment',
@@ -152,12 +157,32 @@ const router= new Router({
        path: '/superadmin/reportsHandle',
        component: () => import('@/views/superadminDashboard/reports/reportsHandle'),
       },
+       //shop managment
+       {
+        name: 'Shop Managment',
+        path: '/superadmin/tables/shop-table',
+        component: () => import('@/views/superadminDashboard/tables/shops-table'),
+      },
+      //spare parts managment
+      {
+        name: 'Spare Parts Managment Managment',
+        path: '/superadmin/tables/spareParts-table',
+        component: () => import('@/views/superadminDashboard/tables/spareParts-table'),
+      },
+      //garage Managment
+      {
+        name: 'Garage Managment',
+        path: '/superadmin/tables/garage-table',
+        component: () => import('@/views/superadminDashboard/tables/garage-table'),
+      },
       //garages and shops map
       {
-        name: 'View nearBy Shops and Garages',
+        name: 'Shops and Garages',
         path: '/superadmin/maps/shops-garages-map',
         component: () => import('@/views/superadminDashboard/maps/ShopsandGarages'),
-       },
+      },
+      //garages and shops map
+     
 
     // // Maps
     // {
