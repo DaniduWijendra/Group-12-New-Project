@@ -1,8 +1,8 @@
 <template>
-<div>
+<v-app>
     <Navbar/>
 
-     <div class="home col-5 mx-auto py-5 mt-5">
+     <div class="home col-5 mx-auto pt-5 mt-5">
         <div class="alert alert-primary">
             <h1 class="text-center">Passsword Reset</h1>
             <form v-on:submit.prevent='sendToken'>
@@ -68,17 +68,22 @@
             </form>
         </div>
 
-               
+          
             
-    </div>
-</div>
+    </div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        
+        <footer>
+            <Footer></Footer>
+        </footer>
+</v-app>
 </template>
 
 <script>
 import Navbar from '../navbar'
 import Axios from '../../baseURL'
+import Footer from '../footer.vue'
 export default {
-     components:{Navbar},
+     components:{Navbar,Footer},
     data(){
         return{
             email:'',
