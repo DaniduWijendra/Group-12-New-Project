@@ -72,9 +72,9 @@
             
     </div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
         
-        <footer>
+        <!-- <footer>
             <Footer></Footer>
-        </footer>
+        </footer> -->
 </v-app>
 </template>
 

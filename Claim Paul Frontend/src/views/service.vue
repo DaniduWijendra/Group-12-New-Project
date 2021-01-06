@@ -125,7 +125,9 @@
 </div>
 
 </v-card>
-
+ <footer>
+            <Footer></Footer>
+        </footer>
 
 </v-app>
 
@@ -141,9 +143,10 @@
     import shopWrapper from './Home/shop_wrapper'
     import garageWrapper from './Home/garage_wrapper'
     import sparePrtWrapper from './Home/sparePrt_wrapper'
+    import Footer from './footer'
   export default {
 
-      components:{Navbar,sparePrt,shop,garage,shopWrapper,garageWrapper,sparePrtWrapper},
+      components:{Navbar,sparePrt,shop,garage,shopWrapper,garageWrapper,sparePrtWrapper,Footer},
 
      data () {
       return {

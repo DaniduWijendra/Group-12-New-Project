@@ -77,7 +77,7 @@
                     <v-row>
                       <v-col col="12" sm="12" >
                      <v-text-field
-                     autofocus
+                     
                       v-model="editedItem.partId"
                       :rules="nameRules"
                       label="Part Id:"
@@ -196,7 +196,7 @@
         <v-dialog v-model="dialogView" max-width="1000px">
           <v-card>
             
-              <img v-bind:src="'http://hms.ruh.ac.lk/images/'+images.image" style="width:1000px;height:500px" alt="">
+              <img v-bind:src="'http://127.0.0.1:8000/images/'+images.image" style="width:1000px;height:500px" alt="">
           </v-card>
         </v-dialog>
 
@@ -243,6 +243,7 @@
 </template>
 <script>
 import Axios from '../../../baseURL'
+
   export default {
     
     data:()=>({
@@ -363,7 +364,7 @@ import Axios from '../../../baseURL'
       submit()
       {
           this.$refs.form.validate()
-          this.clear();
+          // this.clear();
 
           Axios.post('add_sparepart',{
             
@@ -373,7 +374,7 @@ import Axios from '../../../baseURL'
               model: this.editedItem.model,
               year: this.editedItem.year,
               price: this.editedItem.price,
-              image: this.editedItem.image,
+              image: this.editedItem.image
             
           }).then(Response=>{
         
@@ -384,7 +385,7 @@ import Axios from '../../../baseURL'
           console.log(error);
         
         })
-
+        this.clear();
         this.close();
         
           
@@ -411,7 +412,7 @@ import Axios from '../../../baseURL'
         this.editedItem.model='',
         this.editedItem.year='',
         this.editedItem.price='',
-        this.editedItem.image=null
+        this.editedItem.image=''
       },
 
       

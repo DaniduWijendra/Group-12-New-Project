@@ -20,8 +20,8 @@
       <v-card-title>
         {{item.title}}
       </v-card-title>
-  
-      <v-card-subtitle>
+       <v-spacer></v-spacer>
+      <v-card-subtitle >
         {{item.subtitle}}
       </v-card-subtitle>
   

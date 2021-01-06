@@ -140,44 +140,44 @@ const router= new Router({
       component: () => import('@/views/superadminDashboard/tables/driver-history'),
     },
     {
-      name: 'Vehicle Managment',
+      name: 'Super Admin Vehicle Managment',
       path: 'tables/vehicle-table',
       component: () => import('@/views/superadminDashboard/tables/vehicle-table'),
     },
      //reports
      {
-      name: 'Reports Managment',
+      name: 'Super Admin Reports Managment',
       path: '/superadmin/reports',
       component: () => import('@/views/superadminDashboard/reports/reports'),
      },
 
       //reports handle
       {
-       name: 'Reports Handle Managment',
+       name: 'Super Admin Reports Handle Managment',
        path: '/superadmin/reportsHandle',
        component: () => import('@/views/superadminDashboard/reports/reportsHandle'),
       },
        //shop managment
        {
-        name: 'Shop Managment',
+        name: 'Super AdminShop Managment',
         path: '/superadmin/tables/shop-table',
         component: () => import('@/views/superadminDashboard/tables/shops-table'),
       },
       //spare parts managment
       {
-        name: 'Spare Parts Managment Managment',
+        name: 'Super Admin Spare Parts Managment Managment',
         path: '/superadmin/tables/spareParts-table',
         component: () => import('@/views/superadminDashboard/tables/spareParts-table'),
       },
       //garage Managment
       {
-        name: 'Garage Managment',
+        name: 'Super Admin Garage Managment',
         path: '/superadmin/tables/garage-table',
         component: () => import('@/views/superadminDashboard/tables/garage-table'),
       },
       //garages and shops map
       {
-        name: 'Shops and Garages',
+        name: 'Super Admin Shops and Garages',
         path: '/superadmin/maps/shops-garages-map',
         component: () => import('@/views/superadminDashboard/maps/ShopsandGarages'),
       },
