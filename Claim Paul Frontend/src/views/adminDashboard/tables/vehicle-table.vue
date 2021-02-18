@@ -484,7 +484,7 @@
       submit()
       {
           this.$refs.form.validate()
-          
+
           Axios.post('add_vehicle',{
             
                vehicleNumber: this.editedItem.vehicleNumber,
