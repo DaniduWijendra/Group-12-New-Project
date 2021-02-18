@@ -328,7 +328,7 @@
       submit()
       {
           this.$refs.form.validate()
-          this.clear();
+          //this.clear();
 
           Axios.post('add_shops',{
             
