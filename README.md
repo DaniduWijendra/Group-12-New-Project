@@ -5,18 +5,18 @@ npm  install
 
 required  dependencies
 
-npm i axios
+1  npm i axios
 
-npm install js-cookie --save
+2  npm install js-cookie --save
 
-npm install jspdf --save
+3  npm install jspdf --save
 
-npm i vee-validate
+4  npm i vee-validate
 
-npm i jspdf-autotable
+5  npm i jspdf-autotable
 
-npm install view-design --save
+6  npm install view-design --save
 
 
-npm install emailjs-com --save
+7  npm install emailjs-com --save
 
