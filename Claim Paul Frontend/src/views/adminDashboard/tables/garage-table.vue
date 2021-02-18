@@ -327,7 +327,7 @@ import Axios from '../../../baseURL'
       submit()
       {
           this.$refs.form.validate()
-          
+
 
           Axios.post('add_garage',{
             
