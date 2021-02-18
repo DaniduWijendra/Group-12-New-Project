@@ -1,7 +1,7 @@
 # Group-12-New-Project
 Final Project of BCS UOR
 
-npm  installl
+npm  install
 
 required  dependencies
 
