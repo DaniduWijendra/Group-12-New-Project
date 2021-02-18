@@ -7,14 +7,13 @@
  <base-material-card
  color="success"
  icon="mdi-text-box-multiple-outline"
- title="Garages "
+ title="Shops "
  class=" px-5 py-3"
  >
   <v-data-table
  :headers="headers"
  :items="items" 
-  :search="search" 
- sort-by="gId"
+ sort-by="shpId"
  class="elevation-1"
   >
 
@@ -23,7 +22,7 @@
       <v-toolbar
         flat
       >
-        <v-toolbar-title>Garage Table</v-toolbar-title>
+        <v-toolbar-title>Shop Table</v-toolbar-title>
         <v-divider
           class="mx-4"
           inset
@@ -35,10 +34,7 @@
           max-width="1000px"
         >
           <template v-slot:activator="{ on, attrs }">
-            
-            
-
-            <v-btn
+           <v-btn
               color="primary"
               dark
               class="mb-2"
@@ -58,14 +54,16 @@
               @click="searchById">
               Search
             </v-btn>
+           
+           
              
              <v-text-field
                   v-model="search"
                   append-icon="mdi-magnify"
                   single-line
                   hide-details
-                  placeholder="Enter Garage Id"
-                  class="col-md-4 pr-4" @keydown="nameKeydown($event)"
+                  placeholder="Enter Shop Id"
+                  class="col-md-4 pr-4"
             ></v-text-field>
           </template>
           <v-card>
@@ -87,19 +85,19 @@
                   <v-row>
                     <v-col col="12" sm="6" >
                      <v-text-field
-                     autofocus
-                      v-model="editedItem.gName"
-                      :rules="nameRules"
-                      label="Garage Name:"
-                      required 
-                      ></v-text-field>
+                        v-model="editedItem.sName"
+                        :rules="nameRules"
+                        label="Shop Name:"
+                        required
+                        autofocus
+                        ></v-text-field>
                     </v-col>
                   
                       <v-col col="12" sm="6" >
                                 <v-text-field
-                                v-model="editedItem.gAddress"
+                                v-model="editedItem.sAddress"
                                 :rules="nameRules"
-                                label="Garage Address:"
+                                label="Shop Address:"
                                 required 
                                 ></v-text-field>
                       </v-col>
@@ -107,9 +105,9 @@
                   <v-row>
                       <v-col col="12" sm="6" >
                                 <v-text-field
-                                v-model="editedItem.gContactNo"
+                                v-model="editedItem.sContact"
                                 :rules="nameRules"
-                                label="Garage Contact:"
+                                label="Shop Contact:"
                                 required @keypress="isNumber($event)" maxlength="10"
                                 ></v-text-field>
                               
@@ -118,10 +116,10 @@
 
                       <v-col col="12" sm="6" >
                                 <v-text-field
-                                v-model="editedItem.gLocation"
+                                v-model="editedItem.sLocation"
                                 :rules="nameRules"
-                                label="Garage Location:"
-                              required @keydown="nameKeydown($event)"
+                                label="Shop Location:"
+                                required @keydown="nameKeydown($event)"
                                 ></v-text-field>
                       </v-col>
                   </v-row><v-row>
@@ -140,7 +138,7 @@
           <v-card-actions>
             <v-spacer></v-spacer>
           
-            <v-btn v-if="formTitle=='Add New Garage'"
+            <v-btn v-if="formTitle=='Add New Shop'"
               type="submit"
               :disabled="!valid"
               color="primary"
@@ -151,7 +149,7 @@
               Submit
             </v-btn>
 
-            <v-btn v-if="formTitle=='Edit Garage'"
+            <v-btn v-if="formTitle=='Edit Shop'"
               type="submit"
               :disabled="!valid"
               color="warning"
@@ -226,7 +224,7 @@
       color="green"
       v-bind:key=''
       @click="viewImage(item)"
-      v-bind:id='item.gId'
+      v-bind:id='item.shpId'
     >
       <v-icon>
         mdi-google-photos
@@ -241,16 +239,17 @@
   </v-container>
 </template>
 <script>
-import Axios from '../../../baseURL'
+
+ import Axios from '../../../baseURL'
   export default {
     
     data:()=>({
       
       items:[],
       search:'',
+      dialog: false,
       loading:false,
       loader:null,
-      dialog: false,
       dialogDelete: false,
       dialogView:false,
       editedIndex: -1,
@@ -258,32 +257,32 @@ import Axios from '../../../baseURL'
       images:[],
         headers: [
         {
-          text: 'Garage Id',
+          text: 'Shop Id',
           align: 'start',
-          value: 'gId',
+          value: 'shpId',
         },
-        { text: 'Garage Name', value: 'gName',sortable: false  },
-        { text: 'Garage Address', value: 'gAddress' },
-        { text: 'Garage Contact', value: 'gContactNo' ,sortable: false },
-        { text: 'Garage Location', value: 'gLocation',sortable: false  },
+        { text: 'Shop Name', value: 'sName',sortable: false  },
+        { text: 'Shop Address', value: 'sAddress' },
+        { text: 'Shop Contact', value: 'sContact' ,sortable: false },
+        { text: 'Shop Location', value: 'sLocation',sortable: false  },
         { text: 'Image', value: 'image',sortable: false  },
         { text: 'Actions', value: 'actions', sortable: false },
       ],
 
       editedItem:{
-        gName:'',
-        gAddress:'',
-        gContactNo:'',
-        gLocation:'',
+        sName:'',
+        sAddress:'',
+        sContact:'',
+        sLocation:'',
         image:'',
         
       },
 
        defaultItem:{
-        gName:'',
-        gAddress:'',
-        gContactNo:'',
-        gLocationNo:'',
+        sName:'',
+        sAddress:'',
+        sContact:'',
+        sLocation:'',
         image:''
       },
 
@@ -293,15 +292,16 @@ import Axios from '../../../baseURL'
 
     computed: {
       formTitle () {
-        return this.editedIndex === -1 ? 'Add New Garage' : 'Edit Garage'
+        return this.editedIndex === -1 ? 'Add New Shop' : 'Edit Shop'
       },
     },
 
    
     methods: {
-      searchById(){
+      
+        searchById(){
           this.loading=true;
-          Axios.get('filter_garage_id/'+this.search).then(Response=>{
+          Axios.get('filter_shop_id/'+this.search).then(Response=>{
                     this.items=Response.data;
                     console.log(Response.data);
                     this.loading=false;
@@ -309,7 +309,7 @@ import Axios from '../../../baseURL'
                     console.log(error);
                   });
       },
-      nameKeydown(e) {
+       nameKeydown(e) {
       if (/^\W$/.test(e.key)) {
         e.preventDefault();
       }
@@ -323,28 +323,29 @@ import Axios from '../../../baseURL'
         return true;
       }
     },
+      
 
       submit()
       {
           this.$refs.form.validate()
+          this.clear();
 
-
-          Axios.post('add_garage',{
+          Axios.post('add_shops',{
             
-               gName: this.editedItem.gName,
-               gAddress: this.editedItem.gAddress,
-               gContactNo: this.editedItem.gContactNo,
-               gLocation: this.editedItem.gLocation,
+               sName: this.editedItem.sName,
+               sAddress: this.editedItem.sAddress,
+               sContact: this.editedItem.sContact,
+               sLocation: this.editedItem.sLocation,
                image: this.editedItem.image,
             
           }).then(Response=>{
         
           console.log(Response.data);
-          this.s('New Garage is added successfully');
+          this.s('New Report is added successfully');
     
         }).catch(function(error){
           console.log(error);
-            
+        
         })
         this.clear();
         this.close();
@@ -368,11 +369,11 @@ import Axios from '../../../baseURL'
 
        clear()
       {
-        this.editedItem.gName= '',
-        this.editedItem.gAddress='',
-        this.editedItem.gContactNo='',
-        this.editedItem.gLocation='',
-        this.editedItem.image=null
+        this.editedItem.sName='',
+        this.editedItem.sAddress='',
+        this.editedItem.sContact='',
+        this.editedItem.sLocation=''
+        //this.image=null
       },
 
       
@@ -392,9 +393,9 @@ import Axios from '../../../baseURL'
       {
         
 
-        Axios.put('edit_garage/'+this.editedItem.gId,this.editedItem).then(Response=>{
+        Axios.put('edit_shop/'+this.editedItem.shpId,this.editedItem).then(Response=>{
           
-                    this.s('Garage is successfully updated');
+                    this.s('vehicle is successfully updated');
           }).catch(function(error){
           console.log(error);
           
@@ -406,9 +407,9 @@ import Axios from '../../../baseURL'
       viewImage(item)
       {
 
-         Axios.get('get_garageimage/'+item.gId).then(Response=>{
+         Axios.get('get_shopimage/'+item.shpId).then(Response=>{
 
-          this.images=Response.data.garage[0];
+          this.images=Response.data.shop[0];
           
           
             this.s("success")})
@@ -436,8 +437,8 @@ import Axios from '../../../baseURL'
         this.items.splice(this.editedIndex, 1)
         this.closeDelete()
 
-         Axios.put('delete_garage/'+this.editedItem.gId,this.editedItem).then(Response=>{
-                this.s('Garage is successfully deleted');
+         Axios.put('delete_shop/'+this.editedItem.shpId,this.editedItem).then(Response=>{
+                this.s('Shop is successfully deleted');
           }).catch(function(error){
           console.log(error);
         
@@ -482,7 +483,7 @@ import Axios from '../../../baseURL'
     created(){
     
       
-    Axios.get('get_garages').then(Response=>{
+    Axios.get('get_shop').then(Response=>{
           this.items=Response.data;
           console.log(Response.data);
           //console.log(this.items);

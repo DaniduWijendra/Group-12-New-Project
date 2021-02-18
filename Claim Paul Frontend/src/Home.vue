@@ -38,7 +38,7 @@
                                 <img src="./assets/img/home/Group1.svg" class="responsive-img materialboxed " ></v-img>
                             </div>
                             <div class="col s12 l6 offset-l1 pull-l5 right-align">
-                                <h2 class="indigo-text text-darken-4">claims instantly</h2>
+                                <h2 class="indigo-text text-darken-4">Claim instantly</h2>
                                 <p>Immediate damage assessments means accelerated <br> triage from first  notice of loss - no total losses sent to the bodyshops, and a faster cycle for the policyholder.</p>
                             
                                 <p>By applying our AI to claims, it now takes just minutes <br> to  assess damage and create estimates, instead of <br> days (or even weeks).</p>

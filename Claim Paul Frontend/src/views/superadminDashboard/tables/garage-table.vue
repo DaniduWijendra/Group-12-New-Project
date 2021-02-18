@@ -91,7 +91,7 @@
                       v-model="editedItem.gName"
                       :rules="nameRules"
                       label="Garage Name:"
-                      required 
+                      required @keydown="nameKeydown($event)"
                       ></v-text-field>
                     </v-col>
                   
@@ -100,7 +100,7 @@
                                 v-model="editedItem.gAddress"
                                 :rules="nameRules"
                                 label="Garage Address:"
-                                required 
+                                required @keydown="nameKeydown($event)"
                                 ></v-text-field>
                       </v-col>
                   </v-row>
@@ -327,7 +327,7 @@ import Axios from '../../../baseURL'
       submit()
       {
           this.$refs.form.validate()
-
+          this.clear();
 
           Axios.post('add_garage',{
             
@@ -346,7 +346,7 @@ import Axios from '../../../baseURL'
           console.log(error);
             
         })
-        this.clear();
+
         this.close();
         
           

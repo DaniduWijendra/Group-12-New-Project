@@ -260,6 +260,7 @@
           text: 'Shop Id',
           align: 'start',
           value: 'shpId',
+          sortable:true
         },
         { text: 'Shop Name', value: 'sName',sortable: false  },
         { text: 'Shop Address', value: 'sAddress' },
@@ -328,7 +329,7 @@
       submit()
       {
           this.$refs.form.validate()
-          //this.clear();
+
 
           Axios.post('add_shops',{
             
@@ -336,7 +337,7 @@
                sAddress: this.editedItem.sAddress,
                sContact: this.editedItem.sContact,
                sLocation: this.editedItem.sLocation,
-               image: this.editedItem.image,
+               image: this.editedItem.image
             
           }).then(Response=>{
         
@@ -373,7 +374,7 @@
         this.editedItem.sAddress='',
         this.editedItem.sContact='',
         this.editedItem.sLocation=''
-        //this.image=null
+        this.editedItem.image=null
       },
 
       

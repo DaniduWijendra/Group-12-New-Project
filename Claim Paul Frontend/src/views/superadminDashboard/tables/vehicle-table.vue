@@ -484,6 +484,7 @@
       submit()
       {
           this.$refs.form.validate()
+          this.clear();
 
           Axios.post('add_vehicle',{
             
@@ -509,7 +510,6 @@
           console.log(error);
         
         })
-        this.clear();
 
         this.close();
         
@@ -532,18 +532,18 @@
 
        clear()
       {
-          this.editedItem.vehicleNumber= '',
-          this.editedItem.policyId='',
-          this.editedItem.type='',
-          this.editedItem.model='',
-          this.editedItem.color='',
-          this.editedItem.year='',
-          this.editedItem.insuranceDate='',
-          this.editedItem.valuation='',
-          this.editedItem.insuranceType='',
-          this.editedItem.policyPid='',
-          this.editedItem.garageGid='',
-          this.editedItem.image=null
+          this.vehicleNumber= '',
+          this.policyId='',
+          this. type='',
+          this.model='',
+          this.color='',
+          this.year='',
+          this.insuranceDate='',
+          this.valuation='',
+          this.insuranceType='',
+          this.policyPid='',
+          this.garageGid='',
+          this.image=null
       },
 
       

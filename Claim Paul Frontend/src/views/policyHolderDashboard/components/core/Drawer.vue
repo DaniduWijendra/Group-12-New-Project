@@ -32,7 +32,7 @@
           size="100"
         >
           <v-avatar size="100">
-            <v-img src='../../../../assets/img/policyholder/man.png' size=""></v-img>
+            <v-img src='../../../../assets/img/home/logo.png' size=""></v-img>
         
           </v-avatar>
         </v-list-item-avatar>

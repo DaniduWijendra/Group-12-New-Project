@@ -2,9 +2,14 @@
     <div>
   <v-layout row wrap>
       <v-flex xs12 sm6 md4 lg3 v-for="item in items" :key="item.title">
+        <v-hover
+        v-slot="{ hover }"
+        open-delay="200" 
+      >
     <v-card
       class="text-lg-center ma-2"
-      max-width="280"
+      max-width="280" :elevation="hover ? 16 : 2"
+          :class="{ 'on-hover': hover }"
     >
       <v-img
         :src="item.icon"
@@ -15,8 +20,8 @@
       <v-card-title>
         {{item.title}}
       </v-card-title>
-  
-      <v-card-subtitle>
+       <v-spacer></v-spacer>
+      <v-card-subtitle >
         {{item.subtitle}}
       </v-card-subtitle>
   
@@ -49,6 +54,7 @@
         </div>
       </v-expand-transition>
     </v-card>
+        </v-hover>
       </v-flex>
         <!-- <v-flex xs12 sm6 md4 lg12>
        <v-card class="mx-auto" outlined>
