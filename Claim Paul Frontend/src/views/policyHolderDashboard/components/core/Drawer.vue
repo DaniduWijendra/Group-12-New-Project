@@ -32,7 +32,7 @@
           size="100"
         >
           <v-avatar size="100">
-            <v-img src='../../../../assets/img/policyholder/man.png' size=""></v-img>
+            <v-img src='../../../../assets/img/home/logo.png' size=""></v-img>
         
           </v-avatar>
         </v-list-item-avatar>
@@ -138,6 +138,11 @@ import User from '../../../log/api/user'
           icon: 'mdi-history',
           title: 'Driver History',
           to: '/policyholder/driverHistory',
+        },
+           {
+          icon: 'mdi-credit-card-outline',
+          title: 'Payments',
+          to: '/policyHolder/payments',
         },
 
         //  {

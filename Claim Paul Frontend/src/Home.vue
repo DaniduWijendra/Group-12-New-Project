@@ -3,53 +3,9 @@
      
                 <Navbar/>
                 
-                <!-- <section class="claimpaul-banner">
-                    <div class="slider">
-                        <div class="slide">
-                            <div class="content-holder">
-                                
-
-                                    <div class="content">
-                                        <div class="row">
-                                            <div class="col12 xs12 s6">
-                                                <div class="sub-content col px-md-5">
-
-                                                    <!-- <div class="title">
-                                                       <h1 class="display-">Claim Paul</h1>
-                                                    </div>
-
-                                                    <div class="sub-title">
-                                                        Welcome to claim Paul!!!
-                                                    </div> -->
-
-                                                    <!-- <div class="btn-sign-up"></div>
-                                                    <div class="btn-get-started"></div>
-
-                                                </div>
-                                            </div>
-
-                                            <div class="col12 xs12 md6">
-                                                <div class="image responsive-img">
-
-                                                </div>
-
-                                            </div>
-                                            
-                                    
-
-                                        </div>
-
-
-
-                                    </div> -->
-                              
-                            <!-- </div>
-                            
-                            
-                        </div>
-                    </div>
+               
                 
-                </section> --> 
+                
                 
                 <carousel/>
 
@@ -74,16 +30,20 @@
                         <p class="pt-6">Our AI assesses car damage and 
                             expedites claims
                             and settlements today, in real time.</p>
+                        <p><br>Every recovery starts with a visual appraisal. Our AI is trained on many millions of real<br> images of car accidents and repair operations, and understands auto damage as a<br> human appraiser would</p>
                     </div>
                     </div>
                     <div class="row">
-                            <div class="col s12 l4 offset-l1 push-l6">
-                                <img src="./assets/img/home/Group1.png" alt="" class="responsive-img materialboxed">
+                            <div class="col s12 l4 offset-l1 push-l6 pa-6">
+                                <img src="./assets/img/home/Group1.svg" class="responsive-img materialboxed " ></v-img>
                             </div>
                             <div class="col s12 l6 offset-l1 pull-l5 right-align">
-                                <h2 class="indigo-text text-darken-4">Triage claims instantly</h2>
-                                <p>Immediate damage assessments means accelerated triage from first notice of loss - no total losses sent to the bodyshops, and a faster cycle for the policyholder.</p>
-                            </div>      
+                                <h2 class="indigo-text text-darken-4">Claim instantly</h2>
+                                <p>Immediate damage assessments means accelerated <br> triage from first  notice of loss - no total losses sent to the bodyshops, and a faster cycle for the policyholder.</p>
+                            
+                                <p>By applying our AI to claims, it now takes just minutes <br> to  assess damage and create estimates, instead of <br> days (or even weeks).</p>
+                            </div> 
+
                     </div>
                     <div class="row">
                             <div class="col s12 l4">
@@ -92,51 +52,19 @@
                             
                             <div class="col s12 l6 offset-l1">
                                 <h2 class="indigo-text text-darken-4">Helpful</h2>
-                                <p>Always willing to provide best service for keep our clients happy.</p>
+                                <p>Always willing to provide best service for <br> keep our clients happy.</p>
                             </div>
                     </div>
                 </section>
 
-            <section class="section container scrollspy" id="services">
 
-                <div class="row">
-                         <div class="col s12 l4">
-                            <h2 class="indigo-text text-darken-4">What we do..</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at lacus congue, suscipit elit nec, tincidunt orci.</p>
-                            <p>Mauris dolor augue, vulputate in pharetra ac, facilisis nec libero. Fusce condimentum gravida urna, vitae scelerisque erat ornare nec.</p>
-                        </div>
-                </div>
-
-                <div class="col s12 l6 offset-l2">
-                  <!-- tabs -->
-                <ul class="tabs">
-                <li class="tab col s6">
-                    <a href="#photography" class="active indigo-text text-darken-4">Machine Learning</a>
-                </li>
-                <li class="tab col s6">
-                    <a href="#editing" class="indigo-text text-darken-4">Generate Cost</a>
-                </li>
-                </ul>
-
-                <div id="photography" class="col s12">
-                    <p class="flow-text indigo-text text-darken-4">Machine Learning</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at lacus congue, suscipit elit nec, tincidunt orci.</p>
-                    <p>Mauris dolor augue, vulputate in pharetra ac, facilisis nec libero. Fusce condimentum gravida urna, vitae scelerisque erat ornare nec.</p>
-                </div>
-
-                <div id="editing" class="col s12">
-                    <p class="flow-text indigo-text text-darken-4">Generate Cost</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at lacus congue, suscipit elit nec, tincidunt orci.</p>
-                    <p>Mauris dolor augue, vulputate in pharetra ac, facilisis nec libero. Fusce condimentum gravida urna, vitae scelerisque erat ornare nec.</p>
-                </div>
-            </div>
-            </section>
 
             
 
             
 
                 <div class="container">
+                                <passage/>
                                 <counter/>
                    
                                 <Card/>
@@ -228,13 +156,19 @@ import carousel from './views/Home/carousel'
 import footerParallax from './views/Home/footerParallax'
 import counter from './views/Home/counter'
 import quote from './views/Home/quote'
+import passage from './views/Home/passage'
 export default {
      
-    components:{Parallax,Footer,Navbar,Card,shopWrapper,garageWrapper,sparePrtWrapper,carousel,footerParallax,counter,quote}
+    components:{Parallax,Footer,Navbar,Card,shopWrapper,garageWrapper,sparePrtWrapper,carousel,footerParallax,counter,quote,passage}
 
    
 }
 </script>
+<style scoped>
+p{
+    font-size:2rem;
+}
+</style>
 
 
  

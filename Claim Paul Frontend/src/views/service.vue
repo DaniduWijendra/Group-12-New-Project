@@ -38,6 +38,10 @@
         <!-- </v-sheet> -->
       </v-carousel-item>
     </v-carousel>
+
+    <shopWrapper/>
+    <garageWrapper/>
+    <sparePrtWrapper/>
    
   </v-card>
 
@@ -121,7 +125,9 @@
 </div>
 
 </v-card>
-
+ <footer>
+            <Footer></Footer>
+        </footer>
 
 </v-app>
 
@@ -134,9 +140,13 @@
     import sparePrt from './Home/spareParts'
     import shop from './Home/shops'
     import garage from './Home/garages'
+    import shopWrapper from './Home/shop_wrapper'
+    import garageWrapper from './Home/garage_wrapper'
+    import sparePrtWrapper from './Home/sparePrt_wrapper'
+    import Footer from './footer'
   export default {
 
-      components:{Navbar,sparePrt,shop,garage},
+      components:{Navbar,sparePrt,shop,garage,shopWrapper,garageWrapper,sparePrtWrapper,Footer},
 
      data () {
       return {

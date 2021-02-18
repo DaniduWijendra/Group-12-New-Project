@@ -61,7 +61,7 @@
     </v-form>
 </template>
 <script>
-import Axios from 'axios'
+import Axios from '../../../baseURL'
 export default {
     data: () => ({
      items:[],
@@ -70,7 +70,7 @@ export default {
     created()
     {
      
-        Axios.get('http://127.0.0.1:8000/api/driver-history').then(Response =>{
+        Axios.get('driver-history').then(Response =>{
           this.items=Response.data;
         })
         .catch(function (error)

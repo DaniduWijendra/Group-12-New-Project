@@ -1,6 +1,7 @@
 <template>
     <v-app>
         <Navbar/>
+        <h2 class="center blue-text text-darken-4">FAQ</h2>
          <!-- <section class="claimpaul-banner">
                     <div class="slider">
                         <div class="slide">

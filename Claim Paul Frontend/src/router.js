@@ -139,25 +139,50 @@ const router= new Router({
       path: 'tables/driver-history',
       component: () => import('@/views/superadminDashboard/tables/driver-history'),
     },
+    {
+      name: 'Super Admin Vehicle Managment',
+      path: 'tables/vehicle-table',
+      component: () => import('@/views/superadminDashboard/tables/vehicle-table'),
+    },
      //reports
      {
-      name: 'Reports Managment',
+      name: 'Super Admin Reports Managment',
       path: '/superadmin/reports',
       component: () => import('@/views/superadminDashboard/reports/reports'),
      },
 
       //reports handle
       {
-       name: 'Reports Handle Managment',
+       name: 'Super Admin Reports Handle Managment',
        path: '/superadmin/reportsHandle',
        component: () => import('@/views/superadminDashboard/reports/reportsHandle'),
       },
+       //shop managment
+       {
+        name: 'Super AdminShop Managment',
+        path: '/superadmin/tables/shop-table',
+        component: () => import('@/views/superadminDashboard/tables/shops-table'),
+      },
+      //spare parts managment
+      {
+        name: 'Super Admin Spare Parts Managment Managment',
+        path: '/superadmin/tables/spareParts-table',
+        component: () => import('@/views/superadminDashboard/tables/spareParts-table'),
+      },
+      //garage Managment
+      {
+        name: 'Super Admin Garage Managment',
+        path: '/superadmin/tables/garage-table',
+        component: () => import('@/views/superadminDashboard/tables/garage-table'),
+      },
       //garages and shops map
       {
-        name: 'View nearBy Shops and Garages',
+        name: 'Super Admin Shops and Garages',
         path: '/superadmin/maps/shops-garages-map',
         component: () => import('@/views/superadminDashboard/maps/ShopsandGarages'),
-       },
+      },
+      //garages and shops map
+     
 
     // // Maps
     // {
@@ -353,11 +378,7 @@ const router= new Router({
             component: () => import('@/views/agentDashboard/upload/upload'),
           },
             //payments
-            {
-              name: 'Payments',
-              path: '/agent/payments',
-              component: () => import('@/views/agentDashboard/payments/payments'),
-            },
+            
              
              {
               name: 'Agent Driver History',
@@ -398,6 +419,12 @@ const router= new Router({
         name: 'View Driver History',
         path: '/policyHolder/driverHistory',
         component: () => import('@/views/policyHolderDashboard/driverHistory/driverHistory'),
+      },
+
+      {
+        name: 'Payments',
+        path: '/policyHolder/payments',
+        component: () => import('@/views/policyHolderDashboard/payments/payments'),
       },
    
       // Tables
